@@ -1,0 +1,78 @@
+﻿body{
+    background-image: url(../images/math_plain_background.jpg);
+    background-position:center;
+    background-repeat: no-repeat; 
+    background-size:cover;
+}
+
+nav {
+    display: none;
+}
+
+#main_footer{
+    display:none;
+}
+
+.math_menu_container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.math_menu {
+    height: 700px;
+    width: 1000px;
+    background-color: rgba(42, 42, 42, 0.90);
+    
+}
+
+.math_menu .title_container{
+    margin-top: 2em;
+}
+
+h1{
+    text-align:center;
+    font-size: 3rem;
+}
+
+.underline_container{
+    width:100%;
+    padding: 0 20%;
+}
+
+.underline{
+    height:3px;
+    width:100%;
+    background-color:white;
+    margin: 1em 0;
+}
+
+.links_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0.3em;
+}
+
+.link_box {
+    background-color: rgba(42, 42, 42, 0.90);
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: background-color 0.5s;
+}
+.link_box:hover {
+    background-color: rgba(187, 187, 187, 0.90);
+}
+
+.link_box a{
+    width:100%;
+    display:block;
+    padding: 2em 0;
+    transition: color 0.5s;
+}
+
+.link_box a:hover{
+    color: rgba(42, 42, 42, 1);
+}

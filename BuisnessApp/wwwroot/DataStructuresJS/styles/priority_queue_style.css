@@ -1,0 +1,54 @@
+
+#dataStructureObjects{
+    display: grid;
+    width: auto;
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-gap: 0;
+    padding: 1em 2em;
+    position: relative;
+    overflow: scroll;
+}
+
+.dataStructureAnimation{
+    width: auto;
+}
+
+#dataStructureObjects::-webkit-scrollbar {
+    background-color:transparent;
+    border-radius:unset;
+}
+
+#dataStructureObjects::-webkit-scrollbar-thumb {
+   background-color: black;
+   cursor:grab;
+}
+
+
+.queue_row{
+    display: grid;
+    
+}
+
+.container_flex{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.data_point_container p{
+    font-size: 2rem;
+    font-weight: 900;
+    color:black;
+}
+.data_point_container{
+    height: 100px;
+    width: 100px;
+}
+
+.data_point_container p{
+    font-size: 2rem;
+    font-weight: 900;
+    color:black;
+}

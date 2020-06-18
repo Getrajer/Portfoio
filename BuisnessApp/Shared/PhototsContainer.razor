@@ -1,0 +1,24 @@
+﻿<div class="photos-container">
+    <CascadingValue Value="this">
+        @ChildContent
+    </CascadingValue>
+</div>
+
+@code {
+    [Parameter] public List<PhotoModel> Photos { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter] public EventCallback <PhotoModel> OnStatusUpdated { get; set; }
+
+    public PhotoModel Payload { get; set; }
+
+    public async Task UpdatePhotoAsync(TypePhoto newTypePhoto)
+    {
+        var photo = Photos.SingleOrDefault(x => x.Id == Payload.Id);
+
+        if(photo != null)
+        {
+            photo.Type = newTypePhoto;
+            await OnStatusUpdated.InvokeAsync(Payload);
+        }
+    }
+}

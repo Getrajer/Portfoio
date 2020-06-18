@@ -1,0 +1,416 @@
+﻿@page "/Mode"
+@inherits ModeBase
+
+<head>
+    <link rel="stylesheet" href="../css/math_style.css" />
+    <link rel="stylesheet" href="../css/formulas_style.css" />
+</head>
+
+
+<div class="component_container">
+    <div class="bacground">
+
+
+
+        <!--Simple Mode-->
+        <section class="calculation_container">
+
+            <div class="theory_container">
+                <div class="heading_container">
+                    <h2>Mode</h2>
+                </div>
+                <p>
+                    Mode of a set of data is a value which occurs most often.
+                </p>
+            </div>
+
+            <article class="theory_container">
+                <div class="heading_container">
+                    <h3>Mode example</h3>
+                </div>
+                <p>
+                    In set of data: |1||3||3||4||5|<br />
+                    Mode = 3
+                </p>
+            </article>
+
+            <div class="function_container">
+                <div class="heading_container">
+                    <h3>Find mode from simple set of data</h3>
+                </div>
+                <div class="description_function">
+                    <p>Input some variables and serch for mode. </p>
+                </div>
+
+                <div class="input_container">
+                    <p>Number:</p>
+                    <input @bind="s_m_number" />
+                </div>
+
+                <button class="btn" @onclick="Add_Variable_Simple_Mode">Add Number</button>
+                <button class="btn" @onclick="Reset_Simple_Mode">Reset Program</button>
+                <button class="btn" @onclick="Delete_Variable_Simple_Mode">Del</button>
+            </div>
+
+            <div class="calculation">
+
+                @if (mode_data_list.Count != 0)
+                {
+                    <div class="text-center">
+                        <span>Numbers: </span>
+
+                        @foreach (var obj in mode_data_list)
+                        {
+                            <span>| @obj |</span>
+                        }
+
+                    </div>
+                }
+
+
+                @if (mode_variables.Count != 0)
+                {
+                    <table class="table_calc">
+                        <thead>
+                            <tr>
+                                <th scope="col"><div class="data_title">Number</div></th>
+                                <th scope="col"><div class="data_title">Occurence</div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var obj in mode_variables)
+                            {
+                                <tr>
+                                    <td><div class="data">@obj.Number</div></td>
+                                    <td><div class="data">@obj.Occurence</div></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+
+                <div class="button-container">
+                    <button class="btn" @onclick="Calculate_Simple_Mode">Find Mode</button>
+                </div>
+
+                @if (isModeCalculated == true)
+                {
+                    <div class="result_container">
+                        @if (is_Mode_B == true)
+                        {
+                            <div class="result_text">Mode is number @s_m_result and has occurence of @s_m_o_result </div>
+                        }
+
+                        @if (is_Mode_B == false)
+                        {
+                            <div class="result_text"> @is_Mode </div>
+                        }
+                    </div>
+                }
+
+            </div>
+        </section>
+        <!--............................................-->
+        <!--Simple Frequency Distribution Mode-->
+
+        <section class="program_container">
+            <div class="theory_container">
+                <div class="heading_container">
+                    <h2>Mode for simple frequency distribution</h2>
+                </div>
+            </div>
+
+            <section class="calculation_container">
+                <div class="calculation_table">
+                    <div class="heading_container">
+                        <h3>Mode for simple frequency distribution calculator</h3>
+                    </div>
+                    <div class="custom_input_container">
+                        <div class="input_box">
+                            <label>x: </label>
+                            <input @bind="x_SFD" />
+                        </div>
+                        <div class="input_box">
+                            <label>f: </label>
+                            <input @bind="f_SFD" />
+                        </div>
+
+                        <div class="button-container">
+                            <button class="btn" @onclick="Add_C_SFDO">Add New Variable</button>
+                        </div>
+
+
+                        @if (isCustom_SFD == true)
+                        {
+                            <div class="button-container">
+                                <button class="btn" @onclick="Delete_C_SFDO">Delete Last</button>
+                            </div>
+                        }
+
+                        @if (isCustom_SFD == true || isRandom_SFD == true)
+                        {
+                            <div class="button-container">
+                                <button class="btn" @onclick="Reset_SFD">RESET PROGRAM</button>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="button-container">
+                        @if (isCustom_SFD == false)
+                        {
+                            <button class="btn" @onclick="Generate_Simple_Freq_D">@btn_s_f_text</button>
+                        }
+                    </div>
+
+                    @if (isRandom_SFD == true)
+                    {
+                        <div class="example_txt_container">
+                            @SFD_Text_Example
+                        </div>
+                    }
+
+                    <table class="table_calc">
+                        <thead>
+                            <tr>
+                                <th scope="col"><div class="data_title">x</div></th>
+                                <th scope="col"><div class="data_title">f</div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var obj in simple_frequency_data_mode)
+                            {
+                                <tr>
+                                    <td><div class="data">@obj.X</div></td>
+                                    <td><div class="data">@obj.F</div></td>
+                                    <td>
+                                        <button class="btn" @onclick="@(e => Delete_SFDO_ByID(obj.Id))">X</button>
+                                    </td>
+                                </tr>
+                            }
+
+
+                            <tr>
+                                <td>
+                                    <div class="data">
+                                        <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                        X
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="data">
+                                        <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                        F
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="data">
+                                        @total_X_SFD
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="data">
+                                        @total_F_SFD
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="result_container">
+                    <button class="btn" @onclick="Calc_SFD_Mode">Calculate Mode</button>
+                    @if (isCalculated_SFD == true)
+                    {
+                        @if (is_Mode_B_SFD == true)
+                        {
+                            <div class="result_text">Result: Object @result_object.X  occured @result_object.F </div>
+                        }
+
+                        @if (is_Mode_B_SFD == false)
+                        {
+                            <div class="result_text"> @is_Mode_SFD </div>
+                        }
+                    }
+                </div>
+            </section>
+        </section>
+        <!--............................................-->
+        <!--Mode For a Grouped Frequency Distribution Program-->
+        <section class="program_container">
+            <div class="theory_container">
+                <div class="heading_container">
+                    <h2>Mode of a grouped frequency distribution</h2>
+                </div>
+                <p>
+                    Mode for grouped frequency distribution cannot be calculated but needs to be estimated.
+                </p>
+            </div>
+
+            <article class="theory_container">
+                <div class="heading_container">
+                    <h3>Mode of a grouped frequecy distribution by formula</h3>
+                </div>
+                <p>
+                    I. Determine modal class.<br />
+                    II. Calculate D<span class="small_formula">1</span> - Diffrence between the largest frequency and the frequency immediately preceding it.<br />
+                    III. Calculate D<span class="small_formula">2</span> -  Diffrence between the largest frequency and the frequency immediately fallowing it.<br />
+                    VI. Use the fallowing interpolation formula:
+                </p>
+
+                <div class="median_interpolation_formula_container">
+                    <div class="median_p_lower-bound">
+                        Mode = L +
+                    </div>
+
+                    <div class="formula">
+                        <div>
+                            D<span class="small_formula">1</span>
+                        </div>
+                        <div class="underline_formula_container">
+                            <div class="underline"></div>
+                        </div>
+                        <div>
+                            D<span class="small_formula">1</span> + D<span class="small_formula">2</span>
+                        </div>
+                    </div>
+
+                    <div class="median_width">
+                        * C
+                    </div>
+                </div>
+
+            </article>
+
+            <section class="calculation_container">
+                <div class="calculation_table">
+                    <div class="custom_input_container">
+
+
+                        @if (isCustom_GFD == false)
+                        {
+                            <div class="input_box">
+                                <label>Range1: </label>
+                                <input @bind="range1" />
+                            </div>
+                            <div class="input_box">
+                                <label>Range2: </label>
+                                <input @bind="range2" />
+                            </div>
+                        }
+
+                        <div class="input_box">
+                            <label>f: </label>
+                            <input @bind="f_GFD" />
+                        </div>
+
+
+
+
+
+                        <div class="button-container">
+                            <button class="btn" @onclick="Add_C_GFDO">Add New Variable</button>
+                        </div>
+
+
+                        @if (isCustom_GFD == true)
+                        {
+                            <div class="button-container">
+                                <button class="btn" @onclick="Delete_C_GFDO">Delete Last</button>
+                            </div>
+                        }
+
+                        @if (isCustom_GFD == true || isRandom_GFD == true)
+                        {
+                            <div class="button-container">
+                                <button class="btn" @onclick="Reset_GFD">RESET PROGRAM</button>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="button-container">
+                        @if (isCustom_GFD == false)
+                        {
+                            <button class="btn" @onclick="Generate_Grouped_Freq_D">@btn_g_f_text</button>
+                        }
+                    </div>
+
+                    @if (isRandom_GFD == true)
+                    {
+                        <div class="example_txt_container">
+                            @GFD_Text_Example
+                        </div>
+                    }
+
+                    <table class="table_calc">
+                        <thead>
+                            <tr>
+                                <th scope="col"><div class="data_title">Range</div></th>
+                                <th scope="col"><div class="data_title">f</div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var obj in grouped_frequency_data_mode)
+                            {
+                                <tr>
+                                    <td><div class="data">@obj.Range1 - @obj.Range2</div></td>
+                                    <td><div class="data">@obj.F</div></td>
+                                    <td>
+                                        <button class="btn" @onclick="@(e => Delete_GDFDO_ByID(obj.Id))">X</button>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="result_container">
+
+                    @if (isGDF_Calculated == true)
+                    {
+
+                        <div class="median_interpolation_formula_container">
+                            <div class="median_p_lower-bound">
+                                Mode = @LM +
+                            </div>
+
+                            <div class="formula">
+                                <div>
+                                    @D1
+                                </div>
+                                <div class="underline_formula_container">
+                                    <div class="underline"></div>
+                                </div>
+                                <div>
+                                    @D1 + @D2
+                                </div>
+                            </div>
+
+                            <div class="median_width">
+                                * @C
+                            </div>
+                        </div>
+                    }
+
+
+                    <button class="btn" @onclick="Calculate_GFDM">Calculate Mode</button>
+                    <div class="variables_container">
+
+                    </div>
+
+                    @if (isGDF_Calculated == true)
+                    {
+                        <div class="result_text">Result: @Mode_GFD_Result</div>
+                    }
+                </div>
+            </section>
+        </section>
+        <!--............................................-->
+
+    </div>
+</div>

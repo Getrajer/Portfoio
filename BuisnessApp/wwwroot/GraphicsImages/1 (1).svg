@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="137" height="137" viewBox="0 0 137 137">
+  <title>Zasób 18</title>
+  <g id="Warstwa_2" data-name="Warstwa 2">
+    <g id="Warstwa_2-2" data-name="Warstwa 2">
+      <g>
+        <circle cx="69.42" cy="68.09" r="32.2" style="fill: #1bb0db"/>
+        <circle cx="68.91" cy="67.28" r="4.89" style="stroke: #000;stroke-miterlimit: 10"/>
+        <g>
+          <rect x="64.02" y="4.5" width="8.97" height="8.97" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px"/>
+          <rect x="65.17" y="123.53" width="8.97" height="8.97" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px"/>
+          <rect x="123.53" y="63.34" width="8.97" height="8.97" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px"/>
+          <rect x="4.5" y="63.34" width="8.97" height="8.97" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px"/>
+          <rect x="103.96" y="18.36" width="8.97" height="8.97" transform="translate(44.03 -67.34) rotate(42.57)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px"/>
+          <rect x="24.88" y="108.86" width="8.97" height="8.97" transform="translate(84.41 10) rotate(42.57)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px"/>
+          <rect x="108.04" y="104.78" width="8.97" height="8.97" transform="translate(103.57 -47.33) rotate(42.57)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px"/>
+          <rect x="24.07" y="20.81" width="8.97" height="8.97" transform="translate(24.63 -12.65) rotate(42.57)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px"/>
+        </g>
+        <circle cx="69.42" cy="68.09" r="52.59" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 11px"/>
+      </g>
+    </g>
+  </g>
+</svg>

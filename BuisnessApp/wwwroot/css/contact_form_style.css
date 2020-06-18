@@ -1,0 +1,117 @@
+﻿.program_container
+{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    align-content:center;
+}
+
+.contact_form_container {
+    width: 650px;
+    padding: 3em 1em;
+    background: linear-gradient(0deg, #171717 0%, #222222 51%, #212121 100%);
+    transition: 0.5s;
+}
+
+
+.contact_title {
+    width: 100%;
+    text-align: center;
+}
+
+
+.contact_title h2{
+    font-size: 2rem;
+    letter-spacing: 6px;
+    margin-bottom:1em;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+}
+
+.input_box{
+    margin: 1em 0;
+    width:100%;
+    text-align:center;
+}
+
+.input_box label{
+    display:block;
+    color: white;
+    font-weight:600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    padding: 0.5em 0;
+}
+
+.input_box input{
+    padding: 0.5em;
+    width:300px;
+    background-color:#fcfcfc;
+    border:unset;
+    transition: 0.5s;
+    box-shadow: none!important;
+}
+
+.input_box input:hover{
+    outline:none;
+    box-shadow:none;
+}
+
+.input_box input:focus{
+    box-shadow: none!important;
+    outline:none;
+    box-shadow:none;
+}
+
+.input_box textarea{
+    width:500px;
+    height: 200px;
+    border:unset;
+    background-color:#fcfcfc;
+    transition:0.5s;
+}
+
+
+.input_box textarea:focus{
+    box-shadow: none!important;
+    outline:none;
+    box-shadow:none;
+}
+
+.button_container{
+    width:100%;
+    text-align:right;
+}
+
+.button_container button{
+    color:  black;
+    font-weight:900;
+    padding: 0.8em 1em;
+    text-transform:uppercase;
+    background-color: white;
+    transition: 0.5s;
+    border:unset;
+}
+
+.button_container button:hover{
+    background-color:#29355c;
+    border:unset;
+    outline:unset;
+}
+
+.button_container button:focus{
+    outline:none;
+    box-shadow:none;
+}
+
+.output_container{
+    margin-top: 1em;
+    font-size: 1.5rem;
+}
+
+.error {
+    color: red;
+    margin: 0.5em 0;
+}

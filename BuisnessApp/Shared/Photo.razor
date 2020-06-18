@@ -1,0 +1,50 @@
+﻿<li class="draggable" draggable="true" title="@PhotoModel.ImgTitle" @ondragstart="@(() => HandleDragStart(PhotoModel))">
+    <div @onclick="ToggleLarge" class="photo_cover"></div>
+    <div  class="img-container">
+        <img src="@PhotoModel.Path" alt="@PhotoModel.ImgTitle"/>
+    </div>
+</li>
+
+
+<div class="large-photo @PhotoModel.LargeOpen">
+        <div class="photo_body">
+            <div class="lg_pic_container">
+                <div class="close_btn" @onclick="ToggleLarge">Close</div>
+                <img src="@PhotoModel.Path" alt="@PhotoModel.ImgTitle" />
+            </div>
+
+            <div class="img_decription">
+                <div class="lg_title">
+                    <h4>@PhotoModel.ImgTitle</h4>
+                </div>
+
+                <div class="lg_description">
+                    <p>
+                        @PhotoModel.Description
+                    </p>
+                </div>
+            </div>
+        </div>
+</div>
+
+@code {
+    [CascadingParameter] PhototsContainer Container { get; set; }
+    [Parameter] public PhotoModel PhotoModel { get; set; }
+
+    private void HandleDragStart(PhotoModel selectedImage)
+    {
+        Container.Payload = selectedImage;
+    }
+
+    public void ToggleLarge()
+    {
+        if(PhotoModel.LargeOpen == "lg_display_none")
+        {
+            PhotoModel.LargeOpen = "lg_display_flex";
+        }
+        else if(PhotoModel.LargeOpen == "lg_display_flex")
+        {
+            PhotoModel.LargeOpen = "lg_display_none";
+        }
+    }
+}

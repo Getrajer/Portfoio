@@ -1,0 +1,99 @@
+﻿.table_wrapper {
+    overflow-x: scroll;
+    overflow-y: scroll;
+    height: 800px;
+    background-color:black;
+    width:100%;
+}
+
+
+.table_wrapper::-webkit-scrollbar-track {
+    padding: 2px 0;
+    background-color: #171717;
+}
+
+.table_wrapper::-webkit-scrollbar {
+    width: 10px;
+}
+
+.table_wrapper::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(47, 52, 113);
+    border: unset;
+}
+
+table{
+    table-layout:fixed;
+    width:100%;
+}
+
+.table_wrapper th {
+    background: linear-gradient(0deg, #171717 0%, #222222 51%, #212121 100%);
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color:white;
+    width: 120px;
+    border-collapse: collapse;
+    padding: 1em;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.table_wrapper th:hover{
+    color:rgb(0, 67, 147);
+}
+
+.index{
+    cursor:unset!important;
+}
+
+.index:hover {
+    background: rgb(0, 67, 147)!important;
+}
+.table_wrapper table{
+}
+
+.table_wrapper tr {
+    background-color: #f1f1f1;
+    padding: 0.5em;
+    color: black;
+    font-weight: 500;
+}
+
+.table_wrapper tr:nth-child(even){
+    color:white;
+    background:#222222;
+}
+
+.table_wrapper td {
+    text-align: center;
+    border-collapse: collapse;
+    padding: 1em;
+}
+
+.table_wrapper span{
+    color: black;
+}
+
+.table_wrapper td:nth-child(1){
+    font-weight: 600;
+}
+
+
+
+/*Correlation*/
+
+.calc_container{
+    display:flex;
+    justify-content:center;
+}
+
+.calculation{
+    width: 1000px;
+}
+
+.correlation_container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}

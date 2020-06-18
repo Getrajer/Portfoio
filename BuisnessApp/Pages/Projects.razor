@@ -1,0 +1,360 @@
+﻿@page "/Projects"
+
+<head>
+    <link rel="stylesheet" href="../css/projects_style.css" />
+</head>
+
+@if (display_clothe == false && display_math == false && display_ezsat == false && display_restaurant == false && display_coffe == false && display_bank == false && display_JS_games == false && display_data_sharp == false && display_data_structures == false)
+{
+
+    <div class="page_container">
+        <div class="title">
+            <div class="title_container">
+                <h1>My Work</h1>
+            </div>
+        </div>
+
+        <section class="projects">
+
+
+            <div class="projects_container">
+
+                <div class="project">
+                    <div class="p_img">
+                        <img src="../images/bank_background.png" />
+                    </div>
+                    <div class="p_content_box">
+                        <div @onclick="DisplayBank" class="p_content">
+                            <div class="p_title">
+                                <h3>| Bank App |</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teaser_data_s">
+                        <p class="data"><i class="fa fa-money-bill-wave"></i></p>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="p_img">
+                        <img src="../images/Clothe.png" />
+                    </div>
+                    <div class="p_content_box">
+                        <div @onclick="DisplayClothe" class="p_content">
+                            <div class="p_title">
+                                <h3>| E-Comerce |</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teaser_data_t">
+                        <p class="data"><i class="fa fa-tshirt"></i></p>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="p_img">
+                        <img src="../images/data_sharp.png" />
+                    </div>
+                    <div class="p_content_box">
+                        <div @onclick="DisplayDataSharp" class="p_content">
+                            <div class="p_title">
+                                <h3>| Data# |</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="teaser_data_s">
+                        <p class="data"><i class="fa fa-database"></i></p>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="p_img">
+                        <img src="../images/data_structures.png" />
+                    </div>
+                    <div class="p_content_box">
+                        <div @onclick="DisplayDataStructures" class="p_content">
+                            <div class="p_title">
+                                <h3>| Data Structures |</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teaser_data_t">
+                        <p class="data"><i class="fa fa-table"></i></p>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="p_img">
+                        <img src="../images/math_background.jpg" />
+                    </div>
+                    <div class="p_content_box">
+                        <div @onclick="DisplayMath" class="p_content">
+                            <div class="p_title">
+                                <h3>| Buisness Math |</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teaser_data_s">
+                        <p class="data"><i class="fa fa-square-root-alt"></i></p>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="p_img">
+                        <img src="../images/js_games.jpg" />
+                    </div>
+                    <div class="p_content_box">
+                        <div @onclick="DisplayJSGames" class="p_content">
+                            <div class="p_title">
+                                <h3>| JS Games |</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teaser_data_t">
+                        <p class="data"><i class="fa fa-gamepad"></i></p>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="p_img">
+                        <img src="../images/Ezsat.png" />
+                    </div>
+                    <div class="p_content_box">
+                        <div @onclick="DisplayEzsat" class="p_content">
+                            <div class="p_title">
+                                <h3>| Esport Leauge |</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teaser_data_s">
+                        <p class="data"><i class="fa fa-dice-d20"></i></p>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="p_img">
+                        <img src="../RestaurantStatic/img/images/restaurant_background_1.jpg" />
+                    </div>
+                    <div class="p_content_box">
+                        <div @onclick="DisplayRestaurant" class="p_content">
+                            <div class="p_title">
+                                <h3>| Restaurant |</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teaser_data_t">
+                        <p class="data"><i class="fas fa-utensils"></i></p>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="p_img">
+                        <img src="../3DWebsite/images/assorted-decors-with-brown-rack-inside-store-683039.jpg" />
+                    </div>
+                    <div class="p_content_box">
+                        <div @onclick="DisplayCoffe" class="p_content">
+                            <div class="p_title">
+                                <h3>| 3D Coffe Shop |</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="teaser_data_s">
+                        <p class="data"><i class="fa fa-coffee"></i></p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+}
+
+@if (display_clothe == true)
+{
+    <ClotheComp></ClotheComp>
+    <button class="close_button" @onclick="DisplayClothe">Close</button>
+}
+
+@if (display_math == true)
+{
+    <BuisnessMath></BuisnessMath>
+    <button class="close_button" @onclick="DisplayMath">Close</button>
+}
+
+
+@if (display_ezsat == true)
+{
+    <EzsatComp></EzsatComp>
+    <button class="close_button" @onclick="DisplayEzsat">Close</button>
+}
+
+@if (display_restaurant == true)
+{
+    <RestaurantComp></RestaurantComp>
+    <button class="close_button" @onclick="DisplayRestaurant">Close</button>
+}
+
+@if (display_coffe == true)
+{
+    <CoffeComp></CoffeComp>
+    <button class="close_button" @onclick="DisplayCoffe">Close</button>
+}
+
+
+@if (display_bank == true)
+{
+    <BankAppComp></BankAppComp>
+    <button class="close_button" @onclick="DisplayBank">Close</button>
+}
+
+@if (display_JS_games == true)
+{
+    <JavaScriptGames></JavaScriptGames>
+    <button class="close_button" @onclick="DisplayJSGames">Close</button>
+}
+
+@if (display_data_sharp == true)
+{
+    <DataSharpComp></DataSharpComp>
+    <button class="close_button" @onclick="DisplayDataSharp">Close</button>
+}
+
+@if (display_data_structures == true)
+{
+    <DataStructures></DataStructures>
+    <button class="close_button" @onclick="DisplayDataStructures">Close</button>
+}
+
+@code {
+
+
+    protected bool display_bank = false;
+
+    public void DisplayBank()
+    {
+        if (display_bank == false)
+        {
+            display_bank = true;
+        }
+        else
+        {
+            display_bank = false;
+        }
+    }
+
+    protected bool display_clothe = false;
+
+    public void DisplayClothe()
+    {
+        if (display_clothe == false)
+        {
+            display_clothe = true;
+        }
+        else
+        {
+            display_clothe = false;
+        }
+    }
+
+
+    protected bool display_math = false;
+
+    public void DisplayMath()
+    {
+        if (display_math == false)
+        {
+            display_math = true;
+        }
+        else
+        {
+            display_math = false;
+        }
+    }
+
+
+    protected bool display_ezsat = false;
+
+    public void DisplayEzsat()
+    {
+        if (display_ezsat == false)
+        {
+            display_ezsat = true;
+        }
+        else
+        {
+            display_ezsat = false;
+        }
+    }
+
+    protected bool display_restaurant = false;
+
+    public void DisplayRestaurant()
+    {
+        if (display_restaurant == false)
+        {
+            display_restaurant = true;
+        }
+        else
+        {
+            display_restaurant = false;
+        }
+    }
+
+
+    protected bool display_coffe = false;
+
+    public void DisplayCoffe()
+    {
+        if (display_coffe == false)
+        {
+            display_coffe = true;
+        }
+        else
+        {
+            display_coffe = false;
+        }
+    }
+
+    protected bool display_JS_games = false;
+
+    public void DisplayJSGames()
+    {
+        if (display_JS_games == false)
+        {
+            display_JS_games = true;
+        }
+        else
+        {
+            display_JS_games = false;
+        }
+    }
+
+    protected bool display_data_sharp = false;
+
+    public void DisplayDataSharp()
+    {
+        if (display_data_sharp == false)
+        {
+            display_data_sharp = true;
+        }
+        else
+        {
+            display_data_sharp = false;
+        }
+    }
+
+
+    protected bool display_data_structures = false;
+
+    public void DisplayDataStructures()
+    {
+        if (display_data_structures == false)
+        {
+            display_data_structures = true;
+        }
+        else
+        {
+            display_data_structures = false;
+        }
+    }
+}

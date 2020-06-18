@@ -1,0 +1,1184 @@
+﻿@page "/DataSorting"
+@using System.Collections.Generic;
+@using System.IO;
+@using System.Linq;
+@using System.Text;
+@using System.Text.RegularExpressions;
+
+<head>
+    <link rel="stylesheet" href="../css/component_main_style.css" />
+    <link rel="stylesheet" href="../css/contact_form_style.css" />
+    <link rel="stylesheet" href="../css/table_style.css" />
+</head>
+
+
+
+<div class="page_container">
+
+    <div class="component_container">
+
+        <div class="title_container">
+            <h1>Data sorting component</h1>
+            <div class="underline_container">
+                <div class="underline"></div>
+            </div>
+        </div>
+
+        <div class="component_description">
+            <p>
+                This component sorts data. This component can be merged with some other functions from my other project (<NavLink href="MathMain">See Live</NavLink>)
+            </p>
+
+            <div class="icons_created_with">
+                <div class="icon_c">
+                    <!--Html-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.08 100.02">
+                        <title>Html</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_11" data-name="Warstwa 11">
+                                <polygon class="fill_white" points="82.55 18.5 83.55 0.5 0.55 0.5 5.55 54.5 59.55 54.5 57.55 74.5 45.55 79.5 28.55 74.5 26.55 65.5 6.55 64.5 8.55 89.5 42.55 99.5 76.55 89.5 79.55 34.5 24.55 34.5 22.55 18.5 82.55 18.5" style="stroke-miterlimit: 10" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon_c">
+                    <!--CSS-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.08 100.02">
+                        <title>CSS</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_11" data-name="Warstwa 11">
+                                <polygon class="fill_white" points="0.56 0.5 83.56 0.5 82.56 19.5 43.55 34.5 80.56 34.5 76.56 89.5 42.55 99.5 8.55 89.5 6.55 64.5 26.55 64.5 26.55 72.5 40.55 79.5 57.55 74.5 58.55 54.5 5.55 54.5 3.56 34.5 42.55 19.5 2.56 19.5 0.56 0.5" style="stroke-miterlimit: 10" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon_c">
+                    <!--C#-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112.47 98.75">
+                        <title>C sharp</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_11" data-name="Warstwa 11">
+                                <path class="fill_white" d="M70,36.5l21-12C80.63,8.77,67.26,1.37,51.5.56a45.44,45.44,0,0,0-9.17.49C27.49,3.33,15.52,10.31,7.4,23.64A47,47,0,0,0,1.29,40.71,52,52,0,0,0,3.64,67.6c.22.59.46,1.19.74,1.76C11,83.09,21.1,94.1,41,97.5c11.13,1.79,22.4.72,34-7a40.65,40.65,0,0,0,16-17l-21-12a28.09,28.09,0,0,1-18,12c-7.34.8-13.47-1.76-19-6-7.8-6.52-10.27-15.45-7-27,3.7-9,10-13.54,18-15C54.76,23,63,28,70,36.5Z" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="87.97" y="41.5" width="24" height="5" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="91.97" y="37.5" width="5" height="24" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="102.97" y="37.5" width="5" height="24" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="87.97" y="52.5" width="24" height="5" style="stroke-miterlimit: 10" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon_c">
+                    <!--Blazor-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 159.26 144.76">
+                        <title>Blazor</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_12" data-name="Warstwa 12">
+                                <g>
+                                    <path class="fill_white" d="M121.68,119.5c-17.82,9.45-35.95,15-54.5,15.5-20.42.66-34.6-5.58-45-16a42.48,42.48,0,0,1-13-32c0-12.26,4.38-22.61,11-32,7.39-10.21,16.16-15.86,26-18,11.85-2.12,22.67-2.35,31,2,10.58,6.36,20.31,12.81,23,20,4.88,8.55,9,16.91,8,24,.35,7.49-1,13.91-6,18-4.45,5.54-10.33,7.8-18,6l-8-6-7.92,4.32a20.6,20.6,0,0,1-7.56,2.4,43.81,43.81,0,0,1-6.05.26,20.93,20.93,0,0,1-13.73-5.45,30.05,30.05,0,0,1-4.56-5.44A21,21,0,0,1,33,85.42c0-4.84.8-8.4,2.39-10.51.58-.76,1.18-1.49,1.7-2.3,2.65-4.12,10.33-9.72,10.7-9.94l.24-.15a20,20,0,0,1,9.32-2.85,124.91,124.91,0,0,1,12.84,0,11.82,11.82,0,0,1,8.06,3.71,6.85,6.85,0,0,1,2,3.58l1,25c5.85,8,11.55,9.44,17-1l-1-16c-.52-6.54-4.4-12.43-10-18-5.63-6-13-9.57-22-11-9.42.18-18.34,1-25,5-6.71,3.78-12.44,8.42-16,15-2.8,6.38-4.82,13-5,20,.4,6.47,1.43,12.17,4,16,7.79,10.59,16.7,19.52,30,22a76.6,76.6,0,0,0,28,0c16.2-3.43,29.76-9.53,41-18a100.27,100.27,0,0,0,28-34c4-6,6.33-14.52,8-24,1.55-7.33,1.32-15.42,0-24l-8-24c-8.36,16.43-21.22,27.65-40,32l6-24-29,17h-35C21.46,29,9.11,44.7,2.68,64c-.56,1.7-5.42,28.7-.5,42,5.89,17.15,15.08,28.41,28,33,11.49,5.29,23.87,6.62,36.73,5.27,1.34-.14,2.69-.24,4-.28,8.93-.29,18.5-3.74,28.23-8Z" />
+                                    <path class="fill_white" d="M70.18,71l1,20c-22.62,25.21-42.29-9-19-20Z" />
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="program_container">
+            @if (is_sorted == false)
+            {
+                <div class="table_wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="index">-</th>
+                                <th @onclick="SortCountriesByName">Country Name</th>
+                                <th @onclick="SortCountriesByRegion">Region</th>
+                                <th @onclick="SortCountriesByPopulation">Population</th>
+                                <th @onclick="SortCountriesByArea">Area in square miles</th>
+                                <th @onclick="SortCountriesByPopulationDensetiy">Population Density (par sq. mi.)</th>
+                                <th @onclick="SortCountriesByCoastline">Coastline (coast/area ratio)</th>
+                                <th @onclick="SortCountriesByMigration">Net Migration</th>
+                                <th @onclick="SortCountriesByInfantMortality">Infant Mortality (par 1000 births)</th>
+                                <th @onclick="SortCountriesByGDP">GDP ($ per capita)</th>
+                                <th @onclick="SortCountriesByLiteracy">Literacy (% of population)</th>
+                                <th @onclick="SortCountriesByPhones">Phones (per 1000)</th>
+                                <th @onclick="SortCountriesByArableArea">Arable Area (% of land)</th>
+                                <th @onclick="SortCountriesByCrops">Crops (%)</th>
+                                <th @onclick="SortCountriesByOther">Other (%)</th>
+                                <th @onclick="SortCountriesByClimateZone">Climate Zone</th>
+                                <th @onclick="SortCountriesByBirthRate">Birth Rate</th>
+                                <th @onclick="SortCountriesByDeathRate">Death Rate</th>
+                                <th @onclick="SortCountriesByAgriculture">Agriculture</th>
+                                <th @onclick="SortCountriesByIndustry">Industry</th>
+                                <th @onclick="SortCountriesByService">Service</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var c in countries)
+                            {
+                                <tr>
+                                    <td>@c.Index</td>
+                                    <td>@c.CountryName</td>
+                                    <td>@c.Region</td>
+                                    <td>@c.Population</td>
+                                    <td>@c.Area</td>
+
+                                    <td>
+                                        @if (c.PopulationDensity == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.PopulationDensity
+                                        }
+                                    </td>
+
+                                    <td>@c.Coastline</td>
+                                    <td>
+                                        @if (c.NetMigration == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.NetMigration
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (c.InfantMortality == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.InfantMortality
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.GDP == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.GDP
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.Literacy == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.Literacy
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.Phones == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.Phones
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (c.ArableArea == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.ArableArea
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.Crops == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.Crops
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.Other == 0)
+                                        {
+                                            <span> Nod data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.Other
+                                        }
+                                    </td>
+
+
+                                    <td>@c.ClimateZone</td>
+
+                                    <td>
+                                        @if (c.BirthRate == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.BirthRate
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.DeathRate == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.DeathRate
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.Agriculture == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.Agriculture
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.Industry == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.Industry
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.Service == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.Service
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else if (is_sorted == true)
+            {
+                <div class="table_wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>-</th>
+                                <th @onclick="SortCountriesByName">Country Name</th>
+                                <th @onclick="SortCountriesByRegion">Region</th>
+                                <th @onclick="SortCountriesByPopulation">Population</th>
+                                <th @onclick="SortCountriesByArea">Area in square miles</th>
+                                <th @onclick="SortCountriesByPopulationDensetiy">Population Density (par sq. mi.)</th>
+                                <th @onclick="SortCountriesByCoastline">Coastline (coast/area ratio)</th>
+                                <th @onclick="SortCountriesByMigration">Net Migration</th>
+                                <th @onclick="SortCountriesByInfantMortality">Infant Mortality (par 1000 births)</th>
+                                <th @onclick="SortCountriesByGDP">GDP ($ per capita)</th>
+                                <th @onclick="SortCountriesByLiteracy">Literacy (% of population)</th>
+                                <th @onclick="SortCountriesByPhones">Phones (per 1000)</th>
+                                <th @onclick="SortCountriesByArableArea">Arable Area (% of land)</th>
+                                <th @onclick="SortCountriesByCrops">Crops (%)</th>
+                                <th @onclick="SortCountriesByOther">Other (%)</th>
+                                <th @onclick="SortCountriesByClimateZone">Climate Zone</th>
+                                <th @onclick="SortCountriesByBirthRate">Birth Rate</th>
+                                <th @onclick="SortCountriesByDeathRate">Death Rate</th>
+                                <th @onclick="SortCountriesByAgriculture">Agriculture</th>
+                                <th @onclick="SortCountriesByIndustry">Industry</th>
+                                <th @onclick="SortCountriesByService">Service</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var c in sorted_countries)
+                            {
+                                <tr>
+                                    <td>@c.Index</td>
+                                    <td>@c.CountryName</td>
+                                    <td>@c.Region</td>
+                                    <td>@c.Population</td>
+                                    <td>@c.Area</td>
+
+                                    <td>
+                                        @if (c.PopulationDensity == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.PopulationDensity
+                                        }
+                                    </td>
+
+                                    <td>@c.Coastline</td>
+                                    <td>
+                                        @if (c.NetMigration == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.NetMigration
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (c.InfantMortality == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.InfantMortality
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.GDP == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.GDP
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.Literacy == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.Literacy
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.Phones == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.Phones
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (c.ArableArea == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.ArableArea
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.Crops == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.Crops
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.Other == 0)
+                                        {
+                                            <span> Nod data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.Other
+                                        }
+                                    </td>
+
+
+                                    <td>@c.ClimateZone</td>
+
+                                    <td>
+                                        @if (c.BirthRate == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.BirthRate
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.DeathRate == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.DeathRate
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.Agriculture == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.Agriculture
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.Industry == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.Industry
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (c.Service == 0)
+                                        {
+                                            <span>No data</span>
+                                        }
+                                        else
+                                        {
+                                            @c.Service
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+
+
+</div>
+
+@code{
+
+    public class Country
+    {
+        public int Index { get; set; }
+        public string CountryName { get; set; }
+        public string Region { get; set; }
+        public int Population { get; set; }
+        //Sq. mi.
+        public double Area { get; set; }
+        //Per sq mi
+        public double PopulationDensity { get; set; }
+        //Coast.Area ratio
+        public double Coastline { get; set; }
+        public double NetMigration { get; set; }
+        //Per 1000 births
+        public double InfantMortality { get; set; }
+        //Per capita
+        public double GDP { get; set; }
+        //%
+        public double Literacy { get; set; }
+        //Per 1000
+        public double Phones { get; set; }
+        //%
+        public double ArableArea { get; set; }
+        //%
+        public double Crops { get; set; }
+        //&
+        public double Other { get; set; }
+        public double ClimateZone { get; set; }
+        public double BirthRate { get; set; }
+        public double DeathRate { get; set; }
+        //Economy %
+        public double Agriculture { get; set; }
+        public double Industry { get; set; }
+        public double Service { get; set; }
+
+
+        public Country() { }
+    }
+    protected List<Country> countries = new List<Country>();
+
+    protected List<string> fixed_data = new List<string>();
+
+    public bool IsEmptyOrNull(string parameter)
+    {
+        if (parameter == null || parameter == "")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
+    /// <summary>
+    /// This function will sort data from .csv file and put it to  List<Country> countries
+    /// </summary>
+    protected override async Task OnInitializedAsync()
+    {
+        string filePath = Path.GetFullPath(@"wwwroot\countries.csv");
+        List<string> lines = File.ReadAllLines(filePath).ToList();
+
+        for (int i = 0; i < lines.Count; i++)
+        {
+            //One line form list
+            string line = lines[i];
+
+            //line as char List
+            List<char> line_fix = new List<char>();
+            int quote_counter = 0;
+
+            for (int j = 0; j < line.Length; j++)
+            {
+                char c = line[j];
+
+                if (c != ',' && c != '\"')
+                {
+                    line_fix.Add(c);
+                }
+                if (c == ',' && quote_counter == 0)
+                {
+                    line_fix.Add(c);
+                }
+                if (c == '\"')
+                {
+                    quote_counter++;
+                }
+                if (quote_counter == 1 && c == ',')
+                {
+                    line_fix.Add('.');
+                }
+                if (quote_counter == 2)
+                {
+                    quote_counter = 0;
+                }
+            }
+
+            StringBuilder fixed_line = new StringBuilder();
+
+            for (int j = 0; j < line_fix.Count; j++)
+            {
+                fixed_line.Append(line_fix[j]);
+            }
+
+            fixed_data.Add(fixed_line.ToString());
+        }
+
+        for (int i = 1; i < fixed_data.Count; i++)
+        {
+            string line = fixed_data[i];
+            string[] entries = line.Split(',');
+            Country country = new Country();
+
+            string name = entries[0].Replace(".", ",");
+            string region = entries[1].Replace(".", ",");
+            string population = entries[2].Replace(".", ",");
+            string area = entries[3].Replace(".", ",");
+            string populationDensity = entries[4].Replace(".", ",");
+            string coastLine = entries[5].Replace(".", ",");
+            string netMigration = entries[6].Replace(".", ",");
+            string infantMoratlity = entries[7].Replace(".", ",");
+            string gdp = entries[8].Replace(".", ",");
+            string literacy = entries[9].Replace(".", ",");
+            string phones = entries[10].Replace(".", ",");
+            string arableArea = entries[11].Replace(".", ",");
+            string crops = entries[12].Replace(".", ",");
+            string other = entries[13].Replace(".", ",");
+            string climateZone = entries[14].Replace(".", ",");
+            string birthRate = entries[15].Replace(".", ",");
+            string deathRate = entries[16].Replace(".", ",");
+            string agriCulture = entries[17].Replace(".", ",");
+            string industry = entries[18].Replace(".", ",");
+            string service = entries[19].Replace(".", ",");
+
+            country.Index = countries.Count + 1;
+
+            if (IsEmptyOrNull(name) == true) { country.CountryName = "No data"; } else { country.CountryName = name; }
+
+            if (IsEmptyOrNull(region) == true) { country.Region = "No data"; } else { country.Region = region; }
+
+            if (IsEmptyOrNull(population) == true) { country.Population = 0; } else { country.Population = Convert.ToInt32(population); }
+
+            if (IsEmptyOrNull(area) == true) { country.Area = 0; } else { country.Area = Convert.ToDouble(area); }
+
+            if (IsEmptyOrNull(populationDensity) == true) { country.PopulationDensity = 0; } else { country.PopulationDensity = Convert.ToDouble(populationDensity); }
+
+            if (IsEmptyOrNull(coastLine) == true) { country.Coastline = 0; } else { country.Coastline = Convert.ToDouble(coastLine); }
+
+            if (IsEmptyOrNull(netMigration) == true) { country.NetMigration = 0; } else { country.NetMigration = Convert.ToDouble(netMigration); }
+
+            if (IsEmptyOrNull(infantMoratlity) == true) { country.InfantMortality = 0; } else { country.InfantMortality = Convert.ToDouble(infantMoratlity); }
+
+            if (IsEmptyOrNull(gdp) == true) { country.GDP = 0; } else { country.GDP = Convert.ToDouble(gdp); }
+
+            if (IsEmptyOrNull(literacy) == true) { country.Literacy = 0; } else { country.Literacy = Convert.ToDouble(literacy); }
+
+            if (IsEmptyOrNull(phones) == true) { country.Phones = 0; } else { country.Phones = Convert.ToDouble(phones); }
+
+            if (IsEmptyOrNull(arableArea) == true) { country.ArableArea = 0; } else { country.ArableArea = Convert.ToDouble(arableArea); }
+
+            if (IsEmptyOrNull(crops) == true) { country.Crops = 0; } else { country.Crops = Convert.ToDouble(crops); }
+
+            if (IsEmptyOrNull(other) == true) { country.Other = 0; } else { country.Other = Convert.ToDouble(other); }
+
+            if (IsEmptyOrNull(climateZone) == true) { country.ClimateZone = 0; } else { country.ClimateZone = Convert.ToDouble(climateZone); }
+
+            if (IsEmptyOrNull(birthRate) == true) { country.BirthRate = 0; } else { country.BirthRate = Convert.ToDouble(birthRate); }
+
+            if (IsEmptyOrNull(deathRate) == true) { country.DeathRate = 0; } else { country.DeathRate = Convert.ToDouble(deathRate); }
+
+            if (IsEmptyOrNull(agriCulture) == true) { country.Agriculture = 0; } else { country.Agriculture = Convert.ToDouble(agriCulture); }
+
+            if (IsEmptyOrNull(industry) == true) { country.Industry = 0; } else { country.Industry = Convert.ToDouble(industry); }
+
+            if (IsEmptyOrNull(service) == true) { country.Service = 0; } else { country.Service = Convert.ToDouble(service); }
+
+            countries.Add(country);
+        }
+    }
+
+    protected enum Category
+    {
+        Population
+    }
+
+    ////////
+    ///This section is for sorting data
+    ///
+
+    //This list stores data for countries sorted by country population
+    protected List<Country> sorted_countries;
+    protected bool is_sorted = false;
+
+    protected bool sorted_name = false;
+
+    public void SortCountriesByName()
+    {
+        is_sorted = true;
+        if (sorted_name == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.CountryName).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_name = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.CountryName).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_name = false;
+        }
+    }
+
+    protected bool sorted_region = false;
+
+    public void SortCountriesByRegion()
+    {
+        is_sorted = true;
+        if (sorted_region == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.Region).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_region = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.Region).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_region = false;
+        }
+    }
+
+
+
+    protected bool sorted_population = false;
+
+    public void SortCountriesByPopulation()
+    {
+        is_sorted = true;
+        if (sorted_population == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.Population).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_population = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.Population).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_population = false;
+        }
+    }
+
+    protected bool sorted_area = false;
+    public void SortCountriesByArea()
+    {
+        is_sorted = true;
+        if (sorted_area == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.Area).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_area = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.Area).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_area = false;
+        }
+    }
+
+    protected bool sorted_population_density = false;
+    public void SortCountriesByPopulationDensetiy()
+    {
+        is_sorted = true;
+        if (sorted_population_density == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.PopulationDensity).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_population_density = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.PopulationDensity).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_population_density = false;
+        }
+    }
+
+    protected bool sorted_coastline = false;
+    public void SortCountriesByCoastline()
+    {
+        is_sorted = true;
+        if (sorted_coastline == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.Coastline).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_coastline = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.Coastline).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_coastline = false;
+        }
+    }
+
+
+    protected bool sorted_migration = false;
+    public void SortCountriesByMigration()
+    {
+        is_sorted = true;
+        if (sorted_migration == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.NetMigration).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_migration = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.NetMigration).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_migration = false;
+        }
+    }
+
+    protected bool sorted_infant_mortality = false;
+    public void SortCountriesByInfantMortality()
+    {
+        is_sorted = true;
+        if (sorted_infant_mortality == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.InfantMortality).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_infant_mortality = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.InfantMortality).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_infant_mortality = false;
+        }
+    }
+
+    protected bool sorted_gdp = false;
+    public void SortCountriesByGDP()
+    {
+        is_sorted = true;
+        if (sorted_gdp == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.GDP).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_gdp = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.GDP).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_gdp = false;
+        }
+    }
+
+    protected bool sorted_literacy = false;
+    public void SortCountriesByLiteracy()
+    {
+        is_sorted = true;
+        if (sorted_literacy == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.Literacy).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_literacy = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.Literacy).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_literacy = false;
+        }
+    }
+
+    protected bool sorted_phones = false;
+    public void SortCountriesByPhones()
+    {
+        is_sorted = true;
+        if (sorted_phones == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.Phones).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_phones = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.Phones).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_phones = false;
+        }
+    }
+
+    protected bool sorted_arable_area = false;
+    public void SortCountriesByArableArea()
+    {
+        is_sorted = true;
+        if (sorted_arable_area == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.ArableArea).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_arable_area = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.ArableArea).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_arable_area = false;
+        }
+    }
+
+    protected bool sorted_crops = false;
+    public void SortCountriesByCrops()
+    {
+        is_sorted = true;
+        if (sorted_crops == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.Crops).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_crops = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.Crops).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_crops = false;
+        }
+    }
+
+    protected bool sorted_other = false;
+    public void SortCountriesByOther()
+    {
+        is_sorted = true;
+        if (sorted_other == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.Other).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_other = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.Other).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_other = false;
+        }
+    }
+
+
+
+    protected bool sorted_climate_zone = false;
+    public void SortCountriesByClimateZone()
+    {
+        is_sorted = true;
+        if (sorted_climate_zone == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.ClimateZone).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_climate_zone = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.ClimateZone).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_climate_zone = false;
+        }
+    }
+
+
+    protected bool sorted_brith_rate = false;
+    public void SortCountriesByBirthRate()
+    {
+        is_sorted = true;
+        if (sorted_brith_rate == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.BirthRate).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_brith_rate = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.BirthRate).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_brith_rate = false;
+        }
+    }
+
+
+    protected bool sorted_death_rate = false;
+    public void SortCountriesByDeathRate()
+    {
+        is_sorted = true;
+        if (sorted_death_rate == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.DeathRate).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_death_rate = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.DeathRate).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_death_rate = false;
+        }
+    }
+
+
+    protected bool sorted_agriculture = false;
+    public void SortCountriesByAgriculture()
+    {
+        is_sorted = true;
+        if (sorted_agriculture == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.Agriculture).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_agriculture = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.Agriculture).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_agriculture = false;
+        }
+    }
+
+
+    protected bool sorted_industry = false;
+    public void SortCountriesByIndustry()
+    {
+        is_sorted = true;
+        if (sorted_industry == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.Industry).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_industry = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.Industry).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_industry = false;
+        }
+    }
+
+
+    protected bool sorted_service = false;
+    public void SortCountriesByService()
+    {
+        is_sorted = true;
+        if (sorted_service == false)
+        {
+            sorted_countries = countries.OrderBy(o => o.Service).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = sorted_countries.Count - i;
+            }
+            sorted_service = true;
+        }
+        else
+        {
+            sorted_countries = countries.OrderByDescending(o => o.Service).ToList();
+            for (int i = 0; i < sorted_countries.Count; i++)
+            {
+                sorted_countries[i].Index = i + 1;
+            }
+            sorted_service = false;
+        }
+    }
+
+}

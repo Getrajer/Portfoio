@@ -1,0 +1,130 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Union Find</title>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/index_style.css">
+    <link rel="stylesheet" href="../styles/data_structures.css">
+    <link rel="stylesheet" href="../styles/union_find_style.css">
+</head>
+<body>
+    
+    <div class="page_container">
+        <section id="dataStructure"> 
+
+            <div class="data_structure_container">
+
+                <div id="firstPanel">
+                    <div class="first_panel_container">
+
+                        <div class="panel_box">
+                            <div class="input_container">
+                                <label>Add new data point(component)</label>
+                                <input type="number" id="addInput">
+                            </div>
+                            <div class="button_container">
+                                <button id="add_component">Add</button> 
+                            </div>
+                        </div>
+
+                        <div class="panel_box">
+                            <div class="input_container">
+                                <label>Unify 2 components</label>
+                                <input placeholder="Component index" type="number" id="containsVar">
+                                <input placeholder="Component index" type="number" id="containsVar">
+                            </div>
+                            <div class="button_container">
+                                <button id="unify">Unify</button>
+                            </div>
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="panel_box">
+                            <div class="input_container">
+                                <label>If contains</label>
+                                <input type="number" id="containsVar">
+                            </div>
+                            <div class="button_container">
+                                <button id="contains">Contains</button>
+                            </div>
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="panel_box panel_buttons">
+
+                            <div class="button_container">
+                                <button id="clear">Clear</button>
+                            </div>
+                            <div class="button_container">
+                                <button id="toString">To String</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="dataStructureAnimation">
+                    <div class="data_structure_animation_container">
+                        <div id="dataStructureObjects">
+                            
+                            <div class="component">
+                                <div class="component_container">
+
+                                    <div class="node root_node">
+                                        <p>Component: 1</p>
+                                        <p>Root node: 1</p>
+                                    </div>
+
+                                    <div class="node">
+                                        <p>2</p>
+                                    </div>
+
+                                    <div class="node">
+                                        <p>3</p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="secondPanel">
+                    <div class="second_panel_container">
+
+                        <div class="panel_box">
+                            <div class="input_container">
+                                <label>Data numbers</label>
+                                <p id="data_numbers">Data</p>
+                            </div>
+                        </div>
+
+                        <div class="panel_box">
+                            <div class="input_container">
+                                <label>Components number</label>
+                                <p id="components_number">Data</p>
+                            </div>
+                        </div>
+                        
+                        <div class="panel_box">
+                            <label>Console</label>
+                            <div id="outputWindow">
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+<script src="../scripts/UnionFind.js"></script>
+</body>
+</html>

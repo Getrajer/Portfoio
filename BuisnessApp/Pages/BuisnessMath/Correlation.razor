@@ -1,0 +1,432 @@
+﻿@page "/Correlation"
+@inherits CorrelationBase
+
+<head>
+    <link rel="stylesheet" href="../css/math_style.css" />
+    <link rel="stylesheet" href="../css/formulas_style.css" />
+</head>
+
+<div class="component_container">
+    <div class="bacground">
+        <!--Corelation Coefficient Formula-->
+        <section class="calculation_container">
+            <div class="theory_container">
+                <div class="heading_container">
+                    <h2>Correlation</h2>
+                </div>
+                <p>
+                    Correlation is a technique used to measure strenght of the relationship between two variables.<br />
+                    It is done by measuring degree of 'scatter' of the data values.
+                </p>
+            </div>
+
+            <article class="theory_container">
+                <div class="heading_container">
+                    <h3>Product moment correlation coefficient formula</h3>
+                </div>
+
+                <div class="median_interpolation_formula_container">
+                    <div class="median_p_lower-bound">
+                        r =
+                    </div>
+
+                    <div class="formula">
+                        <div>
+                            n
+                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                            xy -
+                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                            x
+                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                            y
+                        </div>
+
+                        <div class="underline_formula_container">
+                            <div class="underline"></div>
+                        </div>
+
+                        <div>
+                            &#8730;(n
+                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                            x^2 - (
+                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                            x)^2
+                            ) *
+                            &#8730;(n
+                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                            y^2 - (
+                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                            y)^2
+                            )
+                        </div>
+                    </div>
+
+
+                </div>
+            </article>
+
+            <section class="calculation_container">
+                <div class="calculation_table">
+                    <div class="heading_container">
+                        <h2>Title</h2>
+                    </div>
+                    <div class="custom_input_container">
+                        <div class="input_box">
+                            <label>x: </label>
+                            <input @bind="x_CCF" />
+                        </div>
+
+                        <div class="input_box">
+                            <label>y: </label>
+                            <input @bind="y_CCF" />
+                        </div>
+
+                        <div class="button-container">
+                            <button class="btn" @onclick="Add_C_CCF">Add New Variable</button>
+                        </div>
+
+
+                        @if (isCustom_CCF == true)
+                        {
+                            <div class="button-container">
+                                <button class="btn" @onclick="Delete_CCF">Delete Last</button>
+                            </div>
+                        }
+
+                        @if (isCustom_CCF == true || isRandom_CCF == true)
+                        {
+                            <div class="button-container">
+                                <button class="btn" @onclick="Reset_CCF">RESET PROGRAM</button>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="button-container">
+                        @if (isCustom_CCF == false)
+                        {
+                            <button class="btn" @onclick="Generate_Data_CCF">@btn_CCF_text</button>
+                        }
+                    </div>
+
+                    @if (isRandom_CCF == true)
+                    {
+                        <div class="example_txt_container">
+                            @CCF_Text_Example
+                        </div>
+                    }
+
+                    <table class="table_calc">
+                        <thead>
+                            <tr>
+                                <th scope="col"><div class="data_title">x</div></th>
+                                <th scope="col"><div class="data_title">y</div></th>
+                                <th scope="col"><div class="data_title">x*y</div></th>
+                                <th scope="col"><div class="data_title">x^2</div></th>
+                                <th scope="col"><div class="data_title">y^2</div></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var obj in CCF_Data)
+                            {
+                                <tr>
+                                    <td><div class="data">@obj.X</div></td>
+                                    <td><div class="data">@obj.Y</div></td>
+                                    <td><div class="data">@obj.XY</div></td>
+                                    <td><div class="data">@obj.X_Square</div></td>
+                                    <td><div class="data">@obj.Y_Square</div></td>
+
+                                    <td>
+                                        <button class="btn" @onclick="@(e => Delete_CCF_ID(obj.ID))">X</button>
+                                    </td>
+                                </tr>
+                            }
+                            @if (CCF_Data.Count != 0)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="data">
+                                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                            x
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="data">
+                                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                            y
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="data">
+                                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                            xy
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="data">
+                                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                            x^2
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="data">
+                                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                            y^2
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="data">@total_x_CCF</div></td>
+                                    <td><div class="data">@total_y_CCF</div></td>
+                                    <td><div class="data">@total_xy_CCF</div></td>
+                                    <td><div class="data">@total_x_square_CCF</div></td>
+                                    <td><div class="data">@total_y_square_CCF</div></td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="result_container">
+
+
+
+                    <button class="btn" @onclick="Calculate_CCF">Calculate Corelation</button>
+
+                    @if (isCalculated_CCF == true)
+                    {
+
+                        <div class="median_interpolation_formula_container">
+                            <div class="median_p_lower-bound">
+                                r =
+                            </div>
+
+                            <div class="formula">
+                                <div>
+                                    @CCF_List_Lenght * @total_xy_CCF - @total_x_CCF * @total_y_CCF
+                                </div>
+
+                                <div class="underline_formula_container">
+                                    <div class="underline"></div>
+                                </div>
+
+                                <div>
+                                    <span>&#8730;</span>(@CCF_List_Lenght * @total_x_square_CCF - (@total_x_CCF)^2)
+                                    * <span>&#8730;</span>(@CCF_List_Lenght * @total_y_square_CCF - (@total_y_CCF)^2)
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <p>Correlation between (x) and (y) is: @result_CCF</p>
+                    }
+
+
+                </div>
+            </section>
+        </section>
+        <!--............................................-->
+        <!--Rank Correlation-->
+
+        <section class="program_container">
+
+
+            <article class="theory_container">
+                <div class="heading_container">
+                    <h3>Rank Correlation Coefficient Formula</h3>
+                </div>
+
+                <div class="median_interpolation_formula_container">
+                    <div class="median_p_lower-bound">
+                        r = 1 -
+                    </div>
+
+                    <div class="formula">
+                        <div>
+                            6
+                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                            d^2
+                        </div>
+
+                        <div class="underline_formula_container">
+                            <div class="underline"></div>
+                        </div>
+
+                        <div>
+                            n(n^2 - 1)
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <section class="calculation_container">
+                <div class="calculation_table">
+
+                    <div class="custom_input_container">
+                        <div class="input_box">
+                            <label>x: </label>
+                            <input @bind="x_RC" />
+                        </div>
+
+                        <div class="input_box">
+                            <label>Rank of x: </label>
+                            <input @bind="rx_RC" />
+                        </div>
+
+                        <div class="input_box">
+                            <label>y: </label>
+                            <input @bind="y_RC" />
+                        </div>
+
+                        <div class="input_box">
+                            <label>Rank of y: </label>
+                            <input @bind="ry_RC" />
+                        </div>
+
+                        <div class="button-container">
+                            <button class="btn" @onclick="Add_C_RC">Add New Variable</button>
+                        </div>
+
+
+                        @if (isCustom_RC == true)
+                        {
+                            <div class="button-container">
+                                <button class="btn" @onclick="Delete_RC">Delete Last</button>
+                            </div>
+                        }
+
+                        @if (isCustom_RC == true || isRandom_RC == true)
+                        {
+                            <div class="button-container">
+                                <button class="btn" @onclick="Reset_RC">RESET PROGRAM</button>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="button-container">
+                        @if (isCustom_RC == false)
+                        {
+                            <button class="btn" @onclick="Generate_Data_RC">@btn_RC_text</button>
+                        }
+                    </div>
+
+                    @if (isRandom_RC == true)
+                    {
+                        <div class="example_txt_container">
+                            @RC_Text_Example
+                        </div>
+                    }
+
+                    <table class="table_calc">
+                        <thead>
+                            <tr>
+                                <th scope="col"><div class="data_title">x</div></th>
+                                <th scope="col"><div class="data_title">Rank of x</div></th>
+                                <th scope="col"><div class="data_title">y</div></th>
+                                <th scope="col"><div class="data_title">Rank of y</div></th>
+                                <th scope="col"><div class="data_title">d^2</div></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var obj in RC_Data)
+                            {
+                                <tr>
+                                    <td><div class="data">@obj.X</div></td>
+                                    <td><div class="data">@obj.Rx</div></td>
+                                    <td><div class="data">@obj.Y</div></td>
+                                    <td><div class="data">@obj.Ry</div></td>
+                                    <td><div class="data">@obj.D_Square</div></td>
+
+                                    <td>
+                                        <button class="btn" @onclick="@(e => Delete_RC_ID(obj.ID))">X</button>
+                                    </td>
+                                </tr>
+                            }
+
+                            @if (RC_Data.Count != 0)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="data">
+                                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                            x
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="data">
+                                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                            Rx
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="data">
+                                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                            y
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="data">
+                                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                            Ry
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="data">
+                                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                            d^2
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="data">@total_x_RC</div></td>
+                                    <td><div class="data">@total_RC_Rx</div></td>
+                                    <td><div class="data">@total_y_RC</div></td>
+                                    <td><div class="data">@total_RC_Ry</div></td>
+                                    <td><div class="data">@total_d_square_RC</div></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="result_container">
+
+                    <button class="btn" @onclick="Calculate_RC">Calculate Corelation</button>
+
+                    @if (isCalculated_RC == true)
+                    {
+                        <div class="median_interpolation_formula_container">
+                            <div class="median_p_lower-bound">
+                                r = 1 -
+                            </div>
+
+                            <div class="formula">
+                                <div>
+                                    6 * @total_d_square_RC
+                                </div>
+
+                                <div class="underline_formula_container">
+                                    <div class="underline"></div>
+                                </div>
+
+                                <div>
+                                    @RC_List_Lenght (@RC_List_Lenght ^ 2 - 1)
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <p>Correlation between (x) and (y) is: @result_RC</p>
+                    }
+                </div>
+            </section>
+        </section>
+        <!--............................................-->
+
+    </div>
+</div>

@@ -1,0 +1,749 @@
+﻿.col-lg-7, .col-lg-5{
+    padding:0;
+    margin:0;
+}
+#pizza_app_container {
+    font-family: 'Indie Flower', cursive;
+    background-image: url('../BuildPizza/wood_back.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 700px;
+    margin-bottom: 10em;
+}
+/*Sizes*/
+.choice_container{
+    padding:1.4em 1em;
+}
+
+.choice_title_container{
+    text-align:center;
+    font-size:2rem;
+    letter-spacing: 2px;
+}
+.line_container {
+    width: 100%;
+    padding: 0 3em;
+    height: 2px;
+}
+
+.line_container .line{
+    width:100%;
+    background-color:white;
+    height:2px;
+    margin:0.3em 0;
+}
+
+.option{
+    margin: 0.1em 0;
+    font-size:1.5rem;
+}
+.sizes_container {
+    padding: 1em 2em;
+}
+.choice_button{
+    width:23px;
+    height:23px;
+    padding:0;
+    margin:7px 0;
+    color:black;
+    background-color:white;
+    border:none;
+    transition:0.3s all;
+}
+.choice_button:hover {
+    background-color: #3e3e3e;
+}
+
+.sizes_container .size_option {
+    min-width: 300px;
+    font-size: 1.4rem;
+}
+
+.topping_options_container {
+    margin-top: 1em;
+    padding: 1em 2em;
+}
+
+.total {
+    padding: 1em 2em;
+    font-weight:600;
+    font-size:2rem;
+}
+
+
+/*Pizza*/
+.pizza {
+    position: absolute;
+    background-image: url(../BuildPizza/properpizza_pizza_margherita.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 700px;
+    height: 700px;
+}
+/*Peperoni*/
+.peperoni {
+    position: absolute;
+    background-image: url(../BuildPizza/peperoni.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+}
+.peperoni_1 {
+    top: 200px;
+    right: 200px;
+}
+.peperoni_2 {
+    top: 300px;
+    right: 150px;
+}
+.peperoni_3 {
+    top: 430px;
+    right: 200px;
+}
+.peperoni_4 {
+    top: 490px;
+    right: 310px;
+}
+.peperoni_5 {
+    top: 150px;
+    left: 330px;
+}
+.peperoni_6 {
+    top: 190px;
+    left: 200px;
+}
+.peperoni_7 {
+    top: 300px;
+    left: 140px;
+}
+.peperoni_8 {
+    top: 440px;
+    left: 200px;
+}
+/*..............*/
+/*Chicken*/
+.chicken {
+    position: absolute;
+    background-image: url(../BuildPizza/chicken.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+}
+.chicken_1 {
+    top: 230px;
+    right: 230px;
+}
+.chicken_2 {
+    top: 310px;
+    right: 200px;
+}
+.chicken_3 {
+    top: 390px;
+    right: 250px;
+}
+.chicken_4 {
+    top: 420px;
+    right: 320px;
+}
+.chicken_5 {
+    top: 200px;
+    left: 330px;
+}
+.chicken_6 {
+    top: 230px;
+    left: 250px;
+}
+
+.chicken_7 {
+    top: 300px;
+    left: 210px;
+}
+.chicken_8 {
+    top: 390px;
+    left: 250px;
+}
+/*..............*/
+/*Peper*/
+.peper {
+    position: absolute;
+    background-image: url(../BuildPizza/peper.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+}
+
+.peper_1 {
+    top: 160px;
+    right: 230px;
+}
+
+.peper_2 {
+    top: 250px;
+    right: 150px;
+}
+
+.peper_3 {
+    top: 340px;
+    right: 180px;
+}
+
+.peper_4 {
+    top: 420px;
+    right: 230px;
+}
+
+.peper_5 {
+    top: 160px;
+    left: 240px;
+}
+
+.peper_6 {
+    top: 230px;
+    left: 150px;
+}
+
+.peper_7 {
+    top: 340px;
+    left: 150px;
+}
+
+.peper_8 {
+    top: 420px;
+    left: 250px;
+}
+/*................*/
+/*Mashroom*/
+.mashroom {
+    position: absolute;
+    background-image: url(../BuildPizza/mashroom.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+}
+
+.mashroom_1 {
+    top: 140px;
+    right: 230px;
+}
+
+.mashroom_2 {
+    top: 250px;
+    right: 120px;
+}
+
+.mashroom_3 {
+    top: 360px;
+    right: 150px;
+}
+
+.mashroom_4 {
+    top: 490px;
+    right: 230px;
+}
+
+.mashroom_5 {
+    top: 120px;
+    left: 250px;
+}
+
+.mashroom_6 {
+    top: 230px;
+    left: 140px;
+}
+
+.mashroom_7 {
+    top: 340px;
+    left: 150px;
+}
+
+.mashroom_8 {
+    top: 500px;
+    left: 250px;
+}
+/*................*/
+/*Ham*/
+.ham {
+    position: absolute;
+    background-image: url(../BuildPizza/ham.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+}
+
+.ham_1 {
+    top: 170px;
+    right: 180px;
+}
+
+.ham_2 {
+    top: 300px;
+    right: 120px;
+}
+
+.ham_3 {
+    top: 420px;
+    right: 150px;
+}
+
+.ham_4 {
+    top: 490px;
+    right: 180px;
+}
+
+.ham_5 {
+    top: 120px;
+    left: 320px;
+}
+
+.ham_6 {
+    top: 180px;
+    left: 170px;
+}
+
+.ham_7 {
+    top: 420px;
+    left: 150px;
+}
+
+.ham_8 {
+    top: 540px;
+    left: 290px;
+}
+/*................*/
+/*Onion*/
+.onion {
+    position: absolute;
+    background-image: url(../BuildPizza/onion.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+}
+
+.onion_1 {
+    top: 170px;
+    right: 180px;
+}
+
+.onion_2 {
+    top: 300px;
+    right: 120px;
+}
+
+.onion_3 {
+    top: 420px;
+    right: 150px;
+}
+
+.onion_4 {
+    top: 490px;
+    right: 250px;
+}
+
+.onion_5 {
+    top: 150px;
+    left: 320px;
+}
+
+.onion_6 {
+    top: 180px;
+    left: 170px;
+}
+
+.onion_7 {
+    top: 300px;
+    left: 150px;
+}
+
+.onion_8 {
+    top: 390px;
+    left: 180px;
+}
+/*................*/
+/*Olives*/
+.olives {
+    position: absolute;
+    background-image: url(../BuildPizza/olive.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+}
+
+.olives_1 {
+    top: 170px;
+    right: 140px;
+}
+
+.olives_2 {
+    top: 300px;
+    right: 160px;
+}
+
+.olives_3 {
+    top: 400px;
+    right: 170px;
+}
+
+.olives_4 {
+    top: 460px;
+    right: 300px;
+}
+
+.olives_5 {
+    top: 150px;
+    left: 320px;
+    transform: rotate(90deg);
+}
+
+.olives_6 {
+    top: 180px;
+    left: 190px;
+    transform: rotate(80deg);
+}
+
+.olives_7 {
+    top: 300px;
+    left: 150px;
+    transform: rotate(30deg);
+}
+
+.olives_8 {
+    top: 390px;
+    left: 200px;
+    transform: rotate(20deg);
+}
+/*................*/
+
+
+/*Toggle */
+.toggle{
+    display: none!important;
+}
+
+
+
+/***/
+
+@media (max-width: 991px) {
+
+    .pizza_container{
+        text-align:center;
+    }
+
+    .pizza {
+        position: unset;
+        display:inline-block;
+        background-image: url(../BuildPizza/properpizza_pizza_margherita.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 700px;
+        height: 700px;
+    }
+
+    .peperoni_1 {
+        top: 200px;
+        right: 260px;
+    }
+
+    .peperoni_2 {
+        top: 300px;
+        right: 250px;
+    }
+
+    .peperoni_3 {
+        top: 400px;
+        right: 320px;
+    }
+
+    .peperoni_4 {
+        top: 490px;
+        right: 450px;
+    }
+
+    .peperoni_5 {
+        top: 150px;
+        left: 400px;
+    }
+
+    .peperoni_6 {
+        top: 300px;
+        left: 270px;
+    }
+
+    .peperoni_7 {
+        top: 300px;
+        left: 2500px;
+    }
+
+    .peperoni_8 {
+        top: 440px;
+        left: 300px;
+    }
+    /*..............*/
+    /*Chicken*/
+    .chicken_1 {
+        top: 230px;
+        right: 320px;
+    }
+
+    .chicken_2 {
+        top: 310px;
+        right: 300px;
+    }
+
+    .chicken_3 {
+        top: 390px;
+        right: 3200px;
+    }
+
+    .chicken_4 {
+        top: 420px;
+        right: 450px;
+    }
+
+    .chicken_5 {
+        top: 200px;
+        left: 450px;
+    }
+
+    .chicken_6 {
+        top: 230px;
+        left: 350px;
+    }
+
+    .chicken_7 {
+        top: 300px;
+        left: 300px;
+    }
+
+    .chicken_8 {
+        top: 390px;
+        left: 450px;
+    }
+    /*..............*/
+    /*Peper*/
+    .peper_1 {
+        top: 160px;
+        right: 300px;
+    }
+
+    .peper_2 {
+        top: 250px;
+        right: 250px;
+    }
+
+    .peper_3 {
+        top: 340px;
+        right: 190px;
+    }
+
+    .peper_4 {
+        top: 420px;
+        right: 350px;
+    }
+
+    .peper_5 {
+        top: 160px;
+        left: 400px;
+    }
+
+    .peper_6 {
+        top: 250px;
+        left: 350px;
+    }
+
+    .peper_7 {
+        top: 340px;
+        left: 300px;
+    }
+
+    .peper_8 {
+        top: 420px;
+        left: 300px;
+    }
+    /*................*/
+    /*Mashroom*/
+    .mashroom_1 {
+        top: 140px;
+        right: 300px;
+    }
+
+    .mashroom_2 {
+        top: 250px;
+        right: 300px;
+    }
+
+    .mashroom_3 {
+        top: 360px;
+        right: 300px;
+    }
+
+    .mashroom_4 {
+        top: 490px;
+        right: 400px;
+    }
+
+    .mashroom_5 {
+        top: 120px;
+        left: 400px;
+    }
+
+    .mashroom_6 {
+        top: 230px;
+        left: 300px;
+    }
+
+    .mashroom_7 {
+        top: 340px;
+        left: 300px;
+    }
+
+    .mashroom_8 {
+        top: 500px;
+        left: 320px;
+    }
+    /*................*/
+    /*Ham*/
+    .ham_1 {
+        top: 170px;
+        right: 300px;
+    }
+
+    .ham_2 {
+        top: 300px;
+        right: 330px;
+    }
+
+    .ham_3 {
+        top: 420px;
+        right: 350px;
+    }
+
+    .ham_4 {
+        top: 450px;
+        right: 400px;
+    }
+
+    .ham_5 {
+        top: 120px;
+        left: 400px;
+    }
+
+    .ham_6 {
+        top: 250px;
+        left: 400px;
+    }
+
+    .ham_7 {
+        top: 420px;
+        left: 400px;
+    }
+
+    .ham_8 {
+        top: 480px;
+        left: 350px;
+    }
+    /*................*/
+    /*Onion*/
+    .onion_1 {
+        top: 170px;
+        right: 300px;
+    }
+
+    .onion_2 {
+        top: 300px;
+        right: 300px;
+    }
+
+    .onion_3 {
+        top: 420px;
+        right: 300px;
+    }
+
+    .onion_4 {
+        top: 490px;
+        right: 350px;
+    }
+
+    .onion_5 {
+        top: 150px;
+        left: 320px;
+    }
+
+    .onion_6 {
+        top: 180px;
+        left: 280px;
+    }
+
+    .onion_7 {
+        top: 300px;
+        left: 320px;
+    }
+
+    .onion_8 {
+        top: 390px;
+        left: 340px;
+    }
+    /*................*/
+    /*Olives*/
+    .olives_1 {
+        top: 170px;
+        right: 350px;
+    }
+
+    .olives_2 {
+        top: 300px;
+        right: 300px;
+    }
+
+    .olives_3 {
+        top: 400px;
+        right: 300px;
+    }
+
+    .olives_4 {
+        top: 460px;
+        right: 350px;
+    }
+
+    .olives_5 {
+        top: 150px;
+        left: 350px;
+        transform: rotate(90deg);
+    }
+
+    .olives_6 {
+        top: 180px;
+        left: 280px;
+        transform: rotate(80deg);
+    }
+
+    .olives_7 {
+        top: 300px;
+        left: 300px;
+        transform: rotate(30deg);
+    }
+
+    .olives_8 {
+        top: 390px;
+        left: 300px;
+        transform: rotate(20deg);
+    }
+    /*................*/
+}

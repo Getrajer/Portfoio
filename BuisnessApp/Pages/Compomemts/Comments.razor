@@ -1,0 +1,615 @@
+﻿@page "/CommentsComponent"
+@using System.Net
+
+<head>
+    <link rel="stylesheet" href="../css/component_main_style.css" />
+    <link rel="stylesheet" href="../css/comments_style.css"/>
+</head>
+
+<div class="page_container">
+    <div class="component_container">
+        <div class="title_container">
+            <h1>Comments Component</h1>
+            <div class="underline_container">
+                <div class="underline"></div>
+            </div>
+        </div>
+
+        <div class="component_description">
+            <p>
+                This component works as a comment system. You can create, edit, delete comment. Access to these functions is determined by users account(in this demonstration by Ip address).  You can add your own avatar(when implemented this is just demonstration, but you can use one form the list). In this demonstration user can rate comment only once and if it happend is checked by Ip address of the client machine(When implemented that would be user data or as well users Ip in case of guest visit).
+            </p>
+
+            <div class="icons_created_with">
+                <div class="icon_c">
+                    <!--Html-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.08 100.02">
+                        <title>Html</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_11" data-name="Warstwa 11">
+                                <polygon class="fill_white" points="82.55 18.5 83.55 0.5 0.55 0.5 5.55 54.5 59.55 54.5 57.55 74.5 45.55 79.5 28.55 74.5 26.55 65.5 6.55 64.5 8.55 89.5 42.55 99.5 76.55 89.5 79.55 34.5 24.55 34.5 22.55 18.5 82.55 18.5" style="stroke-miterlimit: 10" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon_c">
+                    <!--CSS-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.08 100.02">
+                        <title>CSS</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_11" data-name="Warstwa 11">
+                                <polygon class="fill_white" points="0.56 0.5 83.56 0.5 82.56 19.5 43.55 34.5 80.56 34.5 76.56 89.5 42.55 99.5 8.55 89.5 6.55 64.5 26.55 64.5 26.55 72.5 40.55 79.5 57.55 74.5 58.55 54.5 5.55 54.5 3.56 34.5 42.55 19.5 2.56 19.5 0.56 0.5" style="stroke-miterlimit: 10" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon_c">
+                    <!--C#-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112.47 98.75">
+                        <title>C sharp</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_11" data-name="Warstwa 11">
+                                <path class="fill_white" d="M70,36.5l21-12C80.63,8.77,67.26,1.37,51.5.56a45.44,45.44,0,0,0-9.17.49C27.49,3.33,15.52,10.31,7.4,23.64A47,47,0,0,0,1.29,40.71,52,52,0,0,0,3.64,67.6c.22.59.46,1.19.74,1.76C11,83.09,21.1,94.1,41,97.5c11.13,1.79,22.4.72,34-7a40.65,40.65,0,0,0,16-17l-21-12a28.09,28.09,0,0,1-18,12c-7.34.8-13.47-1.76-19-6-7.8-6.52-10.27-15.45-7-27,3.7-9,10-13.54,18-15C54.76,23,63,28,70,36.5Z" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="87.97" y="41.5" width="24" height="5" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="91.97" y="37.5" width="5" height="24" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="102.97" y="37.5" width="5" height="24" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="87.97" y="52.5" width="24" height="5" style="stroke-miterlimit: 10" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon_c">
+                    <!--Blazor-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 159.26 144.76">
+                        <title>Blazor</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_12" data-name="Warstwa 12">
+                                <g>
+                                    <path class="fill_white" d="M121.68,119.5c-17.82,9.45-35.95,15-54.5,15.5-20.42.66-34.6-5.58-45-16a42.48,42.48,0,0,1-13-32c0-12.26,4.38-22.61,11-32,7.39-10.21,16.16-15.86,26-18,11.85-2.12,22.67-2.35,31,2,10.58,6.36,20.31,12.81,23,20,4.88,8.55,9,16.91,8,24,.35,7.49-1,13.91-6,18-4.45,5.54-10.33,7.8-18,6l-8-6-7.92,4.32a20.6,20.6,0,0,1-7.56,2.4,43.81,43.81,0,0,1-6.05.26,20.93,20.93,0,0,1-13.73-5.45,30.05,30.05,0,0,1-4.56-5.44A21,21,0,0,1,33,85.42c0-4.84.8-8.4,2.39-10.51.58-.76,1.18-1.49,1.7-2.3,2.65-4.12,10.33-9.72,10.7-9.94l.24-.15a20,20,0,0,1,9.32-2.85,124.91,124.91,0,0,1,12.84,0,11.82,11.82,0,0,1,8.06,3.71,6.85,6.85,0,0,1,2,3.58l1,25c5.85,8,11.55,9.44,17-1l-1-16c-.52-6.54-4.4-12.43-10-18-5.63-6-13-9.57-22-11-9.42.18-18.34,1-25,5-6.71,3.78-12.44,8.42-16,15-2.8,6.38-4.82,13-5,20,.4,6.47,1.43,12.17,4,16,7.79,10.59,16.7,19.52,30,22a76.6,76.6,0,0,0,28,0c16.2-3.43,29.76-9.53,41-18a100.27,100.27,0,0,0,28-34c4-6,6.33-14.52,8-24,1.55-7.33,1.32-15.42,0-24l-8-24c-8.36,16.43-21.22,27.65-40,32l6-24-29,17h-35C21.46,29,9.11,44.7,2.68,64c-.56,1.7-5.42,28.7-.5,42,5.89,17.15,15.08,28.41,28,33,11.49,5.29,23.87,6.62,36.73,5.27,1.34-.14,2.69-.24,4-.28,8.93-.29,18.5-3.74,28.23-8Z" />
+                                    <path class="fill_white" d="M70.18,71l1,20c-22.62,25.21-42.29-9-19-20Z" />
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="component_description">
+            <h2>Your Ip Address: @Client_IP</h2>
+        </div>
+
+        <div class="program_container">
+            <div class="comment_program">
+                <div class="add_comment_container">
+                    <div class="error">
+                        @error_message
+                    </div>
+
+                    <div class="input-box">
+                        <label>Name: </label>
+                        <br />
+                        <input @bind="name" />
+                    </div>
+                    <div class="input-box">
+                        <label>Your comment: </label>
+                        <br />
+                        <textarea @bind="message"></textarea>
+                    </div>
+                    <div class="input-box">
+                        <label>Choose Avatar</label>
+                        <br />
+                        <br />
+                        @foreach (var o in imagePaths)
+                        {
+                            <label class="avatar_choice" @onclick="@(e => ChangeAvatar(o.Id))">
+                                <input type="radio" name="test" value="small" checked>
+                                <img class="choose_avatar" src="@o.ImgPath">
+                            </label>
+                        }
+                    </div>
+
+                    <div class="input-box">
+                        <button class="btn" @onclick="CreateComment">Create Comment</button>
+                    </div>
+                </div>
+
+
+
+
+                @if (comments.Count != 0)
+                {
+                    <div class="line"></div>
+                }
+
+                <div class="comments-container">
+                    @foreach (var c in comments)
+                    {
+                        <div class="comment_container @c.DisplayComment">
+                            <div class="user_container">
+                                <div class="user_box1">
+                                    <img src="@c.ImgPath" />
+                                </div>
+                                <div class="user_box2">
+                                    <p><label>User name:</label> @c.Name </p>
+                                    @if (c.BeenEdited == true)
+                                    {
+                                        <p><label>Edited:</label> @c.Posted</p>
+                                    }
+                                    else
+                                    {
+                                        <p><label>Posted:</label> @c.Posted</p>
+                                    }
+                                </div>
+
+                                <div class="user_box3 comment_box">
+                                    @c.Message
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="rate_box">
+                                <p>Likes: @c.Like</p>
+                                <button class="rate_btn" @onclick="@(e => LikeComment(c.Id))"><i class="fa fa-thumbs-up"></i></button>
+                            </div>
+                            <div class="rate_box">
+                                <p>Dislikes: @c.Dislike</p>
+                                <button class="rate_btn" @onclick="@(e => DislikeComment(c.Id))"><i class="fa fa-thumbs-down"></i></button>
+                            </div>
+
+                            @if (Client_IP == c.CreatorsIP)
+                            {
+                                <div class="comment_btn_box">
+                                    <button class="btn" @onclick="@(e => DeleteComment(c.Id))">Delete Comment</button>
+                                </div>
+                            }
+
+                        </div>
+
+                        if (Client_IP == c.CreatorsIP)
+                        {
+                            @if (comments[c.Id].DisplayEdit == "display_none_2")
+                            {
+                                <div class="comment_btn_box">
+                                    <button class="btn" @onclick="@(e => ToggleEditWindow(c.Id))">Edit Comment</button>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="comment_btn_box">
+                                    <button class="btn" @onclick="@(e => ToggleEditWindow(c.Id))">Cancel</button>
+                                </div>
+                            }
+                        }
+
+                        <div class="@c.DisplayEdit">
+                            <div class="edit_comment_container">
+                                <div>
+                                    @error_message
+                                </div>
+                                <div class="input-box">
+                                    <label>Name: </label><br />
+                                    <input placeholder="@c.Name" @bind="edit_name" />
+                                </div>
+                                <div class="input-box">
+                                    <label>Your comment: </label><br />
+                                    <textarea placeholder="@c.Message" @bind="edit_message"></textarea>
+                                </div>
+                                <div class="input-box">
+                                    @foreach (var o in imagePaths)
+                                    {
+                                        <label @onclick="@(e => ChangeAvatarEdit(o.Id))">
+                                            <input type="radio" name="test" value="small" checked>
+                                            <img src="@o.ImgPath">
+                                        </label>
+                                    }
+                                </div>
+                                <div class="comment_btn_box">
+                                    <button class="btn" @onclick="@(e => EditComment(c.Id))">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+        //Declaring comment object
+        /// <summary>
+        /// This class will be used to create comment object
+        /// </summary>
+    public class Comment
+    {
+        public int Id { get; set; }
+        public int Like { get; set; }
+        public int Dislike { get; set; }
+        public string Name { get; set; }
+        public string Message { get; set; }
+        public string ImgPath { get; set; }
+        public string Posted { get; set; }
+
+        /// <summary>
+        /// This class will controll if edit box need to be displayed
+        /// </summary>
+        public string DisplayEdit { get; set; }
+
+        /// <summary>
+        /// When comment is edited it will hide the oryginal one
+        /// </summary>
+        public string DisplayComment { get; set; }
+
+        /// <summary>
+        /// This parameter will bind Ip Address to the coment so only creator of it can edit or delete it
+        /// When Implemented it needs to be changed to users Id comming from database
+        /// </summary>
+        public string CreatorsIP { get; set; }
+
+        public bool BeenEdited { get; set; }
+
+        public List<string> IpLikes { get; set; }
+        public List<string> IpDisLikes { get; set; }
+
+
+        public Comment()
+        {
+            Like = 0;
+            Dislike = 0;
+            IpLikes = new List<string>();
+            IpDisLikes = new List<string>();
+            Posted = DateTime.Now.ToString();
+            DisplayComment = "display_block";
+            DisplayEdit = "display_none_2";
+        }
+    }
+
+    public class ImagePath
+    {
+        public int Id { get; set; }
+        public string ImgPath { get; set; }
+
+        public ImagePath()
+        {
+        }
+    }
+
+    //Declaring variables
+
+    /// <summary>
+    /// Dummy list for storing comments data (It is needed to be changed with database when implementing)
+    /// </summary>
+    protected List<Comment> comments = new List<Comment>();
+
+    /// <summary>
+    /// Mock data for image paths. When implementing change with database.
+    /// </summary>
+    protected List<ImagePath> imagePaths = new List<ImagePath>() { };
+
+    /// <summary>
+    /// String for user name (It needs to be changed with user data if it is not a guest)
+    /// </summary>
+    [Parameter]
+    public string name { get; set; }
+    [Parameter]
+    public string edit_name { get; set; }
+
+    /// <summary>
+    /// This variable is for user comment
+    /// </summary>
+    [Parameter]
+    public string message { get; set; }
+    [Parameter]
+    public string edit_message { get; set; }
+
+    /// <summary>
+    /// This will display error message if input is incorect
+    /// </summary>
+    protected string error_message = "";
+
+    /// <summary>
+    /// This will link to image path when choosing
+    /// </summary>
+    protected string img_path = "../CommentsImages/1.png";
+    protected string edit_img_path = "";
+
+    /// <summary>
+    /// This parameter will store Ip Address of current client
+    /// </summary>
+    protected string Client_IP = "";
+
+    //Declaring functionality
+
+    /// <summary>
+    /// This function will get ip addres when initalized and it will populate mock avatar data
+    /// </summary>
+    protected override async Task OnInitializedAsync()
+    {
+        //Get Ip address
+        Client_IP = GetIPAddress();
+
+        //Populate mock avatar data
+        ImagePath p1 = new ImagePath();
+        p1.Id = 0;
+        p1.ImgPath = "../CommentsImages/1.png";
+        ImagePath p2 = new ImagePath();
+        p2.Id = 1;
+        p2.ImgPath = "../CommentsImages/2.png";
+        ImagePath p3 = new ImagePath();
+        p3.Id = 2;
+        p3.ImgPath = "../CommentsImages/3.png";
+        ImagePath p4 = new ImagePath();
+        p4.Id = 3;
+        p4.ImgPath = "../CommentsImages/4.png";
+
+        imagePaths.Add(p1);
+        imagePaths.Add(p2);
+        imagePaths.Add(p3);
+        imagePaths.Add(p4);
+
+        //Create Mock Comments
+        Comment c1 = new Comment();
+        c1.CreatorsIP = "11111";
+        c1.Dislike = 2;
+        c1.Id = 0;
+        c1.ImgPath = "../CommentsImages/3.png";
+        c1.Like = 15;
+        c1.Message = "Wow this place is amazing. I would like to stay longer! <3";
+        c1.Name = "Kiara";
+        c1.Posted = "2020.03.02 22:30";
+
+        Comment c2 = new Comment();
+        c2.CreatorsIP = "11143243211";
+        c2.Dislike = 0;
+        c2.Id = 1;
+        c2.ImgPath = "../CommentsImages/1.png";
+        c2.Like = 4;
+        c2.Message = "Hi guys, lets know each other.";
+        c2.Name = "Daniel";
+        c2.Posted = "2020.03.01 11:30";
+
+        comments.Add(c1);
+        comments.Add(c2);
+    }
+
+    /// <summary>
+    /// This function will find IP Address of user
+    /// </summary>
+    /// <returns>IP Address of Client</returns>
+    public string GetIPAddress()
+    {
+        IPHostEntry Host = default(IPHostEntry);
+        string Hostname = null;
+        string IPAddress = "";
+        Hostname = System.Environment.MachineName;
+        Host = Dns.GetHostEntry(Hostname);
+        foreach (IPAddress IP in Host.AddressList)
+        {
+            if (IP.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+            {
+                IPAddress = Convert.ToString(IP);
+            }
+        }
+        return IPAddress;
+    }
+
+    /// <summary>
+    /// This function will change avatar for comment. When implementing change it with user avatar
+    /// </summary>
+    protected void ChangeAvatar(int id)
+    {
+        img_path = imagePaths[id].ImgPath;
+    }
+
+    /// <summary>
+    /// Edit Photopath
+    /// </summary>
+    protected void ChangeAvatarEdit(int id)
+    {
+        edit_img_path = imagePaths[id].ImgPath;
+    }
+
+    ///<summary>
+    ///This function will create comment and add it to memory storage
+    /// </summary>
+    protected void CreateComment()
+    {
+        bool no_error = true;
+
+        if (name == "" && message == "")
+        {
+            error_message = "Please enter your name and write your comment!";
+            no_error = false;
+        }
+        else if (name == "")
+        {
+            error_message = "Please enter your name!";
+            no_error = false;
+        }
+        else if (message == "")
+        {
+            error_message = "Please write your comment!";
+            no_error = false;
+        }
+
+        if (no_error == true)
+        {
+            //o = object
+            Comment o = new Comment();
+            if (comments.Count == 0)
+            {
+                o.Id = 0;
+                o.Name = name;
+                o.Message = message;
+                o.ImgPath = img_path;
+                o.CreatorsIP = GetIPAddress();
+            }
+            else
+            {
+                o.Id = comments.Count;
+                o.Name = name;
+                o.Message = message;
+                o.ImgPath = img_path;
+                o.CreatorsIP = GetIPAddress();
+            }
+
+            comments.Add(o);
+            name = "";
+            message = "";
+        }
+
+    }
+    /// <summary>
+    /// This function will delete comment from memory storage by its Id
+    /// </summary>
+    protected void DeleteComment(int id)
+    {
+        if (comments.Count != 0)
+        {
+            comments.RemoveAt(id);
+            for (int i = 0; i < comments.Count; i++)
+            {
+                comments[i].Id = i;
+            }
+        }
+    }
+    /// <summary>
+    /// This function will add (+1) property and it will store it to database
+    /// </summary>
+    protected void LikeComment(int id)
+    {
+        if (comments.Count != 0)
+        {
+            //This will check if user alredy liked
+            //I'm using here Ip address method but it can be exchangeble with user ID
+            string UserIpAddress = GetIPAddress();
+            bool been_liked = false;
+            List<string> c = new List<string>();
+
+            if (comments[id].IpLikes.Count != 0)
+            {
+                c = comments[id].IpLikes;
+                for (int i = 0; i < c.Count; i++)
+                {
+                    if (c[i] == UserIpAddress)
+                    {
+                        been_liked = true;
+                    }
+                }
+            }
+            //If user with this ip address has not been liked then like is added
+            if (been_liked != true)
+            {
+                comments[id].Like = comments[id].Like + 1;
+                c.Add(UserIpAddress);
+                comments[id].IpLikes = c;
+
+                //If user alredy disliked change if for like
+                if (comments[id].IpDisLikes.Count != 0)
+                {
+                    c = comments[id].IpDisLikes;
+
+                    for (int i = 0; i < c.Count; i++)
+                    {
+                        if (c[i] == UserIpAddress)
+                        {
+                            c.RemoveAt(i);
+                            comments[id].Dislike = comments[id].Dislike - 1;
+                            comments[id].IpDisLikes = c;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// This function will add (+1) property and it will store it to database
+    /// </summary>
+    protected void DislikeComment(int id)
+    {
+        if (comments.Count != 0)
+        {
+            //This will check if user alredy liked
+            //I'm using here Ip address method but it can be exchangeble with user ID
+            string UserIpAddress = GetIPAddress();
+            bool been_disliked = false;
+            List<string> c = new List<string>();
+
+            if (comments[id].IpDisLikes.Count != 0)
+            {
+                c = comments[id].IpDisLikes;
+                for (int i = 0; i < c.Count; i++)
+                {
+                    if (c[i] == UserIpAddress)
+                    {
+                        been_disliked = true;
+                    }
+                }
+            }
+            //If user with this ip address has not been liked then like is added
+            if (been_disliked != true)
+            {
+                comments[id].Dislike += 1;
+                c.Add(UserIpAddress);
+                comments[id].IpDisLikes = c;
+
+                //If user alredy liked change if for dislike
+                c = comments[id].IpLikes;
+
+                if (comments[id].IpLikes.Count != 0)
+                {
+                    for (int i = 0; i < c.Count; i++)
+                    {
+                        if (c[i] == UserIpAddress)
+                        {
+                            c.RemoveAt(i);
+                            comments[id].Like -= 1;
+                            comments[id].IpLikes = c;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    protected void ToggleEditWindow(int id)
+    {
+        if (Client_IP == comments[id].CreatorsIP)
+        {
+            if (comments[id].DisplayEdit == "display_none_2")
+            {
+                comments[id].DisplayEdit = "display_block";
+                comments[id].DisplayComment = "display_none_2";
+            }
+            else
+            {
+                comments[id].DisplayEdit = "display_none_2";
+                comments[id].DisplayComment = "display_block";
+            }
+        }
+    }
+    /// <summary>
+    /// This function will edit comment taken from memory
+    /// </summary>
+    protected void EditComment(int id)
+    {
+        comments[id].BeenEdited = true;
+        comments[id].Message = edit_message;
+        comments[id].Name = edit_name;
+        comments[id].Posted = DateTime.Now.ToString();
+        comments[id].DisplayEdit = "display_none_2";
+        comments[id].DisplayComment = "display_block";
+
+        if (edit_img_path != "" && edit_img_path != null)
+        {
+            comments[id].ImgPath = edit_img_path;
+        }
+        else
+        {
+            comments[id].ImgPath = comments[id].ImgPath;
+        }
+
+    }
+}

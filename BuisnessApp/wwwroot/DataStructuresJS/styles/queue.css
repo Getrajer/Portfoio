@@ -1,0 +1,26 @@
+#dataStructureObjects{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 0.5em;
+}
+
+
+.data_point_container{
+    height: 200px;
+    width: 70px;
+    padding: 0 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: transparent;
+    border-radius: 0;
+    transition: 0.5s;
+}
+
+.data_point_container:hover{
+    background-color: transparent;
+    transform: translateY(-10px);
+}

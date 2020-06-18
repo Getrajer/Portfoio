@@ -1,0 +1,687 @@
+﻿@page "/CreatePost"
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/component_main_style.css" />
+    <link rel="stylesheet" href="../css/create_post_style.css" />
+</head>
+
+
+
+<div class="page_container">
+
+    <div class="component_container">
+
+        <div class="title_container">
+            <h1>Post Component</h1>
+            <div class="underline_container">
+                <div class="underline"></div>
+            </div>
+        </div>
+
+        <div class="component_description">
+            <p>
+                This component works as a post CRUD mechanism. You can edit text, graphics and so on. When implemented comment system can be added(<NavLink href="CommentsComponent">See component</NavLink>).
+            </p>
+
+            <div class="icons_created_with">
+                <div class="icon_c">
+                    <!--Html-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.08 100.02">
+                        <title>Html</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_11" data-name="Warstwa 11">
+                                <polygon class="fill_white" points="82.55 18.5 83.55 0.5 0.55 0.5 5.55 54.5 59.55 54.5 57.55 74.5 45.55 79.5 28.55 74.5 26.55 65.5 6.55 64.5 8.55 89.5 42.55 99.5 76.55 89.5 79.55 34.5 24.55 34.5 22.55 18.5 82.55 18.5" style="stroke-miterlimit: 10" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon_c">
+                    <!--CSS-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.08 100.02">
+                        <title>CSS</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_11" data-name="Warstwa 11">
+                                <polygon class="fill_white" points="0.56 0.5 83.56 0.5 82.56 19.5 43.55 34.5 80.56 34.5 76.56 89.5 42.55 99.5 8.55 89.5 6.55 64.5 26.55 64.5 26.55 72.5 40.55 79.5 57.55 74.5 58.55 54.5 5.55 54.5 3.56 34.5 42.55 19.5 2.56 19.5 0.56 0.5" style="stroke-miterlimit: 10" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon_c">
+                    <!--C#-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112.47 98.75">
+                        <title>C sharp</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_11" data-name="Warstwa 11">
+                                <path class="fill_white" d="M70,36.5l21-12C80.63,8.77,67.26,1.37,51.5.56a45.44,45.44,0,0,0-9.17.49C27.49,3.33,15.52,10.31,7.4,23.64A47,47,0,0,0,1.29,40.71,52,52,0,0,0,3.64,67.6c.22.59.46,1.19.74,1.76C11,83.09,21.1,94.1,41,97.5c11.13,1.79,22.4.72,34-7a40.65,40.65,0,0,0,16-17l-21-12a28.09,28.09,0,0,1-18,12c-7.34.8-13.47-1.76-19-6-7.8-6.52-10.27-15.45-7-27,3.7-9,10-13.54,18-15C54.76,23,63,28,70,36.5Z" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="87.97" y="41.5" width="24" height="5" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="91.97" y="37.5" width="5" height="24" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="102.97" y="37.5" width="5" height="24" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="87.97" y="52.5" width="24" height="5" style="stroke-miterlimit: 10" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon_c">
+                    <!--Blazor-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 159.26 144.76">
+                        <title>Blazor</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_12" data-name="Warstwa 12">
+                                <g>
+                                    <path class="fill_white" d="M121.68,119.5c-17.82,9.45-35.95,15-54.5,15.5-20.42.66-34.6-5.58-45-16a42.48,42.48,0,0,1-13-32c0-12.26,4.38-22.61,11-32,7.39-10.21,16.16-15.86,26-18,11.85-2.12,22.67-2.35,31,2,10.58,6.36,20.31,12.81,23,20,4.88,8.55,9,16.91,8,24,.35,7.49-1,13.91-6,18-4.45,5.54-10.33,7.8-18,6l-8-6-7.92,4.32a20.6,20.6,0,0,1-7.56,2.4,43.81,43.81,0,0,1-6.05.26,20.93,20.93,0,0,1-13.73-5.45,30.05,30.05,0,0,1-4.56-5.44A21,21,0,0,1,33,85.42c0-4.84.8-8.4,2.39-10.51.58-.76,1.18-1.49,1.7-2.3,2.65-4.12,10.33-9.72,10.7-9.94l.24-.15a20,20,0,0,1,9.32-2.85,124.91,124.91,0,0,1,12.84,0,11.82,11.82,0,0,1,8.06,3.71,6.85,6.85,0,0,1,2,3.58l1,25c5.85,8,11.55,9.44,17-1l-1-16c-.52-6.54-4.4-12.43-10-18-5.63-6-13-9.57-22-11-9.42.18-18.34,1-25,5-6.71,3.78-12.44,8.42-16,15-2.8,6.38-4.82,13-5,20,.4,6.47,1.43,12.17,4,16,7.79,10.59,16.7,19.52,30,22a76.6,76.6,0,0,0,28,0c16.2-3.43,29.76-9.53,41-18a100.27,100.27,0,0,0,28-34c4-6,6.33-14.52,8-24,1.55-7.33,1.32-15.42,0-24l-8-24c-8.36,16.43-21.22,27.65-40,32l6-24-29,17h-35C21.46,29,9.11,44.7,2.68,64c-.56,1.7-5.42,28.7-.5,42,5.89,17.15,15.08,28.41,28,33,11.49,5.29,23.87,6.62,36.73,5.27,1.34-.14,2.69-.24,4-.28,8.93-.29,18.5-3.74,28.23-8Z" />
+                                    <path class="fill_white" d="M70.18,71l1,20c-22.62,25.21-42.29-9-19-20Z" />
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        @if (isPostEdited == false) { 
+        <div class="program_container">
+            <div class="post_component">
+
+
+                <div class="add_post_button">
+                    <button @onclick="ToggleAddPost">@ToggleButtonText</button>
+                </div>
+
+                @if (AddPostChecker == true)
+                {
+                    <div class="add_post_container">
+                        <div class="add_title_container">
+                            <label>Title of post: </label>
+                            <input @bind="title" />
+                            <p class="error">@title_input_error</p>
+                        </div>
+
+                        <div class="add_paragraphs_images_container">
+                            @foreach (var o in paragraphs)
+                            {
+
+
+                                if (o.IfAddNext == true)
+                                {
+                                    <div class="new_paragraph">
+
+                                        @if (o.ImgPath != null && o.ImgPath != "" && o.ImgBeforeAfter == true)
+                                        {
+                                            <img class="img_preview" src="@o.ImgPath" alt="@o.ImageName" />
+                                        }
+
+                                        <label>Paragraph content:</label>
+
+                                        <textarea @bind="o.ParagraphText"></textarea>
+
+                                        @if (o.ImgPath != null && o.ImgPath != "" && o.ImgBeforeAfter == false)
+                                        {
+                                            <img class="img_preview" src="@o.ImgPath" alt="@o.ImageName" />
+                                        }
+
+                                        <div class="add_image_btn_container">
+                                            <button @onclick="@(e => ToggleAddImage(paragraphs[o.Id]))">@o.ImgBtnTxt</button>
+                                        </div>
+                                        @if (o.IfAddImage == true)
+                                        {
+                                            <div class="image_add_container">
+                                                <p class="text-muted">This is just a demonstration. When implemented user will be able to add image from local or server storeage.</p>
+
+
+                                                @foreach (var i in images)
+                                                {
+                                                    <label class="image_label" @onclick="@(e => ChangeImage(i, o))">
+                                                        <input type="radio" name="test" value="small" checked>
+                                                        <img src="@i.Path" alt="@i.Name">
+                                                    </label>
+                                                }
+
+                                                <div class="image_position_buttons">
+                                                    <button @onclick="@(e => AddImageAfter(paragraphs[o.Id]))">Set image before paragraph</button>
+                                                    <button @onclick="@(e => AddImageBefore(paragraphs[o.Id]))">Set image after paragraph</button>
+                                                </div>
+
+                                            </div>
+                                        }
+                                        <div class="paragraphs_add_delete_buttons_container">
+                                            @if (paragraphs[o.Id + 1].IfAddNext != true)
+                                            {
+                                                if (o.Id != 0)
+                                                {
+                                                    <button @onclick="@(e => CancelNewParagraph(paragraphs[o.Id]))">Delete Paragraph</button>
+                                                }
+
+                                                if (o.Id != NumberOfParagraphs - 1)
+                                                {
+                                                    <button @onclick="@(e => AddAnotherParagraph(paragraphs[o.Id]))">Add New Paragraph</button>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+
+                        <div class="create_post_btn_container">
+                            <button @onclick="CreateNewPost">Create Post</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        }
+
+
+        <div class="program_container">
+            <div class="all_posts_container">
+                @for(int j = POSTS.Count - 1; j >= 0; j --)
+                {
+                    var p = POSTS[j];
+
+                    if (p.IsBeeingEdited == false)
+                    {
+                        <div class="post_container">
+                            <div class="title_post">
+                                <h2>@p.PostTitle</h2>
+                                <div class="post_title_underline_container">
+                                    <div class="post_title_underline"></div>
+                                </div>
+                            </div>
+
+                            @for (int i = 0; i < p.Paragraphs.Count; i++)
+                            {
+                                if (p.Images[i].Path != "" && p.Images[i].Path != null && p.Images[i].ImgBeforeAfter == true)
+                                {
+                                    <div class="post_img_container">
+                                        <img src="@p.Images[i].Path" alt="@p.Images[i].Name" />
+                                    </div>
+                                }
+                                <div class="post_paragraph_container">
+                                    <p>@p.Paragraphs[i]</p>
+                                </div>
+                                if (p.Images[i].Path != "" && p.Images[i].Path != "" && p.Images[i].ImgBeforeAfter == false)
+                                {
+                                    <div class="post_img_container">
+                                        <img src="@p.Images[i].Path" alt="@p.Images[i].Name" />
+                                    </div>
+                                }
+                            }
+
+
+                            <div class="author_container">
+                                <div class="author_image_container">
+                                    <img src="@p.Author.ProfileImagePath" alt="@p.Author.Name" />
+                                </div>
+
+                                <div class="author_description_container">
+                                    <p><span class="green">Author:</span> @p.Author.Name</p>
+                                    <br />
+                                    <p><span class="green">Role:</span> @p.Author.AboutPerson</p>
+                                </div>
+                            </div>
+
+                            <div class="delete_post_button_container">
+                                <button @onclick="@(e =>DeletePost(p))">Delete Post</button>
+                                <button @onclick="@(e =>ToggleEditPost(p))">Edit Post</button>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="edit_post_container">
+                            <label>Title</label>
+                            <input @bind="p.PostTitle" />
+
+                            @for (int i = 0; i < p.Paragraphs.Count; i++)
+                            {
+
+                                if (p.Images[i].Path != "" && p.Images[i].Path != null && p.Images[i].ImgBeforeAfter == true)
+                                {
+                                    <div class="post_img_container">
+                                        <img src="@p.Images[i].Path" alt="@p.Images[i].Name" />
+                                    </div>
+                                }
+
+                                <label>Paragraph @(i + 1)</label>
+                                <textarea @bind="p.Paragraphs[i]"></textarea>
+                                    <p>Img Id @p.Images[i].Id</p>
+
+                                 if (p.Images[i].Path != "" && p.Images[i].Path != "" && p.Images[i].ImgBeforeAfter == false)
+                                 {
+                                    <div class="post_img_container">
+                                        <img src="@p.Images[i].Path" alt="@p.Images[i].Name" />
+                                    </div>
+                                 }
+
+                                <div class="image_add_container">
+                                <p class="text-muted">This is just a demonstration. When implemented user will be able to add image form local or server storeage.</p>
+                                <label>Add or Edit Image</label>
+                                @foreach (var img in images)
+                                {
+                                    <label class="image_label" @onclick="@(e => EditImage(img, p, 0))">
+                                        <input type="radio" name="test" value="small" checked>
+                                        <img src="@img.Path" alt="@img.Name">
+                                    </label>
+                                }
+
+                                <div class="image_position_buttons">
+                                </div>
+                            </div>
+                            }
+
+                            <button @onclick="@(e =>ToggleEditPost(p))">Finish</button>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    /// <summary>
+    /// This class is a blueprint for post object
+    /// </summary>
+    public class Post
+    {
+        public int Id { get; set; }
+        public string PostTitle { get; set; }
+        public string DatePosted { get; set; }
+        public Author Author { get; set; }
+
+        public List<Image> Images;
+        public List<string> Paragraphs;
+
+        public bool IsBeeingEdited { get; set; }
+
+        public Post()
+        {
+            Images = new List<Image>();
+            Paragraphs = new List<string>();
+        }
+
+    }
+
+    public class Author
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string AboutPerson { get; set; }
+        public string ProfileImagePath { get; set; }
+
+        public Author() { }
+    }
+
+    public class Image
+    {
+        public int Id { get; set; }
+        public string Path { get; set; }
+        public string Name { get; set; }
+        public bool ImgBeforeAfter { get; set; }
+
+        public Image() { }
+
+        public Image(int id, string path, string name)
+        {
+            this.Name = name;
+            this.Path = path;
+        }
+    }
+
+    /// <summary>
+    /// This object works as a blueprint for new paragraphs
+    /// </summary>
+    public class AddParagraph
+    {
+        public int Id { get; set; }
+        public string ParagraphText { get; set; }
+        public bool IfAddNext { get; set; }
+
+        public string ImgBtnTxt { get; set; }
+        public string ImgPath { get; set; }
+        public string ImageName { get; set; }
+        /// <summary>
+        /// If true image is before paragraph if false image is after paragraph
+        /// </summary>
+        public bool ImgBeforeAfter { get; set; }
+        public bool IfAddImage { get; set; }
+
+
+        public AddParagraph()
+        {
+            IfAddNext = false;
+            IfAddImage = false;
+            ImgBeforeAfter = true;
+            ImgBtnTxt = "Add Image";
+        }
+    }
+
+    /// <summary>
+    /// This Parameter checks if user wants to add post, if clicked it toggles the <div class="add_post_container"></div>
+    /// </summary>
+    [Parameter]
+    public bool AddPostChecker { get; set; }
+
+    /// <summary>
+    /// This string changes text for toggle add post button
+    /// </summary>
+    protected string ToggleButtonText = "Add Post";
+
+    /// <summary>
+    /// This parameter controlls how many paragraps user can create
+    /// </summary>
+    [Parameter]
+    public int NumberOfParagraphs { get; set; }
+
+    /// <summary>
+    /// This list is used to create paragraphs
+    /// </summary>
+    protected List<AddParagraph> paragraphs = new List<AddParagraph>();
+
+    /// <summary>
+    /// This is mock data list for images
+    /// </summary>
+    protected List<Image> images = new List<Image>();
+
+    protected List<Post> POSTS = new List<Post>();
+
+    /// <summary>
+    /// Variable for author input
+    /// </summary>
+    protected string author = "";
+
+    /// <summary>
+    /// Variable for title imput
+    /// </summary>
+    protected string title = "";
+
+    /// <summary>
+    /// This is mock data item for author
+    /// </summary>
+    protected Author example_author;
+
+
+    //Variables for error checking of user input
+    /// <summary>
+    /// Error message for title input
+    /// </summary>
+    protected string title_input_error = "";
+
+    protected bool isPostEdited = false;
+    protected string edit_post_btn = "Edit Post";
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        //Add post is set to false as deflaut and should be always like that
+        AddPostChecker = false;
+
+        //For this example number of Paragraps is set to 10 (Delete deflaut value when implementing)
+        NumberOfParagraphs = 10;
+
+        //This loop will create number of slots for creating new paragraphs
+        for(int i = 0; i <= NumberOfParagraphs; i++)
+        {
+            AddParagraph p = new AddParagraph();
+            p.Id = i;
+
+            //Always first object set to true
+            if(p.Id == 0)
+            {
+                p.IfAddNext = true;
+            }
+
+            paragraphs.Add(p);
+        }
+
+
+        //Mock img data
+        Image i1 = new Image(0, "../images/article_img_1.jpg", "TechAbstract");
+        Image i2 = new Image(1,"../images/article_img_2.jpg", "AI");
+
+        images.Add(i1);
+        images.Add(i2);
+
+        //Mock data for the Author
+        //When implemented add connection to user base with author autorisation
+        example_author = new Author();
+        example_author.Id = 0;
+        example_author.Name = "Dave";
+        example_author.AboutPerson = "Software Engeenier";
+        example_author.ProfileImagePath = "../CommentsImages/2.png";
+
+        //Mock Data for the example post
+
+        Image mockI1 = images[0];
+        Image mockI2 = images[1
+            ];
+
+        Post mock_post = new Post();
+
+        mock_post.Id = 0;
+        mock_post.Author = example_author;
+        mock_post.DatePosted = "02.03.2020";
+        mock_post.PostTitle = "Technology Today !";
+        mock_post.Images.Add(mockI1);
+        mock_post.Images.Add(mockI2);
+        mock_post.Images[0].Id = 0;
+        mock_post.Images[1].Id = 1;
+
+        mock_post.Paragraphs.Add("Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n Praesent at urna vitae sapien finibus pretium. Mauris volutpat suscipit tristique.\n\n Suspendisse vel velit turpis.\n Aliquam neque purus, pellentesque sit amet velit in, imperdiet aliquet nisl. In sed aliquam odio, vel dapibus arcu.\n\n Morbi dapibus metus ac dui suscipit rutrum. Sed elementum, erat ac sodales fermentum, eros nisl consequat nisi, eget rhoncus lectus dui quis dolor. Pellentesque fermentum erat non ultricies sagittis. Donec efficitur, quam at consequat interdum, ante orci eleifend erat, aliquet posuere nunc mi condimentum purus. Sed vel pulvinar nunc, eu cursus est. Vivamus condimentum malesuada nulla, a tincidunt dolor viverra sed. Morbi tincidunt consectetur vestibulum. Sed elementum volutpat sodales.\n\n" +
+
+            "Ut porta nec nibh sit amet finibus. Etiam faucibus lorem quis leo luctus congue. Ut sit amet imperdiet augue.\n Fusce bibendum justo auctor pellentesque viverra. Vestibulum sed bibendum massa, varius bibendum est. Proin lacinia sollicitudin nisi nec porttitor. Cras sed massa viverra, ornare lorem sit amet, scelerisque purus. Praesent ut eros diam. Aenean in fermentum felis. Mauris pretium nisl id fringilla euismod." +
+
+            "Phasellus eget ex eget ex tristique scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n\n Donec imperdiet turpis quam, posuere posuere magna scelerisque in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc efficitur tempus efficitur. Mauris efficitur, eros eget ornare dictum, purus ipsum semper orci, non auctor arcu augue sit amet mauris. Nunc vitae convallis turpis. Proin feugiat, urna ac fringilla facilisis, turpis mauris faucibus ipsum, non mollis augue tellus at velit. Donec nec consectetur est. Fusce ac eros erat. Proin et odio odio. Cras porta pellentesque libero sit amet maximus.\n\n"
+            );
+        mock_post.Paragraphs.Add("Maecenas vel efficitur nunc. Sed scelerisque urna purus, id commodo urna dapibus non. Donec non interdum diam, eget fringilla lectus. Sed iaculis luctus velit, id accumsan nisl consectetur sit amet.\n\n Proin lacinia ex ligula, in pellentesque arcu bibendum eu. Phasellus dictum malesuada diam eu molestie. Proin mauris leo, maximus ut quam vitae, scelerisque ultricies purus. Sed tempus, nunc nec pulvinar semper, diam massa maximus ipsum, nec fermentum sapien est nec eros. Donec vehicula magna mauris, nec placerat libero egestas imperdiet.\n\n Aliquam erat volutpat. Praesent laoreet velit congue tortor faucibus interdum.\n\n");
+
+        POSTS.Add(mock_post);
+    }
+
+    /// <summary>
+    /// This function toggles Add Post section
+    /// </summary>
+    public void ToggleAddPost()
+    {
+        //Reset Variables
+        title = "";
+        author = "";
+
+        if(AddPostChecker == false)
+        {
+            AddPostChecker = true;
+            ToggleButtonText = "Cancel";
+        }
+        else if(AddPostChecker == true)
+        {
+            AddPostChecker = false;
+            ToggleButtonText = "Add Post";
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="p"></param>
+    public void AddAnotherParagraph(AddParagraph p)
+    {
+        if(p.Id < NumberOfParagraphs - 1)
+        {
+            paragraphs[p.Id + 1].IfAddNext = true;
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="p"></param>
+    public void CancelNewParagraph(AddParagraph p)
+    {
+        if(p.Id != 0)
+        {
+            p.IfAddNext = false;
+            p.ImageName = "";
+            p.ImgPath = "";
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="p"></param>
+    public void AddImageBefore(AddParagraph p)
+    {
+        if(p.ImgBeforeAfter == true)
+        {
+            p.ImgBeforeAfter = false;
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="p"></param>
+    public void AddImageAfter(AddParagraph p)
+    {
+        if(p.ImgBeforeAfter == false)
+        {
+            p.ImgBeforeAfter = true;
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="i"></param>
+    /// <param name="p"></param>
+    public void ChangeImage(Image i, AddParagraph p)
+    {
+        p.ImgPath = i.Path;
+        p.ImageName = i.Name;
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="p"></param>
+    public void ToggleAddImage(AddParagraph p)
+    {
+        if(p.IfAddImage == false)
+        {
+            p.IfAddImage = true;
+            p.ImgBtnTxt = "Cancel adding image";
+        }
+        else
+        {
+            p.IfAddImage = false;
+            p.ImageName = "";
+            p.ImgPath = "";
+            p.ImgBtnTxt = "Add Image";
+        }
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void CreateNewPost()
+    {
+        //Reset variables
+        title_input_error = "";
+
+        if(title.Length < 5)
+        {
+            title_input_error = "Title needs to be at least 5 characters long!";
+        }
+        else
+        {
+            Post post = new Post();
+            //Example author implementation
+            post.Author = example_author;
+            post.PostTitle = title;
+
+            for(int i = 0; i < paragraphs.Count - 1; i++)
+            {
+                if(paragraphs[i].IfAddNext == true)
+                {
+                    Image image = new Image();
+                    image.Id = i;
+                    image.ImgBeforeAfter = paragraphs[i].ImgBeforeAfter;
+                    image.Name = paragraphs[i].ImageName;
+                    image.Path = paragraphs[i].ImgPath;
+
+                    post.Paragraphs.Add(paragraphs[i].ParagraphText);
+                    post.Images.Add(image);
+                }
+            }
+            POSTS.Add(post);
+
+            //This loop and methods will reset data for the input
+            paragraphs.Clear();
+            title = "";
+            ToggleButtonText = "Add Post";
+            AddPostChecker = false;
+            for(int i = 0; i <= NumberOfParagraphs; i++)
+            {
+                AddParagraph p = new AddParagraph();
+                p.Id = i;
+
+                //Always first object set to true
+                if(p.Id == 0)
+                {
+                    p.IfAddNext = true;
+                }
+
+                paragraphs.Add(p);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="post"></param>
+    public void DeletePost(Post post)
+    {
+        POSTS.RemoveAt(post.Id);
+
+        //Reset Id
+        if(POSTS.Count != 0)
+        {
+            for(int i = 0; i < POSTS.Count; i++)
+            {
+                POSTS[i].Id = i;
+            }
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="post"></param>
+    public void ToggleEditPost(Post post)
+    {
+        if(post.IsBeeingEdited == false)
+        {
+            post.IsBeeingEdited = true;
+            isPostEdited = true;
+        }
+        else if(post.IsBeeingEdited == true)
+        {
+            post.IsBeeingEdited = false;
+            isPostEdited = false;
+        }
+    }
+
+    protected string test = "Test";
+
+    public void EditImage(Image img, Post post, int img_id)
+    {
+        test = post.Images[img_id].Path;
+    }
+
+}

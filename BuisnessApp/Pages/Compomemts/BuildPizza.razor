@@ -1,0 +1,618 @@
+﻿@page "/BuildPizza"
+
+<head>
+    <link rel="stylesheet" href="../css/component_main_style.css" />
+    <link rel="stylesheet" href="../css/pizza_build_style.css" />
+</head>
+
+
+<div class="page_container">
+
+    <div class="component_container">
+
+        <div class="title_container">
+            <h1>Pizza Component</h1>
+            <div class="underline_container">
+                <div class="underline"></div>
+            </div>
+        </div>
+
+        <div class="component_description">
+            <p>
+                This component works as a custom order with viusualization change. This type of component can be implemented and changed with any other type of food or drink.
+            </p>
+
+            <div class="icons_created_with">
+                <div class="icon_c">
+                    <!--Html-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.08 100.02">
+                        <title>Html</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_11" data-name="Warstwa 11">
+                                <polygon class="fill_white" points="82.55 18.5 83.55 0.5 0.55 0.5 5.55 54.5 59.55 54.5 57.55 74.5 45.55 79.5 28.55 74.5 26.55 65.5 6.55 64.5 8.55 89.5 42.55 99.5 76.55 89.5 79.55 34.5 24.55 34.5 22.55 18.5 82.55 18.5" style="stroke-miterlimit: 10" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon_c">
+                    <!--CSS-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.08 100.02">
+                        <title>CSS</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_11" data-name="Warstwa 11">
+                                <polygon class="fill_white" points="0.56 0.5 83.56 0.5 82.56 19.5 43.55 34.5 80.56 34.5 76.56 89.5 42.55 99.5 8.55 89.5 6.55 64.5 26.55 64.5 26.55 72.5 40.55 79.5 57.55 74.5 58.55 54.5 5.55 54.5 3.56 34.5 42.55 19.5 2.56 19.5 0.56 0.5" style="stroke-miterlimit: 10" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon_c">
+                    <!--C#-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112.47 98.75">
+                        <title>C sharp</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_11" data-name="Warstwa 11">
+                                <path class="fill_white" d="M70,36.5l21-12C80.63,8.77,67.26,1.37,51.5.56a45.44,45.44,0,0,0-9.17.49C27.49,3.33,15.52,10.31,7.4,23.64A47,47,0,0,0,1.29,40.71,52,52,0,0,0,3.64,67.6c.22.59.46,1.19.74,1.76C11,83.09,21.1,94.1,41,97.5c11.13,1.79,22.4.72,34-7a40.65,40.65,0,0,0,16-17l-21-12a28.09,28.09,0,0,1-18,12c-7.34.8-13.47-1.76-19-6-7.8-6.52-10.27-15.45-7-27,3.7-9,10-13.54,18-15C54.76,23,63,28,70,36.5Z" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="87.97" y="41.5" width="24" height="5" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="91.97" y="37.5" width="5" height="24" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="102.97" y="37.5" width="5" height="24" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="87.97" y="52.5" width="24" height="5" style="stroke-miterlimit: 10" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon_c">
+                    <!--Blazor-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 159.26 144.76">
+                        <title>Blazor</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_12" data-name="Warstwa 12">
+                                <g>
+                                    <path class="fill_white" d="M121.68,119.5c-17.82,9.45-35.95,15-54.5,15.5-20.42.66-34.6-5.58-45-16a42.48,42.48,0,0,1-13-32c0-12.26,4.38-22.61,11-32,7.39-10.21,16.16-15.86,26-18,11.85-2.12,22.67-2.35,31,2,10.58,6.36,20.31,12.81,23,20,4.88,8.55,9,16.91,8,24,.35,7.49-1,13.91-6,18-4.45,5.54-10.33,7.8-18,6l-8-6-7.92,4.32a20.6,20.6,0,0,1-7.56,2.4,43.81,43.81,0,0,1-6.05.26,20.93,20.93,0,0,1-13.73-5.45,30.05,30.05,0,0,1-4.56-5.44A21,21,0,0,1,33,85.42c0-4.84.8-8.4,2.39-10.51.58-.76,1.18-1.49,1.7-2.3,2.65-4.12,10.33-9.72,10.7-9.94l.24-.15a20,20,0,0,1,9.32-2.85,124.91,124.91,0,0,1,12.84,0,11.82,11.82,0,0,1,8.06,3.71,6.85,6.85,0,0,1,2,3.58l1,25c5.85,8,11.55,9.44,17-1l-1-16c-.52-6.54-4.4-12.43-10-18-5.63-6-13-9.57-22-11-9.42.18-18.34,1-25,5-6.71,3.78-12.44,8.42-16,15-2.8,6.38-4.82,13-5,20,.4,6.47,1.43,12.17,4,16,7.79,10.59,16.7,19.52,30,22a76.6,76.6,0,0,0,28,0c16.2-3.43,29.76-9.53,41-18a100.27,100.27,0,0,0,28-34c4-6,6.33-14.52,8-24,1.55-7.33,1.32-15.42,0-24l-8-24c-8.36,16.43-21.22,27.65-40,32l6-24-29,17h-35C21.46,29,9.11,44.7,2.68,64c-.56,1.7-5.42,28.7-.5,42,5.89,17.15,15.08,28.41,28,33,11.49,5.29,23.87,6.62,36.73,5.27,1.34-.14,2.69-.24,4-.28,8.93-.29,18.5-3.74,28.23-8Z" />
+                                    <path class="fill_white" d="M70.18,71l1,20c-22.62,25.21-42.29-9-19-20Z" />
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="program_container">
+            <div id="pizza_app_container">
+                <div class="row">
+
+                    <div class="col-lg-5">
+                        <div class="choice_container">
+
+                            <div class="choice_title_container">
+                                <h2>Choose size</h2>
+                                <div class="line_container">
+                                    <div class="line"></div>
+                                </div>
+                            </div>
+
+                            <div class="sizes_container">
+                                <div class="option">
+                                    <button class="choice_button" @onclick="First">@firstbtn</button> 10 Inches - £10
+                                </div>
+                                <div class="option">
+                                    <button class="choice_button" @onclick="Second">@secondbtn</button> 12 Inches - £12
+                                </div>
+                                <div class="option">
+                                    <button class="choice_button" @onclick="Third">@thirdbtn</button>  14 Inches - £14
+                                </div>
+                                <div class="option">
+                                    <button class="choice_button" @onclick="Fourth">@fourthbtn</button> 18 Inches - £18
+                                </div>
+                            </div>
+
+
+                            <div class="topping_options_container">
+                                <div class="choice_title_container">
+                                    <h2>Choose Toppings</h2>
+                                    <div class="line_container">
+                                        <div class="line"></div>
+                                    </div>
+                                </div>
+
+                                <div class="option">
+                                    <button class="choice_button" @onclick="Mashroom">@mashroombtn</button> $2 Add Mashroom
+                                </div>
+                                <div class="option">
+                                    <button class="choice_button" @onclick="Chicken">@chickenbtn</button> £5 Add Chicken
+                                </div>
+                                <div class="option">
+                                    <button class="choice_button" @onclick="Peperoni">@peperonibtn</button>  £4 Add Peperoni
+                                </div>
+                                <div class="option">
+                                    <button class="choice_button" @onclick="Olives">@olivesbtn</button> £1 Add Olives
+                                </div>
+                                <div class="option">
+                                    <button class="choice_button" @onclick="Pepper">@pepperbtn</button> £2 Add Pepper
+                                </div>
+                                <div class="option">
+                                    <button class="choice_button" @onclick="Onion">@onionbtn</button> £2 Add Onion
+                                </div>
+                                <div class="option">
+                                    <button class="choice_button" @onclick="Ham">@hambtn</button> £4 Add Ham
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chart">
+                            <div class="choice_title_container">
+                                <h2>To Pay</h2>
+                                <div class="line_container">
+                                    <div class="line"></div>
+                                </div>
+                            </div>
+                            <div class="total">
+                                In total to pay: £@pizza.Total
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <div class="pizza_container">
+                            <div class="pizza">
+                                <div class="peperoni peperoni_1 @addMenuCss_peperoni"></div>
+                                <div class="peperoni peperoni_2 @addMenuCss_peperoni"></div>
+                                <div class="peperoni peperoni_3 @addMenuCss_peperoni"></div>
+                                <div class="peperoni peperoni_4 @addMenuCss_peperoni"></div>
+                                <div class="peperoni peperoni_5 @addMenuCss_peperoni"></div>
+                                <div class="peperoni peperoni_6 @addMenuCss_peperoni"></div>
+                                <div class="peperoni peperoni_7 @addMenuCss_peperoni"></div>
+                                <div class="peperoni peperoni_8 @addMenuCss_peperoni"></div>
+
+                                <div class="chicken chicken_1 @addMenuCss_chicken"></div>
+                                <div class="chicken chicken_2 @addMenuCss_chicken"></div>
+                                <div class="chicken chicken_3 @addMenuCss_chicken"></div>
+                                <div class="chicken chicken_4 @addMenuCss_chicken"></div>
+                                <div class="chicken chicken_5 @addMenuCss_chicken"></div>
+                                <div class="chicken chicken_6 @addMenuCss_chicken"></div>
+                                <div class="chicken chicken_7 @addMenuCss_chicken"></div>
+                                <div class="chicken chicken_8 @addMenuCss_chicken"></div>
+
+                                <div class="peper peper_1 @addMenuCss_pepper"></div>
+                                <div class="peper peper_2 @addMenuCss_pepper"></div>
+                                <div class="peper peper_3 @addMenuCss_pepper"></div>
+                                <div class="peper peper_4 @addMenuCss_pepper"></div>
+                                <div class="peper peper_5 @addMenuCss_pepper"></div>
+                                <div class="peper peper_6 @addMenuCss_pepper"></div>
+                                <div class="peper peper_7 @addMenuCss_pepper"></div>
+                                <div class="peper peper_8 @addMenuCss_pepper"></div>
+
+                                <div class="mashroom mashroom_1 @addMenuCss_mashroom"></div>
+                                <div class="mashroom mashroom_2 @addMenuCss_mashroom"></div>
+                                <div class="mashroom mashroom_3 @addMenuCss_mashroom"></div>
+                                <div class="mashroom mashroom_4 @addMenuCss_mashroom"></div>
+                                <div class="mashroom mashroom_5 @addMenuCss_mashroom"></div>
+                                <div class="mashroom mashroom_6 @addMenuCss_mashroom"></div>
+                                <div class="mashroom mashroom_7 @addMenuCss_mashroom"></div>
+                                <div class="mashroom mashroom_8 @addMenuCss_mashroom"></div>
+
+                                <div class="ham ham_1 @addMenuCss_ham"></div>
+                                <div class="ham ham_2 @addMenuCss_ham"></div>
+                                <div class="ham ham_3 @addMenuCss_ham"></div>
+                                <div class="ham ham_4 @addMenuCss_ham"></div>
+                                <div class="ham ham_5 @addMenuCss_ham"></div>
+                                <div class="ham ham_6 @addMenuCss_ham"></div>
+                                <div class="ham ham_7 @addMenuCss_ham"></div>
+                                <div class="ham ham_8 @addMenuCss_ham"></div>
+
+                                <div class="onion onion_1 @addMenuCss_onion"></div>
+                                <div class="onion onion_2 @addMenuCss_onion"></div>
+                                <div class="onion onion_3 @addMenuCss_onion"></div>
+                                <div class="onion onion_4 @addMenuCss_onion"></div>
+                                <div class="onion onion_5 @addMenuCss_onion"></div>
+                                <div class="onion onion_6 @addMenuCss_onion"></div>
+                                <div class="onion onion_7 @addMenuCss_onion"></div>
+                                <div class="onion onion_8 @addMenuCss_onion"></div>
+
+                                <div class="olives olives_1 @addMenuCss_olives"></div>
+                                <div class="olives olives_2 @addMenuCss_olives"></div>
+                                <div class="olives olives_3 @addMenuCss_olives"></div>
+                                <div class="olives olives_4 @addMenuCss_olives"></div>
+                                <div class="olives olives_5 @addMenuCss_olives"></div>
+                                <div class="olives olives_6 @addMenuCss_olives"></div>
+                                <div class="olives olives_7 @addMenuCss_olives"></div>
+                                <div class="olives olives_8 @addMenuCss_olives"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@code {
+    public class Pizza
+        {
+            //Declaring class sizes price
+            public int FirstSizePrice  { get; set; }
+            public int SecondSizePrice { get; set; }
+            public int ThirdSizePrice { get; set; }
+            public int FourthSizePrice { get; set; }
+            //Declaring class toppings prices
+            public int MashroomPrice { get; set; }
+            public int ChickenPrice { get; set; }
+            public int PeperoniPrice { get; set; }
+            public int OlivesPrice { get; set; }
+            public int PepperPrice { get; set; }
+            public int OnionPrice { get; set; }
+            public int HamPrice { get; set; }
+            //Declaring total price
+            public int Total { get; set; }
+
+            public Pizza()
+            {
+                FirstSizePrice = 10;
+                SecondSizePrice = 12;
+                ThirdSizePrice = 14;
+                FourthSizePrice = 18;
+
+                MashroomPrice = 2;
+                ChickenPrice = 5;
+                PeperoniPrice = 4;
+                OlivesPrice = 1;
+                PepperPrice = 2;
+                OnionPrice = 2;
+                HamPrice = 4;
+            }
+        }
+
+        //Declaring pizza
+        protected Pizza pizza = new Pizza();
+
+        //Total price
+        protected int totalPrice = 0;
+
+        //Mashroom
+        protected string mashroombtn = "";
+        protected string mashroomClass = "";
+
+        protected bool collapse_mashroom = true;
+        protected string addMenuCss_mashroom => collapse_mashroom ? "toggle" : null;
+
+        public async void Mashroom()
+        {
+            collapse_mashroom = !collapse_mashroom;
+
+            if (mashroombtn == "X")
+            {
+                pizza.Total -= pizza.MashroomPrice;
+                mashroombtn = "";
+            }
+            else
+            {
+                pizza.Total += pizza.MashroomPrice;
+                mashroombtn = "X";
+            }
+        }
+        //////////////////////////////////////////////////////////////////
+
+        //Chicken
+        protected string chickenbtn = "";
+        protected string chickenClass = "";
+
+        protected bool collapse_chicken = true;
+        protected string addMenuCss_chicken => collapse_chicken ? "toggle" : null;
+
+        public async void Chicken()
+        {
+            collapse_chicken = !collapse_chicken;
+
+            if (chickenbtn == "X")
+            {
+                pizza.Total -= pizza.ChickenPrice;
+                chickenbtn = "";
+            }
+            else
+            {
+                pizza.Total += pizza.ChickenPrice;
+                chickenbtn = "X";
+            }
+        }
+        //////////////////////////////////////////////////////////////////
+
+
+        //Peperoni
+        protected string peperonibtn = "";
+        protected string peperoniClass = "";
+
+        protected bool collapse_peperoni = true;
+        protected string addMenuCss_peperoni => collapse_peperoni ? "toggle" : null;
+
+        public async void Peperoni()
+        {
+            collapse_peperoni = !collapse_peperoni;
+
+            if (peperonibtn == "X")
+            {
+                pizza.Total -= pizza.PeperoniPrice;
+                peperonibtn = "";
+            }
+            else
+            {
+                pizza.Total += pizza.PeperoniPrice;
+                peperonibtn = "X";
+            }
+        }
+        //////////////////////////////////////////////////////////////////
+
+        //Olives
+        protected string olivesbtn = "";
+        protected string olivesClass = "";
+
+        protected bool collapse_olives = true;
+        protected string addMenuCss_olives => collapse_olives ? "toggle" : null;
+
+        public async void Olives()
+        {
+            collapse_olives = !collapse_olives;
+
+            if (olivesbtn == "X")
+            {
+                pizza.Total -= pizza.OlivesPrice;
+                olivesbtn = "";
+            }
+            else
+            {
+                pizza.Total += pizza.OlivesPrice;
+                olivesbtn = "X";
+            }
+        }
+        //////////////////////////////////////////////////////////////////
+
+        //Pepper
+        protected string pepperbtn = "";
+        protected string pepperClass = "";
+
+        protected bool collapse_pepper = true;
+        protected string addMenuCss_pepper => collapse_pepper ? "toggle" : null;
+
+        public async void Pepper()
+        {
+            collapse_pepper = !collapse_pepper;
+
+            if (pepperbtn == "X")
+            {
+                pizza.Total -= pizza.PepperPrice;
+                pepperbtn = "";
+            }
+            else
+            {
+                pizza.Total += pizza.PepperPrice;
+                pepperbtn = "X";
+            }
+        }
+        //////////////////////////////////////////////////////////////////
+
+        //Onion
+        protected string onionbtn = "";
+        protected string onionClass = "";
+
+        protected bool collapse_onion = true;
+        protected string addMenuCss_onion => collapse_onion ? "toggle" : null;
+
+        public async void Onion()
+        {
+            collapse_onion = !collapse_onion;
+
+            if (onionbtn == "X")
+            {
+                pizza.Total -= pizza.OnionPrice;
+                onionbtn = "";
+            }
+            else
+            {
+                pizza.Total += pizza.OnionPrice;
+                onionbtn = "X";
+            }
+        }
+        //////////////////////////////////////////////////////////////////
+
+        //Ham
+        protected string hambtn = "";
+        protected string hamClass = "";
+
+        protected bool collapse_ham = true;
+        protected string addMenuCss_ham => collapse_ham ? "toggle" : null;
+
+        public async void Ham()
+        {
+            collapse_ham = !collapse_ham;
+
+            if (hambtn == "X")
+            {
+                pizza.Total -= pizza.HamPrice;
+                hambtn = "";
+            }
+            else
+            {
+                pizza.Total += pizza.HamPrice;
+                hambtn = "X";
+            }
+        }
+        //////////////////////////////////////////////////////////////////
+
+        //Sizes
+
+        //First Size
+        protected string firstbtn = "";
+        protected string firstClass = "";
+
+        public async void First()
+        {
+            if (firstbtn == "X")
+            {
+                pizza.Total -= pizza.FirstSizePrice;
+                firstbtn = "";
+            }
+            else
+            {
+                if(secondbtn == "X")
+                {
+                    pizza.Total -= pizza.SecondSizePrice;
+                    secondbtn = "";
+                    pizza.Total += pizza.FirstSizePrice;
+                    firstbtn = "X";
+                }
+                else if (thirdbtn == "X")
+                {
+                    pizza.Total -= pizza.ThirdSizePrice;
+                    thirdbtn = "";
+                    pizza.Total += pizza.FirstSizePrice;
+                    firstbtn = "X";
+                }
+                else if (fourthbtn == "X")
+                {
+                    pizza.Total -= pizza.FourthSizePrice;
+                    fourthbtn = "";
+                    pizza.Total += pizza.FirstSizePrice;
+                    firstbtn = "X";
+                }
+                else
+                {
+                    pizza.Total += pizza.FirstSizePrice;
+                    firstbtn = "X";
+                }
+            }
+        }
+        //////////////////////////////////////////////////////////////////
+        //Second Size
+        protected string secondbtn = "";
+        protected string secondClass = "";
+
+        public async void Second()
+        {
+
+            if (secondbtn == "X")
+            {
+                pizza.Total -= pizza.SecondSizePrice;
+                secondbtn = "";
+            }
+            else
+            {
+                if (firstbtn == "X")
+                {
+                    pizza.Total -= pizza.FirstSizePrice;
+                    firstbtn = "";
+                    pizza.Total += pizza.SecondSizePrice;
+                    secondbtn = "X";
+                }
+                else if (thirdbtn == "X")
+                {
+                    pizza.Total -= pizza.ThirdSizePrice;
+                    thirdbtn = "";
+                    pizza.Total += pizza.SecondSizePrice;
+                    secondbtn = "X";
+                }
+                else if (fourthbtn == "X")
+                {
+                    pizza.Total -= pizza.FourthSizePrice;
+                    fourthbtn = "";
+                    pizza.Total += pizza.SecondSizePrice;
+                    secondbtn = "X";
+                }
+                else
+                {
+                    pizza.Total += pizza.SecondSizePrice;
+                    secondbtn = "X";
+                }
+            }
+        }
+        //////////////////////////////////////////////////////////////////
+        //Third Size
+        protected string thirdbtn = "";
+        protected string thirdClass = "";
+
+
+        public async void Third()
+        {
+
+            if (thirdbtn == "X")
+            {
+                pizza.Total -= pizza.ThirdSizePrice;
+                thirdbtn = "";
+            }
+            else
+            {
+                if (firstbtn == "X")
+                {
+                    pizza.Total -= pizza.FirstSizePrice;
+                    firstbtn = "";
+                    pizza.Total += pizza.ThirdSizePrice;
+                    thirdbtn = "X";
+                }
+                else if (secondbtn == "X")
+                {
+                    pizza.Total -= pizza.SecondSizePrice;
+                    secondbtn = "";
+                    pizza.Total += pizza.ThirdSizePrice;
+                    thirdbtn = "X";
+                }
+                else if (fourthbtn == "X")
+                {
+                    pizza.Total -= pizza.FourthSizePrice;
+                    fourthbtn = "";
+                    pizza.Total += pizza.ThirdSizePrice;
+                    thirdbtn = "X";
+                }
+                else
+                {
+                    pizza.Total += pizza.ThirdSizePrice;
+                    thirdbtn = "X"; ;
+                }
+            }
+        }
+        //////////////////////////////////////////////////////////////////
+        //Fourth Size
+        protected string fourthbtn = "";
+        protected string fourthClass = "";
+
+        public async void Fourth()
+        {
+
+            if (fourthbtn == "X")
+            {
+                pizza.Total -= pizza.FourthSizePrice;
+                fourthbtn = "";
+            }
+            else
+            {
+                if (firstbtn == "X")
+                {
+                    pizza.Total -= pizza.FirstSizePrice;
+                    firstbtn = "";
+                    pizza.Total += pizza.FourthSizePrice;
+                    fourthbtn = "X";
+                }
+                else if (secondbtn == "X")
+                {
+                    pizza.Total -= pizza.SecondSizePrice;
+                    secondbtn = "";
+                    pizza.Total += pizza.FourthSizePrice;
+                    fourthbtn = "X";
+                }
+                else if (thirdbtn == "X")
+                {
+                    pizza.Total -= pizza.ThirdSizePrice;
+                    thirdbtn = "";
+                    pizza.Total += pizza.FourthSizePrice;
+                    fourthbtn = "X";
+                }
+                else
+                {
+                    pizza.Total += pizza.FourthSizePrice;
+                    fourthbtn = "X";
+                }
+            }
+        }
+        //////////////////////////////////////////////////////////////////
+}

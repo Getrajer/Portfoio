@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(../images/r-p-s/back.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.menu{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0.356);
+}
+
+.menu_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+    width: 100%;
+    max-width: 1600px;
+}
+
+.link_c{
+    text-align: center;
+    a{
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        text-transform: uppercase;
+        font-weight: 800;
+        text-decoration: none;
+        font-size: 3rem;
+        padding: 1em;
+        transition: 0.5s;
+        display: block;
+
+        &:hover{
+            background-color: rgba(112, 0, 134, 0.842);
+        }
+    }
+}

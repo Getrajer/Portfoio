@@ -1,0 +1,382 @@
+﻿body {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(../images/math_plain_background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-size: cover;
+}
+
+nav{
+    display:none;
+}
+
+.main{
+    display:flex;
+    justify-content:center;
+}
+
+.content{
+    max-width: 1400px;
+    min-height:100vh;
+}
+
+.component_container{
+    padding: 8em 5em;
+}
+
+
+h2{
+    font-size: 2.7rem;
+    font-weight: 900;
+    margin: 1em 0;
+    text-align:center;
+    text-transform: uppercase;
+}
+
+p{
+    font-size: 1.5rem;
+    margin: 0.5em 0;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1em 0;
+}
+
+
+.bacground {
+    color: white;
+    width: 100%;
+    padding: 5em 3em;
+}
+
+.program_container {
+    background-color: rgba(42, 42, 42, 0.90);
+    padding: 2em;
+}
+
+
+
+.heading_container h2 {
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+.heading_container h3 {
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.calculation_container {
+    background-color: rgba(42, 42, 42, 0.90);
+    padding: 2em;
+}
+
+.theory_container {
+    background-color: rgba(42, 42, 42, 0.90);
+    padding: 2em;
+}
+
+.pattern_container{
+    padding:1em 0;
+}
+
+.pattern_container .eqation-underline-container {
+    padding: 0.3em 30%;
+}
+
+.eqation-underline-container {
+    width: 100%;
+}
+
+.eqation-underline-container .underline{
+    height: 1px;
+    width: 100%;
+    background-color: white;
+}
+
+.pattern_explain {
+    padding: 0.5em 0;
+}
+
+.function_container {
+    padding: 2em;
+    background-color: rgba(42, 42, 42, 0.90);
+}
+
+.description_function {
+    padding: 1em 0;
+}
+
+.input_container{
+    padding: 2em 0;
+}
+
+input {
+    border-radius: 9px;
+    background: #2f2f2f;
+    box-shadow: 20px 20px 60px #282828,
+        -20px -20px 60px #363636;
+    color: white;
+    border: none;
+    padding: 0.1em;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+    margin-right: 0.3em;
+    transition: all 0.5s;
+}
+
+input:focus{
+    border-radius: 9px;
+    background: #393939;
+    outline:unset;
+    box-shadow:  -10px -10px 20px #363636, 
+             10px 10px 20px #282828;
+}
+
+
+.btn {
+    border-radius: 9px;
+    background: #2f2f2f;
+    box-shadow: 20px 20px 60px #282828, -20px -20px 60px #363636;
+    color: white;
+    padding: 0.3em;
+    font-weight: 800;
+    border:unset;
+    font-size: 1.3rem;
+    transition: 0.1s all ease;
+    margin-right: 0.3em;
+    transition: 0.5s all;
+}
+
+.btn:hover{
+    border-radius: 9px;
+    background: #393939;
+    outline:unset;
+    border: unset;
+    box-shadow: 20px 20px 60px #282828,
+        -20px -20px 60px #363636;
+    color:white;
+
+}
+
+.btn:active {
+    border-radius: 9px;
+    background: #393939;
+    outline:unset;
+    border: unset;
+    box-shadow:  -10px -10px 20px #363636, 
+             10px 10px 20px #282828;
+    color:white;
+}
+
+
+.calculation {
+    background-color: rgba(42, 42, 42, 0.90);
+    min-height: 400px;
+    padding: 3em 1em;
+    margin-top: 2em;
+    font-size: 1.3rem;
+}
+
+
+.input_container{
+    padding-bottom:3em;
+}
+
+.result_container{
+    padding-top:3em;
+}
+
+
+.calc_info_txt{
+    padding: 1em 0;
+}
+
+.result_text {
+    border-radius: 0;
+    background: #2f2f2f;
+    box-shadow: 20px 20px 60px #282828, -20px -20px 60px #363636;
+    display: block;
+    margin-top: 3em;
+    width: auto;
+    text-align: center;
+    padding: 0.3em;
+    transition: 0.5s;
+}
+
+.result_text:hover{
+    transform: translateY(-5px);
+}
+
+#Sigma {
+    margin-bottom: 0.3em;
+    fill:white;
+}
+
+
+.button-container{
+    padding: 1em 0;
+}
+
+.input_box{
+    padding: 1em 0;
+}
+
+.input_box label{
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding: 0 2em 0 0;
+}
+
+.input_decimal:focus + .input_decimal_txt::after {
+    content: "Use (,) for decimal";
+    font-size:0.8rem;
+    font-weight:500;
+}
+
+.calculation_table {
+    padding: 0 13em;
+}
+
+.table_calc {
+    width: 100%;
+    color: white;
+    font-weight: 600;
+}
+
+tr {
+    border: none;
+    padding: 1em;
+}
+
+td, th {
+    padding: 1em;
+}
+
+.data_title {
+    border-radius: 0;
+    background: #2f2f2f;
+    box-shadow: 20px 20px 60px #282828, -20px -20px 60px #363636;
+    padding: 0.5em;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.data {
+    border-radius: 0;
+    background: #2f2f2f;
+    box-shadow: 20px 20px 60px #282828, -20px -20px 60px #363636;
+    padding: 0.5em;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.5s;
+    text-align: center;
+}
+
+.data:hover{
+    background: #373737;
+    transform: translateY(-5px);
+}
+
+.formula_container{
+    padding:3em 2em;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+
+.variables_container {
+    margin-top: 2em;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+@media screen and (max-width: 1700px) {
+    .calculation_table {
+        padding: 0 10em;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .calculation_table {
+        padding: 0 5em;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .component_container {
+        padding: 8em 2em;
+    }
+
+    .calculation_table {
+        padding: 0 2em;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .component_container {
+        padding: 8em 1em;
+    }
+
+    .calculation_table {
+        padding: 0 1em;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .component_container {
+        padding: 8em 1em;
+    }
+
+    .calculation_table {
+        padding: 0;
+    }
+
+    tr {
+        padding: 0.8em 0.3em;
+    }
+
+    td, th {
+        padding: 0.8em 0.3em;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .component_container {
+        padding: 8em 1em;
+    }
+
+    .mean_calculation_container {
+        padding: 0.5em;
+    }
+
+    .mean_frequency_distribution_container {
+        padding: 0.5em;
+    }
+    .bacground{
+        padding: 1em 0.5em;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .component_container {
+        padding: 8em 0em;
+    }
+    .mean_frequency_distribution_container {
+        padding: 0em;
+    }
+
+    tr {
+        padding: 1em 0.1em;
+    }
+
+    td, th {
+        padding: 1em 0.1em;
+    }
+}
+

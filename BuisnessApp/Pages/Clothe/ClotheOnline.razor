@@ -1,0 +1,649 @@
+﻿@page "/Clothe"
+
+@inherits ClotheBase
+
+<head>
+    <link rel="stylesheet" href="../css/clothee_style.css" />
+</head>
+
+<!--Navigation-->
+<div class="clothe_nav">
+
+
+    @if (if_admin_page_open == false && if_manage_products_page_open == false && if_manage_users_page_open == false && if_sales_page_open == false)
+    {
+            <div class="link_c">
+                <button @onclick="OpenAdminPage">Admin Panel</button>
+            </div>
+            <div class="link_c">
+                <button @onclick="OpenMainPage">Home</button>
+            </div>
+            <div class="link_c">
+                <button @onclick="OpenAllProductsPage">Products</button>
+            </div>
+            <div class="link_c">
+                <button @onclick="OpenChartPage">@chart.chartItems.Count <i class="fas fa-shopping-cart"></i></button>
+            </div>
+            <div class="link_c">
+                @if (If_Logged_In == false)
+                {
+                    <button @onclick="OpenLoginPage">Login/Register</button>
+                }
+                else
+                {
+                    <button @onclick="@(e => EditUserToggle(LoggedUser.Id))">@LoggedUser.UserName</button>
+                }
+            </div>
+
+    }
+    else
+    {
+        <div class="link_c">
+            <button @onclick="OpenMainPage">Main Page</button>
+        </div>
+        <div class="link_c">
+            <button @onclick="OpenManageProductsPage">Manage Products</button>
+        </div>
+        <div class="link_c">
+            <button @onclick="OpenSalesPage">See sales</button>
+        </div>
+        <div class="link_c">
+            <button @onclick="OpenManageUsersPage">Manage Accounts</button>
+        </div>
+
+
+    }
+
+</div>
+
+@if (if_register_page_open != true && if_login_page_open != true && if_shipping_page_open != true && if_admin_page_open != true && if_manage_products_page_open != true && if_manage_users_page_open != true && if_sales_page_open == false && if_edit_product_page_open != true && if_edit_user_page_open != true)
+{
+    <section>
+        <header class="main_page_header @head_class">
+            <div class="content_container">
+                <div class="contnet">
+                    <h1>@head_text</h1>
+                </div>
+            </div>
+        </header>
+        <div class="media_container">
+            <div class="media">
+                <div class="fb">
+                    <a href="#"><i class="fab fa-facebook-square"></i></a>
+                </div>
+                <div class="insta">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="yt">
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+<!--End of Navigation-->
+<!--Main page Container-->
+@if (if_main_page_open == true)
+{
+    <div class="site_container">
+
+        <div class="main_page">
+
+
+            <section class="newest_products">
+                <div class="title_container">
+                    <h2>Newest Products</h2>
+                    <div class="underline_container">
+                        <div class="underline"></div>
+                    </div>
+                </div>
+
+                <div class="products">
+                    @foreach (var p in latestProducts)
+                    {
+                        <div class="product_container">
+                            <div class="img_container">
+                                <img src="@p.ImgPath" alt="@p.Name" />
+                            </div>
+                            <div class="description_container">
+                                <div class="descritpion">
+                                    <h3>@p.Name</h3>
+                                    <p>Price: £@p.Price</p>
+                                    <button @onclick="@(e => OpenProductPage(p.Id))">See more</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            </section>
+
+            <section class="brands">
+                <div class="brands_container">
+                    <div class="title_container">
+                        <h2>Brands</h2>
+                        <div class="underline_container">
+                            <div class="underline"></div>
+                        </div>
+                    </div>
+
+                    <div class="brands">
+                        @for (int i = 0; i < brands.Count; i++)
+                        {
+                            <div class="brand_background">
+                                <div style="background-image: url(@brands[i].ImgPath);" class="brand">
+                                    <div class="brand_c">
+                                        <h3><a href="#">@brands[i].Name</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+
+    </div>
+
+    <section class="offer_container">
+        <div class="offer_box">
+            <div class="offer_description_container">
+                <div>
+                    <h3>@promotions[0].Name</h3>
+                    <h2>
+                        @(promotions[0].PromotionAmmount * 100)% off
+                        @if (promotions[0].PromotionType_Pr.IfBrandPromotion == true)
+                        {<span>@promotions[0].PromotionType_Pr.PromotionBrand.Name collection</span> }
+                    else if (promotions[0].PromotionType_Pr.IfSpecificProductPromotion == true)
+                    {
+                        <span>@promotions[0].PromotionType_Pr.PromotionProduct product</span>
+                    }
+
+                    </h2>
+                </div>
+            </div>
+
+            <div class="offer_image_container">
+                <img src="@promotions[0].ImgPath" alt="@promotions[0].Name" />
+            </div>
+        </div>
+    </section>
+}
+<!--End of Main page Container-->
+<!--All Products Container-->
+@if (if_all_product_page_open == true)
+{
+    <div class="all_products_page">
+        <div class="products_page_container">
+
+            @foreach (var p in products)
+            {
+                <div class="product_container">
+                    <div style="background-image: url(@p.ImgPath);" class="product">
+                        <div class="product_description_container">
+                            <div class="descirption">
+                                <h3>@p.Name</h3>
+                                <button @onclick="@(e => OpenProductPage(p.Id))">See more</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+}
+<!--End of All Products Container-->
+<!--Product Container-->
+@if (if_product_page_open == true)
+{
+    <div class="single_product_page">
+        <div class="single_p_container">
+            <div class="product">
+                <div class="img_container">
+                    <img src="@product_detail.ImgPath" alt="@product_detail.Name" />
+                </div>
+                <div class="descritpion_container">
+                    <div class="descirption">
+                        <h4>@product_detail.Name</h4>
+
+                        <div class="brand_p">
+                            <p>Brand: @product_detail.Brand_P.Name</p>
+                        </div>
+
+                        <div class="underline_container">
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="description_p">
+                            <p>@product_detail.Descritpion</p>
+                        </div>
+
+                        <div class="underline_container">
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="price">
+                            @if (product_detail.AmmountOfProduct == 0)
+                            {
+                                <p>@if_out_of_stock</p>
+                            }
+                            else
+                            {
+                                <p>@product_detail.AmmountOfProduct in stock</p>
+                            }
+                        </div>
+
+                        @if (product_detail.IsOnPromotion == true)
+                        {
+                            <div class="promotion">
+                                <p>Now less @product_detail.PromotionAmmount%</p>
+                            </div>
+                        }
+
+
+                        <div class="price">
+                            <p>Price: £@product_detail.Price</p>
+                        </div>
+
+                        <div class="add_to_chart">
+                            <button @onclick="@(e => AddToChart(product_detail.Id))">Add to chart</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<!--End of Product Container-->
+<!--Login Container-->
+@if (if_login_page_open == true)
+{
+    <div class="login_page">
+        <div class="login_page_container">
+            <div class="title_container">
+                <h3>Login to your account</h3>
+            </div>
+
+            <div class="login">
+
+
+                <div class="input_container">
+                    <label>Username</label>
+                    <input @bind="login_user_name" />
+                </div>
+
+                <div class="input_container">
+                    <label>Pasword</label>
+                    <input @bind="login_password" />
+                    <p>@error_login</p>
+                </div>
+
+
+                <div class="button_container">
+                    <button @onclick="Login">Login</button>
+                </div>
+            </div>
+
+            <div class="register_new_account">
+                <p>You don't have account?  <button @onclick="OpenRegisterPage">Register</button></p>
+                <p>Login to example account:</p>
+                <p>Username: JohnDoe</p>
+                <p>Password: 123</p>
+            </div>
+        </div>
+    </div>
+}
+<!--End of Login Container-->
+<!--Register Container-->
+@if (if_register_page_open == true)
+{
+    <div class="register_page">
+        <div class="register_page_container">
+            <div class="title_container">
+                <h3>Register</h3>
+            </div>
+
+            <div class="register">
+                <div class="input_container">
+                    <label>Username</label>
+                    <input @bind="ca_user_name" title="username" />
+                    <p>@ca_user_name_error</p>
+                </div>
+                <div class="input_container">
+                    <label>Name</label>
+                    <input @bind="ca_name" title="name" />
+                    <p>@ca_name_error</p>
+                </div>
+                <div class="input_container">
+                    <label>Lastname</label>
+                    <input @bind="ca_lastname" title="lastname" />
+                    <p>@ca_lastname_error</p>
+                </div>
+                <div class="input_container">
+                    <label>Email</label>
+                    <input @bind="ca_email" title="email" />
+                    <p>@ca_email_error</p>
+                </div>
+                <div class="input_container">
+                    <label>Phone number</label>
+                    <input @bind="ca_phone_number" />
+                    <p>@ca_phone_number_error</p>
+                </div>
+                <div class="input_container">
+                    <label>Postcode</label>
+                    <input @bind="ca_postcode" />
+                    <p>@ca_postcode_error</p>
+                </div>
+                <div class="input_container">
+                    <label>Street and street number</label>
+                    <input @bind="ca_street_address" />
+                    <p>@ca_street_address_error</p>
+                </div>
+                <div class="input_container">
+                    <label>Password</label>
+                    <input type="password" @bind="ca_password" />
+                    <p>@ca_password_error</p>
+                </div>
+                <div class="input_container">
+                    <label>Confirm Password</label>
+                    <input type="password" @bind="ca_confirm_password" />
+                    <p>@ca_confirm_password_error</p>
+                </div>
+
+                <div class="button_container">
+                    <button @onclick="CreateAccount">Create account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<!--End of Register Container-->
+<!--Chart Container-->
+@if (if_chart_page_open == true)
+{
+    <div class="chart_page">
+        <div class="chart_container">
+            <div class="summary">
+                <div>
+                    <p>Total price: £@chart.Price</p>
+                    <p>Ammount of products: @chart.chartItems.Count</p>
+                </div>
+
+                <div class="function_buttons">
+                    <div>
+                        <button @onclick="OpenShippingPage">Pay</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="items">
+                @foreach (var p in chart.chartItems)
+                {
+                    <div class="chart_item">
+                        <div class="img_container">
+                            <img src="@p.product.ImgPath" alt="@p.product.Name" />
+                        </div>
+
+                        <div class="price_container">
+                            <p>Price: @p.product.Price</p>
+                        </div>
+
+                        <div class="name_container">
+                            <p>Name: @p.product.Name</p>
+                        </div>
+
+                        <div class="buttons_container">
+                            <div class="remove_button">
+                                <button @onclick="@(e => RemoveFromChart(p.Id))">Remove from chart</button>
+                            </div>
+                            <div class="see_details_button">
+                                <button @onclick="@(e => OpenProductPage(p.product.Id))">See details</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+<!--End of Chart Container-->
+<!--Shipping Container-->
+@if (if_shipping_page_open == true)
+{
+    <div class="shipping_page">
+        <div class="shipping_page_container">
+            <div class="user_info">
+                <p>Name: @LoggedUser.Name</p>
+                <p>Lastname: @LoggedUser.LastName</p>
+                <p>Street Address: @LoggedUser.StreetAddress</p>
+                <p>Postcode: @LoggedUser.PostCode</p>
+                <p>Phone number: @LoggedUser.PhoneNumber</p>
+                <p>Email address: @LoggedUser.Email</p>
+            </div>
+
+            <div class="payment">
+                <div class="info_pay">
+                    <h3>You need topay £@chart.Price for @chart.chartItems.Count items</h3>
+                </div>
+                <h5>In actual app the payment method would be implemented and information about payment and order are going to be stored in database.</h5>
+                <div class="button_container">
+                    <button>Pay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<!--End of Shipping Container-->
+<!--Admin Container-->
+@if (if_admin_page_open == true)
+{
+    <div class="admin_page">
+        <div class="admin_page_container">
+            <div class="title_container">
+                <h1>Admin Page</h1>
+            </div>
+        </div>
+    </div>
+}
+<!--End of Admin Container-->
+<!--Manage Products Container-->
+@if (if_manage_products_page_open == true)
+{
+    <div class="manage_products_page">
+        <div class="manage_products_page_container">
+            <div class="title_container">
+                <h1>Manage products</h1>
+            </div>
+
+            <div class="label_showcase">
+                <div class="label">
+                    <p>Id</p>
+                </div>
+                <div class="label">
+                    <p>Img</p>
+                </div>
+                <div class="label">
+                    <p>Name of product</p>
+                </div>
+                <div class="label">
+                    <p>Stock</p>
+                </div>
+            </div>
+
+            <div class="products_showcase_container">
+                @foreach (var p in products)
+                {
+                    <div class="product_showcase">
+                        <div class="product_img">
+                            <p>@p.Id</p>
+                        </div>
+                        <div class="product_img">
+                            <img src="@p.ImgPath" alt="@p.Name" />
+                        </div>
+                        <div class="product_name">
+                            <p>@p.Name</p>
+                        </div>
+                        <div class="product_stock">
+                            <p>@p.AmmountOfProduct</p>
+                        </div>
+                        <div class="button_container">
+                            <button @onclick="@(e => EditProductToggle(p.Id))">Edit</button>
+                        </div>
+                        <div class="button_container">
+                            <button @onclick="@(e => RemoveProduct(p.Id))">Remove</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+<!--End of Manage Products Container-->
+<!--Manage Users Container-->
+@if (if_manage_users_page_open == true)
+{
+    <div class="manage_users_admin_page">
+        <div class="manage_users_page_container">
+            <div class="title_container">
+                <h1>Manage users</h1>
+            </div>
+
+            <div class="label_showcase">
+                <div class="label">
+                    <p>Id</p>
+                </div>
+                <div class="label">
+                    <p>Username</p>
+                </div>
+                <div class="label">
+                    <p>Email</p>
+                </div>
+            </div>
+
+            <div class="users_showcase_container">
+                @foreach (var u in userAccounts)
+                {
+                    <div class="user_showcase">
+                        <div class="product_img">
+                            <p>@u.Id</p>
+                        </div>
+                        <div class="product_name">
+                            <p>@u.UserName</p>
+                        </div>
+                        <div class="product_stock">
+                            <p>@u.Email</p>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+}
+<!--End of Manage Users Container-->
+<!--Sales Container-->
+@if (if_sales_page_open == true)
+{
+    <div class="sales_page">
+        <div class="sales_container">
+            <div class="title_container">
+                <h1>Sales</h1>
+            </div>
+
+        </div>
+    </div>
+}
+<!--End of Sales Container-->
+<!--Edit user container Container-->
+@if (if_edit_product_page_open == true)
+{
+    <div class="edit_product_page">
+        <div class="edit_product_page_container">
+            <div class="title_container">
+                <h1>Edit User</h1>
+            </div>
+            <div class="edit_user_form">
+                <div class="input_box">
+                    <label>Name</label>
+                    <input @bind="edit_product.Name" />
+                </div>
+                <div class="input_box">
+                    <label>Description</label>
+                    <textarea @bind="edit_product.Descritpion"></textarea>
+                </div>
+                <div class="input_box">
+                    <label>Price</label>
+                    <input @bind="edit_product.Price" />
+                </div>
+                <div class="input_box">
+                    <label>Change stock</label>
+                    <input @bind="edit_product.AmmountOfProduct" />
+                </div>
+                <div class="button_container">
+                    <button @onclick="@(e => EditProduct(edit_product.Id))">Edit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<!--End of edit user Container-->
+<!--Sales Container-->
+@if (if_edit_user_page_open == true)
+{
+    <div class="edit_product_page">
+        <div class="edit_product_page_container">
+            <div class="title_container">
+                <h1>Edit Your Information</h1>
+            </div>
+            <div class="edit_product_form">
+                <div class="input_box">
+                    <label>Name</label>
+                    <input @bind="edit_user.Name" />
+                </div>
+                <div class="input_box">
+                    <label>Lastname</label>
+                    <input @bind="edit_user.LastName" />
+                </div>
+                <div class="input_box">
+                    <label>Email</label>
+                    <input @bind="edit_user.Email" />
+                </div>
+                <div class="input_box">
+                    <label>Phone Number</label>
+                    <input @bind="edit_user.PhoneNumber" />
+                </div>
+                <div class="input_box">
+                    <label>Post Code</label>
+                    <input @bind="edit_user.PostCode" />
+                </div>
+                <div class="input_box">
+                    <label>Street Adress</label>
+                    <input @bind="edit_user.StreetAddress" />
+                </div>
+                <div class="input_box">
+                    <label>City</label>
+                    <input @bind="edit_user.City" />
+                </div>
+                <div class="input_box">
+                    <label>Password</label>
+                    <input type="password" @bind="edit_user.Password" />
+                </div>
+                <div class="button_container">
+                    <button @onclick="@(e => EditProduct(edit_product.Id))">Edit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<!--End of Sales Container-->
+<!--Footer-->
+<footer class="footer">
+    <p>&copy; @DateTime.Now.Year Clothe Online</p>
+</footer>
+<!--End of Footer-->
+

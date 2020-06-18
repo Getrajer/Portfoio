@@ -1,0 +1,54 @@
+﻿.input_container
+{
+    padding: 2em 1em;
+}
+
+.input_container h5{
+    font-size: 1.2rem;
+    margin-bottom: 0.5em;
+    letter-spacing: 3px;
+}
+
+.input_container input{
+    display:block;
+    padding:0.5em;
+    margin-bottom: 1em;
+    color:white;
+    background-color: transparent;
+    border: 3px solid  white;
+}
+
+.input_container input:focus{
+    border: 3px solid #1BB0DB;
+    outline:none;
+}
+
+button {
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    background-color:transparent;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.5em;
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+button:hover{
+    border-top: 1px solid  #1BB0DB;
+    border-left: 1px solid  #1BB0DB;
+    border-bottom: 2px solid  #1BB0DB;
+    border-right: 2px solid  #1BB0DB;
+    color: #1BB0DB;
+    background-color:transparent;
+}
+
+table{
+    color:white!important;
+}
+
+.info_container {
+    padding: 2em 1em;
+}

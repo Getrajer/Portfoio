@@ -1,0 +1,188 @@
+﻿@page "/Interest"
+@inherits InterestBase
+
+
+
+<head>
+    <link rel="stylesheet" href="../css/math_style.css" />
+</head>
+
+<div class="component_container">
+    <div class="bacground">
+        <!--Simple Interest-->
+
+        <section class="program_container">
+            <div class="theory_container">
+                <div class="heading_container">
+                    <h2>Interest</h2>
+                </div>
+                <p>
+                    Interest is a fundamental concept in a buisness or comercial enviromet.<br />
+                    Interest is earned on money invested and paid on money borrowed.
+                </p>
+            </div>
+
+            <article class="theory_container">
+                <div class="heading_container">
+                    <h3>Simple interest</h3>
+                </div>
+                <p>
+                    Simple interest is where money earned is not added back to the principal ammount invested.
+                </p>
+            </article>
+
+            <section class="calculation_container">
+                <div class="calculation_table">
+                    <div class="heading_container">
+                        <h3>Simple Interest Calculator</h3>
+                    </div>
+                    <div class="custom_input_container">
+                        <div class="input_box">
+                            <label>Value: </label>
+                            <input class="input_decimal" @onclick="AAF_SI_Focus" @bind="AAF_SI_Value" />
+                            <span class="input_decimal_txt"></span>
+                        </div>
+
+                        <div class="input_box">
+                            <label>Interest(%): </label>
+                            <input class="input_decimal" @onclick="AAF_SI_Focus" @bind="AAF_SI_Interest" />
+                            <span class="input_decimal_txt"></span>
+                        </div>
+
+                        <div class="input_box">
+                            <label>Time: </label>
+                            <input @onclick="AAF_SI_Focus" @bind="AAF_SI_Time" />
+                        </div>
+                        <div class="input_box">
+                            <label>Name peroid of time: </label>
+                            <input @onclick="AAF_SI_Focus" @bind="AAF_SI_T_Name" />
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <button class="btn" @onclick="CalcInterest_AAF_SI">Calc Interest</button>
+
+                    </div>
+
+
+                    <table class="table_calc">
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    <div class="data_title">
+                                        Time in @if (AAF_SI_IsCalculated == true)
+                                        {
+                                            @AAF_SI_T_Name
+                                        }
+                                    </div>
+                                </th>
+                                <th scope="col"><div class="data_title">Value</div></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var obj in AAF_SI_Data)
+                            {
+                                <tr>
+                                    <td><div class="data">@obj.Time</div></td>
+                                    <td><div class="data">@obj.Value (3D)</div></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                @if (AAF_SI_IsCalculated == true)
+                {
+                    <div class="result_container">
+                        <p>Value of @AAF_SI_Value has risen @AAF_SI_Diffrence over @AAF_SI_Time @AAF_SI_T_Name's with percentage of @AAF_SI_Interest%</p>
+                    </div>
+                }
+
+            </section>
+        </section>
+        <!--............................................-->
+        <!--Compound Interest-->
+
+        <section class="program_container">
+
+            <article class="theory_container">
+                <div class="heading_container">
+                    <h3>Compound Interest</h3>
+                </div>
+                <p>
+                    Compound interest is where earned interest is added back to the previous ammount accured.
+                </p>
+            </article>
+
+            <section class="calculation_container">
+                <div class="calculation_table">
+                    <div class="custom_input_container">
+                        <div class="input_box">
+                            <label>Value: </label>
+                            <input class="input_decimal" @onclick="AAF_CI_Focus" @bind="AAF_CI_Value" />
+                            <span class="input_decimal_txt"></span>
+                        </div>
+
+                        <div class="input_box">
+                            <label>Interest(%): </label>
+                            <input class="input_decimal" @onclick="AAF_CI_Focus" @bind="AAF_CI_Interest" />
+                            <span class="input_decimal_txt"></span>
+                        </div>
+
+                        <div class="input_box">
+                            <label>Time: </label>
+                            <input @onclick="AAF_CI_Focus" @bind="AAF_CI_Time" />
+                        </div>
+                        <div class="input_box">
+                            <label>Name peroid of time: </label>
+                            <input @onclick="AAF_CI_Focus" @bind="AAF_CI_T_Name" />
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <button class="btn" @onclick="CalcInterest_AAF_CI">Calc Interest</button>
+
+                    </div>
+
+
+                    <table class="table_calc">
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    <div class="data_title">
+                                        Time in @if (AAF_CI_IsCalculated == true)
+                                        {
+                                            @AAF_CI_T_Name
+                                        }
+                                    </div>
+                                </th>
+                                <th scope="col"><div class="data_title">Value</div></th>
+                                <th scope="col"><div class="data_title">Interest Value</div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var obj in AAF_CI_Data)
+                            {
+                                <tr>
+                                    <td><div class="data">@obj.Time</div></td>
+                                    <td><div class="data">@obj.Value (3D)</div></td>
+                                    <td><div class="data">@obj.Interest_Value</div></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                @if (AAF_CI_IsCalculated == true)
+                {
+                    <div class="result_container">
+                        <p>Value of @AAF_CI_Value has risen @AAF_CI_Diffrence over @AAF_CI_Time @AAF_CI_T_Name's with percentage of @AAF_CI_Interest%</p>
+                    </div>
+                }
+
+            </section>
+        </section>
+        <!--............................................-->
+
+    </div>
+</div>
+

@@ -1,0 +1,55 @@
+﻿@page "/Gallery"
+
+<head>
+    <link rel="stylesheet" href="../css/component_main_style.css" />
+    <link rel="stylesheet" href="../css/draggable_blazor_gallery_style.css" />
+</head>
+
+
+
+<div class="page_container">
+
+    <div class="component_container">
+
+        <div class="title_container">
+            <h1>Gallery Component</h1>
+            <div class="underline_container">
+                <div class="underline"></div>
+            </div>
+        </div>
+
+        <div class="component_description">
+            <p>
+                This component allows the user to move images in created categories. It is made with Blazor and C#.
+            </p>
+        </div>
+        <div class="program_container">
+            <PhototsContainer Photos="photos" OnStatusUpdated="HandleStatusUpdated">
+                <PhotoList ListStatus="TypePhoto.Family" AllowedStatuses="@(PhotosCategories)"></PhotoList>
+                <PhotoList ListStatus="TypePhoto.Vacation" AllowedStatuses="@(PhotosCategories)"></PhotoList>
+                <PhotoList ListStatus="TypePhoto.Work" AllowedStatuses="@(PhotosCategories)"></PhotoList>
+            </PhototsContainer>
+        </div>
+    </div>
+</div>
+
+@code {
+    List<PhotoModel> photos = new List<PhotoModel>();
+
+
+    protected override void OnInitialized()
+    {
+        photos.Add(new PhotoModel { Id = 1, Description = "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.", ImgTitle = "Grandparents", Path = "../gallery/family_photo1.jpg", Type = TypePhoto.Family });
+        photos.Add(new PhotoModel { Id = 2, Description = "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.", ImgTitle = "Parents", Path = "../gallery/family_photo_2.jpg", Type = TypePhoto.Family });
+        photos.Add(new PhotoModel { Id = 3, Description = "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.", ImgTitle = "Team", Path = "../gallery/work.jpg", Type = TypePhoto.Work });
+        photos.Add(new PhotoModel { Id = 4, Description = "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.", ImgTitle = "Chill out", Path = "../gallery/vacation.jpg", Type = TypePhoto.Vacation });
+
+    }
+
+    TypePhoto[] PhotosCategories = new TypePhoto[] { TypePhoto.Family, TypePhoto.Vacation, TypePhoto.Work };
+
+    void HandleStatusUpdated(PhotoModel photoModel)
+    {
+
+    }
+}

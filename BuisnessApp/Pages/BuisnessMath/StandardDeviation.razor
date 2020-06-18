@@ -1,0 +1,516 @@
+﻿@page "/StandardDeviation"
+@inherits StandardDeviationBase
+
+<head>
+    <link rel="stylesheet" href="../css/math_style.css" />
+    <link rel="stylesheet" href="../css/formulas_style.css" />
+</head>
+
+<div class="component_container">
+    <div class="bacground">
+
+        <!--Simple Standard Deviation-->
+        <section class="calculation_container">
+
+            <div class="theory_container">
+                <div class="heading_container">
+                    <h2>Standard deviation</h2>
+                </div>
+                <p>
+                    The mean deviation is a measure of dispersion that gives average absolute difference between each item and a mean.
+                </p>
+            </div>
+
+            <article class="theory_container">
+                <div class="heading_container">
+                    <h3>Example</h3>
+                </div>
+                <p>
+                    For example production line produced 3, 10, 5 and two deffective products on four successive runs.<br />
+                    The mean number of deffectives = (3+10+5+2) / 4 = 5<br />
+                    <br />
+                    The absolute diffrence between each value and the mean (5) they are:<br />
+                    3-5 = -3<br />
+                    10-5 = 5<br />
+                    5-5 = 0 <br />
+                    2-5 = -3<br />
+                    (Ignoring minus 3-5 = 3 and 2-5 = 3)<br /><br />
+                    Mean deviation is calculated as average of absolute diffrences:<br />
+                    Mean Deviation = (2+5+0+3) / 4 = 2.5
+                </p>
+            </article>
+
+            <div class="function_container">
+                <div class="heading_container">
+                    <h3>Mean Deviation Calculator</h3>
+                </div>
+
+                <div class="input_container">
+                    <p>Number:</p>
+                    <input @bind="s_sd_number" />
+                </div>
+
+                <button class="btn" @onclick="Add_Variable_Simple_Deviation">Add Number</button>
+                <button class="btn" @onclick="Reset_Simple_SD">Reset Program</button>
+                <button class="btn" @onclick="Delete_Variable_Simple_SD">Del</button>
+            </div>
+
+            <div class="calculation">
+
+                @if (output_string.Count != 0)
+                {
+                    <div class="text-center">
+                        <span>Numbers: </span>
+
+                        @foreach (var obj in output_string)
+                        {
+                            <span>@obj</span>
+                        }
+
+                    </div>
+                }
+
+                @if (output_string.Count != 0)
+                {
+                    <div class="eqation-underline-container">
+                        <div class="underline"></div>
+                    </div>
+                }
+
+
+
+                <div class="result_container">
+                    <button class="btn" @onclick="Calculate_Simple_SD">Calculate Standard Deviation</button>
+
+                    @if (is_simple_SD_calc == true)
+                    {
+                        <div class="p-3">
+                            <h4>Mean: @mean</h4>
+                        </div>
+
+                        <div class="p-3">
+                            <h4>Sum of the squares of deviation of items from the mean: </h4>
+                            @foreach (var obj in output_string_sum_of_squars)
+                            {
+                                @obj
+                            }
+                            = @sum_of_squares;
+                        </div>
+
+                        <div class="p-3">
+                            <h4>Standard deviation: </h4>
+                            @simple_SD_result
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </section>
+        <!--............................................-->
+        <!--Simple Frequency Distribution Mode-->
+
+        <section class="program_container">
+            <div class="theory_container">
+                <div class="heading_container">
+                    <h2>Mean deviation for a set of data</h2>
+                </div>
+                <p>Formula:</p>
+
+                <div class="mean_deviation_formula_container">
+                    <div class="md">
+                        MD =
+                    </div>
+
+                    <div class="formula">
+                        <div>
+                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                            | x - x <span class="small_formula">M</span> |^2
+                        </div>
+                        <div class="underline_formula_container">
+                            <div class="underline"></div>
+                        </div>
+                        <div>
+                            n
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <section class="calculation_container">
+                <div class="calculation_table">
+                    <div class="custom_input_container">
+                        <div class="input_box">
+                            <label>x: </label>
+                            <input @bind="x_SFD" />
+                        </div>
+
+                        <div class="button-container">
+                            <button class="btn" @onclick="Add_C_SFDO">Add New Variable</button>
+                        </div>
+
+
+                        @if (isCustom_SFD == true)
+                        {
+                            <div class="button-container">
+                                <button class="btn" @onclick="Delete_C_SFDO">Delete Last</button>
+                            </div>
+                        }
+
+                        @if (isCustom_SFD == true || isRandom_SFD == true)
+                        {
+                            <div class="button-container">
+                                <button class="btn" @onclick="Reset_SFD">RESET PROGRAM</button>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="button-container">
+                        @if (isCustom_SFD == false)
+                        {
+                            <button class="btn" @onclick="Generate_Simple_Freq_D">@btn_s_f_text</button>
+                        }
+                    </div>
+
+                    @if (isRandom_SFD == true)
+                    {
+                        <div class="example_txt_container">
+                            @SFD_Text_Example
+                        </div>
+                    }
+
+                    <table class="table_calc">
+                        <thead>
+                            <tr>
+                                <th scope="col"><div class="data_title">x</div></th>
+                                <th scope="col"><div class="data_title">| x - x <span class="small_formula">M</span> |</div></th>
+                                <th scope="col"><div class="data_title">| x - x <span class="small_formula">M</span> |^2</div></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var obj in simple_frequency_data_SD)
+                            {
+                                <tr>
+                                    <td><div class="data">@obj.X</div></td>
+                                    <td><div class="data">@obj.XmMean</div></td>
+                                    <td><div class="data">@obj.XmMeanSquare</div></td>
+                                    <td>
+                                        <button class="btn" @onclick="@(e => Delete_SFDO_ByID(obj.Id))">X</button>
+                                    </td>
+                                </tr>
+                            }
+
+                            @if (isCalculated_SFD == true)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="data">
+                                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                            x
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="data">
+                                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                            x-Mean
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="data">
+                                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                            (x-Mean)^2
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="data">@total_X_SFD</div></td>
+                                    <td><div class="data">@SFD_xmMean_total</div></td>
+                                    <td><div class="data">@total_XmMeanSquareSFF</div></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="result_container">
+
+                    <button class="btn" @onclick="Calc_SFD_StandardDeviation">Calculate Standard Deviation</button>
+
+                    @if (SFD_SD_isCalc == true)
+                    {
+                        <div class="mean_deviation_formula_container">
+                            <div class="md">
+                                MD =
+                            </div>
+
+                            <div class="formula">
+                                <div>
+                                    <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                    @total_XmMeanSquareSFF
+                                </div>
+                                <div class="underline_formula_container">
+                                    <div class="underline"></div>
+                                </div>
+                                <div>
+                                    @simple_frequency_data_SD.Count
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="result_text">Standard Deviation: @SFD_SD_Result </div>
+                    }
+
+
+                </div>
+            </section>
+        </section>
+        <!--............................................-->
+        <!--Standard deviation For a Grouped Frequency Distribution-->
+        <section class="program_container">
+            <div class="theory_container">
+                <div class="heading_container">
+                    <h2>Standard Deviation for a grouped frequency distribution</h2>
+                </div>
+            </div>
+
+            <article class="theory_container">
+                <div class="heading_container">
+                    <h3>Computational formula for the standard deviation of a frequency distribution</h3>
+                </div>
+
+                <div class="mean_deviation_formula_cf_container">
+                    <div class="md_cf">
+                        s = &#8730;
+                    </div>
+                    <div class="mean_deviation_formula_cf">
+                        <div class="formula_cf">
+                            <div>
+                                <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                (fx)^2
+                            </div>
+                            <div class="underline_formula_container">
+                                <div class="underline"></div>
+                            </div>
+                            <div>
+                                <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                f
+                            </div>
+                        </div>
+                        <div class="minus">
+                            -
+                        </div>
+
+                        <div class="formula_pow_cf">
+                            <div>
+                                <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                fx
+                            </div>
+                            <div class="underline_formula_container">
+                                <div class="underline"></div>
+                            </div>
+                            <div>
+                                <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                f
+                            </div>
+                        </div>
+
+                        <div class="pow_cf">
+                            2
+                        </div>
+                    </div>
+                </div>
+
+
+            </article>
+
+            <section class="calculation_container">
+                <div class="calculation_table">
+                    <div class="heading_container">
+                        <h3>Grouped frequency distribution, standard deviation calculator</h3>
+                    </div>
+                    <div class="custom_input_container">
+
+                        @if (isCustom_GFD == false && isRandom_GFD == false)
+                        {
+                            <div class="input_box">
+                                <label>Range1: </label>
+                                <input @bind="range1" />
+                            </div>
+                            <div class="input_box">
+                                <label>Range2: </label>
+                                <input @bind="range2" />
+                            </div>
+                        }
+
+
+
+                        <div class="input_box">
+                            <label>f: </label>
+                            <input @bind="f_GFD" />
+                        </div>
+
+                        <div class="button-container">
+                            <button class="btn" @onclick="Add_C_GFDO">Add New Variable</button>
+                        </div>
+
+
+                        @if (isCustom_GFD == true)
+                        {
+                            <div class="button-container">
+                                <button class="btn" @onclick="Delete_C_GFDO">Delete Last</button>
+                            </div>
+                        }
+
+                        @if (isCustom_GFD == true || isRandom_GFD == true)
+                        {
+                            <div class="button-container">
+                                <button class="btn" @onclick="RESET_GFD">RESET PROGRAM</button>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="button-container">
+                        @if (isCustom_GFD == false)
+                        {
+                            <button class="btn" @onclick="Generate_Grouped_Freq_D">@btn_g_f_text</button>
+                        }
+                    </div>
+
+                    @if (isRandom_GFD == true)
+                    {
+                        <div class="example_txt_container">
+                            @GFD_Text_Example
+                        </div>
+                    }
+
+                    <table class="table_calc">
+                        <thead>
+                            <tr>
+                                <th scope="col"><div class="data_title">Range</div></th>
+                                <th scope="col"><div class="data_title">f</div></th>
+                                <th scope="col"><div class="data_title">x(Mid point)</div></th>
+                                <th scope="col"><div class="data_title">fx</div></th>
+                                <th scope="col"><div class="data_title">(fx^2)</div></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var obj in grouped_frequency_data_SD)
+                            {
+                                <tr>
+                                    <td><div class="data">@obj.Range1 - @obj.Range2</div></td>
+                                    <td><div class="data">@obj.F</div></td>
+                                    <td><div class="data">@obj.X</div></td>
+                                    <td><div class="data">@obj.Fx</div></td>
+                                    <td><div class="data">@obj.FxSquare</div></td>
+
+                                    <td>
+                                        <button class="btn" @onclick="@(e => Delete_GDFDO_ByID(obj.Id))">X</button>
+                                    </td>
+                                </tr>
+                            }
+
+                            @if (isGDF_Calculated == true)
+                            {
+                                <tr>
+                                    <td><div class="data">Name:</div></td>
+                                    <td>
+                                        <div class="data">
+                                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                            Y
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="data">
+                                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                            X
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="data">
+                                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                            Fx
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="data">
+                                            <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                                            (Fx^2)
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><div class="data">Values:</div></td>
+                                    <td><div class="data">@totalF_GFD</div></td>
+                                    <td><div class="data">@totalX_GFD</div></td>
+                                    <td><div class="data">@totalfX_GFD</div></td>
+                                    <td><div class="data">@totalfXSquare_GFD</div></td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="result_container">
+
+
+                    @if (isGDF_Calculated == true)
+                    {
+                        <div class="mean_deviation_formula_cf_container">
+                            <div class="md_cf">
+                                s = &#8730;
+                            </div>
+                            <div class="mean_deviation_formula_cf">
+                                <div class="formula_cf">
+                                    <div>
+                                        @totalfXSquare_GFD
+                                    </div>
+                                    <div class="underline_formula_container">
+                                        <div class="underline"></div>
+                                    </div>
+                                    <div>
+                                        @totalF_GFD
+                                    </div>
+                                </div>
+                                <div class="minus">
+                                    -
+                                </div>
+
+                                <div class="formula_pow_cf">
+                                    <div>
+                                        @totalfX_GFD
+                                    </div>
+                                    <div class="underline_formula_container">
+                                        <div class="underline"></div>
+                                    </div>
+                                    <div>
+                                        @totalF_GFD
+                                    </div>
+                                </div>
+
+                                <div class="pow_cf">
+                                    2
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                    <button class="btn" @onclick="Calculate_GFDSD">Calculate Standard Deviation</button>
+                    @if (isGDF_Calculated == true)
+                    {
+                        <div class="result_text">Result: @StandardDeviation_GFD_Result</div>
+                    }
+                </div>
+            </section>
+        </section>
+        <!--............................................-->
+
+
+    </div>
+</div>

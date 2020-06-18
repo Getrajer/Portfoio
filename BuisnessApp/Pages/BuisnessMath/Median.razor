@@ -1,0 +1,417 @@
+﻿@page "/Median"
+@inherits MedianBase
+
+<head>
+    <link rel="stylesheet" href="../css/math_style.css" />
+    <link rel="stylesheet" href="../css/formulas_style.css" />
+
+</head>
+
+
+<div class="component_container">
+    <div class="bacground">
+
+        <section class="calculation_container">
+
+            <div class="theory_container">
+                <div class="heading_container">
+                    <h2>Median</h2>
+                </div>
+                <p>
+                    Median is a middle value of a set of data, arranged into order.
+                    <br />
+                    <br />
+                    Example from odd set of data:<br />
+                    2,4,5,7,8,9,10<br /><br />
+                    Median = 7
+                    <br />
+                    <br />
+                    Example from even set of data:<br />
+                    2,4,5,7,8,9,10,11<br /><br />
+                    Median = (7 + 8) / 2<br />
+                    Median = 7.5
+                </p>
+            </div>
+
+
+            <div class="function_container">
+                <div class="heading_container">
+                    <h3>Median calculator</h3>
+                </div>
+                <div class="description_function">
+                    <p>This program will sort input of data (In this case with use of buble sort) and it will find median</p>
+                </div>
+
+                <div class="input_container">
+                    <p>Number:</p>
+                    <input @bind="median_number" />
+                </div>
+
+                <button @onclick="Add_Number_1" class="btn">Add Number</button>
+                <button @onclick="Reset_Simple_Median" class="btn">Reset Program</button>
+                <button @onclick="Delete_Simple_Median_Var" class="btn">Del</button>
+            </div>
+
+            <div class="calculation">
+
+
+                @if (median_numbers_unsorted.Count != 0)
+                {
+                    <div class="text-center calc_info_txt">
+                        <span>Unsorted List: </span>
+                        @foreach (var obj in median_numbers_unsorted)
+                        {
+                            <span>|@obj|</span>
+                        }
+                    </div>
+
+                    <div class="eqation-underline-container">
+                        <div class="underline"></div>
+                    </div>
+                }
+
+
+                @if (median_numbers_sorted.Count != 0)
+                {
+                    <div class="text-center calc_info_txt">
+                        <span>Sorted List: </span>
+                        @foreach (var obj in median_numbers_sorted)
+                        {
+                            <span>|@obj|</span>
+                        }
+                    </div>
+
+                    <div class="eqation-underline-container">
+                        <div class="underline"></div>
+                    </div>
+                }
+
+                @if (median_numbers_sorted.Count != 0)
+                {
+                    <div class="calc_info_txt">
+                        <h4>Median calculated from @isEven</h4>
+                    </div>
+                }
+
+                <div class="result_container">
+                    <button @onclick="Calc_Median_Simple" class="btn">Calculate Median</button>
+
+                    @if (isCalculatedMedian == true)
+                    {
+                        <div class="result_text">Result:@simple_median_result</div>
+                    }
+                </div>
+            </div>
+        </section>
+        <!--............................................-->
+        <!--Median For a Simple Frequency Distribution Program-->
+        <section class="program_container">
+            <div class="theory_container">
+                <div class="heading_container">
+                    <h2>Median for simple frequency distribution</h2>
+                </div>
+                <p>
+                    When there is large umber of discrete items in a data set, but the range of values is limited a simple frequency distribution should be compiled.
+                </p>
+            </div>
+
+            <article class="theory_container">
+                <div class="heading_container">
+                    <h3>How to calculate median</h3>
+                </div>
+                <p>
+                    To clalculate median for simple frequency distribution:<br />
+                    1. Calculate the value of:<br />
+                </p>
+                <div class="pattern_container">
+                    <div class="text-center">
+                        <svg id="Sigma" enable-background="new 0 0 58 60" height="30" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>
+                        f + 1
+                    </div>
+
+                    <div class="eqation-underline-container">
+                        <div class="underline"></div>
+                    </div>
+
+                    <div class="text-center">
+                        2
+                    </div>
+                </div>
+                <p>
+                    2. The mean is x-value corresponting to the value F identified from the pattern
+                </p>
+            </article>
+
+            <section class="calculation_container">
+                <div class="calculation_table">
+                    <div class="heading_container">
+                        <h3>Median for simple frequency distribution calculator</h3>
+                    </div>
+                    <div class="custom_input_container">
+                        <div class="input_box">
+                            <label>x: </label>
+                            <input @bind="x_SFD" />
+                        </div>
+                        <div class="input_box">
+                            <label>f: </label>
+                            <input @bind="f_SFD" />
+                        </div>
+
+                        <div class="button-container">
+                            <button class="btn" @onclick="Add_C_SFDO">Add New Variable</button>
+                        </div>
+
+
+                        @if (isCustom_SFD == true)
+                        {
+                            <div class="button-container">
+                                <button class="btn" @onclick="Delete_C_SFDO">Delete Last</button>
+                            </div>
+                        }
+
+                        @if (isCustom_SFD == true || isRandom_SFD == true)
+                        {
+                            <div class="button-container">
+                                <button class="btn" @onclick="RESET_SFD">RESET PROGRAM</button>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="button-container">
+                        @if (isCustom_SFD == false)
+                        {
+                            <button class="btn" @onclick="Generate_Simple_Freq_D">@btn_s_f_text</button>
+                        }
+                    </div>
+
+                    @if (isRandom_SFD == true)
+                    {
+                        <div class="example_txt_container">
+                            @SFD_Text_Example
+                        </div>
+                    }
+
+                    <table class="table_calc">
+                        <thead>
+                            <tr>
+                                <th scope="col"><div class="data_title">x</div></th>
+                                <th scope="col"><div class="data_title">f</div></th>
+                                <th scope="col">
+                                    <div class="data_title">
+                                        <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>f
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var obj in simple_frequency_data_median)
+                            {
+                                <tr>
+                                    <td><div class="data">@obj.X</div></td>
+                                    <td><div class="data">@obj.F</div></td>
+                                    <td><div class="data">@obj.Cumf</div></td>
+                                    <td>
+                                        <button class="btn" @onclick="@(e => Delete_SFDO_ByID(obj.Id))">X</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <div class="result_container">
+                    <button class="btn" @onclick="Calculate_SFDM">Calculate Meidan</button>
+
+                    @if (isCalculated_SFD == true)
+                    {
+                        <div class="variables_container">
+                            <p>Central item = @centralItemIdentyfier</p>
+                        </div>
+                        <div class="result_text">Result: @result_SFD is for median @result_x_SFD</div>
+                    }
+                </div>
+
+
+            </section>
+        </section>
+        <!--............................................-->
+        <!--Median For a Grouped Frequency Distribution Program-->
+        <section class="program_container">
+            <div class="theory_container">
+                <div class="heading_container">
+                    <h2>Median for grouped frequency distribution</h2>
+                </div>
+                <p>
+                    Grouped distribution is useyfull to group large chunks of data but individuality of data might be lost.
+                    <br />
+                    Given a grouped frequency distribution it is needed to identify the class or a group that countains median item.
+                    <br />
+                </p>
+            </div>
+
+            <article class="theory_container">
+                <div class="heading_container">
+                    <h3>Median interpolation Formula</h3>
+                </div>
+
+                <div class="median_interpolation_formula_container">
+                    <div class="median_p_lower-bound">
+                        Median = L<span class="small_formula">M</span> +
+                    </div>
+
+                    <div class="formula">
+                        <div>
+                            (n/2) - F<span class="small_formula">M-1</span>
+                        </div>
+                        <div class="underline_formula_container">
+                            <div class="underline"></div>
+                        </div>
+                        <div>
+                            f<span class="small_formula">M</span>
+                        </div>
+                    </div>
+
+                    <div class="median_width">
+                        * C<span class="small_formula">M</span>
+                    </div>
+                </div>
+
+                <div>
+                    L<span class="small_formula">M</span> - lower bound of the median class<br />
+                    F<span class="small_formula">M-1</span> = cumulative frequency of the class immediately prior to the median class <br />
+                    f<span class="small_formula">M</span> = actual frequency of median class<br />
+                    C<span class="small_formula">M</span> = median class width
+                </div>
+
+
+            </article>
+
+            <section class="calculation_container">
+                <div class="calculation_table">
+                    <div class="heading_container">
+                        <h3>Median for grouped frequency distribution calculator</h3>
+                    </div>
+                    <div class="custom_input_container">
+
+                        <div class="input_box">
+                            <label>Range1: </label>
+                            <input @bind="range1" />
+                        </div>
+                        <div class="input_box">
+                            <label>Range2: </label>
+                            <input @bind="range2" />
+                        </div>
+
+
+                        <div class="input_box">
+                            <label>f: </label>
+                            <input @bind="f_GFD" />
+                        </div>
+
+                        <div class="button-container">
+                            <button class="btn" @onclick="Add_C_GFDO">Add New Variable</button>
+                        </div>
+
+
+                        @if (isCustom_GFD == true)
+                        {
+                            <div class="button-container">
+                                <button class="btn" @onclick="Delete_C_GFDO">Delete Last</button>
+                            </div>
+                        }
+
+                        @if (isCustom_GFD == true || isRandom_GFD == true)
+                        {
+                            <div class="button-container">
+                                <button class="btn" @onclick="RESET_GFD">RESET PROGRAM</button>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="button-container">
+                        @if (isCustom_GFD == false)
+                        {
+                            <button class="btn" @onclick="Generate_Grouped_Freq_D">@btn_g_f_text</button>
+                        }
+                    </div>
+
+                    @if (isRandom_GFD == true)
+                    {
+                        <div class="example_txt_container">
+                            @GFD_Text_Example
+                        </div>
+                    }
+
+                    <table class="table_calc">
+                        <thead>
+                            <tr>
+                                <th scope="col"><div class="data_title">Range</div></th>
+                                <th scope="col"><div class="data_title">f</div></th>
+                                <th scope="col">
+                                    <div class="data_title">
+                                        <svg id="Sigma" enable-background="new 0 0 58 60" height="25" viewBox="0 0 58 60" width="30" xmlns="http://www.w3.org/2000/svg"><path d="m57.03 60h-56c-.391 0-.746-.228-.909-.583s-.104-.773.152-1.069l24.437-28.347-24.438-28.347c-.254-.296-.314-.714-.151-1.069s.518-.583.909-.583h56c.552 0 1 .448 1 1v15c0 .552-.448 1-1 1h-7c-.552 0-1-.448-1-1v-7h-27.89l16.664 20.367c.301.369.301.898 0 1.267l-16.664 20.367h27.89v-7c0-.552.448-1 1-1h7c.552 0 1 .448 1 1v15c0 .549-.447.997-1 .997zm-53.818-2h52.818v-13h-5v7c0 .552-.448 1-1 1h-31c-.387 0-.738-.223-.904-.572s-.115-.762.13-1.062l17.482-21.367-17.482-21.367c-.245-.299-.295-.712-.13-1.062s.517-.572.904-.572h31c.552 0 1 .448 1 1v7h5v-13h-52.818l23.575 27.347c.323.375.323.931 0 1.306z" /></svg>f
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var obj in grouped_frequency_data_median)
+                            {
+                                <tr>
+                                    <td><div class="data">@obj.Range1 - @obj.Range2</div></td>
+                                    <td><div class="data">@obj.F</div></td>
+                                    <td><div class="data">@obj.CumF</div></td>
+                                    <td>
+                                        <button class="btn" @onclick="@(e => Delete_GDFDO_ByID(obj.Id))">X</button>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="result_container">
+
+                    @if (isGDF_Calculated == true)
+                    {
+                        <div class="median_interpolation_formula_container">
+                            <div class="median_p_lower-bound">
+                                Median = @LM +
+                            </div>
+
+                            <div class="formula">
+                                <div>
+                                    @halfCUMF - @CF_prior
+                                </div>
+                                <div class="underline_formula_container">
+                                    <div class="underline"></div>
+                                </div>
+                                <div>
+                                    @fM
+                                </div>
+                            </div>
+
+                            <div class="median_width">
+                                * @cM
+                            </div>
+                        </div>
+                    }
+
+
+                    <button class="btn" @onclick="Calculate_GFDM">Calculate Meidan</button>
+
+                    @if (isGDF_Calculated == true)
+                    {
+                        <div class="result_text">Result: @result_GFD</div>
+                    }
+                </div>
+            </section>
+        </section>
+        <!--............................................-->
+
+
+    </div>
+</div>

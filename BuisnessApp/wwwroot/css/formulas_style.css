@@ -1,0 +1,117 @@
+﻿.median_interpolation_formula_container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 1em 0;
+}
+
+.median_interpolation_formula_container div{
+    display:block;
+    font-size:1.3rem;
+}
+
+/*Median + lower bound + Mode*/
+.median_p_lower-bound{
+    text-align: right;
+    padding: 0.6em 0.3em 0 0;
+}
+.formula {
+    text-align: center;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    border-radius: 20px;
+}
+.median_width {
+    text-align: left;
+    padding: 0.6em 0 0 0.3em;
+}
+
+.small_formula{
+    font-size:0.7rem;
+}
+
+.underline_formula_container{
+    width:100%;
+    padding: 0 10%;
+}
+
+.underline_formula_container .underline{
+    height:1px;
+    background-color:white;
+    width:100%;
+}
+
+/*/////Mean deviation/////*/
+.mean_deviation_formula_container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 1em 0;
+}
+
+.mean_deviation_formula_container div{
+    display:block;
+    font-size:1.3rem;
+}
+
+.md {
+    text-align: right;
+    padding: 0.6em 0.3em 0 0;
+}
+
+/*/////Mean deviation computational formula/////*/
+
+.mean_deviation_formula_cf_container {
+    display: grid;
+    grid-template-columns: 200px auto;
+    padding: 1em 0;
+}
+
+.mean_deviation_formula_cf {
+    display: grid;
+    grid-template-columns: auto 30px auto 30px;
+    grid-template-rows: auto auto auto;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    border-radius: 20px;
+    padding: 0 0.6em;
+}
+
+.mean_deviation_formula_cf div{
+    display: block;
+    font-size: 1.3rem;
+}
+
+.md_cf {
+    text-align: right;
+    font-size: 1.5rem;
+    padding: 0.7em 0.5em 0 0;
+}
+
+.formula_cf {
+    text-align: center;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    border-radius: 20px;
+}
+
+.minus {
+    text-align: center;
+    font-size: 3rem;
+    padding: 0.6em 0 0 0;
+}
+
+.formula_pow_cf {
+    text-align: center;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    border-radius: 20px;
+}
+
+.pow_cf{
+    padding: 0 0 0 0.2em;
+}

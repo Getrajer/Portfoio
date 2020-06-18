@@ -1,0 +1,196 @@
+/*
+colors: rgba(37, 36, 43, 1) blue-grey
+
+*/
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lustria', serif;
+}
+
+.site-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.content {
+  width: 1600px;
+}
+
+.navbar {
+  background-color: #25242b;
+  position: -webkit-sticky;
+  position: sticky;
+  position: absolute;
+  z-index: 99;
+  min-height: 80px;
+  width: 100%;
+}
+
+.navbar .navbar-brand {
+  color: #f0d125;
+}
+
+.navbar .nav-link {
+  color: #fff;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.navbar .nav-link:hover {
+  color: #f0d125;
+}
+
+.navbar .active {
+  color: #f0d125;
+}
+
+.header_container {
+  height: 100vh;
+}
+
+.header_container #slide1 {
+  background-image: url(../img/images/restaurant_background_1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.header_container #slide2 {
+  background-image: url(../img/images/restaurant_background_2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.header_container #slide3 {
+  background-image: url(../img/images/restaurant_background_3.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.carousel-item {
+  padding: 0 30em;
+}
+
+.content-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.header_content_container {
+  max-width: 1300px;
+  background-color: rgba(37, 36, 43, 0.719);
+  color: #fff;
+  position: relative;
+}
+
+.header_content_container .container_inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+
+.header_content_container .container {
+  margin: auto;
+  overflow: hidden;
+  padding: 0 5em;
+}
+
+.header_content_container .container h1 {
+  font-size: 3.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #f0d125;
+}
+
+.header_content_container .container p {
+  font-size: 1.3rem;
+  margin-top: 3em;
+}
+
+.header_content_container .container a {
+  margin-top: 2em;
+  font-size: 1.4rem;
+  background-color: #2d2a42;
+  color: white;
+  padding: 0.5em 1em;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  min-width: 150px;
+}
+
+.header_content_container .container a:hover {
+  color: #2d2a42;
+  background-color: white;
+}
+
+@media only screen and (max-height: 750px) {
+  .carousel-item {
+    padding: 8em 1em;
+  }
+}
+
+@media only screen and (max-width: 1700px) {
+  .carousel-item {
+    padding: 0 20em;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .carousel-item {
+    padding: 0 1em;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .header_content_container .container h1 {
+    font-size: 3rem;
+    margin-top: 60%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .header_content_container .container h1 {
+    font-size: 3rem;
+    margin-top: 70%;
+  }
+}
+/*# sourceMappingURL=index.css.map */

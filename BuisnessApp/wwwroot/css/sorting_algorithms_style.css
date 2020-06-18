@@ -1,0 +1,267 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+}
+
+.description_container{
+    padding:0;
+}
+
+.btn-primary {
+    background-color: transparent;
+    border-top: 1px solid #d4d4d4;
+    border-left: 1px solid #d4d4d4;
+    border-bottom: 2px solid #d4d4d4;
+    border-right: 2px solid #d4d4d4;
+    border-radius: 0;
+    margin: 0.5em 0 0.5em 1em;
+    transition: 0.4s all;
+}
+
+.btn-primary:active{
+    outline:unset;
+}
+
+.btn-primary:focus{
+    outline:unset;
+}
+
+.btn-primary:hover{
+    background-color: black;
+    border-top: 1px solid #d4d4d4;
+    border-left: 1px solid #d4d4d4;
+    border-bottom: 2px solid #d4d4d4;
+    border-right: 2px solid #d4d4d4;
+}
+
+
+#chart-container {
+    width: 100%;
+    height: 700px;
+    background-color: #333333;
+    padding: 10em 5em;
+    margin: 1em 0 4em 0;
+}
+
+.box {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    height: 500px;
+    background: transparent;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    display: flex;
+}
+
+.box .scale {
+    color: white;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: -17px;
+}
+
+.box .top-scale{
+    top: 0;
+}
+
+.box .middle-scale{
+    top: 50%;
+}
+
+.bottom-scale{
+    top: 100%;
+}
+
+.box .variable {
+    position: relative;
+    flex: 1;
+    text-align: center;
+}
+
+.box .variable .graph{
+    position:absolute;
+    width: 1px;
+    background:#008a9d;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.1s ease;
+}
+
+.box .variable .graph:before{
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    right: 2px;
+    bottom: 0;
+    background: linear-gradient(0deg, #d4d4d4, #d4d4d4);
+}
+.box .variable .graph:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255,.1);
+}
+.box .variable .graph .percent{
+    position:absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+    font-size: 0.3rem;
+}
+
+.box .variable .name{
+    position: absolute;
+    font-size: 0.9rem;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+
+@media only screen and (max-width: 1500px){
+
+#chart-container {
+    padding: 6em 2em;
+}
+
+.box {
+    width: 800px;
+    height: 450px;
+}
+
+
+
+.box .variable .name{
+    padding: 1px 3px;
+}
+
+.box .variable .name{
+    position: absolute;
+    font-size:0.8rem;
+    left: 50%;
+    background: #001e8a;
+    padding: 2px 6px;
+    border-radius: 4px;
+
+}
+}
+
+@media only screen and (max-width: 1200px){
+
+#chart-container {
+    padding: 3em 1em;
+}
+
+.box {
+    width: 650px;
+    height: 400px;
+}
+    
+.box .variable .name{
+    font-size: 0.7rem;
+    position: absolute;
+    background: none;
+}
+
+.box .scale{
+    font-size: 0.7rem;
+}
+}
+
+@media only screen and (max-width: 1000px){
+
+#chart-container {
+    padding: 3em 0.3em;
+}
+
+.box {
+     width: 400px;
+     height: 350px;
+}
+
+.box .variable .graph{
+    margin: 0;
+    padding: 0;
+}
+
+.box .variable .name{
+    padding: 1px 1px;
+    bottom: -40px;
+    left: -5%;
+    transform: translateX(-50%);
+    text-align: center;
+    border-radius: 0px;
+    transform: rotate(90deg);
+}
+}
+
+
+@media only screen and (max-width: 500px){
+
+#chart-container {
+    padding: 0;
+    transform: rotate(90deg);
+    height:500px;
+}
+
+.box {
+     width: 250px;
+     height: 300px;
+}
+
+.box .variable .graph{
+    margin: 0;
+    padding: 0;
+}
+.box .scale {
+    transform: rotate(-90deg);
+    left: -15px;
+
+}
+.box .variable .name{
+    padding: 0px;
+    bottom: -10px;
+    left: -9%;
+    font-size: 0.5rem;
+    transform: translateX(-50%);
+    text-align: center;
+    background: none;
+    border-radius: 0px;
+    transform: rotate(-90deg);
+}
+
+.box .variable .graph .percent{    
+    transform: rotate(-90deg);
+    top: -20px;
+    left: 0%;
+
+
+}
+}
+
+@media only screen and (max-width: 450px){
+
+#chart-container {
+    padding: 0;
+    transform: rotate(90deg);
+    height:330px;
+}
+
+
+}
+
+

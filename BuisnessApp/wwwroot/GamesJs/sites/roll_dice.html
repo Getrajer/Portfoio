@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/dice_style.css">
+</head>
+<body>
+
+    <section id="boards">
+        <div class="score_board">
+            <div class="score_board_container">
+                <div class="p1_sc">Player 1 score: <span id="score_1"></span></div>
+                <div class="p2_sc">Player 2 score: <span id="score_2"></span></div>
+            </div>
+        </div>
+        <div id="boards_container">
+            <div id="player_1_board">
+                <div id="player_1_board_container">
+                    <div class="dice_container">
+                        <div class="dice_p" id="dice_1_user"></div>
+                    </div>
+                    <div class="dice_container">
+                        <div class="dice_p" id="dice_2_user"></div>
+                    </div>
+                    <div class="dice_container">
+                        <div class="dice_p" id="dice_3_user"></div>
+                    </div>
+                    <div class="dice_container">
+                        <div class="dice_p" id="dice_4_user"></div>
+                    </div>
+                    <div class="dice_container">
+                        <div class="dice_p" id="dice_5_user"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="player_1_play_board">
+                <div class="dice_p" id="dice_1_play"></div>
+                <div class="dice_p" id="dice_2_play"></div>
+                <div class="dice_p" id="dice_3_play"></div>
+                <div class="dice_p" id="dice_4_play"></div>
+                <div class="dice_p" id="dice_5_play"></div>
+            </div>
+
+            <div id="border">
+
+            </div>
+
+            <div id="player_2_play_board">
+                <div class="dice_p" id="dice_1_play_2"></div>
+                <div class="dice_p" id="dice_2_play_2"></div>
+                <div class="dice_p" id="dice_3_play_2"></div>
+                <div class="dice_p" id="dice_4_play_2"></div>
+                <div class="dice_p" id="dice_5_play_2"></div>
+            </div>
+
+            <div id="player_2_board">
+                <div id="player_2_board_container">
+                    <div class="dice_container">
+                        <div class="dice_p" id="dice_1_user_2"></div>
+                    </div>
+                    <div class="dice_container">
+                        <div class="dice_p" id="dice_2_user_2"></div>
+                    </div>
+                    <div class="dice_container">
+                        <div class="dice_p" id="dice_3_user_2"></div>
+                    </div>
+                    <div class="dice_container">
+                        <div class="dice_p" id="dice_4_user_2"></div>
+                    </div>
+                    <div class="dice_container">
+                        <div class="dice_p" id="dice_5_user_2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <div class="buttons_container">
+                <div id="button_1_c">
+                    <button id="button_1">Player 1 roll</button>
+                </div>
+                
+                <div id="button_1_c">
+                    <button id="button_2">Player 2 roll</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="alert_box">
+    </div>
+
+
+
+    <script src="../scripts/roll_dice.js"></script>
+</body>
+</html>
+
+

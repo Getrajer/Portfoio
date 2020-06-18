@@ -1,0 +1,61 @@
+﻿<div class="photo-status">
+    <h3>@ListStatus (@Photos.Count())</h3>
+
+    <ul class="dropzone @dropClass"
+        ondragover="event.preventDefault();"
+        ondragstart="event.dataTransfer.setData('', event.target.id);"
+        @ondrop="HandleDrop"
+        @ondragenter="HandleDragEnter"
+        @ondragleave="HandleDragLeave">
+
+        @foreach(var photo in Photos)
+        {
+            <Photo PhotoModel="photo"/>
+        }
+
+    </ul>
+
+</div>
+@code {
+    [CascadingParameter] PhototsContainer Container { get; set; }
+    [Parameter] public TypePhoto ListStatus { get; set; }
+    [Parameter] public TypePhoto[] AllowedStatuses { get; set; }
+
+    List<PhotoModel> Photos = new List<PhotoModel>();
+
+    string dropClass = "";
+
+    protected override void OnParametersSet()
+    {
+        Photos.Clear();
+        Photos.AddRange(Container.Photos.Where(x => x.Type == ListStatus));
+    }
+
+    private void HandleDragEnter()
+    {
+        if (ListStatus == Container.Payload.Type) return;
+
+        if (AllowedStatuses != null && !AllowedStatuses.Contains(Container.Payload.Type))
+        {
+            dropClass = "no-drop";
+        }
+        else
+        {
+            dropClass = "can-drop";
+        }
+    }
+
+    private void HandleDragLeave()
+    {
+        dropClass = "";
+    }
+
+    private async Task HandleDrop()
+    {
+        dropClass = "";
+
+        if (AllowedStatuses != null && !AllowedStatuses.Contains(Container.Payload.Type)) return;
+
+        await Container.UpdatePhotoAsync(ListStatus);
+    }
+}

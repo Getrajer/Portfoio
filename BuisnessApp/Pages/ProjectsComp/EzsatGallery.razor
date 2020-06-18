@@ -1,0 +1,74 @@
+﻿@page "/EzsatGallery"
+
+<style>
+    .gallery{
+        display:flex;
+        justify-content:center;
+    }
+
+
+    .gallery_container {
+        width:100%;
+        max-width:1800px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1em;
+        margin-bottom:3em;
+    }
+
+    .title{
+        grid-column: span 2;
+        margin: 4em 0 1em 0;
+        font-size:4rem;
+        letter-spacing:10px;
+        text-transform: uppercase;
+        text-align:center;
+    }
+
+    .image_box img {
+        width: 100%;
+    }
+
+</style>
+
+<section class="gallery">
+    <div class="gallery_container">
+
+        <div class="title">
+            <h1>Ezsat Gallery</h1>
+        </div>
+
+        <div class="image_box">
+            <img src="../EzsatGallery/images/Article1.png" />
+        </div>
+
+        <div class="image_box">
+            <img src="../EzsatGallery/images/Article2.png" />
+        </div>
+
+        <div class="image_box">
+            <img src="../EzsatGallery/images/games.png" />
+        </div>
+
+        <div class="image_box">
+            <img src="../EzsatGallery/images/info.png" />
+        </div>
+
+        <div class="image_box">
+            <img src="../EzsatGallery/images/loc.png" />
+        </div>
+
+        <div class="image_box">
+            <img src="../EzsatGallery/images/MainPage.png" />
+        </div>
+
+        <div class="image_box">
+            <img src="../EzsatGallery/images/spon.png" />
+        </div>
+    </div>
+</section>
+
+
+@code {
+
+}

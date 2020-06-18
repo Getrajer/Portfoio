@@ -1,0 +1,212 @@
+﻿body::-webkit-scrollbar {
+    width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #008a9d;
+}
+
+body i{
+    font-family: 'Open Sans', sans-serif!important;
+}
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+body {
+    background-color: rgb(42, 42,  42);
+    color:#f8f8f8;
+
+}
+
+app {
+    display: flex;
+    position: relative;
+    min-height: 100vh;
+}
+
+.main{
+    width: 100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+}
+
+.content{
+    width: 1850px;
+}
+
+
+a{
+    text-decoration:none;
+    color: white;
+}
+
+a:hover{
+    text-decoration:none;
+}
+
+nav {
+    background-color: rgb(39, 39, 39);
+    position:fixed;
+    width:100%;
+    z-index: 1000;
+}
+
+nav .navigation_links{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    text-align:center;
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+}
+
+nav .l_box{
+    display: block;
+    width:100%;
+    height:100%;
+}
+
+nav a{
+    font-size: 1.8rem;
+    display:block;
+    font-weight: 900;
+    padding: 0 2em;
+    transition: color 0.5s;
+}
+
+nav a:hover{
+    color:  #008a9d;
+}
+
+.toggle-button{
+    display:none;
+}
+
+.logo svg{
+    fill:white;
+    transition: fill 0.5s;
+}
+
+.logo svg:hover{
+    fill:  #008a9d;
+}
+
+button{
+    color: white;
+}
+
+footer{
+    width: 100%;
+    text-align:center;
+    padding:1em 0;
+    background-color:black;
+    color:#008a9d;
+    font-weight: 900;
+    font-size:1.1rem;
+    margin-top: 5em;
+}
+
+.icons_created_with{
+    margin-top:2em;
+    display:flex;
+    width:100%;
+}
+
+.icons_created_with .icon_c{
+    padding-right: 1em;
+}
+
+.icons_created_with .icon_c svg{
+    width:40px;
+    height:40px;
+    fill: #008a9d;
+}
+
+@media screen and (max-width: 1150px) {
+    nav a {
+        padding: 0 1em;
+    }
+}
+
+
+@media screen and (max-width: 850px) {
+    .display_none {
+        display: none!important;
+    }
+
+    .display_flex {
+        display: flex!important;
+        align-items:center;
+        justify-content:center;
+        align-content:center;
+    }
+
+    .toggle-button {
+        display: block;
+        position: absolute;
+        top: 25px;
+        right: 40px;
+    }
+
+    nav .l_box {
+        display: block;
+        width: auto;
+    }
+
+    .toggle-button button{
+        font-size: 2rem;
+        background-color: unset;
+        border:none;
+        transition: 0.5s color;
+        color:white;
+    }
+
+    .toggle-button button:hover{
+        color: #008a9d;
+        background-color:unset;
+        border:none;
+    }
+
+    .logo{
+        width:100px;
+    }
+
+    nav .navigation_links{
+        display:grid;
+        grid-template-columns:1fr;
+        grid-template-areas: 
+            "l"
+            "A"
+            "P"
+            "C"
+            "G"
+    }
+
+    nav .l_box{
+        padding: 2em;
+    }
+
+    .about_l {
+        grid-area: A;
+    }
+    .project_l{
+        grid-area: P;
+    }
+    .component_l{
+        grid-area:C;
+    }
+    .graphics_l{
+        grid-area:G;
+    }
+
+}
+

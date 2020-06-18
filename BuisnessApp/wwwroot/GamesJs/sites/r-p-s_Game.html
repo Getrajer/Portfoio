@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <link href="../style/r_p_s_game_style.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="app-container">
+    <div id="game-container">
+        <div class="cards_container">
+            <h1>
+                Your options:
+            </h1>
+            <div class="card">
+                <div id="paper" class="img-container">
+                    <img src="../images/r-p-s/paper.png">
+                </div>
+            </div>
+            <div class="card">
+                <div id="rock" class="img-container">
+                    <img src="../images/r-p-s/rock.png">
+                </div>
+            </div>
+            <div class="card">
+                <div id="scissors" class="img-container">
+                    <img src="../images/r-p-s/scissors.png">
+                </div>
+            </div>
+        </div>
+
+        <div class="contest_container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div id="player-field"></div>
+                </div>
+                <div class="col-md-2">
+                    <div id="ResultContainer"></div>
+                </div>
+                <div class="col-md-5">
+                    <div id="computer-field"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="score">
+            <div id="player_score"></div>
+
+            <div id="ai_score"></div>
+        </div>
+        
+    </div>
+</div>
+    <script src="../scripts/r-p-s_Game_script.js"></script>
+</body>
+
+</html>

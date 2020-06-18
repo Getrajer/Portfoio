@@ -1,0 +1,56 @@
+#dataStructureObjects{
+    grid-template-columns: 1fr 1fr;
+}
+
+.component{
+    border-radius: 0px;
+    background: #ffffff;
+    transition: 0.5s;
+    box-shadow:  6px 6px 12px #ababab, 
+             -6px -6px 12px #ffffff;
+
+}
+
+.component:hover{
+    transform: translateY(-5px);
+}
+
+.component_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.root_node{
+    grid-column: span 2;
+    padding: 0.5em 0;
+    border-bottom: 3px solid black;
+}
+
+.root_node p{
+    padding: 0.5em 0;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.root_node p:nth-child(1){
+    border-bottom: 3px solid black;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.node{
+    text-align: center;
+    padding: 0.5em 0;
+    font-weight: 600;
+    border-bottom: 1px solid black;
+}
+
+
+
+.node:nth-child(even){
+    border-right: 1px solid black;
+}
+
+

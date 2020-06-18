@@ -1,0 +1,443 @@
+﻿@page "/ToDo"
+
+<head>
+    <link rel="stylesheet" href="../css/component_main_style.css" />
+    <link rel="stylesheet" href="../css/to_do_style.css" />
+</head>
+
+<div class="page_container">
+
+    <div class="component_container">
+
+        <div class="title_container">
+            <h1>To do list component</h1>
+            <div class="underline_container">
+                <div class="underline"></div>
+            </div>
+        </div>
+
+        <div class="component_description">
+            <p>
+                This component works as to-do list.
+            </p>
+
+            <div class="icons_created_with">
+                <div class="icon_c">
+                    <!--Html-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.08 100.02">
+                        <title>Html</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_11" data-name="Warstwa 11">
+                                <polygon class="fill_white" points="82.55 18.5 83.55 0.5 0.55 0.5 5.55 54.5 59.55 54.5 57.55 74.5 45.55 79.5 28.55 74.5 26.55 65.5 6.55 64.5 8.55 89.5 42.55 99.5 76.55 89.5 79.55 34.5 24.55 34.5 22.55 18.5 82.55 18.5" style="stroke-miterlimit: 10" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon_c">
+                    <!--CSS-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.08 100.02">
+                        <title>CSS</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_11" data-name="Warstwa 11">
+                                <polygon class="fill_white" points="0.56 0.5 83.56 0.5 82.56 19.5 43.55 34.5 80.56 34.5 76.56 89.5 42.55 99.5 8.55 89.5 6.55 64.5 26.55 64.5 26.55 72.5 40.55 79.5 57.55 74.5 58.55 54.5 5.55 54.5 3.56 34.5 42.55 19.5 2.56 19.5 0.56 0.5" style="stroke-miterlimit: 10" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon_c">
+                    <!--C#-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112.47 98.75">
+                        <title>C sharp</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_11" data-name="Warstwa 11">
+                                <path class="fill_white" d="M70,36.5l21-12C80.63,8.77,67.26,1.37,51.5.56a45.44,45.44,0,0,0-9.17.49C27.49,3.33,15.52,10.31,7.4,23.64A47,47,0,0,0,1.29,40.71,52,52,0,0,0,3.64,67.6c.22.59.46,1.19.74,1.76C11,83.09,21.1,94.1,41,97.5c11.13,1.79,22.4.72,34-7a40.65,40.65,0,0,0,16-17l-21-12a28.09,28.09,0,0,1-18,12c-7.34.8-13.47-1.76-19-6-7.8-6.52-10.27-15.45-7-27,3.7-9,10-13.54,18-15C54.76,23,63,28,70,36.5Z" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="87.97" y="41.5" width="24" height="5" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="91.97" y="37.5" width="5" height="24" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="102.97" y="37.5" width="5" height="24" style="stroke-miterlimit: 10" />
+                                <rect class="fill_white" x="87.97" y="52.5" width="24" height="5" style="stroke-miterlimit: 10" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon_c">
+                    <!--Blazor-->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 159.26 144.76">
+                        <title>Blazor</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Warstwa_12" data-name="Warstwa 12">
+                                <g>
+                                    <path class="fill_white" d="M121.68,119.5c-17.82,9.45-35.95,15-54.5,15.5-20.42.66-34.6-5.58-45-16a42.48,42.48,0,0,1-13-32c0-12.26,4.38-22.61,11-32,7.39-10.21,16.16-15.86,26-18,11.85-2.12,22.67-2.35,31,2,10.58,6.36,20.31,12.81,23,20,4.88,8.55,9,16.91,8,24,.35,7.49-1,13.91-6,18-4.45,5.54-10.33,7.8-18,6l-8-6-7.92,4.32a20.6,20.6,0,0,1-7.56,2.4,43.81,43.81,0,0,1-6.05.26,20.93,20.93,0,0,1-13.73-5.45,30.05,30.05,0,0,1-4.56-5.44A21,21,0,0,1,33,85.42c0-4.84.8-8.4,2.39-10.51.58-.76,1.18-1.49,1.7-2.3,2.65-4.12,10.33-9.72,10.7-9.94l.24-.15a20,20,0,0,1,9.32-2.85,124.91,124.91,0,0,1,12.84,0,11.82,11.82,0,0,1,8.06,3.71,6.85,6.85,0,0,1,2,3.58l1,25c5.85,8,11.55,9.44,17-1l-1-16c-.52-6.54-4.4-12.43-10-18-5.63-6-13-9.57-22-11-9.42.18-18.34,1-25,5-6.71,3.78-12.44,8.42-16,15-2.8,6.38-4.82,13-5,20,.4,6.47,1.43,12.17,4,16,7.79,10.59,16.7,19.52,30,22a76.6,76.6,0,0,0,28,0c16.2-3.43,29.76-9.53,41-18a100.27,100.27,0,0,0,28-34c4-6,6.33-14.52,8-24,1.55-7.33,1.32-15.42,0-24l-8-24c-8.36,16.43-21.22,27.65-40,32l6-24-29,17h-35C21.46,29,9.11,44.7,2.68,64c-.56,1.7-5.42,28.7-.5,42,5.89,17.15,15.08,28.41,28,33,11.49,5.29,23.87,6.62,36.73,5.27,1.34-.14,2.69-.24,4-.28,8.93-.29,18.5-3.74,28.23-8Z" />
+                                    <path class="fill_white" d="M70.18,71l1,20c-22.62,25.21-42.29-9-19-20Z" />
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="program_container">
+            <div class="to_do_container_all">
+                <ul>
+                    @foreach (var T in toDoItems)
+                    {
+                        <li>
+                            <div class="to_do_container">
+                                <div class="row">
+
+                                    <div class="col-md-4">
+                                        <div class="dates_to_do_container">
+                                            <div class="date_posted">
+                                                <p>From: </p>
+                                                <p>@T.Start</p>
+                                            </div>
+                                            <div class="deadline">
+                                                <p>To: </p>
+                                                <p>@T.Deadline</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <div class="to_do_content_container">
+                                            <div class="to_do_title">
+                                                <h4>Title: @T.Title</h4>
+                                                <div class="button_container">
+                                                    <button @onclick="@(() => DeleteToDoItem(T.ItemId) )">X</button>
+                                                </div>
+                                            </div>
+                                            <div class="to_do_main">
+                                                <p>@T.MainGoal</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="to_do_details">
+                                @if (T.ToDoDetails != null || T.ToDoDetails.Count > 0)
+                                {
+                                    @foreach (var Td in T.ToDoDetails)
+                                    {
+                                        <div class="detail_container">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="dates_to_do_detail_container">
+                                                        <div class="start_details">
+                                                            <p>From: @Td.Start</p>
+                                                        </div>
+                                                        <div class="end_detail">
+                                                            <p> To: @Td.End</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="detail_text">
+                                                        <div class="details_button">
+                                                            <button @onclick="@(() => T.DeleteDetail(Td.Id))">X</button>
+                                                        </div>
+                                                        <p>@Td.DetailsText</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                                <button class="add-to-do-btn" @onclick="ToggleAdd_details">@text_toggle_details</button>
+                                <div class="to_do_input_container @addMenuCss_details">
+                                    <div class="title_container text-center">
+                                        <h4>Add To-Do Details</h4>
+                                        <div class="heading_underline"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="input-field">
+                                                <label title="start">Start</label>
+                                                <input @bind="detailsStart" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="input-field">
+                                                <label title="end">End</label>
+                                                <input @bind="detailsEnd" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="input-field">
+                                                <label title="details">Details</label>
+                                                <textarea @bind="detailsText" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="btn-container">
+                                        <button @onclick="@(() => T.AddDetails(detailsText, detailsStart, detailsEnd) )">Add Detail</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+
+                <button class="add-to-do-btn" @onclick="ToggleAdd">@text_toggle</button>
+
+                <div class="to_do_input_container @addMenuCss">
+                    <div class="title_add_container">
+                        <div class="title_container text-center">
+                            <h4>Add To-Do</h4>
+                            <div class="heading_underline"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            
+                            <div class="input-field">
+                                <label title="Deadline">To-Do start</label>
+                                <input @bind="toDoStart" />
+                            </div>
+
+                            <div class="input-field">
+                                <label title="Deadline">To-Do deadline</label>
+                                <input @bind="toDoDeadline" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-field">
+                                <label title="Title">To-Do title</label>
+                                <input @bind="toDoTitle" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input-main-goal">
+                                <label title="MainGoal">To-Do main goal</label>
+                                <textarea @bind="toDoMainGoal" />
+                            </div>
+                        </div>
+                        <div class="btn-container">
+                            <button class="add-to-do-btn" @onclick="CreateToDoItem">Add todo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    //Declaring to-do item class
+    public class ToDoItem
+    {
+        public static int Id = 0;
+        public int ItemId { get; set; }
+        public string Title { get; set; }
+        public string MainGoal { get; set; }
+        public string Start { get; set; }
+        public string Deadline { get; set; }
+        public List<ToDoDetails> ToDoDetails = new List<ToDoDetails>();
+
+        public ToDoItem()
+        {
+            this.Deadline = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
+            ItemId = Id;
+            Id++;
+        }
+
+        public ToDoItem(string title, string mainGoal, DateTime posted, DateTime deadline)
+        {
+            this.Title = title;
+            this.MainGoal = mainGoal;
+            this.Start = posted.ToString("MM/dd/yyyy h:mm tt");
+            this.Deadline = deadline.ToString("MM/dd/yyyy h:mm tt");
+        }
+
+        public ToDoItem(string title, string mainGoal, string posted, string deadline)
+        {
+            this.Title = title;
+            this.MainGoal = mainGoal;
+            this.Start = posted;
+            this.Deadline = deadline;
+        }
+
+        //Add detail to the to-do
+        public void AddDetails(string detailText, DateTime start, DateTime end)
+        {
+            ToDoDetails toDoDetail = new ToDoDetails();
+
+            toDoDetail.DetailsText = detailText;
+            toDoDetail.Start = start.ToString("MM/dd/yyyy h:mm tt");
+            toDoDetail.End = end.ToString("MM/dd/yyyy h:mm tt");
+            toDoDetail.Id = ToDoDetails.Count;
+            ToDoDetails.Add(toDoDetail);
+
+
+
+        }
+
+        //Delete detail from to-do
+        public void DeleteDetail(int id)
+        {
+            if(ToDoDetails.Count != 0 || ToDoDetails != null)
+            {
+                ToDoDetails.RemoveAt(id);
+
+                if(ToDoDetails.Count != 0)
+                {
+                    for(int i = 0; i < ToDoDetails.Count; i++)
+                    {
+                        ToDoDetails[i].Id = i;
+                    }
+                }
+            }
+        }
+    }
+
+    //Declaring to-do details item class
+    public class ToDoDetails
+    {
+        public int Id { get; set; }
+        public string DetailsText { get; set; }
+        public string Start { get; set; }
+        public string End { get; set; }
+
+        public ToDoDetails()
+        {
+        }
+        public ToDoDetails(string detailsText, DateTime start, DateTime end)
+        {
+            this.DetailsText = detailsText;
+            this.Start = start.ToString("MM/dd/yyyy h:mm tt");
+            this.End = end.ToString("MM/dd/yyyy h:mm tt");
+        }
+
+        public ToDoDetails(string detailsText, string start, string end)
+        {
+            this.DetailsText = detailsText;
+            this.Start = start;
+            this.End = end;
+        }
+    }
+
+    //Declationg list for to do items
+    protected List<ToDoItem> toDoItems = new List<ToDoItem>();
+
+    //Declaring variables for main to-do item CREATION
+    protected string toDoTitle;
+    protected string toDoMainGoal;
+    protected DateTime toDoDeadline = DateTime.Now;
+    protected DateTime toDoStart = DateTime.Now;
+    //Declaring variables for EDITING to-do item
+    protected string toDoTitleEdit;
+    protected string toDoMainGoalEdit;
+    protected DateTime toDoDeadlineEdit;
+    //Declaring variables for to-do item details CREATION
+    protected string detailsText;
+    protected DateTime detailsStart = DateTime.Now;
+    protected DateTime detailsEnd = DateTime.Now;
+    //Declaring variables for EDITING to-do item details
+    protected string detailsTextEdit;
+    protected DateTime detailsStartEdit = DateTime.Now;
+    protected DateTime detailsEndEdit = DateTime.Now;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        ToDoItem i1 = new ToDoItem("Project work", "Create, a program with algorithm I've lernt yesterday.", "2020/02/22 13:00", "2020/02/22 22:00");
+        ToDoDetails d1 = new ToDoDetails("Do planning", "13:00", "15:00");
+        ToDoDetails d2 = new ToDoDetails("Break", "15:00", "15:30");
+        ToDoDetails d3 = new ToDoDetails("Write Prototype", "15:30", "18:00");
+        ToDoDetails d4 = new ToDoDetails("Break", "18:00", "18:30");
+        ToDoDetails d5 = new ToDoDetails("Finish program if possible", "18:30", "21:00");
+        ToDoDetails d6 = new ToDoDetails("Even if not finished do debugging", "21:00", "22:00");
+        i1.ToDoDetails.Add(d1);
+        i1.ToDoDetails.Add(d2);
+        i1.ToDoDetails.Add(d3);
+        i1.ToDoDetails.Add(d4);
+        i1.ToDoDetails.Add(d5);
+        i1.ToDoDetails.Add(d6);
+
+        toDoItems.Add(i1);
+    }
+
+
+    //Creating to-do item function
+    public async void CreateToDoItem()
+    {
+        ToDoItem toDoItem = new ToDoItem();
+
+        toDoItem.ItemId = toDoItems.Count;
+        toDoItem.Title = toDoTitle;
+        toDoItem.MainGoal = toDoMainGoal;
+        toDoItem.Start = toDoStart.ToString("MM/dd/yyyy h:mm tt");
+        toDoItem.Deadline = toDoDeadline.ToString("MM/dd/yyyy h:mm tt");
+
+        toDoItems.Add(toDoItem);
+
+        toDoTitle = "";
+        toDoMainGoal = "";
+        toDoDeadline = DateTime.Now;
+
+        ToggleAdd();
+    }
+
+    //Delete to-do item function
+    public async void DeleteToDoItem(int index)
+    {
+        toDoItems.RemoveAt(index);
+        ToDoItem.Id--;
+
+        if(toDoItems.Count != 0)
+        {
+            for (int i = 0; i < toDoItems.Count; i++)
+            {
+                toDoItems[i].ItemId = i;
+            }
+        }
+    }
+
+    //Edit to-do
+    public async void EditToDoItem(int id)
+    {
+
+    }
+
+    //Toggle for to-do input 
+    protected bool collapseAdd = true;
+    protected string text_toggle = "Add To-Do";
+    protected string addMenuCss => collapseAdd ? "display" : null;
+
+    public void ToggleAdd()
+    {
+        collapseAdd = !collapseAdd;
+
+        if(text_toggle == "Add To-Do")
+        {
+            text_toggle = "Hide";
+        }
+        else
+        {
+            text_toggle = "Add To-Do";
+        }
+    }
+
+    //Toggle for to-do details input
+    protected bool collapseAdd_details = true;
+    protected string text_toggle_details = "Add To-Do Details";
+    protected string addMenuCss_details => collapseAdd_details ? "display" : null;
+
+    public void ToggleAdd_details()
+    {
+        collapseAdd_details = !collapseAdd_details;
+
+        if (text_toggle_details == "Add To-Do Details")
+        {
+            text_toggle_details = "Hide";
+        }
+        else
+        {
+            text_toggle_details = "Add To-Do Details";
+        }
+    }
+}

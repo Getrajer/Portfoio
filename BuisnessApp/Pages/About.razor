@@ -1,0 +1,694 @@
+﻿@page "/About"
+
+<head>
+    <link rel="stylesheet" href="../css/about_style.css" />
+</head>
+
+
+
+<div class="about_container">
+
+    <header>
+        <div class="header_container">
+            <div class="about_me">
+                <div class="image-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 333 389.54">
+                        <defs>
+                            <image id="image" width="99" height="85" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAABVCAYAAABdGFolAAAACXBIWXMAAAsSAAALEgHS3X78AAAEQElEQVR4Xu3bTYscRRjA8X9Xd3X39ExvdnZ3kk2MqAsieMgXkBz0qEQI+gkCggdFUJRAwJOevAS8BLxEPAhR8CYEMV6URJMQTTSEZLN522R3k+zL7Lz09PRLeZCAt73FZ83zv1Y1FPyoaupQnnMOTUZmqwna40sxBKUYglIMQSmGoBRDUIohKMUQlGIISjEEpRiCUgxBKYagFENQiiEoxRCUYghKMQSlGIJSDEEphqAUQ1CKISjFEJRiCEoxBKUYglIMQSmGoBRDUIohKMUQlGIISjEEpRiC2hYYp9e/fSIeHnrSH1h+c+mo++PsZaLUp/P0DjbXBnz06ufeVt9tx4KtJvzX/Xb6PD98fYZWp8HM3hajwZibd153+/bP8faLR/9XKKIxjl/62C1cvcW9Gw9odkPGVYpn4OIvPe4vrzC/74BLWgkuN0y2d/DBS8e2NY5ojCt/znPl3E3KssS2IkxSUbua0ThncWFEb7BJvlnhOZ/ZuTbv3X7N7X52ButHFH3H4Ve+2FY4YjFOLH7i7i6sMOhmpDtDGlM++TjHCxzNWYuN4eHiBv3lgqhpKcqc1eUNbl1ZIkljQhtyuPeme+q5XXi5JfIbzO7aTdk3HHzhHZFIYjGu/3WHe9cfkLQtJg6o6pKqqAkjj9GgJutD78EY2wqwLcegl7F2t085crT3NAljy/XzS8TJNbzKp5U2eeb5vfhVyI3LR9z7Bz8VByIS48f+MTf/+yLLCxtUdU3RLzGxw7OOfFBRV46qcIw2KtJZqMsaYwxV7eivFQSxocyGDNcKjPFxFUx2UrorQ4wLuJBfJVv/0B059JkoEHEYp5a/cmdPX+bGxSX6ayOqusSzjob1KYuawWoJzmECj3Lk6C0VUEMybYnTgFbHEkQeG4sZVe4IQrA2IJkIGWxm5P2a0eaYX3+6AIe2Ws3jTdylb/7ibU6dOEdvNcMYQ2ADds5NECchge/TnAoxvsG3PlES4DkP2/DxAx8bBSTtf8Zd7WF8g40C0pmE6T0TBDagyEvSyRa+72+1lMeeuJ3RW81Yvdcl7SRUnYqiGtPuTLC23KX0HI12BMUIz/ewbYPneTSnQ2zsg/MYPBxjfMP00y0MhiAIaKYJjWYDMxPRSlIG62O+O35S1BEFwm/gB97a725fWyKeCMCvGXQzjPWoqhrPQJxabOTjhwZXOcbDis2VjMnZJul0Qt4rKYaOHVMpcRRRDB3ff/mzOIRHicZ41BvvvuyCxLB+v8soy4lbIXHLMuzlRElAVdb0Hma42jHsjpmdm8LGlvW7fZppwsnjZ8QC/LttgfGkJO4H/iSnGIJSDEEphqAUQ1CKISjFEJRiCEoxBKUYglIMQSmGoBRDUIohKMUQlGIISjEEpRiCUgxBKYagFENQiiEoxRCUYghKMQSlGIJSDEEphqAUQ1CKISjFEJRiCEoxBKUYglIMQf0NOwt5cghcB/YAAAAASUVORK5CYII=" />
+                            <image id="image-2" width="99" height="85" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAABVCAYAAABdGFolAAAACXBIWXMAAAsSAAALEgHS3X78AAAEiUlEQVR4Xu3bO0gjexTH8Z8WZiQGfDBqUDBYaKEW7ioBbUQxURsxoKwkpPC5pFhREUQRI6JCiBAEXxFR1hcuFqsJuogJgpUSsfJRWIhb2GgjK4OP9dzmFre4Fzv3eD0f+HczzMD3f2ammSgiguAh+qUDxOuRGIxIDEYkBiMSgxGJwYjEYERiMCIxGJEYjEgMRiQGIxKDEYnBiMRgRGIwIjEYkRiMSAxGJAYjEoMRicGIxGBEYjAiMRiRGIxIDEYkBiMSgxGJwYjEYERiMCIxGJEYjEgMRt5EjObm5nfx4yH7GK2trWQymVBaWkpLS0sUFxf3vw0Txf1vV71eTwAwMjKCi4sL6HQ6hEIhPD8/IxKJRL10/lvCOkZhYSENDg4iEolgcXER1dXVmJ6ehtPpxO/fv5GQkICrqyuEw2G0t7fjy5cvbzoO68fUwMAAWlpaEAwGUVJSAk3TAAAlJSXw+/3QNA2qqsLhcECn0+Hbt280MzNDer2eRkZG+O6y/8B2MlRVpZubGyQmJsLpdOLp6QlHR0c4PT1Ff38/fv36BQAYHx+HoigwGAxwuVy4u7sDAGxtbSE/Px87Oztwu92YnZ1FbGwsiAgrKyssJ4jtZKiqisbGRvh8Pmiahri4OBweHqKjowORSAS5ubnY29vD/f09oqOjYbFYsLCwgHA4DK/Xi8zMTCwvL6OoqAhutxs6nQ4PDw/Y2NhAUVERyx3IMsbnz5+ppqYGubm52NjYQDAYxMnJCeLj43FwcIDq6mrs7u7CYDDA5/OhsbERXq8X5eXleHx8xNjYGIqLi+H3+7G+vo6CggJsbm7i+voaS0tLSExMRENDA7sg7GKEQiG6vLyEx+PB9+/f8fHjR1RVVSE9PR1utxvHx8cIhULIyMjAzc0NhoeHERMTgx8/fuD8/Bx6vR5dXV1QFAVerxeTk5NQVRUTExMwm81YW1uD0WiEw+F46VZeHxGxWn19fVRXV0dpaWnkcrnIaDSSqqrk8XjIarVSZ2cnra6uktFoJKvVSoFAgABQT08PBQIBqqiooKSkJMrJySGLxUJ/P5IoLy+PFEWhrKwsWl1dpfr6enrpXl57sZuMs7MzaJqGoaEhnJ+fY25uDnq9Hl+/foXZbEZ2djbm5+ehaRoURYHT6URZWRlGR0ehKApSUlIwNzeH3t5emM1mmEwmpKam4vT0FB8+fIDD4UBbWxuWl5f5vcRfqvUnl9vtpu7ubjIYDNTU1ER2u50SEhLIarWSzWajlZUVqq2tpUAgQKWlpWSz2Wh7e5tiYmLo06dPlJycTHa7ncLhMFVWVpLf76eXrvknF9tP23/a2dkhn8+HiooKHB8f4+fPn4iNjYXNZsPCwgL29/cBAFNTUwiHwzCZTDg7O8Pt7S1qamrgcDj4TcG/eBMx3gt274z3TGIwIjEYkRiMSAxGJAYjEoMRicGIxGBEYjAiMRiRGIxIDEYkBiMSgxGJwYjEYERiMCIxGJEYjEgMRiQGIxKDEYnBiMRgRGIwIjEYkRiMSAxGJAYjEoMRicGIxGBEYjAiMRj5CxIKT/aYkLUjAAAAAElFTkSuQmCC" />
+                            <image id="image-3" width="100" height="89" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABZCAYAAADIBoEnAAAACXBIWXMAAAsSAAALEgHS3X78AAAF3ElEQVR4Xu3bX0hTfRzH8Y+bA5f7k0tR2grRFMogItdIqBUqJpHT0bxqDLIoyJCSysCEIqggGAyc6IUjQyexXNIwG0o2hHALoSKoC/sjURDaoAaJR/128zxdPDw9eyCob/R9wbk7v3Mu3ufL75yLk0FEEHyo0p0gfi4JwowEYUaCMCNBmJEgzEgQZiQIMxKEGQnCjARhRoIwI0GYkSDMSBBmJAgzEoQZCcKMBGFGgjAjQZiRIMxIEGYkCDMShBkJwowEYUaCMCNBmJEgzEgQZiQIMxKEGQnCjARhhm2QUChEIyMjf9wPkGyDRKNRBINBVFdXU39//w+FicVilEgkqKOj44eu8zOwDXL//n3Y7XaoVCooipLu9H919epVWrVqFbW1tWFubg6PHj2C2+0mm83GNkwG19+iTSYTKYqCoqIitLW1QafTYf/+/Rnp1v3NarXS7OwsqqqqkJmZid27d+Pu3bvfAs/NzeHBgwf/+3o/C9sJWV5exo0bN6DT6dDd3Y0DBw6kW/KN0Wikt2/f4tixYxgfH0d+fj66urpw69Yt1NbWIjc3F3l5eWhvb2f3NGamO+FXycjIgE6nw8uXL+H1euHxeFBZWUnj4+P/+VT39fXRnj17sHXrVhQVFcHn88FoNMLv98PlcgEALBYLnE4nampq2E0IiIjlsX37djKZTGS326mlpYW8Xi8NDg5SR0cHfW+NwWCgwcFBisVitHPnTurt7SWz2Uz5+fk0MDBAGo2G9Ho9RSKR717jVx8s95Curi6an5/HyMgIrl27hrq6Oly5cgXt7e0IBAJ48+YNTCYTGhsbMwBgy5YttLCwgLq6Ovh8Pty8eRNPnz6FoihYvXo11q1bh6GhIRgMBuzduxfT09O4ePEiv+kA0z3k8uXLCAaD0Gg0cDgciEQiUKlUOHjwII4cOYLHjx9DrVajrKyMwuEwlZWVQavVIh6PIxQKYe3atfj8+TM2b96MiooKeDweLC8vY9u2bfD5fGxjAEyD5ObmoqCgAJcuXcLGjRvx6tUrTE1NQaVSYcOGDQiHw3C73SgvL8eTJ09gNptRXFyM0tJSnDt3Dt3d3SgsLMSZM2fw4cMHVFdXw2KxoLm5Ga2trelu/0uxDFJQUIDCwkJkZWWhpKQEOTk5GB4exszMDE6cOIFkMgmDwYDjx48jGAwilUohEolgYWEBANDQ0IClpSVUVFTA5XLB7Xbj/fv36OzsxL59+9hOB8DwLSsQCJDZbMbQ0BBSqRRmZmbQ398PRVHw7t076PV6OJ1O2Gw2+P1+VFZWIhwO4/Dhw0gkEmhqakJPTw/GxsYQCoWg1WqxZs0a3Lt3DwMDA6xjAAwnZHR0FCsrK6ivr4fD4UBjYyPKy8vh9/sRj8cxPz+PU6dO4eTJk3A4HFhcXIRWq0VJSQmKi4sxPT2NlZUVjI2NYXh4GBMTE0ilUrBareluzQK7IFNTU6itrYXVakVWVhZsNhtsNhuuX78OtVqN27dv4/Tp0zh06BBCoRCOHj2KZDIJtVqNvLw8LC4uYseOHYhGo3A6nVhaWsLr168xOjrKfjoA8PsOOX/+PFksFmptbSWj0UjBYJAuXLhABoOBYrEYqVQqMplMFI1Gqbe3l86ePUu7du0is9lM8XicNBoN1dfX08OHD8npdJJerye9Xk/p7svlYLeHJBIJNDc3IycnB3fu3EFLSwsaGhpQWlqKyclJOJ1OGAwG9PT0IJlM4tmzZ1AUBS6XC7Ozs+js7MTk5CS+fPmC9evX49OnT7/HZPyF5Yfhpk2bqKqqCoFAABMTE+jr60N2djZqamqg0Wjw/PlzvHjxAl6vF3a7HdnZ2WhqasLHjx/h8Xh+qwD/xDLIn4zdpv6nkyDMSBBmJAgzEoQZCcKMBGFGgjAjQZiRIMxIEGYkCDMShBkJwowEYUaCMCNBmJEgzEgQZiQIMxKEGQnCjARhRoIwI0GYkSDMSBBmJAgzEoQZCcKMBGFGgjAjQZiRIMxIEGa+AjLt3lOF/BV+AAAAAElFTkSuQmCC" />
+                            <image id="image-4" width="100" height="89" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABZCAYAAADIBoEnAAAACXBIWXMAAAsSAAALEgHS3X78AAAFY0lEQVR4Xu3cy2tc1x3A8e855965d156ePRAdWx3U5K2hNAuusqiXQXyD3Sj0EWXfZBkUdpFCaWUlFAoDXRTCJQSAoWCSxddtM3DBKfBkWrXRo5sR5Fs2RKWRiNp5s7rvk42TRcJYUwW9i/491nfc+9wv/ObMwzMNd57lBx20gHq/tIgwmgQYTSIMBpEGA0ijAYRRoMIo0GE0SDCaBBhNIgwGkQYDSKMBhFGgwijQYTRIMJoEGE0iDAaRBgNIowGEUaDCKNBhNEgwmgQYTSIMBpEGA0ijAYRRoMIo0GE0SDCaBBhxAa5tP+mP7dx9qH7A2Qw6YAH5a03zrF26RoXHr/gl04vsvzks2bSms9y9oOXfb87xOeGZ771k899nvtBbJBL713m/D9W+fDGJlG1wvKTz05a8imv/OfnfuvaHW6u77J/6whrHOf/ueK//o1H+dHTvxQZRmyQ+omIE0tTjNIhnfYhyz992r/667/f8038/crzfvX191k7v0n/eERyOKJaj+ge9rh7q01n98f+he+/fM/nu1/E7iHTX6oyf6YJrqS0Bft325OW/N8f1p/zV1au8v7KBnt3OhQ+I2o6wqqhNCXbG7usvH2F3/75BXF7lNggGSPSYkzuU/Ii5WC/w/KvvjPxBv6p/by/vv4Ba+9u0u8PcBGUFMRTDhcZgsgws9ikd5Tw3Hd/oRNyr2xcUJic6glHbS6gtBk3r+3ww1ef+swov1l7xl985yrrK1scH/RwVU9t3mErnrBmCSLLqJ8ShJa3/vqeuBggdA/5W/Ki73a79Ht9SpPjXUGW5rR3R1x84wY/qH7bP/LVOX72tb8YgN/dXvb720ds/XePzdU9jnYGYD3WWZyzFBlkaU41DjG5ob1zPOklPDAig6yvbnJ95Tb97hATlhRlQTrMSfZSOncSBv0htZlNVh973J/65iw7a8dsXejQPxyTtMckeykzpyPy3NLbybDGEtc84XxEox7x77OXRE4HCA1y5e0Nbl7eIy9zSl/gKUgHBUfbY4w1jLodskHJjcU2M6ci8nHJ0fYIY8EGhnFSMOrmuMBysDHEWENtuqC/n9OcTidd/oESGSTPCgB8UTI4SsmzgqBqqLUC+N97u1ZzeEo6W0OKtGR4mFOfD6nNBTSXQoLQkQ08cTOgSD3VRoVxr+D6jW2x0wECg5zdfckvnJnhzBNzlGHGIBlwcCsB54lnDdmoxFUsjfmAIHKkScnh1pi0F9JYDJk6GRE3QkadksF+SRTGBDZk8VSL1/8o96PqY+KCGCxlBq2TU/g4xdRiWl+JOb47wEYej6dSt1TqAdYa0qQkjB1h7KjUApxzFEODaxoqGKKTMQtLLVqtuUmXFkFckLRf0t0bkfU9gQuIKwHRIwEutGBL4lmLLyEfeorMY4uC6fkKlVpAtVnBeMfxzZSgViGajmk0miwszPPS914TPx0gMMigk9G5nTAYpTR9SJGWjNOM8dhQna3gGiH9g5RkLyWeCimHFo8hHTrcOGCqVSMOQo7vjKEBdHOKA7lfcz9JXJCr72xy+dwGWM/0Qo3CF3TbCVEzpHW6TnW6pH84pr2VUJ+NMMaQDnLieoVqM6fbLBknBQe3E4xPuPruh1+IyfiYkfjMxS8/dtIfd3rMLjbxeI72e4SRY3apQXWqgjGGbJRT5J7xIMNaSxA6qo2Yi/+6/oUK8EkigzzMxP6W9bDSIMJoEGE0iDAaRBgNIowGEUaDCKNBhNEgwmgQYTSIMBpEGA0ijAYRRoMIo0GE0SDCaBBhNIgwGkQYDSKMBhFGgwijQYTRIMJoEGE0iDAaRBgNIowGEUaDCKNBhNEgwmgQYT4C/mwRq4f2QeMAAAAASUVORK5CYII=" />
+                            <image id="image-5" width="100" height="89" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABZCAYAAADIBoEnAAAACXBIWXMAAAsSAAALEgHS3X78AAAFZklEQVR4Xu3cS6wddR3A8e9/XufMed5zCy1QxMaYSNDAiqSJRN25MTG6gR0x6sZo4msnuiAhwELjQjGuTAkNC6LRBkIwQRdQpaYFCm253Gt7b7nvc+4978ecmfnP34Vx4yMnuGh/pL/Pev7zP5nv/GYxyRnjnEPJ4S06QN1YGkQYDSKMBhFGgwijQYTRIMJoEGE0iDAaRBgNIowGEUaDCKNBhNEgwmgQYTSIMBpEGA0ijAYRRoMIo0GE0SDCaBBhNIgwGkQYDSKMBhFGgwijQYTRIMJoEGE0iDAaRBgNIozYIH9Zf8mdfvWZW+4PkMGiA26Ws2ff4MzpV3jzwlvuwc/dzyMnv2MWrflfzqz/wm2vtwm8kG9+4cf/93luBLFB+oND2rsd1lau4oKUR04uWvGfXth4yg0HIzbe22Hl3HVwHlsfbLv7HriXhx/4rsgwYh9ZreNVTnzmTqxJubq6wWOnvvGhHl8vTp92q6trvHXuEpfOr7K1scd0Nubd8yu89so5Tp/76Yc6340idkJclOH8nP3tIZPBjOFgCI8uWvVPLwx+4i6+vsL5l9cYdad0tycUuWPpjgoHu12GnSmlsMxg7wn3rS//SNSkiJ2Q4bhPZ7dLd79PXmQk6YzvPfeVhXf1c70fussX3+PCn1bYuLzH4c6A4eGEZDJnPJxiAvBCw8FeF2kxQPCEWH+OM5YjJ6osHY8p1QKur23x/d99yf3sqy/+1wv57PTbbu3yJlfOfsCgN6J1IiJuhkwPyxjnE8YeJvVYPtbg1NN/EBcDhAY5M37SdQ96FOQQ+Zg4p9ses3tlxN8v7PD10Wfd8U8d4fGTZwzAr/tfc732kP3rPa7+bY/Niz1mw4z6HRFhPaQZR5g8ZN51dHdGRF686CfcNCKDtHcO2FrrkNscZjnWGOZpwmyUMJ+lvPnSNXaudfiB/by769MNdq4M2Hy7x6SfkExTsiwjz3Os9UnGGb4JcbOcLPHwPZ+Xf/NXkdMBQoPMszl+BLd/skrQKGh83Ce6vUTQcBS5I256+I2cfq9H8s6I3lbCZJzg1xz1ZZ/5LMRmAUt3xURhCTcNsL6PNQHNWrRo+5tKZJC4HnHknhqlowUZCXgplaOGoBZR2IIw9vGMo98eM3vfUuQO4wMOXG6o3xlSXS5jrI+bBjTvaVI2NUabBc8+9kex0wECg/w5/5UbdxNwEIQ+6QxmI0vpNjA+2MRRWEuRWTxjSMeOdFIQlj2iuk9Q9ak0fCq1MvnAYzJwREsxS80Wv3z0edExQGCQ3WuHrL6xw6id4tUgCALszJD2C2zhGO3lOOsIyj6lmg8YbAJRycMrfEwakIxhtp3RaNXwMpjuF9CbLdpaBHFBLr2+zjuvrlNe9ggbjnmWMehkZFmOtZZ8XjA5yDDGUD8W4Ucek05GuW6JYovnZWRjx6xnaR3LqdWrmKWcUz//vfjpAIFBpr2UYWdKloW4A0teZEyGlmxuwTjKzZDAc4zac4z1qB4pMdrO2O9NaN1dZfnuGkUCySClMxkTfaJKHi7aVQ5xQVqtFpVqBYqCPLWUGzFBK6CgIJtnhLHP8tEGh5UJhXXUGxX4WMDupE8pKnH8xDFcblhupaTTgtd++/ZHYjL+xUj85uIXH37IjcdjgrJH3IzwQsewN6G/PyKqhNSXYyb9hEF7SlwvUW2W2bzSIYwC1t/d/UgF+Hcig9zKxL5cvFVpEGE0iDAaRBgNIowGEUaDCKNBhNEgwmgQYTSIMBpEGA0ijAYRRoMIo0GE0SDCaBBhNIgwGkQYDSKMBhFGgwijQYTRIMJoEGE0iDAaRBgNIowGEUaDCKNBhNEgwmgQYTSIMP8Ar0U1ALGT8lcAAAAASUVORK5CYII=" />
+                            <image id="image-6" width="91" height="87" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFsAAABXCAYAAABr9DniAAAACXBIWXMAAAsSAAALEgHS3X78AAABjklEQVR4Xu3bQYqDQBBA0XKYy/R1PKjXqeOYzTRE45iMDD/V4T8IIeIifIruduG0rmuI8fXsBv0fY4OMDTI2yNggY4OMDTI2yNggY4OMDTI2yNggY4OMDTI2yNggY4OMDTI2yNggY4OMDTI2yNggY4OMDTI2yNggY4OMDTI2yNggY4OMDRot9to/mTncy0Cjxd7IzKGiT6O8LbYsy+aPttYe7mmtTQ8XCxlisvv0ZmZk5ul9lSd9iMm+EjAzY57nUpNefrKvhI44XmberXzsqyrG/n52wzvtp3ofsK/f99czs/8utYREfPBkV1R2gzxaq/cnkT7RfZr7d9UjYMnJPtsUfzv+nR0Jqyg52VdPIBG1H2wqbpCHoV/ZHKurGHu6W4vXiD8FLTvVEUWXkTM/j+SbzbGr9sS4N1zskZU8jXwqY4OMDTI2yNggY4OMDTI2yNggY4OMDTI2yNggY4OMDTI2yNggY4OMDTI2yNggY4OMDTI2yNggY4OMDTI2yNggY4OMDTI2yNggY4OMDboBC8d7O23d8TgAAAAASUVORK5CYII=" />
+                            <image id="image-7" width="91" height="87" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFsAAABXCAYAAABr9DniAAAACXBIWXMAAAsSAAALEgHS3X78AAADdUlEQVR4Xu3bvUorWxjG8WfNjJNPRSIqflTaWZrCztoL0MLL8DrsvANr24BaaBEwoCJYGJBAlARMGhUnM0kcM7PWKTZ7c/YWTprDc1YO77+dNYvw42UlwxBljIHEyRm3QPr3Emxigk1MsIkJNjHBJibYxASbmGATE2xigk1MsIkJNjHBJibYxASbmGATE2xigk1MsIkJNjHBJibYxASbmGATE2xigk1MsIkJNjHBJibYxASbmGATE2xigk3MG7fApiqVinl9fcX09DS01tjb21Pj7rGpicJutVqoVCpQSmEwGODm5sZsbm5if39/ItDVpPxbrFarmcPDQ5yengIA4jjG8vIyVlZWsLa2hq2tLRwcHFiNPhGTXa1WzeXlJZ6fnzE3N4evry/4vo8wDNFsNhEEAd7e3hCGodnY2MDu7q6V6BOBnSQJut0uFhcXsb6+jiiKEIYhHMdBmqYwxiCKItzf3yOOY2SzWbO0tIRyuWwVuvXYzWbTPD4+/kRENpuF4zhwXRee5yGKIqRpCqUUwjBEvV5HmqYolUool8vjtqdmPfbV1RXOzs4wGo3Q6/Xw8vICYwxGoxEcx0EcxzDGwHEc5PN59Ho9DIdDFIvFcVvTsxq7VquZ29tbtNttzM/PwxiDIAiQJAn+/GL/eaT4vg/f93F+fm7VEQJYjn1ycoKLiwsEQYDhcIjhcIgoiqC1/rZWqR+2vu+j1+t9u25D1mIfHR2Z6+trNBoNeJ6H9/f3X0fGP+X7PuI4tm6qAUuxj4+Pzd3dHTqdDvL5PGZmZqC1RhAE8LwfH9n3fQBAv9//7V7Xdb/tZ0tWYgNAp9NBsVhEoVDA6uoq4jhGu91GLpeD1hoLCwtQSuHp6QlaayilkMvl0Gg0rJxqwELsh4cH02q1oLXG7OwsPj8/4TgOlFIoFApwXReDwQCZTAZKKWQyGSRJgqmpKZRKpXHb/6dZ/bi+vb1tut0uPM9DmqZwXffXk2OxWIQxBv1+H1prFAoF1Ot1a6casHCy/161Wv2Gt7OzY4wx+Pj4+O1XSZIkfy61Lqsn+/+WvDwgJtjEBJuYYBMTbGKCTUywiQk2McEmJtjEBJuYYBMTbGKCTUywiQk2McEmJtjEBJuYYBMTbGKCTUywiQk2McEmJtjEBJuYYBMTbGKCTUywiQk2McEmJtjEBJvYXyanQBDVlgPwAAAAAElFTkSuQmCC" />
+                            <image id="image-8" width="133" height="84" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIUAAABUCAYAAACsuPS2AAAACXBIWXMAAAsSAAALEgHS3X78AAACQ0lEQVR4Xu3cMXLiMBiG4V8727pyrTu45g74dhyBC8Ad3HII16o4gFJk5JX9mQV7DSvI+1TEEY6CXixPMoOLMRqQ+3VvAH4eooAgCgiigCAKCKKAIAoIooAgCgiigCAKCKKAIAoIooAgCgiigCAKCKKAIAoIooAgCgiigCAKCKKAIAoIooAgCgiigCAKCKKAIAoIooAgCgiigCAKiN/3Brw759yiD/WKMbp7Yz6d+8QPQpuGsN/vbw0dOZ/Po69/aiAfE8XaEG55VSDX6zVWVfWUc69VZBTOubhkEfIg/jWGXN/31ve9hRCGY0vm9Tf5nLc651aKu6dIL9bcvcDci5fGbRmDmZn3fngcQrC6ri2EMPy8pQu59N7mfyruSpEv8tw7dWrrGBLv/RBGmkcy3VoeNZ3r6XRKDxcF9mzFRdG2bTT7syjee+u6brQor5LPIYWxdh75c9M5ieJBKYqpvu9Hl/Rnm1vEuWOPmF7xmqaxy+WSvl1UEGYFRmFm0cysbVszGy/Obre7/awn6Lpuduuq63rVXLz3djgc8kPFBWFWcBRm32Gkd+ir5VtXHkfTNEMQj84r2yaSImNISowiWTSxdGXZ0q37iXvbxvF4tKqqpoeLDiFXchRLlPhLvE0EU8X9nWKlt12AEvFfUgiigCAKCKKAIAoIooAgCgiigCAKCKKAIAoIooAgCgiigCAKCKKAIAoIooAgCgiigCAKCKKAIAoIooAgCgiigCAKCKKAIAoIooAgCgiigCAKCKKAIAqILyzt2o/6/dTOAAAAAElFTkSuQmCC" />
+                        </defs>
+                        <title>Its me Lol</title>
+                        <g style="isolation: isolate">
+                            <g id="Warstwa_2" data-name="Warstwa 2">
+                                <g id="Warstwa_24" data-name="Warstwa 24">
+                                    <g>
+                                        <g>
+                                            <path d="M41.63,111.53l17.37,56,4,6,6,7c2.25,10.05,2.93,19.51,1,28l-13,10-9,2-20-127,8-10Z" />
+                                            <path d="M24.5,48C36.08,51.61,43,62.26,46.5,78c1.61,9.26.92,17.89-3,26-.19,3.8-2.4,8.88-1.5,14.5C38.28,109,34.37,104.71,26.5,104Z" />
+                                            <polygon points="57 216.54 57 221.54 76 211.54 139 215.54 148 228.54 148 245.54 143 245.54 142 229.54 92 223.54 65 226.54 52 234.54 47 222.54 57 216.54" />
+                                            <path d="M56,174.54c1.34,22-.77,40.52-8,54l-12,1c-4.78-32.58-15.44-70.19-21-83l-4-45,2-52c4.08-3.5,8.8-4.26,14-3C25.78,92.54,34,135.65,56,174.54Z" style="fill: #ff1d25" />
+                                            <path d="M80,252.54l-2,13c-5.39,1.14-10.17,3.16-13,8-.79,2.3.15,4.63,3,7,1.81,7.59.34,24.34-1,41l14,1c-2.73-19.36-4.17-36.37-1-45l6,2,2,9c5,5.86,8.57,6.29,10-1,0,0-.29-10.29-1-11-1.57-1.57,11.08-12.7,13-12,2.6-1.25,1.88-7,1-13Z" />
+                                            <path d="M69,315.54l-35-6c-4.62.09-7.56,4.82-9,8l10,1H56Z" />
+                                            <polygon points="62 315.54 5 322.54 0 330.54 9 331.54 65 329.54 67.99 315.34 62 315.54" />
+                                            <polygon points="12 328.54 12 334.54 15 335.54 14 352.54 11 352.54 11 348.54 7 348.54 7 352.54 4 352.54 4 335.54 6 335.54 7 328.54 12 328.54" />
+                                            <polygon points="65 322.54 65 347.54 77 347.54 78 321.54 65 318.54 65 322.54" />
+                                            <path d="M69,346.54c-2,4.37-3.07,8.72-2,13,1.24,3.45,3.85,5.82,8,7,3.52.39,6.29-.75,8-4,1.83-2.91,1-6.33-1-10-2.88-.86-5.45-3.86-8-7Z" />
+                                            <path d="M76,330.54c1,0,67,4,67,4l-11-11-49-3-6-1Z" />
+                                            <path d="M134,332.54l1,9c-2.27,1.76-2.78,6-1,10,1.83,2.53,7.12,3.9,12,1,3.17-3.59,2.81-8.3,2-13-2.9-2.85-5.9-3.55-9-2v-5Z" />
+                                            <path d="M81.31,322.82l35.56-3c.94-3.63-1.34-5.95-5.17-7.63A305.06,305.06,0,0,0,77,316.29l.33,6.08Z" />
+                                            <path d="M27,180.54c3.47-1.65,6.17-1.73,8,0,4.49,9.69,7.43,19.6,7,30l2,19c3.08,6.49,5.61,13.57,12,17l7-1c2.93,3.4,4.67,6.76,2,10H34c-3.56-1.63-5.3-5.47-4-13,2.34-4.75,3.11-10.19,3-16C29.92,208.9,27.54,192.73,27,180.54Z" />
+                                            <path d="M28,313.54c-3.07,3.84-5.37,7.8-6,12l7,1,2-11Z" />
+                                            <path d="M113,317.54l1,9h7c-1.72-6.68-3.84-11.36-7-11Z" />
+                                        </g>
+                                        <polygon points="130 352.54 138 352.54 139 171.54 130 171.54 130 352.54" />
+                                        <polygon points="304 352.54 312 352.54 313 171.54 304 171.54 304 352.54" />
+                                        <polygon points="316 172.54 126 172.54 126 162.54 316 164.54 316 172.54" />
+                                        <polygon points="109 154.54 109 163.54 333 164.54 333 154.54 109 154.54" style="fill: #ccc" />
+                                        <path d="M52,52.54l.07.18A50.24,50.24,0,0,1,57,65.54c1.32,8.68,1.74,16.43,0,22l19,6c3.45-.6,3.19-2.07,1-4a27,27,0,0,1-2-14c1.64-1.33,6.58.59,11,2l-20-18-1-17Z" style="fill: #d68d6a" />
+                                        <polygon points="163 247.54 176 337.54 184 337.54 182 325.54 177 246.54 163 247.54" style="fill: #f2b890" />
+                                        <path d="M201,333.54s9-1,9-2-18-89-18-89l-14,1Z" style="fill: #f2b890" />
+                                        <g>
+                                            <g>
+                                                <path d="M226.51,341.34l4.91-9,.88.49,5.11,2.06,6,1.48c2.35.38,4.66.76,5.9,1l1.66.49a7.77,7.77,0,0,1,1.48,2c0,1.08-.34,1.86-1.28,2a22.66,22.66,0,0,1-9.62,2.55,26,26,0,0,1-10.9-1.18Z" style="fill: #50d300" />
+                                                <g style="opacity: 0.30000000000000004;mix-blend-mode: multiply">
+                                                    <use transform="translate(190 295.54)" xlink:href="#image-2" />
+                                                </g>
+                                                <g style="opacity: 0.4;mix-blend-mode: overlay">
+                                                    <use transform="translate(190 295.54)" xlink:href="#image" />
+                                                </g>
+                                                <g style="opacity: 0.4;mix-blend-mode: overlay">
+                                                    <use transform="translate(190 295.54)" xlink:href="#image" />
+                                                </g>
+                                            </g>
+                                            <g>
+                                                <path d="M193.81,339.87a16.68,16.68,0,0,1,1.08-7.26,9.39,9.39,0,0,1,.89-2.85l-.3-4.42a2.38,2.38,0,0,1,2.16.59,7.06,7.06,0,0,1,1.57,2.36,9.13,9.13,0,0,0,2.46,3.33c1.27,1.25,3,1.49,5,.79a8.34,8.34,0,0,0,4.13-2.65L213,327.3c1.62-1.67,3.12-1.73,4.51-.39l2.56,1.67-6.09,10.51a33.23,33.23,0,0,1-8.54,2C199.46,341.87,195.27,341.67,193.81,339.87Z" style="fill: #50d300" />
+                                                <g style="opacity: 0.30000000000000004;mix-blend-mode: multiply">
+                                                    <use transform="translate(157 288.54)" xlink:href="#image-3" />
+                                                </g>
+                                                <g style="opacity: 0.4;mix-blend-mode: overlay">
+                                                    <use transform="translate(157 288.54)" xlink:href="#image-4" />
+                                                </g>
+                                                <g style="opacity: 0.4;mix-blend-mode: overlay">
+                                                    <use transform="translate(157 288.54)" xlink:href="#image-5" />
+                                                </g>
+                                            </g>
+                                            <path d="M210.26,329a9.85,9.85,0,0,1-1.33-4.37,9.39,9.39,0,0,1,1.2-3.38.12.12,0,0,1,.22.07,16.38,16.38,0,0,0,.15,4.88,8.41,8.41,0,0,0,.54,2A2.15,2.15,0,0,1,210.26,329Z" style="fill: #fff;stroke: #000;stroke-miterlimit: 10;stroke-width: 0.25px" />
+                                            <path d="M210.9,328.09l2.74-2.75a2.53,2.53,0,0,1,3.15.1l4,2.7.4-.59-2-1-4.32-3.63a12,12,0,0,1-2.45-1.87c-.71-.87-1.68-1.24-2.26.1l.2,3.53A21.66,21.66,0,0,0,210.9,328.09Z" />
+                                            <g>
+                                                <path d="M213.94,339.18,221,326.91a.31.31,0,0,1,.49-.1l10.21,4.91c.13.2.06.4-.2.59l-4.9,9Z" />
+                                                <g style="opacity: 0.1;mix-blend-mode: lighten">
+                                                    <use transform="translate(177 290.54)" xlink:href="#image-6" />
+                                                </g>
+                                                <g style="opacity: 0.30000000000000004;mix-blend-mode: difference">
+                                                    <use transform="translate(177 290.54)" xlink:href="#image-7" />
+                                                </g>
+                                            </g>
+                                            <path d="M195.58,324.65a1.6,1.6,0,0,1,2.06-.09,4.27,4.27,0,0,1,2.46,2.74,14.6,14.6,0,0,0,1.76,3.15,4.6,4.6,0,0,0,3.24,1.47,8.78,8.78,0,0,0,3.93-1.77l3.53-3.73c1.71-2,3.38-2,5-.39,1.17.8,2.25,1.18,2.9,1.62l-.44.93c-1.06-.71-2.07-1.4-2.56-1.77-1.35-1.24-2.7-.95-4.37.54a9.08,9.08,0,0,1-3.19,3.29,9.76,9.76,0,0,1-4.81,2.16,4.37,4.37,0,0,1-3.73-1.47,6.93,6.93,0,0,1-2.16-3.14,5.91,5.91,0,0,0-2.35-2.75,2,2,0,0,0-1.38-.1A1,1,0,0,1,195.58,324.65Z" style="fill: #50d300" />
+                                            <path d="M250.37,345.57a10.78,10.78,0,0,0,2.16-2.16,6,6,0,0,0,.09-3.64,2.42,2.42,0,0,1-.78,1.57Z" style="fill: #1a1a1a" />
+                                            <g>
+                                                <path d="M192.39,342.47c-.72,1.57-1.5,3.2-1.38,4,.61,1.47,1.91,2.23,3.83,2.36a9.33,9.33,0,0,0,3.83.09l6.09.59h4.32c5.69.38,11,.6,15.41.49a83.06,83.06,0,0,0,11.39,0,34.24,34.24,0,0,0,8.55-1.27,19.94,19.94,0,0,0,6.38-3.54l.29-.39.89-2.36-.2-1.08a28.32,28.32,0,0,1-9.72,2.75A32.62,32.62,0,0,1,230.78,343c-7.64-4.32-14.57-5.06-20.92-2.75l-4.41.78a24.69,24.69,0,0,1-1.48,2.16,5.9,5.9,0,0,1-1.37.79A33.94,33.94,0,0,1,192.39,342.47Z" style="fill: #1a1a1a" />
+                                                <g style="opacity: 0.1">
+                                                    <use transform="translate(155 302.54)" xlink:href="#image-8" />
+                                                </g>
+                                                <path d="M192.39,342.47c-.72,1.57-1.5,3.2-1.38,4,.61,1.47,1.91,2.23,3.83,2.36a9.33,9.33,0,0,0,3.83.09l6.09.59h4.32c5.69.38,11,.6,15.41.49a83.06,83.06,0,0,0,11.39,0,34.24,34.24,0,0,0,8.55-1.27,19.94,19.94,0,0,0,6.38-3.54l.29-.39.89-2.36-.2-1.08a28.32,28.32,0,0,1-9.72,2.75A32.62,32.62,0,0,1,230.78,343c-7.64-4.32-14.57-5.06-20.92-2.75l-4.41.78a24.69,24.69,0,0,1-1.48,2.16,5.9,5.9,0,0,1-1.37.79A33.94,33.94,0,0,1,192.39,342.47Z" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 0.25px" />
+                                            </g>
+                                            <path d="M192.34,342.43a4.74,4.74,0,0,1,1.47-2.56,4.06,4.06,0,0,0,2.46,1.38,30.12,30.12,0,0,0,5.69.19l3.44-.39L204,343.11a1.9,1.9,0,0,1-1.27.79A29.05,29.05,0,0,1,192.34,342.43Z" style="fill: #50d300;stroke: #333;stroke-miterlimit: 10;stroke-width: 0.25px" />
+                                            <path d="M192.78,341.1c3,1.43,7,1.87,11.39,1.77-.28.86-1.06,1.3-2.65,1.08a27.86,27.86,0,0,1-6.68-.79,5,5,0,0,1-2.45-.78Z" style="fill: #4d4d4d;fill-opacity: 0.5;opacity: 0.8" />
+                                        </g>
+                                        <g>
+                                            <g>
+                                                <path d="M200.51,344.34l4.91-9,.88.49,5.11,2.06,6,1.48c2.35.38,4.66.76,5.9,1l1.66.49a7.77,7.77,0,0,1,1.48,2c0,1.08-.34,1.86-1.28,2a22.66,22.66,0,0,1-9.62,2.55,26,26,0,0,1-10.9-1.18Z" style="fill: #50d300" />
+                                                <g style="opacity: 0.30000000000000004;mix-blend-mode: multiply">
+                                                    <use transform="translate(164 298.54)" xlink:href="#image-2" />
+                                                </g>
+                                                <g style="opacity: 0.4;mix-blend-mode: overlay">
+                                                    <use transform="translate(164 298.54)" xlink:href="#image" />
+                                                </g>
+                                                <g style="opacity: 0.4;mix-blend-mode: overlay">
+                                                    <use transform="translate(164 298.54)" xlink:href="#image" />
+                                                </g>
+                                            </g>
+                                            <g>
+                                                <path d="M167.81,342.87a16.68,16.68,0,0,1,1.08-7.26,9.39,9.39,0,0,1,.89-2.85l-.3-4.42a2.38,2.38,0,0,1,2.16.59,7.06,7.06,0,0,1,1.57,2.36,9.13,9.13,0,0,0,2.46,3.33c1.27,1.25,3,1.49,5,.79a8.34,8.34,0,0,0,4.13-2.65L187,330.3c1.62-1.67,3.12-1.73,4.51-.39l2.56,1.67-6.09,10.51a33.23,33.23,0,0,1-8.54,2C173.46,344.87,169.27,344.67,167.81,342.87Z" style="fill: #50d300" />
+                                                <g style="opacity: 0.30000000000000004;mix-blend-mode: multiply">
+                                                    <use transform="translate(131 291.54)" xlink:href="#image-3" />
+                                                </g>
+                                                <g style="opacity: 0.4;mix-blend-mode: overlay">
+                                                    <use transform="translate(131 291.54)" xlink:href="#image-4" />
+                                                </g>
+                                                <g style="opacity: 0.4;mix-blend-mode: overlay">
+                                                    <use transform="translate(131 291.54)" xlink:href="#image-5" />
+                                                </g>
+                                            </g>
+                                            <path d="M184.26,332a9.85,9.85,0,0,1-1.33-4.37,9.39,9.39,0,0,1,1.2-3.38.12.12,0,0,1,.22.07,16.38,16.38,0,0,0,.15,4.88,8.41,8.41,0,0,0,.54,2A2.15,2.15,0,0,1,184.26,332Z" style="fill: #fff;stroke: #000;stroke-miterlimit: 10;stroke-width: 0.25px" />
+                                            <path d="M184.9,331.09l2.74-2.75a2.53,2.53,0,0,1,3.15.1l4,2.7.4-.59-2-1-4.32-3.63a12,12,0,0,1-2.45-1.87c-.71-.87-1.68-1.24-2.26.1l.2,3.53A21.66,21.66,0,0,0,184.9,331.09Z" />
+                                            <g>
+                                                <path d="M187.94,342.18,195,329.91a.31.31,0,0,1,.49-.1l10.21,4.91c.13.2.06.4-.2.59l-4.9,9Z" />
+                                                <g style="opacity: 0.1;mix-blend-mode: lighten">
+                                                    <use transform="translate(151 293.54)" xlink:href="#image-6" />
+                                                </g>
+                                                <g style="opacity: 0.30000000000000004;mix-blend-mode: difference">
+                                                    <use transform="translate(151 293.54)" xlink:href="#image-7" />
+                                                </g>
+                                            </g>
+                                            <path d="M169.58,327.65a1.6,1.6,0,0,1,2.06-.09,4.27,4.27,0,0,1,2.46,2.74,14.6,14.6,0,0,0,1.76,3.15,4.6,4.6,0,0,0,3.24,1.47,8.78,8.78,0,0,0,3.93-1.77l3.53-3.73c1.71-2,3.38-2,5-.39,1.17.8,2.25,1.18,2.9,1.62l-.44.93c-1.06-.71-2.07-1.4-2.56-1.77-1.35-1.24-2.7-.95-4.37.54a9.08,9.08,0,0,1-3.19,3.29,9.76,9.76,0,0,1-4.81,2.16,4.37,4.37,0,0,1-3.73-1.47,6.93,6.93,0,0,1-2.16-3.14,5.91,5.91,0,0,0-2.35-2.75,2,2,0,0,0-1.38-.1A1,1,0,0,1,169.58,327.65Z" style="fill: #50d300" />
+                                            <path d="M224.37,348.57a10.78,10.78,0,0,0,2.16-2.16,6,6,0,0,0,.09-3.64,2.42,2.42,0,0,1-.78,1.57Z" style="fill: #1a1a1a" />
+                                            <g>
+                                                <path d="M166.39,345.47c-.72,1.57-1.5,3.2-1.38,4,.61,1.47,1.91,2.23,3.83,2.36a9.33,9.33,0,0,0,3.83.09l6.09.59h4.32c5.69.38,11,.6,15.41.49a83.06,83.06,0,0,0,11.39,0,34.24,34.24,0,0,0,8.55-1.27,19.94,19.94,0,0,0,6.38-3.54l.29-.39.89-2.36-.2-1.08a28.32,28.32,0,0,1-9.72,2.75A32.62,32.62,0,0,1,204.78,346c-7.64-4.32-14.57-5.06-20.92-2.75l-4.41.78a24.69,24.69,0,0,1-1.48,2.16,5.9,5.9,0,0,1-1.37.79A33.94,33.94,0,0,1,166.39,345.47Z" style="fill: #1a1a1a" />
+                                                <g style="opacity: 0.1">
+                                                    <use transform="translate(129 305.54)" xlink:href="#image-8" />
+                                                </g>
+                                                <path d="M166.39,345.47c-.72,1.57-1.5,3.2-1.38,4,.61,1.47,1.91,2.23,3.83,2.36a9.33,9.33,0,0,0,3.83.09l6.09.59h4.32c5.69.38,11,.6,15.41.49a83.06,83.06,0,0,0,11.39,0,34.24,34.24,0,0,0,8.55-1.27,19.94,19.94,0,0,0,6.38-3.54l.29-.39.89-2.36-.2-1.08a28.32,28.32,0,0,1-9.72,2.75A32.62,32.62,0,0,1,204.78,346c-7.64-4.32-14.57-5.06-20.92-2.75l-4.41.78a24.69,24.69,0,0,1-1.48,2.16,5.9,5.9,0,0,1-1.37.79A33.94,33.94,0,0,1,166.39,345.47Z" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 0.25px" />
+                                            </g>
+                                            <path d="M166.34,345.43a4.74,4.74,0,0,1,1.47-2.56,4.06,4.06,0,0,0,2.46,1.38,30.12,30.12,0,0,0,5.69.19l3.44-.39L178,346.11a1.9,1.9,0,0,1-1.27.79A29.05,29.05,0,0,1,166.34,345.43Z" style="fill: #50d300;stroke: #333;stroke-miterlimit: 10;stroke-width: 0.25px" />
+                                            <path d="M166.78,344.1c3,1.43,7,1.87,11.39,1.77-.28.86-1.06,1.3-2.65,1.08a27.86,27.86,0,0,1-6.68-.79,5,5,0,0,1-2.45-.78Z" style="fill: #4d4d4d;fill-opacity: 0.5;opacity: 0.8" />
+                                        </g>
+                                        <path d="M94,209.54l87,17c5.44,2,9.12,5.13,10,9,1.57,4.59,1.87,9.65,3,15H175l1-13-82-24Z" style="fill: #262f32" />
+                                        <path d="M58,203.54c-.73,9,.2,17.56,5,25,3.38,5.29,7.71,9.39,14,11a488.53,488.53,0,0,0,77,5l3,7,21-1-1-13c-1.85-5.47-5.38-8.65-11-9l-71-16,1-7Z" style="fill: #39464b" />
+                                        <path d="M47,96.54c-3.22,11.22-3.67,25.09-2,41a584.56,584.56,0,0,0,11,67c14.74,3.23,29.13,6.19,38,5,3.34.27,5.5-.59,5-4-2.74-17.34-4.86-34.4-7-51l-2-17Z" />
+                                        <path d="M85,76.54c-2.81-1.13-7.34-11.3-12-8-1.41,1-5,4.57-6.5,5.5-3.1,1.89-2.22,8.73-1,16l11,3c1.92-.13,2.43-1.15,0-4C73.32,78.35,79.17,74.24,85,76.54Z" style="fill: #e09872" />
+                                        <polygon points="64 90.54 82 98.54 84.37 97.5 81 93.54 76 88.54 64 90.54" style="fill: #e09872" />
+                                        <path d="M87,115.54l23,18,21,3,29,4,16-5,7,12h-3l-5-7-11,7s-10-1-9-1-50-10-50-10l-22-19Z" style="fill: #d68d6a" />
+                                        <path d="M57,86.54v1l19,6,7,3-5-6a18.69,18.69,0,0,1,6,6,46.93,46.93,0,0,1,6,15c1.58,5.61,2,10.63,1,15l-34-32-6,1-3,5-1-2c-.52-2.53.35-4.83,2-7a8.67,8.67,0,0,1,5-4Z" />
+                                        <path d="M86.63,121.54l17,13c10.32,1.8,20.14,4.3,27,4l23,1,15.37-3,8,11-3-1-6-6-13.37,8h-.92a3.56,3.56,0,0,1-2-.59l-2.1-1.41h-46a125.89,125.89,0,0,1-21-14Z" style="fill: #f3b890" />
+                                        <path d="M57,94.54c-8.47-1.77-10.64,3.54-10,12,.84,8.15,5.13,13.27,11,17l32,17,4-14Z" />
+                                        <polygon points="142 147.54 142 153.54 239 153.54 239 147.54 241 55.54 239 55.54 235 146.54 142 147.54" />
+                                        <path d="M64,44.54l1,16A112.81,112.81,0,0,0,84.63,77a9.4,9.4,0,0,0,5.2,1.54H94c1.82.1,3.1-.3,3.5-1.5l3-9-1-2,2-1,1-7,1,1c2.23.05,3.76-.74,4.5-2.46a2.73,2.73,0,0,0-.92-3.2c-1.41-1.07-2.51-3.17-3.58-5.34.53-7.74,1-15.46-1-20l-12-7c-5-1-9.31-1.22-10,2,.91,4.1-1.81,7.66-6,11l-2,12-2-2c-.93-7.11-1.78-14.55-4-17-3.71-.23-5.8,3.34-7,9C61.16,39.46,62.7,42.43,64,44.54Z" style="fill: #f3b890" />
+                                        <ellipse cx="96" cy="44.54" rx="1.5" ry="3.5" style="stroke: #000;stroke-miterlimit: 10" />
+                                        <path d="M92.5,43c.75-3.38,2.89-4.1,6-3" style="fill: none;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 0.5px" />
+                                        <path d="M90.5,36c3.58-.93,6.68-1.11,9,0" style="fill: none;stroke: #000;stroke-linecap: round;stroke-miterlimit: 10" />
+                                        <polyline points="100.5 66.04 92.5 62.04 92.5 61.04" style="fill: none;stroke: #df936f;stroke-miterlimit: 10" />
+                                        <path d="M64,44.54,52.5,53c-4-4.34-6.71-10.37-9-17a28,28,0,0,1,3-19,25.19,25.19,0,0,1,14-15c4.39-2.87,12.39-2.23,21-1l26,1c7,9.31,3.63,17.85-5,26l-16-7L82,24.54c-.1,4-3.73,6.75-7.5,9.5L73,46.54a3.66,3.66,0,0,1-3-4l-3-14c-4.1-.47-6,.08-7,7Z" style="fill: #42210b" />
+                                        <path d="M43,222.54c0,10.14,2.82,18.89,13,24l21,6,67,2,8-2,5-9-1-7c.51-6.57-2.13-11.91-8-16-9.33-4.22-21.82-5.44-35-6l-48,11-13-7Z" style="fill: red" />
+                                        <path d="M91,258.54l6-68,19-1c2.62-1.86,2-3.48,0-5H68c-1.83,2.59-3.11,5.2,0,8h9l3,74Z" />
+                                    </g>
+                                </g>
+                                <g id="Light">
+                                    <polygon class="light_profile" points="239 55.54 235 146.54 75 121.54 64 76.54 73 67.54 65 60.54 64 44.54 58 31.54 86 1.54 107 1.54 239 55.54" style="opacity: 0.1" />
+                                    <rect x="269" y="130.54" width="21" height="24" style="fill: #c69c6d" />
+                                    <polygon points="269.13 139.31 266 139.31 266 146.54 271 146.54 271 148.54 265 148.54 265 137.54 270 137.54 269.13 139.31" style="fill: #c69c6d" />
+                                    <rect x="274" y="143.54" width="11" height="7" style="fill: #754c24" />
+                                    <path d="M276,143.54v-6c2.26-2.64,4.6-2.48,7,0v7h-7Z" style="fill: none;stroke: #754c24;stroke-miterlimit: 10;stroke-width: 0.75px" />
+                                    <path d="M278.81,146.3v1.51a.75.75,0,0,0,1.5,0V146.3a.75.75,0,0,0-1.5,0Z" />
+
+                                    <path class="smoke3" d="M285.5,128.55a6.55,6.55,0,0,1-1.07-3.3c.07-1.09.75-1.62,1.13-2.53a7.22,7.22,0,0,0,0-4.34c-.2-.94-1.64-.54-1.45.4a5.36,5.36,0,0,1-.38,4.1,5.33,5.33,0,0,0-.74,1.73c-.3,1.68.45,3.24,1.21,4.7.44.85,1.74.1,1.29-.76Z" />
+
+                                    <g id="Smoke_1" data-name="Smoke 1">
+                                        <path class="smoke1" d="M275.57,127.92a5,5,0,0,1-.4-3.9,19.64,19.64,0,0,0,1.08-2.5,6.37,6.37,0,0,0-1-4c-.42-.87-1.72-.11-1.29.76a4.24,4.24,0,0,1,.33,4,7.87,7.87,0,0,0-.82,2.28,6.49,6.49,0,0,0,.77,4.09c.44.86,1.74.1,1.29-.76Z" />
+                                    </g>
+                                    <g id="Smoke2">
+                                        <path class="smoke2" d="M280.82,126.83c-1.46-2.42.53-5.49.22-8.14s-1.86-5.11-.75-7.91c.53-1.34-1.64-1.93-2.17-.6-1.28,3.23.44,6,.55,9.29.1,3-1.51,5.65.21,8.49a1.12,1.12,0,0,0,1.94-1.13Z" />
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="about_text">
+                    <div class="h1_b">
+                        <div class="display_container">
+                            <div class="title_container">
+                                <h1>Technology my passion </h1>
+                            </div>
+                            <p>
+                                My name is Mateusz. I'am full stack web developer. Working mostly with .Net framework but I'am keen to learn any diffrent or new technologies.
+                                <br /><br />
+                                I am passionate about programming, technology and science.
+                                <br /><br />
+                                Lets get along.
+                            </p>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <section class="services">
+        <div class="services_container">
+
+            <div class="service_container">
+                <div class="service s1">
+                    <div class="graphic_container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="300px" viewBox="0 0 218 390.11">
+                            <title>Sign</title>
+                            <g id="Warstwa_2" data-name="Warstwa 2">
+                                <g id="Warstwa_7" data-name="Warstwa 7">
+                                    <path d="M123,336l41,7c-6.34-29.91-3.8-59.95-9-97C141.62,272.81,125.77,302.42,123,336Z" style="fill: #006837" />
+                                    <path d="M118,326l21,2-12-93C116.66,260.55,115.5,292.08,118,326Z" style="fill: #006837" />
+                                    <path d="M96,319l-18,9c-5.6-28.94-6.15-60.33-2-94C80.22,266.42,86.55,295.32,96,319Z" style="fill: #006837" />
+                                    <polygon points="89 316 102 316 91 219 89 316" style="fill: #006837" />
+                                    <path d="M85,326,74,336c-12.71-20.21-24.31-43.75-35-70C58.06,281.52,72.75,302.29,85,326Z" style="fill: #006837" />
+                                    <path d="M145,329l14,16,28-69C168.2,290.27,153.56,307.6,145,329Z" style="fill: #006837" />
+                                    <path d="M61,346c-2,0-36-72-36-72l59,62Z" style="fill: #006837" />
+                                    <polygon points="69 337 49 306 76 334 69 337" style="fill: #22b573" />
+                                    <polygon points="81 327 57 299 88 324 81 327" style="fill: #22b573" />
+                                    <polygon points="125 315 130 280 133 320 125 315" style="fill: #22b573" />
+                                    <polygon points="143 332 148 297 151 337 143 332" style="fill: #22b573" />
+                                    <path d="M151,348l14,16,28-58C174.2,320.27,159.56,326.6,151,348Z" style="fill: #006837" />
+                                    <path d="M161,358l14,16,29-47C185.2,341.27,169.56,336.6,161,358Z" style="fill: #006837" />
+                                    <polygon points="155 346 160 311 163 351 155 346" style="fill: #22b573" />
+                                    <path d="M61,371c-2,0-31-65-31-65l54,55Z" style="fill: #006837" />
+                                    <polyline points="79 324 81 289 86 321" style="fill: #22b573" />
+                                    <polygon points="156 350 179 322 164 355 156 350" style="fill: #22b573" />
+                                    <polygon points="171 357 190 341 179 362 171 357" style="fill: #22b573" />
+                                    <polygon points="59 361 49 335 67 366 59 361" style="fill: #22b573" />
+                                </g>
+                                <g id="Warstwa_4" data-name="Warstwa 4">
+                                    <path d="M156,334c-4.73-13.15-18.48-20.9-35-27q-25.32,2.85-49,19c-7,8.51-12.59,16.55-13,23-7.39,10.35-9.51,20.31-8,30,14.93,5,65.32-25.33,105-45" style="fill: #b3b3b3" />
+                                </g>
+                                <g id="Warstwa_6" data-name="Warstwa 6">
+                                    <rect x="14" y="2" width="6" height="120" style="fill: #6a3c1d" />
+                                    <rect x="201" y="3" width="6" height="120" style="fill: #6a3c1d" />
+                                </g>
+                                <g id="Warstwa_5" data-name="Warstwa 5">
+                                    <path d="M90,351h35c-3.7-80.87-5.62-160.07-4-227l-27,1C96.35,191.65,94.31,271.06,90,351Z" style="fill: #6a3c1d" />
+                                    <polygon points="0 127 218 126 218 108 0 108 0 127" style="fill: #754c24" />
+                                    <polygon points="0 106 218 105 218 87 0 87 0 106" style="fill: #754c24" />
+                                    <polygon points="0 86 218 85 218 67 0 67 0 86" style="fill: #754c24" />
+                                    <polygon points="0 65 218 64 218 46 0 46 0 65" style="fill: #754c24" />
+                                    <polygon points="0 42 218 41 218 23 0 23 0 42" style="fill: #754c24" />
+                                    <polygon points="0 19 218 18 218 0 0 0 0 19" style="fill: #754c24" />
+                                    <circle cx="205" cy="114" r="2" style="fill: gray" />
+                                    <circle cx="203" cy="94" r="2" style="fill: gray" />
+                                    <circle cx="203" cy="75" r="2" style="fill: gray" />
+                                    <circle cx="205" cy="54" r="2" style="fill: gray" />
+                                    <circle cx="204" cy="31" r="2" style="fill: gray" />
+                                    <circle cx="204" cy="10" r="2" style="fill: gray" />
+                                    <circle cx="18" cy="115" r="2" style="fill: gray" />
+                                    <circle cx="17" cy="94" r="2" style="fill: gray" />
+                                    <circle cx="17" cy="74" r="2" style="fill: gray" />
+                                    <circle cx="16" cy="53" r="2" style="fill: gray" />
+                                    <circle cx="16" cy="31" r="2" style="fill: gray" />
+                                    <circle cx="17" cy="12" r="2" style="fill: gray" />
+                                    <rect x="39" y="10" width="150" height="102" style="fill: #fff6db;stroke: #603813;stroke-miterlimit: 10;stroke-width: 4px" />
+                                    <circle cx="188.5" cy="10.5" r="1.5" style="fill: #333" />
+                                    <circle cx="39.5" cy="111.5" r="1.5" style="fill: #333" />
+                                    <circle cx="188.5" cy="111.5" r="1.5" style="fill: #333" />
+                                    <circle cx="39.5" cy="10.5" r="1.5" style="fill: #333" />
+                                    <text transform="translate(70.22 60.17)" style="font-size: 48px;font-family: InkFree, Ink Free">Hire</text>
+                                    <text transform="translate(89.22 96.09)" style="font-size: 36px;font-family: InkFree, Ink Free">Me</text>
+                                </g>
+                                <g id="Warstwa_3" data-name="Warstwa 3">
+                                    <path d="M114,368c10.24,8.83,23.11,13.7,39,14l24-9,14-5,2-8c-6-12.65-18-20.51-33-26l-15-3C114.67,330.64,108.93,345.88,114,368Z" style="fill: #cacaca" />
+                                    <path d="M84,345c13.94-4.39,28.29-4.16,43,0,10.28,12.1,16.15,25.38,17,40-17.18,7-41.57,5.59-67,3-8.24-3.24-14.22-10.27-18-21C64.23,357.55,73,350.53,84,345Z" style="fill: #999" />
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="context_container">
+                        <div class="title_container">
+                            <h2>Safe choice</h2>
+                        </div>
+
+                        <p>
+                            I am:<br /><br />
+                            - hard working <br />
+                            - ambitious <br />
+                            - able to solve problems<br />
+                            - coumunicative <br />
+                            - well organized <br /> <br />
+                            I do have as excelent knowledge of the stack I am working with.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service_container">
+                <div class="service s2">
+                    <div class="graphic_container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="300px" viewBox="0 0 207.5 315.63">
+                            <title>Components</title>
+                            <g id="Warstwa_2" data-name="Warstwa 2">
+                                <g id="Warstwa_4" data-name="Warstwa 4">
+                                    <g>
+                                        <polyline points="159.87 136 207.5 164.43 159.87 193.62 113 164.43 159.87 136" style="fill: #2e3192" />
+                                        <polyline points="159.87 193.62 159.87 246.63 113 218.21 113 164.43" style="fill: #29abe2" />
+                                        <polygon points="207.5 164.43 207.5 218.21 159.87 246.63 159.87 193.62 207.5 164.43" style="fill: #0071bc" />
+                                    </g>
+                                    <g>
+                                        <polyline points="159.87 69 207.5 97.43 159.87 126.62 113 97.43 159.87 69" style="fill: #2e3192" />
+                                        <polyline points="159.87 126.62 159.87 179.63 113 151.21 113 97.43" style="fill: #29abe2" />
+                                        <polygon points="207.5 97.43 207.5 151.21 159.87 179.63 159.87 126.62 207.5 97.43" style="fill: #0071bc" />
+                                    </g>
+                                    <g>
+                                        <polyline points="159.87 0 207.5 28.43 159.87 57.62 113 28.43 159.87 0" style="fill: #29abe2" />
+                                        <polyline points="159.87 57.62 159.87 110.63 113 82.21 113 28.43" style="fill: #29abe2" />
+                                        <polygon points="207.5 28.43 207.5 82.21 159.87 110.63 159.87 57.62 207.5 28.43" style="fill: #0071bc" />
+                                    </g>
+                                    <g>
+                                        <polyline points="103.87 170 151.5 198.43 103.87 227.62 57 198.43 103.87 170" style="fill: #603f5d" />
+                                        <polyline points="103.87 227.62 103.87 280.63 57 252.21 57 198.43" style="fill: #ffa7f6" />
+                                        <polygon points="151.5 198.43 151.5 252.21 103.87 280.63 103.87 227.62 151.5 198.43" style="fill: #bf7db9" />
+                                    </g>
+                                    <g>
+                                        <polyline points="103.87 105 151.5 133.43 103.87 162.62 57 133.43 103.87 105" style="fill: #ffa7f6" />
+                                        <polyline points="103.87 162.62 103.87 215.63 57 187.21 57 133.43" style="fill: #ffa7f6" />
+                                        <polygon points="151.5 133.43 151.5 187.21 103.87 215.63 103.87 162.62 151.5 133.43" style="fill: #bf7db9" />
+                                    </g>
+                                    <g>
+                                        <polyline points="46.87 205 94.5 233.43 46.87 262.62 0 233.43 46.87 205" style="fill: #b5ff95" />
+                                        <polyline points="46.87 262.62 46.87 315.63 0 287.21 0 233.43" style="fill: #b5ff95" />
+                                        <polygon points="94.5 233.43 94.5 287.21 46.87 315.63 46.87 262.62 94.5 233.43" style="fill: #88bf70" />
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+
+                    </div>
+                    <div class="context_container">
+                        <div class="title_container">
+                            <h2>Projects</h2>
+                        </div>
+                        <p>
+                            Check my <span class="blue">Projects</span>. They all show my Front-End and Back-End ablilities.
+                            <br />
+                            <br />
+                            <span class="blue">Components</span> as well, which are like little projects themselves.
+                            <br />
+                            <br />
+                            I'm working as well with Photoshop/Ilustrator, this section is comming soon.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="service_container">
+                <div class="service s3">
+                    <div class="graphic_container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="300px" viewBox="0 0 290.05 325.34">
+                            <title>Art</title>
+                            <g id="Warstwa_2" data-name="Warstwa 2">
+                                <g id="Warstwa_6" data-name="Warstwa 6">
+                                    <g>
+                                        <path d="M99,267.55l40-53,4-6c30.39-54.79,65.26-124.74,102-201,1.31-9.31-.64-10-6-2-47.74,65.48-91.14,127.9-127,185l-3,7-26,58C90.52,257.84,96.29,261.5,99,267.55Z" style="fill: #a67c52" />
+                                        <polygon points="112 190.55 144 207.55 152 193.55 120 177.55 112 190.55" style="fill: #b3b3b3" />
+                                        <path d="M91,261.55l45-76L245,.55c-1.4-1.4-2.79.46-6,5-49.21,67.71-93.44,131-127,185l-31,70Z" style="opacity: 0.2" />
+                                        <path d="M75,314.55c-24.56,4.12-50.62,8.44-61.65,10.71a3.73,3.73,0,0,1-2.28-.26C7.55,323.5-1.81,323,1,322.55l14-3-8,2c-1-.63-7.06-.94-7-2,.08-1.47,6.68-3.69,8-4,14.64,1.09,29.08-6.68,37-20Z" style="fill: #830061" />
+                                        <path d="M100,287.55c-3.22,9.66-11.33,19.75-25,27-11.25-1-18.63-4.13-23-9-4.52-1.64-6.41-5.32-7-10l11-23Z" style="fill: #5e0049" />
+                                        <path d="M104,281.55c-2.52,12-12.85,25.06-26.5,26-14.6,1-29.82-12-26.5-26,2.76-11.62,14.5-23.38,26.5-26C91.8,252.42,107,267.49,104,281.55Z" style="fill: #973381" />
+                                    </g>
+                                </g>
+                                <g id="Warstwa_8" data-name="Warstwa 8">
+                                    <g>
+                                        <g>
+                                            <rect x="148.47" y="10.87" width="21.68" height="280.36" transform="translate(-58.73 125.5) rotate(-36.79)" style="fill: #fbd734" />
+                                            <polygon points="234.58 269.8 251.95 256.81 278.41 301.25 270.46 307.21 234.58 269.8" style="fill: #f5b673" />
+                                            <path d="M270.35,307.29l8.06-6L290,322.72c.38,1.9-.37,2.41-2.17,1.62Z" style="fill: #445a64" />
+                                            <rect x="59.12" y="22.58" width="21.68" height="18" transform="translate(-4.98 48.19) rotate(-36.79)" style="fill: #ebedef" />
+                                            <rect x="48.34" y="8.16" width="21.68" height="18" transform="translate(1.51 38.86) rotate(-36.79)" style="fill: #d74214" />
+                                        </g>
+                                        <polygon points="274.07 304.5 53.79 9.96 45.1 16.45 234.58 269.8 270.46 307.21 274.07 304.5" style="opacity: 0.22" />
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+
+                    </div>
+                    <div class="context_container">
+                        <div class="title_container">
+                            <h2>Creativity</h2>
+                        </div>
+                        <p>
+
+                            I am creative, confident, naturally curious.
+                            <br /> <br />
+                            I am not afraid to take any challenge difficult or simple.
+                            <br /> <br />
+                            I would create most efficient solution to the problems while giving them some creative touch.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="technical_skills">
+
+
+        <div class="title_container">
+            <h1>Technical Skils</h1>
+            <div class="underline_container">
+                <div class="underline"></div>
+            </div>
+        </div>
+
+
+        <div class="skills_container">
+
+            <div class="skill_container c_s">
+                <div class="skill ">
+                    <div class="graphic_container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112.47 98.75">
+                            <title>C sharp</title>
+                            <g id="Warstwa_2" data-name="Warstwa 2">
+                                <g id="Warstwa_11" data-name="Warstwa 11">
+                                    <path class="fill_white" d="M70,36.5l21-12C80.63,8.77,67.26,1.37,51.5.56a45.44,45.44,0,0,0-9.17.49C27.49,3.33,15.52,10.31,7.4,23.64A47,47,0,0,0,1.29,40.71,52,52,0,0,0,3.64,67.6c.22.59.46,1.19.74,1.76C11,83.09,21.1,94.1,41,97.5c11.13,1.79,22.4.72,34-7a40.65,40.65,0,0,0,16-17l-21-12a28.09,28.09,0,0,1-18,12c-7.34.8-13.47-1.76-19-6-7.8-6.52-10.27-15.45-7-27,3.7-9,10-13.54,18-15C54.76,23,63,28,70,36.5Z" style="stroke-miterlimit: 10" />
+                                    <rect class="fill_white" x="87.97" y="41.5" width="24" height="5" style="stroke-miterlimit: 10" />
+                                    <rect class="fill_white" x="91.97" y="37.5" width="5" height="24" style="stroke-miterlimit: 10" />
+                                    <rect class="fill_white" x="102.97" y="37.5" width="5" height="24" style="stroke-miterlimit: 10" />
+                                    <rect class="fill_white" x="87.97" y="52.5" width="24" height="5" style="stroke-miterlimit: 10" />
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill_container n_t">
+                <div class="skill">
+                    <div class="graphic_container">
+                        <span class="net">.NET</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill_container n_c">
+                <div class="skill">
+                    <div class="graphic_container">
+                        <span class="net_2">.NET</span><br />
+                        <span class="core">Core</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill_container bl">
+                <div class="skill">
+                    <div class="graphic_container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 159.26 144.76">
+                            <title>Blazor</title>
+                            <g id="Warstwa_2" data-name="Warstwa 2">
+                                <g id="Warstwa_12" data-name="Warstwa 12">
+                                    <g>
+                                        <path class="fill_white" d="M121.68,119.5c-17.82,9.45-35.95,15-54.5,15.5-20.42.66-34.6-5.58-45-16a42.48,42.48,0,0,1-13-32c0-12.26,4.38-22.61,11-32,7.39-10.21,16.16-15.86,26-18,11.85-2.12,22.67-2.35,31,2,10.58,6.36,20.31,12.81,23,20,4.88,8.55,9,16.91,8,24,.35,7.49-1,13.91-6,18-4.45,5.54-10.33,7.8-18,6l-8-6-7.92,4.32a20.6,20.6,0,0,1-7.56,2.4,43.81,43.81,0,0,1-6.05.26,20.93,20.93,0,0,1-13.73-5.45,30.05,30.05,0,0,1-4.56-5.44A21,21,0,0,1,33,85.42c0-4.84.8-8.4,2.39-10.51.58-.76,1.18-1.49,1.7-2.3,2.65-4.12,10.33-9.72,10.7-9.94l.24-.15a20,20,0,0,1,9.32-2.85,124.91,124.91,0,0,1,12.84,0,11.82,11.82,0,0,1,8.06,3.71,6.85,6.85,0,0,1,2,3.58l1,25c5.85,8,11.55,9.44,17-1l-1-16c-.52-6.54-4.4-12.43-10-18-5.63-6-13-9.57-22-11-9.42.18-18.34,1-25,5-6.71,3.78-12.44,8.42-16,15-2.8,6.38-4.82,13-5,20,.4,6.47,1.43,12.17,4,16,7.79,10.59,16.7,19.52,30,22a76.6,76.6,0,0,0,28,0c16.2-3.43,29.76-9.53,41-18a100.27,100.27,0,0,0,28-34c4-6,6.33-14.52,8-24,1.55-7.33,1.32-15.42,0-24l-8-24c-8.36,16.43-21.22,27.65-40,32l6-24-29,17h-35C21.46,29,9.11,44.7,2.68,64c-.56,1.7-5.42,28.7-.5,42,5.89,17.15,15.08,28.41,28,33,11.49,5.29,23.87,6.62,36.73,5.27,1.34-.14,2.69-.24,4-.28,8.93-.29,18.5-3.74,28.23-8Z" />
+                                        <path class="fill_white" d="M70.18,71l1,20c-22.62,25.21-42.29-9-19-20Z" />
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill_container html">
+                <div class="skill">
+                    <div class="graphic_container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.08 100.02">
+                            <title>Html</title>
+                            <g id="Warstwa_2" data-name="Warstwa 2">
+                                <g id="Warstwa_11" data-name="Warstwa 11">
+                                    <polygon class="fill_white" points="82.55 18.5 83.55 0.5 0.55 0.5 5.55 54.5 59.55 54.5 57.55 74.5 45.55 79.5 28.55 74.5 26.55 65.5 6.55 64.5 8.55 89.5 42.55 99.5 76.55 89.5 79.55 34.5 24.55 34.5 22.55 18.5 82.55 18.5" style="stroke-miterlimit: 10" />
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill_container css">
+                <div class="skill">
+                    <div class="graphic_container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.08 100.02">
+                            <title>CSS</title>
+                            <g id="Warstwa_2" data-name="Warstwa 2">
+                                <g id="Warstwa_11" data-name="Warstwa 11">
+                                    <polygon class="fill_white" points="0.56 0.5 83.56 0.5 82.56 19.5 43.55 34.5 80.56 34.5 76.56 89.5 42.55 99.5 8.55 89.5 6.55 64.5 26.55 64.5 26.55 72.5 40.55 79.5 57.55 74.5 58.55 54.5 5.55 54.5 3.56 34.5 42.55 19.5 2.56 19.5 0.56 0.5" style="stroke-miterlimit: 10" />
+                                </g>
+                            </g>
+                        </svg>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill_container js">
+                <div class="skill">
+                    <div class="graphic_container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 103.42 99.78">
+                            <title>JS</title>
+                            <g id="Warstwa_2" data-name="Warstwa 2">
+                                <g id="Warstwa_11" data-name="Warstwa 11">
+                                    <g>
+                                        <polygon class="fill_white" points="29.22 0.5 42.95 0.5 42.95 99.13 0.5 87.9 0.5 70.42 29.22 77.91 29.22 0.5" style="stroke-miterlimit: 10" />
+                                        <polygon class="fill_white" points="55.44 0.5 102.88 0.5 101.63 17.98 70.42 17.98 69.17 44.2 99.13 40.45 96.64 89.15 55.44 99.13 55.44 81.66 84.15 74.16 84.15 59.18 55.44 64.17 55.44 0.5" style="stroke-miterlimit: 10" />
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill_container react">
+                <div class="skill">
+                    <div class="graphic_container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 149.02 133.66">
+                            <title>React</title>
+                            <g id="Warstwa_2" data-name="Warstwa 2">
+                                <g id="Warstwa_11" data-name="Warstwa 11">
+                                    <circle class="fill_white" cx="74.52" cy="66.55" r="13.5" style="stroke-miterlimit: 10" />
+                                    <ellipse class="stroke_white" cx="74.51" cy="67.33" rx="72.01" ry="27.1" transform="translate(-21.06 98.19) rotate(-60)" style="stroke-miterlimit: 10;stroke-width: 5px" />
+                                    <ellipse class="stroke_white" cx="74.51" cy="66.33" rx="27.1" ry="72.01" transform="translate(-23.18 46.14) rotate(-30)" style="stroke-miterlimit: 10;stroke-width: 5px" />
+                                    <ellipse class="stroke_white" cx="74.51" cy="65.33" rx="72.01" ry="27.1" style="stroke-miterlimit: 10;stroke-width: 5px" />
+                                </g>
+                            </g>
+                        </svg>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill_container azure">
+                <div class="skill">
+                    <div class="graphic_container">
+                        <div class="icon_c">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 161.55 159.59">
+                                <title>Azure</title>
+                                <g id="Warstwa_2" data-name="Warstwa 2">
+                                    <g id="Warstwa_12" data-name="Warstwa 12">
+                                        <polygon class="fill_white" points="0.77 142.09 37.77 142.09 87.77 2.09 41.77 51.09 0.77 142.09" style="stroke-miterlimit: 10" />
+                                        <polygon class="fill_white" points="94.77 12.09 74.77 82.09 112.77 143.09 39.77 159.09 160.77 159.09 94.77 12.09" style=stroke-miterlimit: 10" />
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="skill_container py">
+                <div class="skill">
+                    <div class="graphic_container">
+                        <span class="net">Sql</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill_container scss">
+                <div class="skill">
+                    <div class="graphic_container">
+                        <span class="net">Scss</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill_container ai">
+                <div class="skill">
+                    <div class="graphic_container">
+                        <span class="net">Ai</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill_container ps">
+                <div class="skill">
+                    <div class="graphic_container">
+                        <span class="net">Ps</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill_container vs">
+                <div class="skill">
+                    <div class="graphic_container">
+                        <span class="net">Vs</span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section class="other_skills">
+
+        <div class="title_container">
+            <h1>Other Skills</h1>
+            <div class="underline_container">
+                <div class="underline"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="soft_skills">
+        <section id="soft_skills_container">
+            <div class="grid_container">
+                <div class="agile">Agile Driven Development</div>
+                <div class="hard_working">Hard Worker</div>
+                <div class="details">Attention to detail</div>
+                <div class="three"><i class="fa fa-users"></i> Team Member <i class="fa fa-clock"></i> Punctual <i class="fa fa-palette"></i> Creative</div>
+                <div class="passion">Passion for technology</div>
+                <div class="math">Math</div>
+                <div class="problem_solving">Problem Solving / Logical thinking</div>
+                <div class="four"><i class="fa fa-exclamation-triangle"></i> Testing <i class="fas fa-bug"></i> Debugging <i class="fa fa-clipboard-list"></i> Planning <i class="fas fa-book"></i> Learing</div>
+                <div class="emoji">;-)</div>
+            </div>
+        </section>
+    </section>
+
+    <section class="media">
+        <div class="media_container">
+            <div class="title_container">
+                <h1>Media</h1>
+                <div class="underline_container">
+                    <div class="underline"></div>
+                </div>
+            </div>
+            <div class="med">
+                <a target="_blank" href="https://www.linkedin.com/in/mateusz-owczarek-21a301188/"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="med">
+                <a target="_blank" href="https://github.com/Getrajer"><i class="fab fa-github"></i></a>
+            </div>
+            <div class="med">
+                <p class="email">getrajer533@gmail.com</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contactFrom">
+        <div class="contact_form_container">
+            <div class="title_contact">
+                <h1>Contact me</h1>
+            </div>
+
+            <form action="https://formspree.io/mrgykpre"
+                  method="POST">
+                <label>
+                    Your email:
+                    <br />
+                    <input type="text" name="_replyto">
+                </label>
+                <label>
+                    Your message:
+                    <br />
+                    <textarea name="message"></textarea>
+                </label>
+
+                <!-- your other form fields go here -->
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+
+</div>
+
+

@@ -1,0 +1,505 @@
+﻿.navigation{
+    display:none;
+}
+
+.orange {
+    color: #008a9d;
+    font-family: 'Abril Fatface', cursive;
+}
+
+.bacground {
+    position:absolute;
+    width:1700px;
+    height: 100vh;
+}
+
+#main_footer{
+    display:none;
+}
+
+
+header {
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 150px 1000px 150px;
+    justify-content:center;
+    align-items:center;
+    align-content:center;
+
+}
+
+.header_content {
+    width: 100%;
+    height: 700px;
+    background-color: #333333;
+    padding: 3em;
+    box-shadow: 20px 20px 30px #282828;
+}
+
+.header_content .title_container h1{
+    font-size: 9rem;
+    font-weight: 500;
+    letter-spacing: 6px;
+    font-family: 'Abril Fatface', cursive;
+    color: #008a9d;
+}
+
+.bracket {
+    font-family: 'Dancing Script', cursive;
+    color:#555555;
+    font-size: 1.3rem;
+}
+
+.welcome_message p{
+    font-size: 3rem;
+    margin: 0.5em 0;
+    padding-left: 0.5em;
+}
+
+.links_container{
+    width: 100%;
+    display:grid;
+    grid-template-columns: auto auto auto auto;
+    margin-top: 6em;
+    border-radius: 0.3em;
+}
+
+.link{
+    text-align:center;
+}
+
+a {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    font-weight: 900;
+    color: #2a2a2a;
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+a.learn-more {
+  padding: 1.25em 2em;
+  border: 2px solid #2f2f2f;
+  border-radius: 0.75em;
+  text-transform: uppercase;
+  background: #555555;
+  transform-style: preserve-3d;
+  transition: .15s cubic-bezier(0, 0, .6, 1);
+}
+
+a.learn-more::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: #2f2f2f;
+  box-shadow: 0 0 0 2px  #2f2f2f, 0 .625em 0 0 #2f2f2f;
+  transform: translate3d(0, .75em, -1em);
+  transition: .15s cubic-bezier(0, 0, .6, 1);
+}
+
+a.learn-more:hover {
+  background: #008a9d;
+  transform: translate(0, .25em);
+  color:#f1f1f1;
+}
+
+a.learn-more:hover::before {
+  box-shadow: 0 0 0 2px #2f2f2f, 0 .5em 0 0 #2f2f2f;
+  transform: translate3d(0, .5em, -1em);
+}
+
+a.learn-more:active {
+  background: #008a9d;
+  transform: translate(0, .75em);
+}
+
+a.learn-more:active::before {
+    box-shadow: 0 0 0 2px #2f2f2f, 0 0 #2f2f2f;
+    transform: translate3d(0, 0, -1em);
+}
+
+
+/*Light Bulb*/
+
+.LightBulb{
+    align-self:end;
+}
+
+.LightBulb svg{
+    width:280px;
+    height: 260px;
+}
+
+#lightbulb {
+    fill: rgba(255, 255, 255, 0.52);
+    transition:fill 0.5s;
+}
+
+#sm_light {
+    fill: rgba(255, 255, 255, 0.52);
+    transition: fill 0.5s;
+}
+
+#Light1,
+#Light2,
+#Light3 {
+    fill: transparent;
+    opacity: 0.12;
+    transition: fill 0.5s;
+}
+
+.LightBulb:hover #lightbulb {
+    fill: #ffe814;
+}
+
+.LightBulb:hover #Light1{
+    fill: #ffe814;
+    opacity: 0.12;
+}
+
+.LightBulb:hover #Light2 {
+    fill: #ffe814;
+    opacity: 0.12;
+}
+
+.LightBulb:hover #Light3 {
+    fill: #ffe814;
+    opacity: 0.12;
+}
+
+.LightBulb:hover #sm_light {
+    fill: #ffb514
+}
+
+/*Coffe*/
+
+.Left{
+    height:100%;
+    position:relative;
+}
+
+.Plant{
+    position:absolute;
+    bottom:0;
+    left:0;
+}
+
+.Plant svg{
+    width:135px;
+    height:115px;
+}
+
+.Coffe {
+    top:0;
+    left:0;
+}
+
+.Coffe svg{
+    width: 150px;
+    height: 125px;
+}
+
+.Coffe #Symbol_1 .s1_2{
+    fill: none;
+    stroke: transparent;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-width: 3px;
+    animation-name: coffe_animation_Net;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+.Coffe #Symbol_1 .s1 {
+    fill: none;
+    stroke: transparent;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-width: 3px;
+    animation-name: coffe_animation_Net;
+    animation-duration: 10s;
+    animation-iteration-count:infinite;
+}
+
+.Coffe #C_ .s2{
+    fill: transparent;
+    animation-name: coffe_animation_C;
+    animation-duration: 10s;
+    animation-iteration-count:infinite;
+}
+
+.Coffe #Database .s3{
+    fill: transparent;
+    animation-name: coffe_animation_Data;
+    animation-duration: 10s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes coffe_animation_C {
+    0% {
+        fill: transparent;
+    }
+
+    33% {
+        fill: #fff;
+    }
+
+    66% {
+        fill: transparent;
+    }
+
+    100% {
+        fill: transparent;
+    }
+}
+
+@keyframes coffe_animation_Data {
+    0% {
+        fill: transparent;
+    }
+
+    25% {
+        fill: transparent;
+    }
+
+    50% {
+        fill: #fff;
+    }
+
+    100% {
+        fill: transparent;
+    }
+}
+
+
+@keyframes coffe_animation_Net {
+    0% {
+        stroke: #fff;
+    }
+
+    25% {
+        stroke: transparent;
+    }
+
+    50% {
+        stroke: transparent;
+    }
+
+    100% {
+        stroke: #fff;
+    }
+}
+
+
+/*Pencil*/
+
+.Pencil {
+    position: static;
+    padding-left:200px;
+    transition: 0.8s transform;
+}
+
+.Pencil svg{
+    width: 150px;
+    height: 42px;
+}
+
+.Pencil:hover{
+    transform:translateX(-50px);
+}
+
+.Pencil:hover .bracket{
+    color:#008a9d;
+}
+
+
+@media screen and (max-width:1450px) {
+    header {
+        min-height: 100vh;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 100px 700px 100px;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+    .Coffe svg {
+        width: 95px;
+        height: 95px;
+    }
+
+    .Pencil svg {
+        width: 150px;
+        height: 42px;
+    }
+
+
+    .LightBulb svg {
+        width: 200px;
+        height: 160px;
+    }
+
+    .Plant svg {
+        width: 125px;
+        height: 105px;
+    }
+
+
+
+    a.learn-more {
+        padding: 0.5em 1em;
+    }
+}
+
+
+@media screen and (max-width:1100px) {
+    header {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+    .header_content
+    {
+        width:900px;
+    }
+
+    .Coffe svg {
+        display: none;
+    }
+
+    .Pencil svg {
+    }
+
+
+    .LightBulb svg {
+        display:none;
+    }
+
+    .Plant svg {
+        display:none;
+    }
+
+    a.learn-more {
+        padding: 1em 2em;
+    }
+}
+
+
+@media screen and (max-width:900px) {
+    header {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+    .header_content {
+        width: 100%;
+        padding: 2em;
+    }
+}
+
+@media screen and (max-width:750px) {
+    header {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+    .header_content {
+        width: 100%;
+    }
+
+    a.learn-more {
+        padding: 0.5em 1em;
+    }
+}
+
+@media screen and (max-width:650px) {
+
+    .header_content {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .links_container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-row-gap:0.5em;
+        margin-top: 3em;
+        border-radius: 0.3em;
+    }
+
+    a.learn-more {
+        width:100%;
+    }
+}
+
+@media screen and (max-width:450px) {
+
+    .header_content {
+        width: 100%;
+        height: 100%;
+        padding: 0.6em 0.6em 2.3em 0.6em;
+    }
+
+    .header_content .title_container h1{
+    font-size: 6rem;
+    font-weight: 500;
+    letter-spacing: 6px;
+    font-family: 'Abril Fatface', cursive;
+    color: #008a9d;
+}
+
+    .welcome_message p {
+        font-size: 2rem;
+        margin: 0.5em 0;
+        padding-left: 0.5em;
+    }
+
+    .bracket{
+        font-size: 0.8rem;
+    }
+
+    .links_container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-row-gap: 0.5em;
+        margin-top: 3em;
+        border-radius: 0.3em;
+    }
+
+    a.learn-more {
+        width: 100%;
+    }
+
+    .Pencil svg {
+        width: 100px;
+        height: 42px;
+    }
+}

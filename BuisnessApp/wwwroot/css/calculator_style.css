@@ -1,0 +1,63 @@
+﻿.cal_box {
+    display: flex;
+    text-align: center;
+    margin-bottom:5em;
+}
+
+
+
+.calculator_container {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #3d3d3d;
+    padding: 1em 1.3em 0 1.3em;
+}
+
+.text_view {
+    background-color: #3c524c;
+    color:white;
+    font-weight: 600;
+    border:none;
+    padding:1em;
+    width: 300px;
+    height: 100px;
+}
+
+.input-overlay {
+    width: 300px;
+    height: 100px;
+    position: relative;
+    top: -100px;
+    left: 5px;
+    background-color: rgba(41, 19, 73, 0.00);
+}
+
+.buttons_container {
+    position: relative;
+    top: -100px;
+}
+
+.button {
+    width: 75px;
+    height: 75px;
+    margin-top: 0.5em;
+    margin-right:2px;
+    font-weight: 800;
+    background-color: #1b1b1b;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.5s;
+}
+
+.funct_btn {
+    background-color: #2a2a2a;
+}
+
+.button:hover {
+    padding: 1em;
+        background-color: #2d3b4b;
+
+}
+
+

@@ -1,0 +1,1619 @@
+﻿@page "/BankApp"
+
+@inherits BankAppBase
+
+<head>
+    <link rel="stylesheet" href="../css/bank_app_style.css" />
+</head>
+
+<div class="app_container">
+
+
+
+    <!--Navigation-->
+    <div class="bank_app_nav">
+        <div class="nav_links">
+            <div class="toggle_button">
+
+                @if (show_btn_nav)
+                {
+                    <button @onclick="ToggleNav">
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+                }
+                else
+                {
+                    <button @onclick="ToggleNav">
+                        X
+                    </button>
+                }
+
+
+
+
+            </div>
+
+            <div class="nav_container @nav_toggle">
+
+                <div class="link">
+                    <button @onclick="OpenMainPage">Main Page</button>
+                </div>
+
+                @if (is_logged_in == false)
+                {
+                    <div class="link">
+                        <button @onclick="OpenLoginPage">Login/Register</button>
+                    </div>
+                }
+                else
+                {
+                    <div class="link">
+                        <button @onclick="OpenUserPage">@loggedin_user.Name</button>
+                    </div>
+
+                    <div class="link">
+                        <button @onclick="LogOff">Logoff</button>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+    </div>
+    <!--End of navigation-->
+    <!--Register Page-->
+    @if (register_page)
+    {
+        <section class="register_page">
+            <div class="register_page_container">
+                <div class="title">
+                    <h1>Register</h1>
+                </div>
+
+                <div class="form_container">
+                    <div class="input_box">
+                        <label>Name</label>
+                        <input @bind="name" />
+                        <p>@name_error</p>
+                    </div>
+                    <div class="input_box">
+                        <label>Lastname</label>
+                        <input @bind="lastname" />
+                        <p>@lastname_error</p>
+                    </div>
+                    <div class="input_box">
+                        <label>Email</label>
+                        <input @bind="email" />
+                        <p>@email_error</p>
+                    </div>
+                    <div class="input_box">
+                        <label>Phone number</label>
+                        <input @bind="phone_number" />
+                        <p>@phone_number_error</p>
+                    </div>
+                    <div class="input_box">
+                        <label>Postcode</label>
+                        <input @bind="postcode" />
+                        <p>@postcode_error</p>
+                    </div>
+                    <div class="input_box">
+                        <label>Street Address</label>
+                        <input @bind="street_address" />
+                        <p>@street_address_error</p>
+                    </div>
+                    <div class="input_box">
+                        <label>Street Number</label>
+                        <input @bind="street_number" />
+                        <p>@street_number_error</p>
+                    </div>
+
+                    <div class="input_date">
+                        <div class="age_label">
+                            <h2>Date of birth</h2>
+                        </div>
+                        <div>
+                            <label>Day</label>
+                            <input @bind="day" type="number" min="1" max="31" />
+                        </div>
+                        <div>
+                            <label>Month</label>
+                            <input @bind="month" type="number" min="1" max="12" />
+                        </div>
+                        <div>
+                            <label>Year</label>
+                            <input @bind="year" type="number" min="1900" max="@DateTime.Now.Year" />
+                        </div>
+                    </div>
+                    <div class="input_box">
+                        <label>Password</label>
+                        <input type="password" @bind="password" />
+                        <p>@password_error</p>
+                    </div>
+                    <div class="input_box">
+                        <label>Confirm Password</label>
+                        <input type="password" @bind="password_confirmation" />
+                        <p>@password_confirmation_error</p>
+                    </div>
+                    <div class="input_box">
+                        <label>Password Reminder Question</label>
+                        <input @bind="password_reminder_question" />
+                        <p>@password_reminder_question_error</p>
+                    </div>
+                    <div class="input_box">
+                        <label>Password Reminder Answer</label>
+                        <input @bind="password_reminder_answer" />
+                        <p>@password_reminder_answer_error</p>
+                    </div>
+                    <div class="button_box">
+                        <button @onclick="CreateUserAccount">Create Account</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+    <!--End of create account-->
+    <!--Login Page-->
+    @if (login_page)
+    {
+        <section class="login">
+            <div class="login_container">
+                <div class="title_container">
+                    <h1>Login to your account</h1>
+                </div>
+                <div class="input_container">
+                    <label>Email</label>
+                    <input @bind="email" />
+                    <p>@email_error</p>
+                </div>
+                <div class="input_container">
+                    <label>Password</label>
+                    <input type="password" @bind="password" />
+                    <p>@password_error</p>
+                </div>
+
+                <div class="button_container">
+                    <button @onclick="ShowPin">Show Pin/Login Details</button>
+                    <p class="error">@pin_toggle_error</p>
+                </div>
+
+                <div class="pin_title">
+                    <label>PIN</label>
+                </div>
+                <div class="pin_container">
+                    <div class="pin">
+                        <div class="pin_wrapper">
+                            <div class="pin_title_1">
+                                <button @onclick="TogglePin1">@pin_1</button>
+                            </div>
+                            <div class="@class_pin_1">
+                                @foreach (var n in pin_list)
+                                {
+                                    <div>
+                                        <button @onclick="@(e => ChangePin1(n))">@n</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pin">
+                        <div class="pin_title_1">
+                            <button @onclick="TogglePin2">@pin_2</button>
+                        </div>
+                        <div class="@class_pin_2">
+                            @foreach (var n in pin_list)
+                            {
+                                <div>
+                                    <button @onclick="@(e => ChangePin2(n))">@n</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="pin">
+                        <div class="pin_title_1">
+                            <button @onclick="TogglePin3">@pin_3</button>
+                        </div>
+                        <div class="@class_pin_3">
+                            @foreach (var n in pin_list)
+                            {
+                                <div>
+                                    <button @onclick="@(e => ChangePin3(n))">@n</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="input_container">
+                    <p>@error_login</p>
+                </div>
+                <div class="button_container">
+                    <button @onclick="Login">Login</button>
+                </div>
+
+                <div class="register_redirect">
+                    <h2>No account?</h2>
+                    <button @onclick="OpenRegisterPage">Register</button>
+                </div>
+            </div>
+        </section>
+    }
+    <!--End of login page-->
+    <!--Transfer money page-->
+    @if (transfer_checking)
+    {
+        <section class="transfer">
+            <div class="transfer_container">
+                <div class="transfer_other">
+                    <div class="title_container">
+                        <h1>Transfer money to other account</h1>
+                    </div>
+                    <div class="form_container">
+                        <div class="input_container">
+                            <label>Ammount of money</label>
+                            <input type="number" @bind="money" />
+                            <p>@money_error</p>
+                        </div>
+                        <div class="input_container">
+                            <label>Account Number</label>
+                            <input @bind="account_number" />
+                            <p>@account_number_error</p>
+                        </div>
+                        <div class="input_container">
+                            <label>Sort Code</label>
+                            <div class="sortcode">
+                                <input maxlength="2" @bind="sort1" /> <span>-</span> <input maxlength="2" @bind="sort2" /> <span>-</span> <input maxlength="2" @bind="sort3" />
+                            </div>
+                            <p>@sort_error</p>
+                        </div>
+                        <div class="input_container">
+                            <label>Reference</label>
+                            <input @bind="reference" />
+                            <p>@reference_error</p>
+                        </div>
+                        <div class="input_container">
+                            <label>Password</label>
+                            <input type="password" @bind="password" />
+                            <p>@password_error</p>
+                        </div>
+                        <div class="input_container">
+                            <label>PIN</label>
+                            <input @bind="pin" />
+                            <p>@pin_error</p>
+                            
+                        </div>
+                        <div class="buttons_container">
+                            <button @onclick="ShowPin">Show Pin/Login Details</button>
+                        </div>
+                        <div class="buttons_container">
+                            <button @onclick="TransferToOthers">Transfer</button>
+                        </div>
+                        <div class="input_container">
+                            <p>@balance_error</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+    <!--End of transfer money page-->
+    <!--Transwer money between user accounts-->
+    @if (transfer_to_users)
+    {
+        <section class="transfer_between_user">
+            <div class="transfer_between_user_container">
+                <div class="title_container">
+                    <h1>Transfer money between your accounts</h1>
+                </div>
+
+                <div class="form_container">
+                    <div class="input_container">
+                        <label>Ammount of money</label>
+                        <input type="number" @bind="money" />
+                        <p>@money_error</p>
+                    </div>
+
+                    <div class="input_container">
+                        <label>Select account from which you want to transfer</label>
+                        <select @bind="account_chocie_1">
+                            @foreach (var o in loggedin_user.bankAccounts)
+                            {
+                                <option value="@o.Name">@o.Name</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="input_container">
+                        <label>Select to which account you want transwer to</label>
+                        <select @bind="account_chocie_2">
+                            @foreach (var o in loggedin_user.bankAccounts)
+                            {
+                                <option value="@o.Name">@o.Name</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div>
+                        <p>@account_choice_error</p>
+                        <p>@account_error</p>
+                    </div>
+
+                    <div class="input_container">
+                        <label>PIN</label>
+                        <input maxlength="3" @bind="pin" />
+                        <p>@pin_error</p>
+                    </div>
+                    <div class="buttons_container">
+                        <button @onclick="TransferToUsersAccount">Transfer</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+    <!--End of transwermoney between user accounts-->
+    <!--Saving account page-->
+    @if (saving_account_page)
+    {
+        <section class="account_page">
+            <div class="account_page_container">
+
+                <div class="title_container">
+                    <h1>Welcome to your saving account <span class="name">@loggedin_user.Name</span></h1>
+                </div>
+                <div class="account_view">
+                    <div class="account_view_container">
+                        <div class="card_scroll">
+                            <div class="card_container">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="361" height="195" viewBox="0 0 361 195">
+                                    <defs>
+                                        <linearGradient id="Gradient_bez_nazwy_12" data-name="Gradient bez nazwy 12" y1="97.5" x2="361" y2="97.5" gradientUnits="userSpaceOnUse">
+                                            <stop offset="0" stop-color="#ba59f8" />
+                                            <stop offset="1" stop-color="#814bd4" />
+                                        </linearGradient>
+                                    </defs>
+                                    <title>Zasób 18</title>
+                                    <g id="Warstwa_2" data-name="Warstwa 2">
+                                        <g id="Warstwa_1-2" data-name="Warstwa 1">
+                                            <g>
+                                                <rect width="361" height="195" rx="8.52" style="fill: url(#Gradient_bez_nazwy_12)" />
+                                                <text transform="translate(124.58 70.49)" style="font-size: 19px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro"><tspan style="letter-spacing: -0.02099609375em">A</tspan><tspan x="11.23" y="0">viable Balan</tspan><tspan x="106.45" y="0" style="letter-spacing: -0.005987870065789474em">c</tspan><tspan x="114.85" y="0">e</tspan></text>
+                                                <g>
+                                                    <text transform="translate(102.23 116.22)" style="font-size: 50px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">£</text>
+                                                    <text transform="translate(132.23 116.22)" style="font-size: 50px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@saving_account.Balance</text>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="account_information">
+                    <div class="account_information_container">
+                        <div class="information">
+                            <p>Minimum balance required on the account is £1000£ to generate interest.</p>
+                            <p>Your interest rate is @saving_account.Interest%.</p>
+                            <p>Interest is add to your account every @saving_account.InterestIteration month(s).</p>
+                        </div>
+
+                        <div class="information">
+                            <p>Simiulate interest for 1 year time:</p>
+                            <p><button @onclick="@(e => SimiulateSafeInterestMonthly(12, saving_account, 1.5))">Simiulate</button></p>
+                        </div>
+
+                        @if (show_bank_earnings)
+                        {
+                            <div class="information">
+                                <p>Compound interest: @compound_iterest%</p>
+                                <br />
+                                <p>Banks are having extra earning's from 3rd decimal point of accumulated interest ammount.</p>
+                                <p>During this time bank will earn: £@bank_earnings</p>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+
+                <div class="balance_history">
+                    <div class="balance_history_container">
+                        <div class="table_container">
+                            <div class="title_container">
+                                <h2>Balance History</h2>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Reference</th>
+                                        <th>Money</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var n in ten)
+                                    {
+                                        <tr>
+                                            <td>@(n.Id + 1)</td>
+                                            <td>@n.Reference</td>
+                                            <td>@n.Money£</td>
+                                            <td>@n.DateString</td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="scroll_buttons">
+                            @if (ten_min_iterator >= 10)
+                            {<button @onclick="@(e => ShowPreviousTen(saving_account.MoneyInOut))">Previous 10</button>}
+                            @if (ten_max_iterator < saving_account.MoneyInOut.Count)
+                            {<button @onclick="@(e => ShowNextTen(saving_account.MoneyInOut))" class="second_button">Next 10</button>}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    }
+    <!--End of saving account page-->
+    <!--CD account Page-->
+    @if (cd_account_page)
+    {
+        <section class="account_page">
+            <div class="account_page_container">
+
+                <div class="title_container">
+                    <h1>Welcome to your CD account <span class="name">@loggedin_user.Name</span></h1>
+                </div>
+                <div class="account_view">
+                    <div class="account_view_container">
+                        <div class="card_scroll">
+                            <div class="card_container">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="361" height="195" viewBox="0 0 361 195">
+                                    <defs>
+                                        <linearGradient id="Gradient_bez_nazwy_12" data-name="Gradient bez nazwy 12" y1="97.5" x2="361" y2="97.5" gradientUnits="userSpaceOnUse">
+                                            <stop offset="0" stop-color="#ba59f8" />
+                                            <stop offset="1" stop-color="#814bd4" />
+                                        </linearGradient>
+                                    </defs>
+                                    <title>Zasób 18</title>
+                                    <g id="Warstwa_2" data-name="Warstwa 2">
+                                        <g id="Warstwa_1-2" data-name="Warstwa 1">
+                                            <g>
+                                                <rect width="361" height="195" rx="8.52" style="fill: url(#Gradient_bez_nazwy_12)" />
+                                                <text transform="translate(124.58 70.49)" style="font-size: 19px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro"><tspan style="letter-spacing: -0.02099609375em">A</tspan><tspan x="11.23" y="0">viable Balan</tspan><tspan x="106.45" y="0" style="letter-spacing: -0.005987870065789474em">c</tspan><tspan x="114.85" y="0">e</tspan></text>
+                                                <g>
+                                                    <text transform="translate(102.23 116.22)" style="font-size: 50px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">£</text>
+                                                    <text transform="translate(132.23 116.22)" style="font-size: 50px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@cd_account.Balance</text>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="account_information">
+                    <div class="account_information_container">
+                        <div class="information">
+                            <p>Minimum balance required on the account is £30000£. You can't widhdraw from the account for 1 year time as in the contract.</p>
+                            <p>Your interest rate is up to 9%.</p>
+                            <p>Interest is add to your account every 1 month.</p>
+                        </div>
+
+                        <div class="information">
+                            <p>Simiulate interest for 1 year time:</p>
+                            <p><button @onclick="@(e => SimiulateHigherRiskInterestMonthly(12, cd_account, 9, 5, 3, 2, 4))">Simiulate</button></p>
+                        </div>
+
+                        @if (show_bank_earnings)
+                        {
+                            <div class="information">
+                                <p>Compound interest: @compound_iterest%</p>
+                                <p>@inflation_message</p>
+                                <p>Inflation  rate: @compound_inflation</p>
+                                <br />
+                                <p>Banks are having extra earning's from 3rd decimal point of accumulated interest ammount.</p>
+                                <p>During this time bank will earn: £@bank_earnings</p>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+
+                <div class="balance_history">
+                    <div class="balance_history_container">
+                        <div class="table_container">
+                            <div class="title_container">
+                                <h2>Balance History</h2>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Reference</th>
+                                        <th>Money</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var n in ten)
+                                    {
+                                        <tr>
+                                            <td>@(n.Id + 1)</td>
+                                            <td>@n.Reference</td>
+                                            <td>@n.Money£</td>
+                                            <td>@n.DateString</td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="scroll_buttons">
+                            @if (ten_min_iterator >= 10)
+                            {<button @onclick="@(e => ShowPreviousTen(cd_account.MoneyInOut))">Previous 10</button>}
+                            @if (ten_max_iterator < cd_account.MoneyInOut.Count)
+                            {<button @onclick="@(e => ShowNextTen(cd_account.MoneyInOut))" class="second_button">Next 10</button>}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    }
+    <!--End of CD account Page-->
+    <!--Money market account page-->
+    @if (mm_account_page)
+    {
+        <section class="account_page">
+            <div class="account_page_container">
+
+                <div class="title_container">
+                    <h1>Welcome to your checking saving <span class="name">@loggedin_user.Name</span></h1>
+                </div>
+                <div class="account_view">
+                    <div class="account_view_container">
+                        <div class="card_scroll">
+                            <div class="card_container">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="361" height="195" viewBox="0 0 361 195">
+                                    <defs>
+                                        <linearGradient id="Gradient_bez_nazwy_12" data-name="Gradient bez nazwy 12" y1="97.5" x2="361" y2="97.5" gradientUnits="userSpaceOnUse">
+                                            <stop offset="0" stop-color="#ba59f8" />
+                                            <stop offset="1" stop-color="#814bd4" />
+                                        </linearGradient>
+                                    </defs>
+                                    <title>Zasób 18</title>
+                                    <g id="Warstwa_2" data-name="Warstwa 2">
+                                        <g id="Warstwa_1-2" data-name="Warstwa 1">
+                                            <g>
+                                                <rect width="361" height="195" rx="8.52" style="fill: url(#Gradient_bez_nazwy_12)" />
+                                                <text transform="translate(124.58 70.49)" style="font-size: 19px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro"><tspan style="letter-spacing: -0.02099609375em">A</tspan><tspan x="11.23" y="0">viable Balan</tspan><tspan x="106.45" y="0" style="letter-spacing: -0.005987870065789474em">c</tspan><tspan x="114.85" y="0">e</tspan></text>
+                                                <g>
+                                                    <text transform="translate(102.23 116.22)" style="font-size: 50px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">£</text>
+                                                    <text transform="translate(132.23 116.22)" style="font-size: 50px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@mmn_account.Balance</text>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="account_information">
+                    <div class="account_information_container">
+                        <div class="information">
+                            <p>Minimum balance required on the account is £20000£. If balance is going to be less account holder will be fined.</p>
+                            <p>Your interest rate is up to @mmn_account.MaxInterest%.</p>
+                            <p>Interest is add to your account every 1 month.</p>
+                        </div>
+
+                        <div class="information">
+                            <p>Simiulate interest for 1 year time:</p>
+                            <p><button @onclick="@(e => SimiulateHigherRiskInterestMonthly(12, mmn_account, 8, 5, 3, 2, 4))">Simiulate</button></p>
+                        </div>
+
+                        @if (show_bank_earnings)
+                        {
+                            <div class="information">
+                                <p>Compound interest: @compound_iterest%</p>
+                                <p>@inflation_message</p>
+                                <p>Inflation  rate: @compound_inflation</p>
+                                <br />
+                                <p>Banks are having extra earning's from 3rd decimal point of accumulated interest ammount.</p>
+                                <p>During this time bank will earn: £@bank_earnings</p>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+
+                <div class="balance_history">
+                    <div class="balance_history_container">
+                        <div class="table_container">
+                            <div class="title_container">
+                                <h2>Balance History</h2>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Reference</th>
+                                        <th>Money</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var n in ten)
+                                    {
+                                        <tr>
+                                            <td>@(n.Id + 1)</td>
+                                            <td>@n.Reference</td>
+                                            <td>@n.Money£</td>
+                                            <td>@n.DateString</td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="scroll_buttons">
+                            @if (ten_min_iterator >= 10)
+                            {<button @onclick="@(e => ShowPreviousTen(mmn_account.MoneyInOut))">Previous 10</button>}
+                            @if (ten_max_iterator < mmn_account.MoneyInOut.Count)
+                            {<button @onclick="@(e => ShowNextTen(mmn_account.MoneyInOut))" class="second_button">Next 10</button>}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    }
+    <!--End of money market account page-->
+    <!--Retirment account page-->
+    @if (retirment_account_page)
+    {
+        <section class="account_page">
+            <div class="account_page_container">
+
+                <div class="title_container">
+                    <h1>Welcome to your retirment account <span class="name">@loggedin_user.Name</span></h1>
+                </div>
+                <div class="account_view">
+                    <div class="account_view_container">
+                        <div class="card_scroll">
+                            <div class="card_container">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="361" height="195" viewBox="0 0 361 195">
+                                    <defs>
+                                        <linearGradient id="Gradient_bez_nazwy_12" data-name="Gradient bez nazwy 12" y1="97.5" x2="361" y2="97.5" gradientUnits="userSpaceOnUse">
+                                            <stop offset="0" stop-color="#ba59f8" />
+                                            <stop offset="1" stop-color="#814bd4" />
+                                        </linearGradient>
+                                    </defs>
+                                    <title>Zasób 18</title>
+                                    <g id="Warstwa_2" data-name="Warstwa 2">
+                                        <g id="Warstwa_1-2" data-name="Warstwa 1">
+                                            <g>
+                                                <rect width="361" height="195" rx="8.52" style="fill: url(#Gradient_bez_nazwy_12)" />
+                                                <text transform="translate(124.58 70.49)" style="font-size: 19px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">Aviable Funds</text>
+                                                <g>
+                                                    <text transform="translate(102.23 116.22)" style="font-size: 50px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">£</text>
+                                                    <text transform="translate(132.23 116.22)" style="font-size: 50px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@retirment_account.Balance</text>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="account_information">
+                    <div class="account_information_container">
+
+                        <div class="information">
+                            <p>This  is your retirment account.</p>
+                            <p>Your funds are going to be accesible when you will reach retirment age which now is 67.</p>
+                            <p>Check your funds:</p>
+                            <p><button @onclick="CalculateRetirmentFunds">Calculate funds</button></p>
+                        </div>
+
+                        @if (see_funds)
+                        {
+                            <div class="information">
+                                <p>Your average input is @average_input</p>
+                                <p>You funds are going to be accesible in @(67 - user_age) years</p>
+                                <p>Your predicted funds: @funds_on_retirment</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="balance_history">
+                    <div class="balance_history_container">
+                        <div class="table_container">
+                            <div class="title_container">
+                                <h2>Balance History</h2>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Reference</th>
+                                        <th>Money</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var n in ten)
+                                    {
+                                        <tr>
+                                            <td>@n.Id</td>
+                                            <td>@n.Reference</td>
+                                            <td>@n.Money£</td>
+                                            <td>@n.DateString</td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="scroll_buttons">
+                            @if (ten_min_iterator >= 10)
+                            {<button @onclick="@(e => ShowPreviousTen(retirment_account.MoneyInOut))">Previous 10</button>}
+                            @if (ten_max_iterator < retirment_account.MoneyInOut.Count)
+                            {<button @onclick="@(e => ShowNextTen(retirment_account.MoneyInOut))" class="second_button">Next 10</button>}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    }
+    <!--End of retirment account page-->
+    <!--Checking account-->
+    @if (checking_page)
+    {
+        <section class="account_page">
+            <div class="account_page_container">
+                <div class="title_container">
+                    <h1>Welcome to your checking account <span class="name">@loggedin_user.Name</span></h1>
+                </div>
+
+                <div class="account_view">
+                    <div class="account_view_container">
+                        <div class="card_scroll">
+
+                            @if (card_show_counter == 1)
+                            {
+                                <div class="card_container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 361 195">
+                                        <defs>
+                                            <linearGradient id="Gradient_bez_nazwy_12" data-name="Gradient bez nazwy 12" y1="97.5" x2="361" y2="97.5" gradientUnits="userSpaceOnUse">
+                                                <stop offset="0" stop-color="#ba59f8" />
+                                                <stop offset="1" stop-color="#814bd4" />
+                                            </linearGradient>
+                                        </defs>
+                                        <title>Balance</title>
+                                        <g id="Warstwa_2" data-name="Warstwa 2">
+                                            <g id="Warstwa_1-2" data-name="Warstwa 1">
+                                                <g>
+                                                    <rect width="361" height="195" rx="8.52" style="fill: url(#Gradient_bez_nazwy_12)" />
+                                                    <text transform="translate(128 67.49)" style="font-size: 19px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro"><tspan style="letter-spacing: -0.02099609375em">A</tspan><tspan x="11.23" y="0">viable Balan</tspan><tspan x="106.45" y="0" style="letter-spacing: -0.005987870065789474em">c</tspan><tspan x="114.85" y="0">e</tspan></text>
+                                                    <g>
+                                                        <text transform="translate(105.65 115.22)" style="font-size: 50px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">£</text>
+                                                        <text transform="translate(135.65 115.22)" style="font-size: 50px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.Balance</text>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            }
+
+
+                            @if (card_show_counter == 2)
+                            {
+                                <div class="card_container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 361 195.13">
+                                        <defs>
+                                            <linearGradient id="Gradient_bez_nazwy_12" data-name="Gradient bez nazwy 12" y1="97.63" x2="361" y2="97.63" gradientUnits="userSpaceOnUse">
+                                                <stop offset="0" stop-color="#ba59f8" />
+                                                <stop offset="1" stop-color="#814bd4" />
+                                            </linearGradient>
+                                        </defs>
+                                        <title>Front of card</title>
+                                        <g id="Warstwa_2" data-name="Warstwa 2">
+                                            <g id="Warstwa_3" data-name="Warstwa 3">
+                                                <g>
+                                                    <g>
+                                                        <g>
+                                                            <rect y="0.13" width="361" height="195" rx="6.77" style="fill: url(#Gradient_bez_nazwy_12)" />
+                                                            <g>
+                                                                <g>
+                                                                    <text transform="translate(29.19 124.81)" style="font-size: 21px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.CardNumber[0]</text>
+                                                                    <text transform="translate(45.52 124.81)" style="font-size: 21px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.CardNumber[1]</text>
+                                                                    <text transform="translate(61.86 124.81)" style="font-size: 21px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.CardNumber[2]</text>
+                                                                    <text transform="translate(78.19 124.81)" style="font-size: 21px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.CardNumber[3]</text>
+                                                                </g>
+                                                                <g>
+                                                                    <text transform="translate(108.86 124.81)" style="font-size: 21px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.CardNumber[4]</text>
+                                                                    <text transform="translate(125.19 124.81)" style="font-size: 21px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.CardNumber[5]</text>
+                                                                    <text transform="translate(141.52 124.81)" style="font-size: 21px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.CardNumber[6]</text>
+                                                                    <text transform="translate(157.86 124.81)" style="font-size: 21px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.CardNumber[7]</text>
+                                                                </g>
+                                                                <g>
+                                                                    <text transform="translate(188.52 124.81)" style="font-size: 21px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.CardNumber[8]</text>
+                                                                    <text transform="translate(204.86 124.81)" style="font-size: 21px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.CardNumber[9]</text>
+                                                                    <text transform="translate(221.19 124.81)" style="font-size: 21px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.CardNumber[10]</text>
+                                                                    <text transform="translate(237.52 124.81)" style="font-size: 21px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.CardNumber[11]</text>
+                                                                </g>
+                                                                <g>
+                                                                    <text transform="translate(268.19 124.81)" style="font-size: 21px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.CardNumber[12]</text>
+                                                                    <text transform="translate(284.52 124.81)" style="font-size: 21px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.CardNumber[13]</text>
+                                                                    <text transform="translate(300.86 124.81)" style="font-size: 21px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.CardNumber[14]</text>
+                                                                    <text transform="translate(317.19 124.81)" style="font-size: 21px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.CardNumber[15]</text>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                        <polygon points="309 170.13 312 171.13 316 182.13 318 182.13 323 168.13 321 168.13 317 180.13 313.85 169.44 309 170.13" style="fill: #fff" />
+                                                        <polygon points="325 168.13 323 182.13 325 182.13 327 168.13 325 168.13" style="fill: #fff" />
+                                                        <path d="M335,170.13c-1.67.37-4.28,1.29-4,3,.19,2.13.27,1.45,2,3,.47.42,1.32,2.47,1,3-1,1.64-2.13,3-3.91,3h-1.87v-.87h.93c1.6-.55,2.11-1.78,2.85-3.13-1.72-1.56-2.1-2.83-2.68-4.91a3.59,3.59,0,0,1,.09-1.59c.39-2.15,3.38-3,5.59-3.5Z" style="fill: #fff" />
+                                                        <polygon points="337 182.13 339 182.13 342 170.13 342 182.13 344 182.13 343 168.13 341 168.13 337 182.13" style="fill: #fff" />
+                                                        <rect x="339" y="179.13" width="4" height="1" style="fill: #fff" />
+                                                        <g>
+                                                            <text transform="translate(33.19 136.94)" style="font-size: 7px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro"><tspan style="letter-spacing: -0.05698939732142857em">V</tspan><tspan x="3.51" y="0">ALID F</tspan><tspan x="22.32" y="0" style="letter-spacing: 0.0029994419642857145em">R</tspan><tspan x="26.11" y="0">OM</tspan></text>
+                                                            <text transform="translate(36.43 146.43)" style="font-size: 9px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.ValidFrom.Month/@checking_account.DebitCard.ValidFrom.Year</text>
+                                                        </g>
+                                                        <g>
+                                                            <text transform="translate(110.19 136.94)" style="font-size: 7px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">EXPIRES END</text>
+                                                            <text transform="translate(113.56 146.34)" style="font-size: 9px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.Expires.Month/@checking_account.DebitCard.Expires.Year</text>
+                                                        </g>
+                                                        <text transform="translate(31.51 159.39)" style="font-size: 9px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.Name</text>
+                                                        <rect x="31" y="75.13" width="33" height="20" style="fill: #d9e021" />
+                                                        <g>
+                                                            <text transform="translate(33.65 180.75)" style="font-size: 10px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@SortcodeToString(checking_account.SortCode)</text>
+                                                        </g>
+                                                        <text transform="translate(205.65 180.75)" style="font-size: 10px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.AccountNumber</text>
+                                                        <text transform="translate(77.12 38.06)" style="font-size: 23px;font-family: MyriadPro-Regular, Myriad Pro">FOUR CIRCLES</text>
+                                                        <g>
+                                                            <circle cx="34" cy="32.33" r="8" style="fill: #2e3192" />
+                                                            <circle cx="46" cy="45.13" r="8" style="fill: #2e3192" />
+                                                            <circle cx="58" cy="32.33" r="8" style="fill: #2e3192" />
+                                                            <circle cx="46" cy="20.13" r="8" style="fill: #2e3192" />
+                                                        </g>
+                                                    </g>
+                                                    <polygon points="360.13 98 361 117.13 241 0.13 262.13 0 360.13 98" style="fill: #dc60fe" />
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+
+                                </div>
+                            }
+
+
+                            @if (card_show_counter == 3)
+                            {
+                                <div class="card_container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="361" height="195" viewBox="0 0 361 195">
+                                        <defs>
+                                            <linearGradient id="Gradient_bez_nazwy_12" data-name="Gradient bez nazwy 12" y1="97.5" x2="361" y2="97.5" gradientUnits="userSpaceOnUse">
+                                                <stop offset="0" stop-color="#ba59f8" />
+                                                <stop offset="1" stop-color="#814bd4" />
+                                            </linearGradient>
+                                        </defs>
+                                        <title>Zasób 17</title>
+                                        <g id="Warstwa_2" data-name="Warstwa 2">
+                                            <g id="Warstwa_3" data-name="Warstwa 3">
+                                                <g>
+                                                    <g>
+                                                        <g>
+                                                            <rect width="361" height="195" rx="8.52" style="fill: url(#Gradient_bez_nazwy_12)" />
+                                                            <rect y="27" width="361" height="25" />
+                                                            <rect x="6" y="76" width="233" height="20" style="fill: #fff" />
+                                                            <text transform="translate(30 59.68)" style="font-size: 8px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro"><tspan style="letter-spacing: 0.010009765625em">I</tspan><tspan x="1.99" y="0">f si</tspan><tspan x="11.06" y="0" style="letter-spacing: -0.0059814453125em">g</tspan><tspan x="15.49" y="0" style="letter-spacing: -0.00006103515625em">n</tspan><tspan x="19.93" y="0" style="letter-spacing: -0.00396728515625em">a</tspan><tspan x="23.75" y="0">tu</tspan><tspan x="30.81" y="0" style="letter-spacing: -0.010009765625em">r</tspan><tspan x="33.34" y="0">e is not </tspan><tspan x="58.96" y="0" style="letter-spacing: -0.00396728515625em">v</tspan><tspan x="62.77" y="0">alid do not autho</tspan><tspan x="120.12" y="0" style="letter-spacing: 0.00396728515625em">r</tspan><tspan x="122.77" y="0">i</tspan><tspan x="124.64" y="0" style="letter-spacing: -0.0069580078125em">z</tspan><tspan x="128.01" y="0">e ca</tspan><tspan x="141.15" y="0" style="letter-spacing: -0.010009765625em">r</tspan><tspan x="143.69" y="0">d</tspan></text>
+                                                            <text transform="translate(257 70.97)" style="font-size: 7px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro">H<tspan x="4.56" y="0" style="letter-spacing: -0.008021763392857142em">a</tspan><tspan x="7.88" y="0">ving a</tspan><tspan x="25.54" y="0" style="letter-spacing: -0.012974330357142858em">n</tspan><tspan x="29.34" y="0">y t</tspan><tspan x="36.43" y="0" style="letter-spacing: -0.009974888392857142em">r</tspan><tspan x="38.65" y="0">oubles with </tspan><tspan x="74.23" y="0" style="letter-spacing: -0.009974888392857142em">y</tspan><tspan x="77.45" y="0">our </tspan><tspan x="0" y="8.4">ca</tspan><tspan x="6.51" y="8.4" style="letter-spacing: -0.009974888392857142em">r</tspan><tspan x="8.73" y="8.4">d?</tspan><tspan x="0" y="16.8" style="letter-spacing: -0.006975446428571429em">C</tspan><tspan x="4.01" y="16.8">all: 05864 698 698</tspan><tspan x="0" y="25.2" style="letter-spacing: -0.0029994419642857145em">A</tspan><tspan x="4.26" y="25.2">b</tspan><tspan x="8.25" y="25.2" style="letter-spacing: -0.009974888392857142em">r</tspan><tspan x="10.47" y="25.2">oad: +44 548 658 47516</tspan></text>
+                                                            <text transform="translate(11.24 179.89)" style="font-size: 5px;fill: #fff;font-family: MyriadPro-Regular, Myriad Pro"><tspan style="letter-spacing: 0.01201171875em">ww</tspan><tspan x="7.48" y="0" style="letter-spacing: -0.0390625em">w</tspan><tspan x="10.97" y="0">.</tspan><tspan x="12" y="0" style="letter-spacing: -0.01298828125em">f</tspan><tspan x="13.4" y="0">ou</tspan><tspan x="18.9" y="0" style="letter-spacing: -0.00498046875em">r</tspan><tspan x="20.51" y="0" style="letter-spacing: 0.01806640625em">-</tspan><tspan x="22.13" y="0">ci</tspan><tspan x="25.54" y="0" style="letter-spacing: -0.01005859375em">r</tspan><tspan x="27.13" y="0">cle</tspan><tspan x="33.05" y="0" style="letter-spacing: -0.0109375em">s</tspan><tspan x="34.98" y="0">.</tspan><tspan x="36.01" y="0" style="letter-spacing: -0.0060546875em">c</tspan><tspan x="38.22" y="0">om</tspan></text>
+                                                            <path d="M38,80c-1.41.13-3,.29-4,1.42a2.42,2.42,0,0,0-.21,3.22c1.07,1.2,2.7.62,4.06,1,2.81.89,2.21,4.09,0,5.28a8.27,8.27,0,0,1-4.32.63c-.48,0-.48.72,0,.75,3,.15,7.33-.73,7.07-4.62a2.9,2.9,0,0,0-1.5-2.46,6.68,6.68,0,0,0-2.58-.48c-.88-.09-3.81-.21-2.18-2.53.79-1.13,2.47-1.39,3.7-1.51.48-.05.48-.8,0-.75Z" />
+                                                            <path d="M44.15,86.43,43.59,91c-.06.47.69.47.75,0l.56-4.54c.05-.48-.7-.47-.75,0Z" />
+                                                            <path d="M44.83,83.41a.38.38,0,0,0,0-.75.38.38,0,0,0,0,.75Z" />
+                                                            <path d="M51.63,86.66c1.55,1,.55,3.62-1.3,2.92a1.55,1.55,0,0,1-1.06-1.88,1.79,1.79,0,0,1,2.23-1.1c.46.15.66-.57.2-.73a2.54,2.54,0,0,0-3.09,1.47A2.26,2.26,0,0,0,50,90.24a2.21,2.21,0,0,0,3-1.08A2.53,2.53,0,0,0,52,86c-.41-.25-.79.4-.38.65Z" />
+                                                            <path d="M52.48,86.71a3.46,3.46,0,0,1-3.39,5.67c-.47-.1-.67.62-.2.72A4.22,4.22,0,0,0,53,86.18c-.32-.37-.84.17-.53.53Z" />
+                                                            <path d="M56.93,87.28l.14,2.49c0,.4.64.53.73.1.19-.85.53-1.85,1.45-2.14a1,1,0,0,1,1.21.34.72.72,0,0,1-.27,1c-.45.16-.25.89.2.72A1.49,1.49,0,0,0,60.28,87c-1.77-.61-2.88,1.2-3.2,2.65l.74.1-.14-2.49c0-.48-.77-.48-.75,0Z" />
+                                                            <path d="M64.18,86.54a1.61,1.61,0,0,0-.78,3.12,2.19,2.19,0,0,0,2.33-.77,3,3,0,0,0,0-3.13c-.23-.42-.88,0-.64.38.57,1,.43,2.82-1.07,2.85-.49,0-1.05-.27-1.05-.82s.47-1.06,1-.9a.38.38,0,0,0,.2-.73Z" />
+                                                            <path d="M65.8,87.78A1.36,1.36,0,0,0,68.25,89c.26-.41-.39-.79-.65-.38a.62.62,0,0,1-1.08-.6c.18-.45-.54-.64-.72-.2Z" />
+                                                            <path d="M71,79.92l-.75,10.4.73-.1-.29-.74c-.18-.44-.91-.25-.73.2l.3.74a.38.38,0,0,0,.74-.1l.75-10.4c0-.48-.71-.48-.75,0Z" />
+                                                            <path d="M68.93,84l4-.28c.48,0,.48-.79,0-.75l-4,.28c-.48,0-.48.79,0,.75Z" />
+                                                            <path d="M73.18,86.15a2.1,2.1,0,1,0,3,.09c-.31-.37-.83.16-.53.53A1.44,1.44,0,0,1,74.49,89a1.46,1.46,0,0,1-.78-2.34c.34-.35-.19-.88-.53-.53Z" />
+                                                            <path d="M75.65,88.23l.57,1.42c.18.44.9.25.72-.2L76.38,88c-.18-.44-.91-.25-.73.2Z" />
+                                                            <path d="M78.75,87l0,3.27a.37.37,0,0,0,.73.1,4,4,0,0,1,3.57-3c.48,0,.49-.78,0-.75a4.81,4.81,0,0,0-4.29,3.54l.74.1,0-3.27a.38.38,0,0,0-.75,0Z" />
+                                                            <path d="M85.89,87.72a1.59,1.59,0,0,0,2.51-1.47,2,2,0,0,0-3.4-.92c-1.09,1.15-.55,2.94.52,3.9,1.67,1.51,4.13.78,6,0,.44-.19.06-.84-.38-.65-1.63.71-4,1.42-5.32-.17a2.08,2.08,0,0,1-.54-2c.15-.48.7-1.15,1.31-1.06l1,.55c-.08,1.26-.5,1.63-1.25,1.13-.4-.28-.77.37-.38.65Z" />
+                                                        </g>
+                                                        <g>
+                                                            <circle cx="296" cy="150.2" r="8" style="fill: #2e3192" />
+                                                            <circle cx="308" cy="163" r="8" style="fill: #2e3192" />
+                                                            <circle cx="320" cy="150.2" r="8" style="fill: #2e3192" />
+                                                            <circle cx="308" cy="138" r="8" style="fill: #2e3192" />
+                                                        </g>
+                                                    </g>
+                                                    <text transform="translate(185.97 85.1)" style="font-size: 9px;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.SecurityCode1</text>
+                                                    <text transform="translate(216.97 85.1)" style="font-size: 9px;font-family: MyriadPro-Regular, Myriad Pro">@checking_account.DebitCard.SecurityCode2</text>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            }
+
+
+                            <div class="scroll_buttons">
+                                @if (card_show_counter > 1)
+                                {<button @onclick="ChangeCardViewMinus">&lt</button>}
+                                @if (card_show_counter < 3)
+                                {<button @onclick="ChangeCardViewPlus" class="second_button">&gt</button>}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="transfer_money">
+                    <div class="transfer_money_container">
+                        <button @onclick="OpenTransferCheckingAccount">Transfer Money</button>
+                    </div>
+                </div>
+
+                <div class="balance_history">
+                    <div class="balance_history_container">
+                        <div class="table_container">
+                            <div class="title_container">
+                                <h2>Balance History</h2>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Reference</th>
+                                        <th>Money</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var n in ten)
+                                    {
+                                        <tr>
+                                            <td>@n.Id</td>
+                                            <td>@n.Reference</td>
+                                            <td>@n.Money£</td>
+                                            <td>@n.DateString</td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="scroll_buttons">
+                            @if (ten_min_iterator >= 10)
+                            {<button @onclick="@(e => ShowPreviousTen(checking_account.MoneyInOut))">Previous 10</button>}
+                            @if (ten_max_iterator < checking_account.MoneyInOut.Count)
+                            {<button @onclick="@(e => ShowNextTen(checking_account.MoneyInOut))" class="second_button">Next 10</button>}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+    <!--End of Checking account-->
+    <!--Loan Page-->
+    @if (loan_page)
+    {
+        <section class="loan_page">
+            <div class="loan_page_container">
+                <div class="loan_informations">
+                    <div class="loan_informations_container">
+                        <div class="title_container">
+                            <h1>Apply for a loan</h1>
+                        </div>
+
+                        <div class="information">
+                            <p>Mininum loan is: @min_loan</p>
+                            <p>Your maximum loan is: @max_loan according to your credit score.</p>
+                            <p>Interest put on your loan depends on how big loan will be and for how long you are going to be paying it off.</p>
+                        </div>
+
+                        <div class="input_container">
+                            <div class="input_box">
+                                <label>Ammount to borrow</label>
+                                <input type="number" min="1000" max="@max_loan" @bind="loan_take" />
+                            </div>
+                            <div>
+                                <p class="error">@loan_error</p>
+                            </div>
+                            <div class="buttons_container">
+                                <button @onclick="@(e => SeeLoanOptions(loan_take))">See my options</button>
+                            </div>
+                        </div>
+                        @if (show_loan_options)
+                        {
+                            <div class="table_container">
+                                <div class="title_container">
+                                    <h2>Your Options</h2>
+                                </div>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Ammount</th>
+                                            <th>Interest</th>
+                                            <th>Duration(Months)</th>
+                                            <th>Choice</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var n in loanOptions)
+                                        {
+                                            <tr>
+                                                <td>@(n.Id + 1)</td>
+                                                <td>@n.Ammount</td>
+                                                <td>@n.Interest%</td>
+                                                <td>@n.Duration</td>
+                                                <td><button @onclick="@(e => ChooseLoanOption(n))">X</button></td>
+                                            </tr>
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+
+
+                        @if (show_loan_final)
+                        {
+
+
+                            <div class="information">
+                                <p>You want to borrow: £@show_case_loan.AmmountBorrowed</p>
+                                <p>With having %@show_case_loan.Interest interest</p>
+                                <p>Ammount to pay: £@show_case_loan.AmmountToPay</p>
+                                <p>During the time of: @show_case_loan.Duration months</p>
+                                <p>Every month you need to pay: £@show_case_loan.PartialPay</p>
+                                <p><button @onclick="TakeLoan">Take loan</button></p>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+    <!--End of loan page-->
+    <!--Main page-->
+    @if (main_page)
+    {
+        <section class="main_page">
+            <div class="main_page_container">
+                <header>
+                    <div class="header_content">
+                        <div class="text">
+                            <h1>Four Circles Bank</h1>
+                            <h2>Best strategy for your money</h2>
+                        </div>
+                    </div>
+                </header>
+
+
+                <!--About-->
+                <div class="about_us">
+                    <div class="about_us_container">
+
+                        <div class="card_a">
+                            <div class="outer_title_container">
+                                <h2>Security</h2>
+                            </div>
+
+                            <div class="graphic_container">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 209.74 217.56">
+                                    <title>Security</title>
+                                    <g id="Warstwa_2" data-name="Warstwa 2">
+                                        <g id="Warstwa_3" data-name="Warstwa 3">
+                                            <g>
+                                                <path d="M11.48,50.27C2,48-1.35,42.87.48,35.27c67-46.77,136.67-47.28,209,0,1.36,9.41-2.61,14.44-12,15C135.25,14.09,73.2,12.87,11.48,50.27Z" style="fill: #24295e" />
+                                                <g>
+                                                    <path d="M11.86,77.42c58-63.94,120.32-64.37,187,0-11.64,59.36-37.42,103.9-76,135-10.65,7.92-23.46,5.69-37,0C49.16,187.29,30,133.21,11.86,77.42Z" style="fill: #24295e" />
+                                                    <g>
+                                                        <path d="M77.46,107.36h58.63a4.67,4.67,0,0,1,4.68,4.68v42.61a4.68,4.68,0,0,1-4.68,4.68H82.73A9.46,9.46,0,0,1,73.28,150l-.5-37.9A4.67,4.67,0,0,1,77.46,107.36Z" style="fill: #fff" />
+                                                        <path d="M82.61,108l.62-16.7c2.35-13,11.23-18.36,23.51-19.8,11.36-1,20.08,5,24.75,17.94v19.18H119.74V91.89c-8.26-11.71-16.09-11.55-23.51,0V108Z" style="fill: #fff" />
+                                                    </g>
+                                                    <g>
+                                                        <circle cx="106.77" cy="124.89" r="8.54" style="fill: #24295e" />
+                                                        <polygon points="102.69 131.21 97.49 142.35 116.06 142.35 110.86 131.21 102.69 131.21" style="fill: #24295e" />
+                                                    </g>
+                                                </g>
+                                                <polyline points="79.48 102.27 94.48 81.27 117.48 81.77 130.48 103.27 79.48 103.27" style="fill: none" />
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="description_container">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non tristique mauris. Vestibulum sed velit dignissim magna sagittis semper vitae.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card_a">
+                            <div class="outer_title_container">
+                                <h2>Investment </h2>
+                            </div>
+                            <div class="graphic_container">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 237 212">
+                                    <title>Chart</title>
+                                    <g id="Warstwa_2" data-name="Warstwa 2">
+                                        <g id="Warstwa_3" data-name="Warstwa 3">
+                                            <g>
+                                                <rect y="124" width="38" height="88" style="fill: #24295e" />
+                                                <rect x="47" y="93" width="38" height="119" style="fill: #24295e" />
+                                                <rect x="93" y="73" width="38" height="139" style="fill: #24295e" />
+                                                <rect x="146" y="52" width="38" height="160" style="fill: #24295e" />
+                                                <rect x="199" y="37" width="38" height="175" style="fill: #24295e" />
+                                                <polygon points="33 88 183 13 187 19 200 0 174 1 178 7 30 82 33 88" style="fill: #24295e" />
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+
+                            </div>
+                            <div class="description_container">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non tristique mauris. Vestibulum sed velit dignissim magna sagittis semper vitae.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card_a">
+                            <div class="outer_title_container">
+                                <h2>Quality</h2>
+                            </div>
+
+                            <div class="graphic_container">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 162.61 237.13">
+                                    <title>Quality</title>
+                                    <g id="Warstwa_2" data-name="Warstwa 2">
+                                        <g id="Warstwa_4" data-name="Warstwa 4">
+                                            <g>
+                                                <g>
+                                                    <path d="M117.3,0h-72a9.31,9.31,0,0,0-8.07,4.66L1.25,67a9.3,9.3,0,0,0,0,9.32l36,62.34a9.33,9.33,0,0,0,8.07,4.66h72a9.33,9.33,0,0,0,8.07-4.66l36-62.34a9.3,9.3,0,0,0,0-9.32l-36-62.34A9.31,9.31,0,0,0,117.3,0Z" style="fill: #24295e" />
+                                                    <g>
+                                                        <rect x="32.8" y="23.16" width="97" height="97" rx="5.42" style="fill: #fff" />
+                                                        <g>
+                                                            <circle cx="81.3" cy="71.66" r="47.5" style="fill: #24295e" />
+                                                            <path d="M78.36,71.93,96.81,58.87a5.27,5.27,0,0,1,2.35-.95c4.17-.58,7,.56,6.93,5.4a5.37,5.37,0,0,1-2.23,4.26l-21.6,15.7a12.07,12.07,0,0,1-16.63-2.35l-4.69-6a5.39,5.39,0,0,1,3-8.59l.13,0a5.36,5.36,0,0,1,5.43,2.34l1.26,1.89A5.42,5.42,0,0,0,78.36,71.93Z" style="fill: #fff" />
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                                <path d="M40.26,225.18s7.29,15.16,8.4,11.33l23.25-80.2c1.11-3.83-21.94-10.51-23-6.68l-23.25,80.2C24.5,233.66,36.18,224,40.26,225.18Z" style="fill: #24295e" />
+                                                <path d="M126.23,225.18s-7.3,15.16-8.41,11.33l-23.24-80.2c-1.11-3.83,21.94-10.51,23-6.68l23.25,80.2C142,233.66,130.31,224,126.23,225.18Z" style="fill: #24295e" />
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="description_container">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non tristique mauris. Vestibulum sed velit dignissim magna sagittis semper vitae.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--End of about-->
+                <!--Bank online-->
+                <div class="bank_online">
+                    <div class="bank_online_container">
+                        <div class="img-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 562.42 253.93">
+                                    <title>Zasób 5</title>
+                                    <g id="Warstwa_2" data-name="Warstwa 2">
+                                        <g id="Warstwa_3" data-name="Warstwa 3">
+                                            <g>
+                                                <g>
+                                                    <polygon points="148.37 219.82 133.57 250.94 192.45 250.94 179.66 219.16 148.37 219.82" style="fill: #24295e" />
+                                                    <g>
+                                                        <rect y="22.44" width="325.19" height="199.39" rx="8.47" style="fill: #24295e" />
+                                                        <rect x="17.4" y="30.47" width="290.39" height="182.67" rx="12" style="fill: #19182f" />
+                                                    </g>
+                                                </g>
+                                                <ellipse cx="314.9" cy="213.8" rx="3.68" ry="3.35" style="fill: #f86990" />
+                                                <g>
+                                                    <rect x="439.91" y="176.32" width="39.74" height="77.62" rx="12" style="fill: #24295e" />
+                                                    <rect x="440.93" y="178.99" width="37.7" height="71.87" rx="12" style="fill: #19182f" />
+                                                    <rect x="456.77" y="251.93" width="6.02" height="0.51" style="fill: #f86990" />
+                                                </g>
+                                                <g>
+                                                    <g>
+                                                        <rect x="327.41" y="94.69" width="108.4" height="157.91" rx="12" style="fill: #24295e" />
+                                                        <rect x="335.78" y="106.07" width="91.67" height="131.81" rx="12" style="fill: #19182f" />
+                                                        <circle cx="381.61" cy="245.24" r="3.68" style="fill: #f86990" />
+                                                    </g>
+                                                    <ellipse cx="381.61" cy="100.72" rx="3.68" ry="3.01" style="fill: #f86990" />
+                                                </g>
+                                                <g>
+                                                    <g>
+                                                        <rect x="515.92" y="242.48" width="12.71" height="11.37" style="fill: #24295e" />
+                                                        <rect x="517.26" y="243.48" width="10.04" height="9.37" style="fill: #19182f" />
+                                                        <rect x="528.46" y="246.16" width="26.76" height="4.01" style="fill: #24295e" />
+                                                        <rect x="486.31" y="245.82" width="30.11" height="4.68" style="fill: #24295e" />
+                                                    </g>
+                                                    <rect x="555.23" y="246.24" width="6.69" height="3.7" style="fill: none;stroke: #24295e;stroke-miterlimit: 10" />
+                                                    <line x1="555.24" y1="248.21" x2="558.91" y2="248.25" style="fill: none;stroke: #fcb4c8;stroke-miterlimit: 10" />
+                                                    <path d="M486.31,245.82a4.67,4.67,0,0,0-5,2.34,6.08,6.08,0,0,0,5,2.35" style="fill: #24295e" />
+                                                    <circle cx="488.65" cy="248.25" r="1" style="fill: #fff" />
+                                                    <circle cx="492" cy="248.25" r="1" style="fill: #fff" />
+                                                    <circle cx="495.34" cy="248.25" r="1" style="fill: #fff" />
+                                                    <circle cx="498.69" cy="248.25" r="1" style="fill: #fff" />
+                                                </g>
+                                                <g>
+                                                    <path d="M490.44,225.83c20.24,11.58,42,12.23,65.57.76" style="fill: none;stroke: #f86990;stroke-miterlimit: 10;stroke-width: 3px" />
+                                                    <path d="M502.65,221c12.7,7.26,26.38,7.67,41.15.48" style="fill: none;stroke: #f86990;stroke-miterlimit: 10;stroke-width: 3px" />
+                                                    <path d="M509,216.22c8.78,5,18.24,5.31,28.44.34" style="fill: none;stroke: #f86990;stroke-miterlimit: 10;stroke-width: 3px" />
+                                                </g>
+                                                <g>
+                                                    <path d="M467.44,160.44c16.8,5,26.64,15.49,32,29.55" style="fill: none;stroke: #f86990;stroke-miterlimit: 10;stroke-width: 3px" />
+                                                    <polygon points="495.02 189.5 501.92 193.44 501.92 186.05 495.02 189.5" style="fill: #f86990" />
+                                                </g>
+                                                <g>
+                                                    <path d="M417.44,77.44c16.8,5,26.64,15.49,32,29.55" style="fill: none;stroke: #f86990;stroke-miterlimit: 10;stroke-width: 3px" />
+                                                    <polygon points="445.02 106.5 451.92 110.44 451.92 103.05 445.02 106.5" style="fill: #f86990" />
+                                                </g>
+                                                <g>
+                                                    <path d="M309.44,1.44c16.8,5,26.64,15.49,32,29.55" style="fill: none;stroke: #f86990;stroke-miterlimit: 10;stroke-width: 3px" />
+                                                    <polygon points="337.02 30.5 343.92 34.44 343.92 27.05 337.02 30.5" style="fill: #f86990" />
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                        </div>
+                        <div class="descirption">
+                            <div class="title_container">
+                                <h2>Do it online</h2>
+                            </div>
+                            <div class="text_container">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in felis sagittis libero aliquam euismod vitae maximus nulla. Nam et condimentum elit. Vestibulum consectetur dapibus velit vel auctor. Nunc ac eros nisi. Donec dignissim sapien sit amet tempor convallis. Integer.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end bank online-->
+                <!--Foundors-->
+                <div class="ceo">
+                    <div class="container_site">
+                        <div class="title_container">
+                            <h1>Ceo</h1>
+                        </div>
+                        <div class="ceo_container">
+                            <div class="card_c">
+                                <div class="img_container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 222 222.44">
+                                        <title>Zasób 6</title>
+                                        <g id="Warstwa_2" data-name="Warstwa 2">
+                                            <g id="Warstwa_4" data-name="Warstwa 4">
+                                                <g>
+                                                    <circle cx="111" cy="111" r="111" style="fill: #24295e" />
+                                                    <path d="M87,145c-14.81,4.78-37.51,25.1-58,41,14.07,19.11,33,27.56,53,32h58c17.82-4.17,37.76-12.52,53-32-19.86-16.62-41.78-37.11-59-42Z" />
+                                                    <path d="M90,141c4.79,27.95,8.78,55.13,9,81l-18-4c-3.93-12-8.15-24.59-8-29l10-7-17-9C72.32,158.92,81.65,146.92,90,141Z" style="fill: #001723" />
+                                                    <path d="M130,141c-4.79,27.95-7.78,55.13-8,81,7.14-1.14,14.06-2.31,18-4,3.93-12,8.15-24.59,8-29l-10-7,17-9C148.68,158.92,138.35,146.92,130,141Z" style="fill: #001723" />
+                                                    <path d="M94,173l5,49h23s8-67,7-66-22,7-22,7Z" style="fill: #caefff" />
+                                                    <path d="M92,132v5c2.16,8.42,8.84,16.35,18,24l20-24v-5Z" style="fill: #b2a387" />
+                                                    <path d="M101,168l6,9-7,45s19,1,20,0-6-46-6-46l6-7-9-8Z" style="fill: #002360" />
+                                                    <path d="M90,136a247.38,247.38,0,0,0,4,40l16-14,17,15c1.88-11.61,2.73-25.23,3-40l-20,24Z" style="fill: #edfcff" />
+                                                    <g>
+                                                        <path d="M73,80.5c-3.15-1.12-5.72-1.19-6,3-.43,3.3-.32,6.38,1,9,.29,2.94,7.51,10.16,7.13,6.8C75,98.5,73,80.5,73,80.5" style="fill: #edd9b4" />
+                                                        <path d="M146.91,82.5c3.15-1.12,5.73-1.19,6,3,.44,3.3.32,6.38-1,9-.29,2.94-7.5,10.16-7.12,6.8l2.12-18.8" style="fill: #edd9b4" />
+                                                        <g>
+                                                            <path d="M69,61a202.89,202.89,0,0,0,10,56c7.76,11,15.2,20.54,28,25h6c12-3.21,17.85-10.22,26-20,6.53-9.52,11.7-37.59,13-65-1.08-15.34-11.46-26.44-34-32H106C85.19,27.23,72.21,38.47,69,61Z" style="fill: #edd9b4" />
+                                                            <path d="M70.86,88.5C76.5,79.23,83.59,76.5,85,66c6.6,2.88,11.42-4.55,20-7,8.63,4.34,17.52,6.79,27,5l3,1c0,10.16,9.13,17,14.94,26.9,3.86-21.72,5.6-42.08-4.94-53.9-8-7.34-16.82-13-27-14H103C87.25,26.05,77.46,35.91,72,48,67.24,61.3,67.22,74.82,70.86,88.5Z" style="fill: #2b0e00" />
+                                                            <ellipse cx="130.5" cy="87" rx="4.5" ry="5" style="fill: #231f20" />
+                                                            <ellipse cx="89.5" cy="87" rx="4.5" ry="5" style="fill: #231f20" />
+                                                            <path d="M100,117h20c-1.55,3.93-3.69,6.39-7,6h-4C103.68,123.24,101.58,120.24,100,117Z" style="fill: #fff" />
+                                                            <polyline points="112 90 116 102 112 105" style="fill: none;stroke: #000;stroke-miterlimit: 10" />
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="description_container">
+                                    <h3>John Doe</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non tristique mauris. Vestibulum sed velit dignissim magna sagittis semper vitae.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="card_c">
+                                <div class="img_container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 222 222.44">
+                                        <title>Zasób 7</title>
+                                        <g id="Warstwa_2" data-name="Warstwa 2">
+                                            <g id="Warstwa_4" data-name="Warstwa 4">
+                                                <g>
+                                                    <circle cx="111" cy="111" r="111" style="fill: #24295e" />
+                                                    <path d="M87,145c-14.81,4.78-37.51,25.1-58,41,14.07,19.11,33,27.56,53,32h58c17.82-4.17,37.76-12.52,53-32-19.86-16.62-41.78-37.11-59-42Z" />
+                                                    <path d="M90,141c4.79,27.95,8.78,55.13,9,81l-18-4c-3.93-12-8.15-24.59-8-29l10-7-17-9C72.32,158.92,81.65,146.92,90,141Z" style="fill: #001723" />
+                                                    <path d="M130,141c-4.79,27.95-7.78,55.13-8,81,7.14-1.14,14.06-2.31,18-4,3.93-12,8.15-24.59,8-29l-10-7,17-9C148.68,158.92,138.35,146.92,130,141Z" style="fill: #001723" />
+                                                    <path d="M94,173l5,49h23s8-67,7-66-22,7-22,7Z" style="fill: #caefff" />
+                                                    <path d="M92,132v5c2.16,8.42,8.84,16.35,18,24l20-24v-5Z" style="fill: #b2a387" />
+                                                    <path d="M101,168l6,9-7,45s19,1,20,0-6-46-6-46l6-7-9-8Z" />
+                                                    <path d="M90,136a247.38,247.38,0,0,0,4,40l16-14,17,15c1.88-11.61,2.73-25.23,3-40l-20,24Z" style="fill: #edfcff" />
+                                                    <g>
+                                                        <path d="M70,79.5c-3.15-1.12-5.72-1.19-6,3-.43,3.3-.32,6.38,1,9,.29,2.94,7.51,10.16,7.13,6.8C72,97.5,70,79.5,70,79.5" style="fill: #edd9b4" />
+                                                        <path d="M150.91,79.5c3.15-1.12,5.73-1.19,6,3,.44,3.3.32,6.38-1,9-.29,2.94-7.5,10.16-7.12,6.8l2.12-18.8" style="fill: #edd9b4" />
+                                                        <g>
+                                                            <path d="M69,61c.74,22.52,2.3,43.43,7,58a61.6,61.6,0,0,0,31,23h6c12-3.21,21.85-10.22,30-20,6.53-9.52,7.7-37.59,9-65-1.08-15.34-11.46-26.44-34-32H106C85.19,27.23,72.21,38.47,69,61Z" style="fill: #edd9b4" />
+                                                            <path d="M70.86,88.5C76.5,79.23,80.59,69.5,82,59c6.6,2.88,14.42,2.45,23,0,8.63,4.34,17.52,6.79,27,5l7-2c0,10.16,5.13,20,10.94,29.9,3.86-21.72,5.6-42.08-4.94-53.9-8-7.34-16.82-13-27-14H103C87.25,26.05,77.46,35.91,72,48,67.24,61.3,67.22,74.82,70.86,88.5Z" style="fill: #231f20" />
+                                                            <ellipse cx="130.5" cy="87" rx="4.5" ry="5" style="fill: #231f20" />
+                                                            <ellipse cx="89.5" cy="87" rx="4.5" ry="5" style="fill: #231f20" />
+                                                            <path d="M100,117h20c-1.55,3.93-3.69,6.39-7,6h-4C103.68,123.24,101.58,120.24,100,117Z" style="fill: #fff" />
+                                                            <polyline points="112 90 116 102 112 105" style="fill: none;stroke: #000;stroke-miterlimit: 10" />
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="description_container">
+                                    <h3>David Lean</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non tristique mauris. Vestibulum sed velit dignissim magna sagittis semper vitae.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="card_c">
+                                <div class="img_container">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 222 222.44">
+                                        <title>Zasób 8</title>
+                                        <g id="Warstwa_2" data-name="Warstwa 2">
+                                            <g id="Warstwa_4" data-name="Warstwa 4">
+                                                <g>
+                                                    <circle cx="111" cy="111" r="111" style="fill: #24295e" />
+                                                    <path d="M87,145c-14.81,4.78-37.51,25.1-58,41,14.07,19.11,33,27.56,53,32h58c17.82-4.17,37.76-12.52,53-32-19.86-16.62-41.78-37.11-59-42Z" style="fill: #231700" />
+                                                    <path d="M90,141c4.79,27.95,8.78,55.13,9,81l-18-4c-3.93-12-8.15-24.59-8-29l10-7-17-9C72.32,158.92,81.65,146.92,90,141Z" style="fill: #1a1100" />
+                                                    <path d="M130,141c-4.79,27.95-7.78,55.13-8,81,7.14-1.14,14.06-2.31,18-4,3.93-12,8.15-24.59,8-29l-10-7,17-9C148.68,158.92,138.35,146.92,130,141Z" style="fill: #1a1100" />
+                                                    <path d="M94,173l5,49h23s8-67,7-66-22,7-22,7Z" style="fill: #caefff" />
+                                                    <path d="M92,132v5c2.16,8.42,8.84,16.35,18,24l20-24v-5Z" style="fill: #b2a387" />
+                                                    <path d="M101,168l6,9-7,45s19,1,20,0-6-46-6-46l6-7-9-8Z" style="fill: #053307" />
+                                                    <path d="M90,136a247.38,247.38,0,0,0,4,40l16-14,17,15c1.88-11.61,2.73-25.23,3-40l-20,24Z" style="fill: #edfcff" />
+                                                    <g>
+                                                        <path d="M70,79.5c-3.15-1.12-5.72-1.19-6,3-.43,3.3-.32,6.38,1,9,.29,2.94,7.51,10.16,7.13,6.8C72,97.5,70,79.5,70,79.5" style="fill: #edd9b4" />
+                                                        <path d="M150.91,79.5c3.15-1.12,5.73-1.19,6,3,.44,3.3.32,6.38-1,9-.29,2.94-7.5,10.16-7.12,6.8l2.12-18.8" style="fill: #edd9b4" />
+                                                        <g>
+                                                            <path d="M69,61c.74,22.52,2.3,43.43,7,58a61.6,61.6,0,0,0,31,23h6c12-3.21,21.85-10.22,30-20,6.53-9.52,7.7-37.59,9-65-1.08-15.34-11.46-26.44-34-32H106C85.19,27.23,72.21,38.47,69,61Z" style="fill: #edd9b4" />
+                                                            <path d="M70,75c5.65-9.27,10.59-5.5,12-16,6.6,2.88,18.42-1.55,27-4,8.63,4.34,9.52,3.79,19,2l11-1c0,10.16,6.19,9.15,12,19,3.86-21.72,4.54-25.18-6-37-8-7.34-16.82-13-27-14H103C87.25,26.05,77.46,35.91,72,48,67.24,61.3,66.37,61.32,70,75Z" style="fill: #fff59e" />
+                                                            <ellipse cx="130.5" cy="87" rx="4.5" ry="5" style="fill: #231f20" />
+                                                            <ellipse cx="89.5" cy="87" rx="4.5" ry="5" style="fill: #231f20" />
+                                                            <path d="M100,117h20c-1.55,3.93-3.69,6.39-7,6h-4C103.68,123.24,101.58,120.24,100,117Z" style="fill: #fff" />
+                                                            <polyline points="112 90 116 102 112 105" style="fill: none;stroke: #000;stroke-miterlimit: 10" />
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="description_container">
+                                    <h3>Jared Dave</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non tristique mauris. Vestibulum sed velit dignissim magna sagittis semper vitae.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End foundors-->
+                <!--Questions-->
+                <div class="questions">
+                    <div class="questions_container">
+                        <div class="question">
+                            <div class="question_container">
+                                <div class="img_container">
+
+                                </div>
+
+                                <div class="text_container">
+                                    <h3>Contact us via E-mail</h3>
+
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non tristique mauris. Vestibulum sed velit dignissim magna sagittis semper vitae.
+                                    </p>
+                                </div>
+                                <div class="button_container">
+                                    <button>See more</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question">
+                            <div class="question_container">
+                                <div class="img_container">
+
+                                </div>
+
+                                <div class="text_container">
+                                    <h3>Call Us</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non tristique mauris. Vestibulum sed velit dignissim magna sagittis semper vitae.
+                                    </p>
+                                </div>
+                                <div class="button_container">
+                                    <button>See more</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End of questions-->
+                <!--Branches location-->
+                <div class="branches">
+                    <div class="branches_container">
+                        <div class="title_container">
+                            <h2>Branches</h2>
+                            <h5>This map is just for demonstration</h5>
+                        </div>
+
+                        <div class="map_container">
+                            <div class="map">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d79444.54951484325!2d-0.14888417937118728!3d51.51978046484056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spl!2spl!4v1588453108949!5m2!1spl!2spl" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End of branches location-->
+
+
+
+            </div>
+        </section>
+    }
+    <!--End of main page-->
+    <!--User Page-->
+    @if (user_page)
+    {
+        <section class="user_page">
+            <div class="user_page_container">
+                <div class="manage_accounts">
+                    <div class="title_container">
+                        <h1>Manage your accounts</h1>
+                    </div>
+                    <div class="manage_accounts_container">
+                        @foreach (var n in loggedin_user.bankAccounts)
+                        {
+                            <div class="button_container">
+                                <button @onclick="@(e => ChangeAccountView(n.Name))">@n.Name</button>
+                            </div>
+                        }
+
+                        <div class="button_container">
+                            <button @onclick="OpenTransferInsideUsers">Transwer money between accounts</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                @if (unsigned_services_names.Count > 0)
+                {
+                    <div class="apply_for_services">
+                        <div class="title_container">
+                            <h1>Apply for other services</h1>
+                        </div>
+                        <div class="apply_for_services_container">
+                            @foreach (var s in unsigned_services_names)
+                            {
+                                <div class="button_container">
+                                    <button @onclick="@(e => AddNewServicesView(s))">@s</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </section>
+    }
+    <!--End of user page-->
+    <!--Pin Display-->
+    @if (if_show_pin)
+    {
+        <div class="pin_display">
+            <div class="pin_display_container">
+                <div class="pin_desc">
+                    <p>The login info is only for example dave account.</p>
+                    <p>Pin is randomized for all accounts so you can use it for your testing account as well.</p>
+                    <p>This emulates what phone or smartwatch would show.</p>
+                    <br />
+                </div>
+                <div>
+                    <p>DAVE INFO </p>
+                    <p>Email:</p>
+                    <p class="strong">@dave_info.Email</p>
+                    <p>Password:</p>
+                    <p class="strong">@dave_info.Password</p>
+                    <p></p>
+                </div>
+                <div class="pin_desc">
+                    <p>PIN:</p>
+                </div>
+                <div class="pin">
+                    <p>@pin_show_1</p>
+                </div>
+                <div class="pin">
+                    <p>@pin_show_2</p>
+                </div>
+                <div class="pin">
+                    <p>@pin_show_3</p>
+                </div>
+            </div>
+        </div>
+    }
+    <!--End of pin display-->
+    <!--Footer-->
+    <footer>
+        <div class="links">
+            <div class="linkss">
+                <p><a href="#">Link nr 1</a></p>
+                <p><a href="#">Link nr 2</a></p>
+                <p><a href="#">Link nr 3</a></p>
+                <p><a href="#">Link nr 4</a></p>
+            </div>
+
+            <div class="linkss">
+                <p><a href="#">Link nr 5</a></p>
+                <p><a href="#">Link nr 6</a></p>
+                <p><a href="#">Link nr 7</a></p>
+                <p><a href="#">Link nr 8</a></p>
+            </div>
+
+            <div class="linkss">
+
+                <p><a href="#">Link nr 9</a></p>
+                <p><a href="#">Link nr 10</a></p>
+                <p><a href="#">Link nr 11</a></p>
+                <p><a href="#">Link nr 12</a></p>
+            </div>
+        </div>
+
+        <div class="footer_bottom">
+            <p>&copy; Four Circles</p>
+        </div>
+    </footer>
+    <!--End of footer-->
+
+
+</div>

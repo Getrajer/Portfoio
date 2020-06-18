@@ -1,0 +1,91 @@
+﻿<nav>
+    <div class="navigation">
+
+        <div class="toggle-button">
+            @if (button_display == false)
+            {
+                <button @onclick="ToggleNav"><i class="fas fa-bars"></i></button>
+            }
+            else
+            {
+                <button @onclick="ToggleNav">X</button>
+            }
+
+
+        </div>
+
+        <div class="navigation_links">
+            <div class="@display_link l_box about_l ">
+                <NavLink @onclick="CloseNav" class="link_nav" href="About">
+                    About
+                </NavLink>
+            </div>
+            <div class="@display_link l_box project_l">
+                <NavLink @onclick="CloseNav" class="link_nav" href="Projects">
+                    Projects
+                </NavLink>
+            </div>
+            <div class="logo_l">
+                <NavLink @onclick="CloseNav" class="logo" href="/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="130px" height="90px" viewBox="0 0 235 132">
+                        <title>Home</title>
+                        <g id="Warstwa_2" data-name="Warstwa 2">
+                            <g id="Logo">
+                                <g>
+                                    <polygon points="26.07 50.14 58.2 6.54 79.61 6.54 45.35 50.14 26.07 50.14" />
+                                    <polygon points="83.89 11.21 73.19 25.22 92.46 92.18 101.03 75.05 83.89 11.21" />
+                                    <polygon points="98.88 92.18 107.45 78.17 124.58 78.17 133.15 92.18 98.88 92.18" />
+                                    <polygon points="208.1 50.14 175.98 6.54 154.56 6.54 188.83 50.14 208.1 50.14" />
+                                    <polygon points="150.28 11.21 160.99 25.22 141.71 92.18 133.15 75.05 150.28 11.21" />
+                                    <g>
+                                        <polygon points="26.07 60.48 30.11 104.46 47.49 116.54 47.49 60.48 26.07 60.48" />
+                                        <polygon points="28.56 107.46 42.53 117.46 11.48 117.46 28.56 107.46" />
+                                    </g>
+                                    <g>
+                                        <polygon points="209.89 60.48 205.85 104.46 188.48 116.54 188.48 60.48 209.89 60.48" />
+                                        <polygon points="207.4 107.46 193.43 117.46 224.48 117.46 207.4 107.46" />
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </NavLink>
+            </div>
+            <div class="@display_link l_box component_l">
+                <NavLink @onclick="CloseNav" class="link_nav" href="Components">
+                    Components
+                </NavLink>
+            </div>
+            <div class="@display_link l_box graphics_l">
+                <NavLink @onclick="CloseNav" class="link_nav" href="Graphics">
+                    Graphics
+                </NavLink>
+            </div>
+        </div>
+    </div>
+</nav>
+
+@code{
+    protected string display_link = "display_none";
+    protected bool button_display = false;
+
+    public void ToggleNav()
+    {
+        if(display_link == "display_none")
+        {
+            display_link = "display_flex";
+            button_display = true;
+        }
+        else
+        {
+            display_link = "display_none";
+            button_display = false;
+        }
+    }
+
+    public void CloseNav()
+    {
+        display_link = "display_none";
+        button_display = false;
+    }
+}

@@ -1,0 +1,374 @@
+body {
+  font-family: 'IM Fell Great Primer SC', serif;
+}
+
+.site-container {
+  width: 100%;
+  height: 100vh;
+  background-image: url(images/assorted-decors-with-brown-rack-inside-store-683039.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.swiper-container {
+  color: #fdfdfd;
+  width: 750px;
+  height: 750px;
+  position: relative;
+  left: 0%;
+  top: 80px;
+}
+
+.swiper-slide {
+  background-image: url(images/pexels-photo-172292.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 0.5em solid #333333;
+}
+
+.swiper-content {
+  height: 100%;
+  width: 100%;
+}
+
+.title-container {
+  margin-top: 3em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.title-container img {
+  width: 60px;
+  height: 60px;
+}
+
+.icons-container i {
+  font-size: 1.3rem;
+  margin-top: 0.5em;
+}
+
+.title-underline-container {
+  padding: 0 11em;
+}
+
+.underline {
+  width: 100%;
+  height: 2px;
+  background-color: #f3f3f3;
+}
+
+.content {
+  padding: 3em 3em;
+}
+
+.content .img-container {
+  width: 100%;
+  border: 0.5em solid #cfcfcf;
+}
+
+.content .img-container .image-head {
+  width: 100%;
+}
+
+.content .title-head-2 {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 0.5em;
+}
+
+@-webkit-keyframes blink {
+  50% {
+    color: transparent;
+  }
+}
+
+@keyframes blink {
+  50% {
+    color: transparent;
+  }
+}
+
+.swiper-sign {
+  position: absolute;
+  right: 0;
+  bottom: -70px;
+  font-size: 1.3rem;
+}
+
+.swiper-sign .arrow {
+  padding: 0 1em;
+  -webkit-animation: 2s blink infinite;
+          animation: 2s blink infinite;
+}
+
+.fa-coffee {
+  -webkit-animation: 2s blink infinite;
+          animation: 2s blink infinite;
+}
+
+.img-source-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 1em;
+}
+
+.img-source-container img {
+  border: 0.5em solid #cfcfcf;
+  height: 300px;
+}
+
+.text-source {
+  padding: 2em;
+  font-size: 1.5rem;
+}
+
+#img-1 {
+  position: absolute;
+  border: 0.2em solid #cfcfcf;
+  top: 160px;
+  left: 20px;
+}
+
+#img-1 img {
+  width: 250px;
+  height: 200px;
+}
+
+#img-2 {
+  position: absolute;
+  border: 0.2em solid #cfcfcf;
+  top: 140px;
+  left: 290px;
+}
+
+#img-2 img {
+  width: 200px;
+  height: 180px;
+}
+
+#img-3 {
+  position: absolute;
+  border: 0.2em solid #cfcfcf;
+  top: 120px;
+  left: 520px;
+}
+
+#img-3 img {
+  width: 200px;
+  height: 300px;
+}
+
+#img-4 {
+  position: absolute;
+  border: 0.2em solid #cfcfcf;
+  top: 400px;
+  left: 20px;
+}
+
+#img-4 img {
+  width: 270px;
+  height: 200px;
+}
+
+#img-5 {
+  position: absolute;
+  border: 0.2em solid #cfcfcf;
+  top: 450px;
+  left: 330px;
+}
+
+#img-5 img {
+  width: 270px;
+  height: 220px;
+}
+
+.product-container {
+  margin-top: 2em;
+  padding: 0 0.5em;
+}
+
+.product {
+  margin-top: 1em;
+  border: 0.2em solid #cfcfcf;
+  background-color: black;
+}
+
+.product-img-container {
+  width: 100%;
+}
+
+.product-img-container img {
+  width: 100%;
+  height: 210px;
+}
+
+.black {
+  color: black;
+  font-size: 1.1rem;
+}
+
+.menu-buttons {
+  width: 100%;
+  min-height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.menu-buttons .button {
+  margin-bottom: 3em;
+}
+
+.menu-buttons a {
+  color: white;
+  background-color: rgba(95, 38, 0, 0.521);
+  font-weight: 600;
+  font-size: 3rem;
+  padding: 0.3em;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.menu-buttons a:hover {
+  text-decoration: none;
+  background-color: #5f2600;
+}
+
+.form-container {
+  margin-top: 6em;
+  padding: 0 2em;
+}
+
+.form-container label {
+  font-size: 1.2rem;
+}
+
+.form-container .btn-primary {
+  background-color: rgba(95, 38, 0, 0.521);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border: none;
+  float: right;
+  font-size: 2rem;
+}
+
+.form-container .btn-primary:hover {
+  text-decoration: none;
+  background-color: #5f2600;
+}
+
+@media only screen and (max-width: 777px) {
+  .site-container {
+    width: 100%;
+    height: auto;
+  }
+  .swiper-container {
+    color: #fdfdfd;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    position: relative;
+    top: 10px;
+  }
+  .swiper-slide {
+    background-image: url(images/pexels-photo-172292.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    min-height: 100vh;
+  }
+  .swiper-content {
+    height: 100%;
+    width: 100%;
+  }
+  .content {
+    padding: 5em 0em;
+  }
+  .content .img-container {
+    width: 100%;
+    border: none;
+  }
+  .content .img-container .image-head {
+    width: 100%;
+  }
+  .content .title-head-2 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 2em;
+  }
+  .product-img-container {
+    width: 100%;
+  }
+  .product-img-container img {
+    width: 100%;
+    height: auto;
+  }
+  #img-1 {
+    position: relative;
+    border: none;
+    width: 100%;
+  }
+  #img-1 img {
+    width: 100%;
+    height: auto;
+  }
+  #img-2 {
+    position: absolute;
+    border: 0.2em solid #cfcfcf;
+    top: 140px;
+    left: 290px;
+  }
+  #img-2 img {
+    width: 200px;
+    height: 180px;
+  }
+  #img-3 {
+    position: absolute;
+    border: 0.2em solid #cfcfcf;
+    top: 120px;
+    left: 520px;
+  }
+  #img-3 img {
+    width: 200px;
+    height: 300px;
+  }
+  #img-4 {
+    position: absolute;
+    border: 0.2em solid #cfcfcf;
+    top: 400px;
+    left: 20px;
+  }
+  #img-4 img {
+    width: 270px;
+    height: 200px;
+  }
+  #img-5 {
+    position: absolute;
+    border: 0.2em solid #cfcfcf;
+    top: 450px;
+    left: 330px;
+  }
+  #img-5 img {
+    width: 270px;
+    height: 220px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

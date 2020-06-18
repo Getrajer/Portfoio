@@ -1,0 +1,500 @@
+﻿@page "/DataSharp"
+
+@inherits DataSharpBase;
+@using System.Text
+@using System.Net
+@using Newtonsoft.Json
+@using System.IO
+@inject HttpClient http;
+@inject IJSRuntime JSRuntime;
+
+
+<head>
+    <link href="../css/script_sharp_style.css" rel="stylesheet" />
+</head>
+
+<section class="page">
+    <div class="page_container">
+
+        <section class="console_output">
+            <div class="console_output_container">
+                <div class="output_screen">
+                    @foreach (var co in console_output_history)
+                    {
+                        <div class="output">
+
+                            <div class="label">
+                                @co.Id
+                            </div>
+                            <div class="contnet">
+                                @foreach (var o in co.OutputList)
+                                {
+
+                                    @if (o.IfInfo == true)
+                                    {
+                                        <p class="info">@o.Out</p>
+                                    }
+
+                                    if (o.IfError == true)
+                                    {
+                                        <p class="error">@o.Out</p>
+                                    }
+
+                                    if (o.Normal == true)
+                                    {
+                                        <p>@o.Out</p>
+                                    }
+                                }
+                            </div>
+
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+
+        <section class="console">
+            <div class="console_container">
+                <div class="title_container">
+                    <h2>Console</h2>
+                </div>
+            </div>
+
+            <div class="intput_console_container">
+                <textarea @bind="consoleInput"></textarea>
+            </div>
+
+            <div class="button_container">
+                <span class="error">@error_console</span>
+                <button @onclick="InterpretConsole">Execute</button>
+            </div>
+        </section>
+
+        <section class="graph">
+            <div class="graph_container">
+                <div class="title_container">
+                    <div class="h_container"><h2>Charts</h2></div>
+                    <div class="btn_container"><button @onclick="ToggleMenu" class="menu_btn">Menu</button></div>
+                </div>
+                <div class="scroll_graphs">
+                    @if (FourColumnCharts.Count > 0)
+                    {
+                        @if (FourColumnCharts[0].Id != 0)
+                        {
+                            <div class="scroll">
+                                <button @onclick="LoadPreviousFourColumn">&lt;---</button>
+                            </div>
+                        }
+                    }
+
+                    @foreach (var f in FourColumnCharts)
+                    {
+                        <div class="scroll">
+                            <button title="@f.Name" @onclick="@(e => ChangeCoulumnChart(f))">@f.Name</button>
+                        </div>
+                    }
+
+
+                    @if (FourColumnCharts.Count > 3)
+                    {
+                        @if (column_graphs.Count > (FourColumnCharts[3].Id + 1))
+                        {
+                            <div class="scroll">
+                                <button @onclick="LoadNextFourColumn">---&gt;</button>
+                            </div>
+                        }
+                    }
+
+
+                </div>
+                <div class="chart_container">
+                    <div id="chartdiv"></div>
+                </div>
+                @if (column_graphs.Count > 0)
+                {
+                    <div class="enlarge_btn_container">
+                        <button @onclick="ToggleLgColumnChart"><i class="fa fa-search"></i></button>
+                    </div>
+
+                    <div class="data_btn_container">
+                        <button @onclick="ToggleDataChart"><i class="fa fa-database"></i></button>
+                    </div>
+                }
+            </div>
+        </section>
+
+
+
+
+        <section class="data">
+            <div class="data_container">
+                <div class="title_container">
+                    <div class="h_container"><h2>Data</h2></div>
+                    <div class="btn_container"><button @onclick="ToggleCommandsList" class="menu_btn">See all commands</button></div>
+                </div>
+
+                <div class="scroll_graphs">
+                    @if (Data_Sets_List.Count > 0)
+                    {
+                        @if (FourDataSets[0].Id != 0)
+                        {
+                            <div class="scroll">
+                                <button @onclick="LoadPreviousFourDatasets">&lt;---</button>
+                            </div>
+                        }
+                    }
+
+                    @foreach (var f in FourDataSets)
+                    {
+                        <div class="scroll">
+                            <button title="@f.Name" @onclick="@(e => ChangeDataset(f))">@f.Name</button>
+                        </div>
+                    }
+
+
+                    @if (FourDataSets.Count > 3)
+                    {
+                        @if (Data_Sets_List.Count > (FourDataSets[3].Id + 1))
+                        {
+                            <div class="scroll">
+                                <button @onclick="LoadNextFourDataset">---&gt;</button>
+                            </div>
+                        }
+                    }
+
+
+                </div>
+
+                <div class="table_container">
+                    <table style="width:100%">
+                        @foreach (var l in labels_datasets)
+                        {
+                            if (l.Id == showcase_dataset.Id)
+                            {
+                                <tr>
+                                    @foreach (var lab in l.LableCollection)
+                                    {
+                                        @if (lab.IsDouble == true)
+                                        {
+                                            <td class="sort_button" @onclick="@(e => SortShowcaseDataset(lab.Id, l.Id))">@lab.Label</td>
+                                        }
+
+                                        @if (lab.IsString == true)
+                                        {
+                                            <td class="head_td">@lab.Label</td>
+                                        }
+                                    }
+
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            }
+                        }
+
+                        @foreach (var rc in showcase_dataset.Data)
+                        {
+                            <tr>
+
+                                @foreach (var v in rc.Row)
+                                {
+                                    if (v.Id != 1)
+                                    {
+                                        if (v.IsDouble == true)
+                                        {
+                                            <td><input @bind="v.DoubleData" /></td>
+                                        }
+
+                                        if (v.IsString == true)
+                                        {
+                                            <td><input @bind="v.StringData" /></td>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (v.IsDouble == true)
+                                        {
+                                            <td>@v.DoubleData</td>
+                                        }
+
+                                        if (v.IsString == true)
+                                        {
+                                            <td>@v.StringData</td>
+                                        }
+                                    }
+
+
+                                }
+
+
+                                <td><button @onclick="@(e => EditDatasetRowToggler(rc.Id))">Edit</button></td>
+                                <td><button @onclick="@(e => DeleteRowDataset(rc.Id))">Del</button></td>
+
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+
+
+</section>
+
+<div class="@commands_toggle_class">
+    <section class="all_commands">
+        <div class="all_commands_container">
+            <div class="bacground">
+
+                <div class="title_container">
+                    <h1>All commands</h1>
+                </div>
+                <div class="commands">
+                    <p>
+                        <span class="command">gets |name of dataset| |path to csv file|</span> - This function will get data from csv file.
+                        <br /> |name of dataset| - this is your custom name for dataset
+                        <br /> |path to csv file| - path to the file you want to upload data from
+                    </p>
+
+                    <p>
+                        <span class="command">summ |dataset name| |label name|</span> - This function will summ all numeric values in dataset by label
+                        <br />|dataset name| - name dataset from which to summ
+                        <br />|label name| - label which datapints are going to be summed it needs to be numeric
+                    </p>
+
+                    <p>
+                        <span class="command">dele dataset |dataset name|</span> - This function will delete dataset by its name.
+                        <br />|dataset name| - name of dataset which will be deleted
+                    </p>
+
+                    <p>
+                        <span class="command">colu create |name of chart| |dataset name| |name for the data point| |value for data point|</span> - This function will create column chart
+                        <br />|name of chart| - this is custom name for chart
+                        <br />|dataset name| - name of dataset from which you want to get data from
+                        <br />|name for data poin| - name  for data point from dataset column label | if you do not have label write in here '#numeric'
+                        <br />|value for data point| - value for data point from dataset column label | IT NEEDS TO BE NUMERIC
+                    </p>
+
+                    <p>
+                        <span class="command">sort |chart name| min max</span> - This function will sort chart from smallest value to highest.
+                        <br />|chart name| - name of chart which will be sorted
+                    </p>
+                    <p>
+                        <span class="command">sort |chart name| max min</span> - This function will sort chart from highest value to smallest.
+                        <br />|chart name| - name of chart which will be sorted
+                    </p>
+                    <p>
+                        <span class="command">medi |chart name|</span> - This function will find median for chart. It will be from numeric value of data point.
+                        <br />|chart name| - name of chart which will median be found
+                    </p>
+                    <p>
+                        <span class="command">mode name |chart name|</span> - This function will find mode for chart by names of data point.
+                        <br />|chart name| - name of chart which will mode be found
+                    </p>
+                    <p>
+                        <span class="command">mode number |chart name|</span> - This function will find mode for chart by its numeric data value.
+                        <br />|chart name| - name of chart which will mode be found
+                    </p>
+                    <p>
+                        <span class="command">mean |chart name|</span> - This function will find mean for chart by its numeric numeric data value.
+                        <br />|chart name| - name of chart which will mean be found
+                    </p>
+
+                    <p>
+                        <span class="command">dele column chart |chart name|</span> - This function will delete chart by its name.
+                        <br />|chart name| - name of chart which will be deleted
+                    </p>
+                    <p>
+                        <span class="command">remo column chart |chart name| from |begin index| to |end index|</span> - This function will delete all data points from begin index to end index
+                        <br />|chart name| - name of chart from which to delete
+                        <br />|begin index| - index from which to delete data points
+                        <br />|end index| - index to which delete data points
+                    </p>
+                    <p>
+                        <span class="command">remo coulumn chart |chart name| at |index|</span> - This function will delete chart data point on index
+                        <br />|chart name| - name of chart from which to delete
+                        <br />|index| - index of point which to delete
+                    </p>
+                    <p>
+                        <span class="command">remo column chart |chart name| all gt |value|</span> - This function will delete all data points by its numeric value greater than |value|
+                        <br />|chart name| - name of chart from which to delete
+                        <br />|value| - value where all other greater than it are going to be deleted
+                    </p>
+                    <p>
+                        <span class="command">remo column chart |chart name| all lt |value|</span> - This function will delete all data points by numeric value lower than |value|
+                        <br />|chart name| - name of chart from which to delete
+                        <br />|value| - value where all other lower than it are going to be deleted
+                    </p>
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <div class="enlarge_btn_container">
+        <button @onclick="ToggleCommandsList">X</button>
+    </div>
+</div>
+
+<!--This box will hold column chart when enlarged-->
+<div class="@lg_toggle_class">
+    <section class="chart_lg">
+        <div class="chart_lg_container">
+            <div class="lg_chart_bac">
+                <div id="largeChartdiv"></div>
+            </div>
+        </div>
+    </section>
+    <div class="enlarge_btn_container">
+        <button @onclick="ToggleLgColumnChart">X</button>
+    </div>
+</div>
+<!----------------------------------------------->
+<!--This box will show data of the chart-->
+<div class="@toggle_class_chart_data">
+    <section class="data_chart">
+        <div class="data_chart_container">
+            <div class="data_background">
+                @if (display_data_object != null)
+                {
+                    <div class="title_container">
+                        <h1>@display_data_object.Name data</h1>
+                    </div>
+                    <div class="table_container">
+                        <table>
+                            @foreach (var o in display_data_object.Columns)
+                            {
+                                <tr>
+                                    <td>@o.Name</td>
+                                    <td>@o.DataPoint</td>
+                                    <td><button @onclick="@(e => ToggleEditColumnObject(o.Id, display_data_object.Id))">Edit</button></td>
+                                    <td><button @onclick="@(e => RemoveFromColumnChartByIndex(o.Id, display_data_object.Id))">Del</button></td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </section>
+    <div class="enlarge_btn_container">
+        <button @onclick="ToggleDataChart">X</button>
+    </div>
+</div>
+<!---------------------------------------->
+<!--Window for editing row-->
+<div class="@edit_row_class_string">
+    <section class="edit_column_row">
+        <div class="edit_column_row_container">
+            <div class="data_background">
+                <div class="title_container">
+                    <h1>Edit Row</h1>
+                </div>
+                <div class="edit_box">
+                    @foreach (var e in data_set_row_edit)
+                    {
+                        @if (e.IsDouble == true)
+                        {
+                            <div class="input-group_container">
+                                <label>@e.Label</label>
+                                <input @bind="e.DoubleValue" />
+                            </div>
+                        }
+
+                        @if (e.IsString == true)
+                        {
+                            <div class="input-group_container">
+                                <label>@e.Label</label>
+                                <input @bind="e.StringValue" />
+                            </div>
+                        }
+                    }
+                    <div class="button_container">
+                        <button @onclick="@(e => EditDatasetRowToggler(0))">Cancel</button>
+                        <br />
+                        <br />
+                        <button @onclick="EditDatasetRow">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-------------------------->
+<!--Window for editing column object-->
+<div class="@edit_column_class_string">
+    <section class="edit_column">
+        <div class="edit_column_container">
+            <div class="data_background">
+                <div class="title_container">
+                    <h1>Edit Row</h1>
+                </div>
+                <div class="edit_box">
+
+                    <div class="input-group_container">
+                        <label>Name</label>
+                        <input @bind="@edit_column.Name" />
+                    </div>
+
+                    <div class="input-group_container">
+                        <label>Data point value</label>
+                        <input @bind="@edit_column.DataPoint" />
+                    </div>
+
+                    <div class="button_container">
+                        <button @onclick="@(e => ToggleEditColumnObject(0, 0))">Cancel</button>
+                        <br />
+                        <br />
+                        <button @onclick="EditColumnObject">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-------------------------->
+<div class="@menu_toggle_class">
+    <section class="menu">
+        <div class="menu_container">
+            <div class="menu_background">
+                <div class="title_container">
+                    <h1>Menu comes in update set on 22.06.2020/As well with Json request data fetching/More function for getting information from data</h1>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <div class="enlarge_btn_container">
+        <button @onclick="ToggleMenu">X</button>
+    </div>
+</div>
+
+@code{
+
+    //FilePath = Path.GetFullPath(@"\wwwroot\vgsales.csv");
+
+    string testing = "";
+
+    List<string> wordList = new List<string>();
+
+    public class RootObject
+    {
+        public string eng_trans { get; set; }
+    }
+
+    private async Task GetData()
+    {
+
+        var json = new WebClient().DownloadString("https://jsonplaceholder.typicode.com/users");
+
+        testing = json.ToString();
+
+
+    }
+
+}

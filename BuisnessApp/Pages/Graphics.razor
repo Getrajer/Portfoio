@@ -1,0 +1,114 @@
+﻿@page "/Graphics"
+
+<head>
+    <link rel="stylesheet" href="../css/graphics_style.css" />
+</head>
+
+<section class="graphics">
+    <div class="graphics_container">
+        <div class="title">
+            <h1>Comming soon</h1>
+        </div>
+        <div class="animation">
+            <div>
+                <svg class="wheel_1" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 137 137">
+                    <title>Zasób 18</title>
+                    <g id="Warstwa_2" data-name="Warstwa 2">
+                        <g id="Warstwa_2-2" data-name="Warstwa 2">
+                            <g>
+                                <circle cx="69.42" cy="68.09" r="32.2" style="fill: #1bb0db" />
+                                <circle cx="68.91" cy="67.28" r="4.89" style="stroke: #000;stroke-miterlimit: 10" />
+                                <g>
+                                    <rect x="64.02" y="4.5" width="8.97" height="8.97" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px" />
+                                    <rect x="65.17" y="123.53" width="8.97" height="8.97" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px" />
+                                    <rect x="123.53" y="63.34" width="8.97" height="8.97" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px" />
+                                    <rect x="4.5" y="63.34" width="8.97" height="8.97" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px" />
+                                    <rect x="103.96" y="18.36" width="8.97" height="8.97" transform="translate(44.03 -67.34) rotate(42.57)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px" />
+                                    <rect x="24.88" y="108.86" width="8.97" height="8.97" transform="translate(84.41 10) rotate(42.57)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px" />
+                                    <rect x="108.04" y="104.78" width="8.97" height="8.97" transform="translate(103.57 -47.33) rotate(42.57)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px" />
+                                    <rect x="24.07" y="20.81" width="8.97" height="8.97" transform="translate(24.63 -12.65) rotate(42.57)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px" />
+                                </g>
+                                <circle cx="69.42" cy="68.09" r="52.59" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 11px" />
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+
+
+                <svg class="wheel_2" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 95.09 94.86">
+                    <title>Zasób 19</title>
+                    <g id="Warstwa_2" data-name="Warstwa 2">
+                        <g id="Warstwa_2-2" data-name="Warstwa 2">
+                            <g>
+                                <ellipse cx="48.19" cy="46" rx="21.64" ry="20.54" style="fill: #1bb0db" />
+                                <circle cx="47.7" cy="46.68" r="3.29" style="stroke: #000;stroke-miterlimit: 10" />
+                                <g>
+                                    <rect x="32.57" y="6.42" width="6.03" height="6.03" transform="translate(-1.19 11.21) rotate(-17.62)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px" />
+                                    <rect x="57.51" y="82.41" width="6.03" height="6.03" transform="translate(-23.01 22.32) rotate(-17.62)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px" />
+                                    <rect x="82.65" y="32" width="6.03" height="6.03" transform="translate(-6.58 27.57) rotate(-17.62)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px" />
+                                    <rect x="6.42" y="56.2" width="6.03" height="6.03" transform="translate(-17.48 5.63) rotate(-17.62)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px" />
+                                    <rect x="60.97" y="7.17" width="6.03" height="6.03" transform="translate(10.27 -26.04) rotate(24.95)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px" />
+                                    <rect x="28.73" y="81.21" width="6.03" height="6.03" transform="translate(38.49 -5.53) rotate(24.95)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px" />
+                                    <rect x="81.15" y="61.69" width="6.03" height="6.03" transform="translate(35.15 -29.47) rotate(24.95)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px" />
+                                    <rect x="10.3" y="24.99" width="6.03" height="6.03" transform="translate(13.05 -3) rotate(24.95)" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 9px" />
+                                </g>
+                                <circle cx="48.19" cy="47.1" r="35.33" style="fill: none;stroke: #000;stroke-miterlimit: 10;stroke-width: 11px" />
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+@code {
+    public class Image
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Path { get; set; }
+
+        public Image() { }
+    }
+
+    public class Icon : Image
+    {
+        public Icon(int id, string name, string path){ this.Id = id; this.Name = name; this.Path = path; }
+    }
+    public class Bacground : Image
+    {
+        public Bacground(int id, string name, string path){ this.Id = id; this.Name = name; this.Path = path; }
+    }
+    public class Product : Image
+    {
+        public Product(int id, string name, string path){ this.Id = id; this.Name = name; this.Path = path; }
+    }
+
+
+    protected List<Icon> icons;
+    protected List<Bacground> bacgrounds;
+    protected List<Product> products;
+
+    protected override async Task OnInitializedAsync()
+    {
+        icons = new List<Icon>
+        {   new Icon(0, "Azure", "../SVG/Azure.svg"),
+            new Icon(1, "C#", "../SVG/cs.svg"),
+            new Icon(2, "Blazor", "../SVG/Blazor.svg"),
+            new Icon(3, "CSS", "../SVG/CSS.svg"),
+            new Icon(4, "JS", "../SVG/JS.svg"),
+            new Icon(5, "HTML", "../SVG/HTML.svg"),
+            new Icon(6, "GIT", "../SVG/GIT.svg"),
+            new Icon(7, "React", "../SVG/React.svg")};
+
+    }
+
+}

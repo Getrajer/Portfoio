@@ -1,0 +1,192 @@
+﻿.error{
+    color:red;
+    padding: 0.5em 0;
+}
+
+
+
+
+.username_info {
+    display: none;
+}
+
+.username:hover .username_info {
+    display: block;
+    position: absolute;
+    text-align:center;
+    width: 700px;
+    font-size: 0.8em;
+    color: #6c6c6c;
+}
+
+.name_info{
+    display:none;
+}
+
+.name:hover .name_info {
+    display: block;
+    position: absolute;
+    width: 700px;
+    font-size: 0.8em;
+    color: #6c6c6c;
+}
+
+.lastname_info {
+    display: none;
+}
+
+.lastname:hover .lastname_info {
+    display: block;
+    position: absolute;
+    width: 700px;
+    font-size: 0.8em;
+    color: #6c6c6c;
+}
+
+.email_info {
+    display: none;
+}
+
+.eamil:hover .email_info {
+    display: block;
+    position: absolute;
+    width: 700px;
+    font-size: 0.8em;
+    color: #6c6c6c;
+}
+
+.password_requirements{
+    display:none;
+}
+
+.password:hover .password_requirements {
+    display: block;
+    position: absolute;
+    width: 700px;
+    font-size: 0.8em;
+    color: #67645b;
+}
+
+
+.program_container {
+    display: flex;
+    justify-content: center;
+}
+
+.register_container {
+    width: 700px;
+    background: linear-gradient(0deg, #171717 0%, #222222 51%, #212121 100%);
+    padding: 3em 5em;
+    border-radius: 0.5em;
+    justify-content: center;
+}
+
+
+.register_title_container {
+    text-align: center;
+}
+
+.register_title_container h2{
+    font-size: 2rem;
+    letter-spacing: 4px;
+    text-transform:uppercase;
+    font-weight: 600;
+}
+
+.register_underline_container{
+    width:100%;
+    padding: 0 30%;
+}
+
+.register_underline_container .register_underline{
+    height: 3px;
+    width:100%;
+    background-color:  white;
+    margin: 0.5em 0;
+}
+
+.inputs_container {
+    text-align: center;
+}
+
+
+.input_box label {
+    display: block;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 800;
+    margin: 1.5em 0 0.5em 0;
+}
+
+
+.input_box input {
+    outline: none;
+    margin: 0.2em 0;
+    color:white;
+    background-color: #404040;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border: none;
+    width: 400px;
+}
+
+.input_box_avatars p {
+    display: block;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 800;
+    margin: 1.5em 0 0.5em 0;
+}
+
+.input_box_avatars .avatar_choice{
+
+}
+
+
+[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    -webkit-appearance: none;
+}
+
+    [type="radio"] + img {
+        cursor: pointer;
+        padding: 0.5em 1em;
+        width: 100px;
+        height: 100px;
+        border-radius: 0.5em;
+        margin: 1em 0;
+    }
+
+    [type="radio"]:checked + img {
+        outline: 2px solid white;
+    }
+
+.register_button_box{
+    margin-top: 1em;
+}
+
+.register_button_box button {
+    color:  black;
+    font-weight:900;
+    padding: 0.8em 1em;
+    width: 250px;
+    text-transform:uppercase;
+    background-color: white;
+    transition: 0.5s;
+    border:unset;
+}
+
+.register_button_box button:hover{
+    background-color:#29355c;
+    border:unset;
+    outline:unset;
+}
+
+.register_button_box button:checked{
+    outline:unset;
+}

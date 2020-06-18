@@ -1,0 +1,152 @@
+﻿[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    -webkit-appearance: none;
+}
+
+    [type="radio"] + div {
+        cursor: pointer;
+    }
+
+    [type="radio"]:checked + div {
+        outline: 1px solid white;
+        padding: 0.3em;
+        color: white;
+    }
+
+
+[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    
+    -webkit-appearance: none;
+}
+
+    [type="radio"] + p {
+        cursor: pointer;
+        background-color: white;
+        font-weight:900;
+        font-size:1.1rem;
+        padding:0.3em;
+        color: black;
+    }
+
+    [type="radio"]:checked + p {
+        background-color:#28437a;
+        color: black;
+    }
+
+
+.colorBox{
+    width:30px;
+    height:30px;
+}
+
+.Green {
+    background-color: #50d300;
+}
+
+.Red {
+    background-color: #b60000;
+}
+
+.Blue {
+    background-color: #0041c8;
+}
+
+.Pink {
+    background-color: #b400c8;
+}
+
+.program_container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.item_card {
+    width: 400px;
+    background: linear-gradient(0deg, #272727 0%, #0d0d0d 51%, #242424 100%);
+    padding: 1em 0.5em;
+    border-radius: 0.7em;
+    transition: 0.5s;
+}
+
+.item_card:hover{
+    transform:translateY(-10px);
+}
+
+.product_svg_container {
+    background-color: black;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+.product_img {
+    width: 100%;
+}
+
+.product_description {
+    padding: 1em;
+}
+
+.dsc {
+    letter-spacing: 4px;
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+p{
+    margin-bottom: 0.5em;
+}
+
+.product_description h3 {
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    text-align:center;
+    letter-spacing: 4px;
+    font-weight: 800;
+    margin-bottom: 0.5em;
+}
+
+.product_purchase_container {
+    padding: 1em;
+}
+
+.colors_container, .sizes_container, .price_container {
+    margin-bottom: 0.5em;
+}
+
+.buy_button_container {
+    padding: 0.5em;
+    text-align:center;
+}
+
+.buy_button_container button{
+    color: black;
+    background-color:white;
+    border:unset;
+    font-weight:900;
+    font-size:1.3rem;
+    text-transform:uppercase;
+    padding: 0.6em 1em;
+    transition: 0.5s;
+}
+
+.buy_button_container button:hover{
+    background-color: #28437a;
+    outline:none;
+    box-shadow:none;
+}
+
+
+.bought_poduct{
+    width:100%;
+    text-align:center;
+    padding: 2em 1em;
+    font-size:1.3rem;
+}
