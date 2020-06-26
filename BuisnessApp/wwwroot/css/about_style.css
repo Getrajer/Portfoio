@@ -153,7 +153,6 @@ header {
     }
 }
 
-
 .about_me .buttons_container{
     margin-top:2em;
     width:100%;
@@ -169,7 +168,6 @@ header {
     align-content:center;
     padding:0 1.5em;
 }
-
 
 .display_none{
     display: none;
@@ -217,8 +215,6 @@ button:focus{
     box-shadow: 20px 20px 30px #000000;
 }
 
-
-
 header .link_ab a:hover{
     color: #008a9d;
     background-color: #008a9d;
@@ -251,7 +247,6 @@ header:hover .title_container {
     line-height: 45px;
     font-weight: 600;
 }
-
 /*End about*/
 
 /*Services*/
